@@ -8,6 +8,17 @@ public class Player : Ship {
 	public override void DoStart () {
 		
 	}
+
+	void OnTriggerEnter (Collider col)
+    {
+    	EnemyBullet bullet = col.gameObject.GetComponent<EnemyBullet>();
+        if(bullet != null)
+        {
+            bullet.Die();
+            GetHurt(bullet.GetDamage());
+            return;
+        }
+    }
 	
 	// Update is called once per frame
 	public override void DoUpdate () {
@@ -21,6 +32,7 @@ public class Player : Ship {
 			MoveRight();
 		if(Input.GetKey(KeyCode.Z) && CanShoot())
 			Shoot();
-		transform.position = new Vector3(Mathf.Clamp(transform.position.x, -9, 9), Mathf.Clamp(transform.position.y, -4.5f, 4.5f), transform.position.z);
+		transform.position = new Vector3(Mathf.Clamp(transform.position.x, stage.GetComponent<Stage>().minX, stage.GetComponent<Stage>().maxX),
+			Mathf.Clamp(transform.position.y, stage.GetComponent<Stage>().minY, stage.GetComponent<Stage>().maxY), transform.position.z);
 	}
 }

@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1467157894760724}
   m_IsPrefabParent: 1
+--- !u!1 &1276979228347518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4110975018474550}
+  m_Layer: 0
+  m_Name: bulletSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1412935576836028
 GameObject:
   m_ObjectHideFlags: 0
@@ -49,6 +64,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4110975018474550
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1276979228347518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1065, y: 0, z: 0.039}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4369263866553832}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4369263866553832
 Transform:
   m_ObjectHideFlags: 1
@@ -60,6 +88,7 @@ Transform:
   m_LocalScale: {x: 1.25, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4510393163517848}
+  - {fileID: 4110975018474550}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -70,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1412935576836028}
   m_LocalRotation: {x: -0.70710677, y: 0.7071069, z: 0.0000004842877, w: -0.0000005227477}
-  m_LocalPosition: {x: 0.5039997, y: -0.084, z: 0.116}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.21249652, y: 0.08499862, z: 0.21249662}
   m_Children: []
   m_Father: {fileID: 4369263866553832}
@@ -180,7 +209,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 3.23, z: 1}
-  m_Center: {x: 0.07, y: 0, z: 0}
+  m_Center: {x: -0.4, y: 0, z: 0}
 --- !u!95 &95905545819616244
 Animator:
   serializedVersion: 3
@@ -209,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946d87921748c2e41a29675b263a10c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 0}
-  bulletSpawn: {fileID: 0}
+  stage: {fileID: 0}
+  bullet: {fileID: 1555055936584202, guid: d7d9870d9c809264093cf9a8d4ef360a, type: 2}
+  bulletSpawn: {fileID: 1276979228347518}
   maxHP: 100

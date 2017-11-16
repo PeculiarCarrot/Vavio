@@ -7,7 +7,7 @@ public class Enemy : Ship {
 
 	// Use this for initialization
 	public override void DoStart () {
-		accel = .3f + Random.value * .1f;
+		accel = .15f + Random.value * .05f;
 		rotAccel = 100f;
 	}
 	
@@ -16,8 +16,12 @@ public class Enemy : Ship {
 		MoveLeft();
 		if(Random.value < .05)
 			NewDirection();
-		velocity.y += (accel / 2f) * dir;
+		if(CanShoot() && Random.value < .01)
+			Shoot();
+		velocity.y += (accel / 4f) * dir;
 		rotSpeed += rotAccel * dir;
+		if(transform.position.x < stage.GetComponent<Stage>().minX - 3)
+			Destroy(gameObject);
 	}
 
 	void OnTriggerEnter (Collider col)

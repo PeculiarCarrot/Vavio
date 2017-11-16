@@ -9,6 +9,7 @@ public abstract class Ship : MonoBehaviour {
 	protected float friction = .94f;
 	protected float rotSpeed, rotAccel = 150f, rotFric = .93f;
 	private Vector3 baseRot;
+	public static GameObject stage;
 
 	public GameObject bullet, bulletSpawn;
 
@@ -18,6 +19,8 @@ public abstract class Ship : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if(stage == null)
+			stage = GameObject.Find("Stage");
 		DoStart();
 		baseRot = transform.eulerAngles;
 		hp = maxHP;

@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBullet : Bullet {
+public class EnemyBullet : Bullet {
 
 	public float damage = 20;
 
 	// Use this for initialization
 	public override void DoStart () {
-		velocity.x = 40f;
+		velocity.x = -10f;
 	}
 	
 	// Update is called once per frame
 	public override void DoUpdate () {
-		if(transform.position.x > stage.GetComponent<Stage>().maxX)
+		if(transform.position.x < stage.GetComponent<Stage>().minX)
 			Destroy(gameObject);
 	}
 

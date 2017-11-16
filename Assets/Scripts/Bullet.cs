@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Bullet : MonoBehaviour {
+	public static GameObject stage;
 
 	protected Vector3 velocity = Vector3.zero;
 
 	// Use this for initialization
 	void Start () {
+		if(stage == null)
+			stage = GameObject.Find("Stage");
 		DoStart();
 	}
 	
