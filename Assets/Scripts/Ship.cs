@@ -5,9 +5,9 @@ using UnityEngine;
 public abstract class Ship : MonoBehaviour {
 
 	protected Vector3 velocity = Vector3.zero;
-	protected float accel = .6f;
-	protected float friction = .94f;
-	protected float rotSpeed, rotAccel = 150f, rotFric = .93f;
+	protected float accel = .9f;
+	protected float friction = .9f;
+	protected float rotSpeed, rotAccel = 170f, rotFric = .93f;
 	private Vector3 baseRot;
 	public static GameObject stage;
 

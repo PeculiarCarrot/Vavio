@@ -14,8 +14,8 @@ public class Enemy : Ship {
 	// Update is called once per frame
 	public override void DoUpdate () {
 		MoveLeft();
-		if(Random.value < .05)
-			NewDirection();
+		//if(Random.value < .05)
+			//NewDirection();
 		if(CanShoot() && Random.value < .01)
 			Shoot();
 		velocity.y += (accel / 4f) * dir;
