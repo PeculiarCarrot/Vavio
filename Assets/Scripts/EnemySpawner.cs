@@ -7,6 +7,7 @@ public class EnemySpawner : MonoBehaviour {
 	public GameObject enemy;
 	private Stage stage;
 	private float spawnRate = .007f;
+	private float timeUntilCombine = 1f;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,20 @@ public class EnemySpawner : MonoBehaviour {
 		if(Random.value < spawnRate)
 			SpawnEnemy();
 		spawnRate += .000001f;
+		timeUntilCombine -= Time.deltaTime;
+		if(timeUntilCombine <= 0)
+			Combine();
+	}
+
+	private void Combine()
+	{
+		GameObject ship1 = Object.Instantiate(enemy, GetSpawnLocation(), enemy.transform.rotation);
+		GameObject ship2 = Object.Instantiate(enemy, GetSpawnLocation(), enemy.transform.rotation);
+		ship1.GetComponent<Enemy>().Combine(ship2);
+		ship2.GetComponent<Enemy>().Combine(ship1);
+		ship1.GetComponent<Enemy>().accel = .15f;
+		ship2.GetComponent<Enemy>().accel = .15f;
+		timeUntilCombine = 3;
 	}
 
 	private void SpawnEnemy()

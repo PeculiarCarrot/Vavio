@@ -5,17 +5,17 @@ using UnityEngine;
 public abstract class Ship : MonoBehaviour {
 
 	protected Vector3 velocity = Vector3.zero;
-	protected float accel = .9f;
+	public float accel = .9f;
 	protected float friction = .9f;
 	protected float rotSpeed, rotAccel = 170f, rotFric = .93f;
-	private Vector3 baseRot;
+	protected Vector3 baseRot;
 	public static GameObject stage;
 
 	public GameObject bullet, bulletSpawn;
 
-	private float shootCooldown, shootCooldownAmount = .17f;
+	protected float shootCooldown, shootCooldownAmount = .17f;
 	public float maxHP = 100;
-	private float hp;
+	protected float hp;
 
 	// Use this for initialization
 	void Start () {
@@ -27,8 +27,7 @@ public abstract class Ship : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		DoUpdate();
+	public void DoUpdate () {
 		velocity *= friction;
 		transform.position += velocity * Time.deltaTime;
 		rotSpeed *= rotFric;
@@ -54,7 +53,6 @@ public abstract class Ship : MonoBehaviour {
 		return shootCooldown > shootCooldownAmount;
 	}
 
-	public abstract void DoUpdate();
 	public abstract void DoStart();
 
 	public void MoveUp()
