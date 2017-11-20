@@ -31,7 +31,7 @@ public class Player : Ship {
 			MoveLeft();
 		if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
 			MoveRight();
-		if(Input.GetKey(KeyCode.Z))
+		if(Input.GetKey(KeyCode.Z) && CanShoot())
 			Shoot();
 		transform.position = new Vector3(Mathf.Clamp(transform.position.x, stage.GetComponent<Stage>().minX, stage.GetComponent<Stage>().maxX),
 			Mathf.Clamp(transform.position.y, stage.GetComponent<Stage>().minY, stage.GetComponent<Stage>().maxY), transform.position.z);

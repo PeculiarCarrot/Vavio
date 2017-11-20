@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Enemy : Ship {
 
+	public GameObject lightningPrefab;
+
 	public GameObject combineLocation;
 	private GameObject partner;
 	private bool combining;
 	private Quaternion goalRotation, startRotation;
 	private Vector3 goalPos, startPos;
 	int dir = 0;
-	private float rotPercent;
+	private float combinePercent, combineSpeed;
+	GameObject myLightning;
 
 	// Use this for initialization
 	public override void DoStart () {
@@ -27,35 +30,40 @@ public class Enemy : Ship {
 		DoUpdate();
 		if(combining && transform.position.x < stage.GetComponent<Stage>().maxX - 2)
 		{
-			float increment = Time.deltaTime * 1f;
-			if(rotPercent == 0)
+			if(combinePercent == 0)
 			{
 				startPos = transform.position;
 				startRotation = transform.rotation;
 				goalPos = Vector3.Lerp(partner.GetComponent<Enemy>().combineLocation.transform.position, combineLocation.transform.position, 0.5f);
 				goalPos.x = transform.position.x;
 				goalRotation = Quaternion.Euler(partner.transform.position.y > transform.position.y ? -90 : 90, 180, 180);
+				combineSpeed = Mathf.Min(1 / (Vector3.Distance(transform.position, partner.transform.position) / 2f), 1);
 			}
-			rotPercent += increment;
-			if(rotPercent != increment)
+			float increment = Time.deltaTime * combineSpeed;
+			combinePercent += increment;
+			if(combinePercent != increment)
 			{
-				if(rotPercent > 1)
-					rotPercent = 1;
+				if(combinePercent > 1)
+					combinePercent = 1;
 				
-				transform.rotation = Quaternion.Slerp(startRotation, goalRotation, rotPercent);
-				transform.position = Vector3.Lerp(startPos, goalPos, rotPercent);
-				if(rotPercent >= 1)
+				transform.rotation = Quaternion.Slerp(startRotation, goalRotation, combinePercent);
+				transform.position = Vector3.Lerp(startPos, goalPos, combinePercent);
+				if(combinePercent >= 1)
 				{
 					baseRot = transform.rotation.eulerAngles;
 					combining = false;
-					rotPercent = 0;
+					combinePercent = 0;
 					maxHP = 1000;
 					hp = maxHP;
+					Destroy(myLightning);
 				}
 			}
 		}
 		else
 			MoveLeft();
+
+		if(myLightning != null && partner != null)
+			myLightning.GetComponent<Lightning>().SetPoints(transform.position, partner.transform.position);
 		//if(Random.value < .05)
 			//NewDirection();
 		if(CanShoot() && Random.value < .01)
@@ -78,7 +86,7 @@ public class Enemy : Ship {
 	public void DoUpdate () {
 		velocity *= friction;
 		rotSpeed *= rotFric;
-		if(rotPercent == 0)
+		if(combinePercent == 0)
 		{
 			transform.position += velocity * Time.deltaTime;
 			transform.eulerAngles = baseRot + new Vector3(rotSpeed * Time.deltaTime, 0, 0);
@@ -90,9 +98,10 @@ public class Enemy : Ship {
 
 	public void Combine(GameObject partner)
 	{
-		rotPercent = 0;
+		combinePercent = 0;
 		combining = true;
 		this.partner = partner;
+		myLightning = Object.Instantiate(lightningPrefab);
 	}
 
 	void OnTriggerEnter (Collider col)

@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour {
 
 	public GameObject enemy;
 	private Stage stage;
-	private float spawnRate = .007f;
+	private float spawnRate = .0007f;
 	private float timeUntilCombine = 1f;
 
 	// Use this for initialization
