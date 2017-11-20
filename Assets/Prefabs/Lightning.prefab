@@ -54,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos1: {x: 0, y: 0, z: 0}
   pos2: {x: 0, y: 0, z: 0}
+  randomWidth: 0.3
 --- !u!120 &120779441872800136
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -91,7 +92,7 @@ LineRenderer:
   - {x: -999, y: -999, z: 0}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.5
+    widthMultiplier: 0.2
     widthCurve:
       serializedVersion: 2
       m_Curve:

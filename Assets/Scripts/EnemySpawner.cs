@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
 
-	public GameObject enemy;
+	public GameObject[] enemy;
 	private Stage stage;
 	private float spawnRate = .0007f;
 	private float timeUntilCombine = 1f;
@@ -24,10 +24,17 @@ public class EnemySpawner : MonoBehaviour {
 			Combine();
 	}
 
+	private GameObject GetNewEnemy()
+	{
+		return enemy[Random.Range(0, enemy.Length)];
+	}
+
 	private void Combine()
 	{
-		GameObject ship1 = Object.Instantiate(enemy, GetSpawnLocation(), enemy.transform.rotation);
-		GameObject ship2 = Object.Instantiate(enemy, GetSpawnLocation(), enemy.transform.rotation);
+		GameObject o1 = GetNewEnemy();
+		GameObject o2 = GetNewEnemy();
+		GameObject ship1 = Object.Instantiate(o1, GetSpawnLocation(), o1.transform.rotation);
+		GameObject ship2 = Object.Instantiate(o2, GetSpawnLocation(), o2.transform.rotation);
 		ship1.GetComponent<Enemy>().Combine(ship2);
 		ship2.GetComponent<Enemy>().Combine(ship1);
 		ship1.GetComponent<Enemy>().accel = .15f;
@@ -37,6 +44,7 @@ public class EnemySpawner : MonoBehaviour {
 
 	private void SpawnEnemy()
 	{
+		GameObject enemy = GetNewEnemy();
 		Object.Instantiate(enemy, GetSpawnLocation(), enemy.transform.rotation);
 	}
 
