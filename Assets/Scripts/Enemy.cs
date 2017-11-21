@@ -55,6 +55,7 @@ public class Enemy : Ship {
 					combinePercent = 0;
 					maxHP = 1000;
 					hp = maxHP;
+					accel *= .5f;
 					Destroy(myLightning);
 				}
 			}
@@ -118,8 +119,7 @@ public class Enemy : Ship {
     	if(player != null)
     	{
     		player.GetHurt(50);
-    		if(!combining)
-    			Die();
+    		GetHurt(50);
     		return;
     	}
     }

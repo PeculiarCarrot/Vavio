@@ -13,7 +13,7 @@ public abstract class Ship : MonoBehaviour {
 
 	public GameObject bullet, bulletSpawn;
 
-	protected float shootCooldown, shootCooldownAmount = .1f;
+	protected float shootCooldown, shootCooldownAmount = .15f;
 	public float maxHP = 100;
 	protected float hp;
 

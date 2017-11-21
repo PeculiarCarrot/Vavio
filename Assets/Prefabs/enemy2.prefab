@@ -37,7 +37,6 @@ GameObject:
   - component: {fileID: 114525369964126516}
   - component: {fileID: 54993363794279132}
   - component: {fileID: 65746445859561184}
-  - component: {fileID: 65795664468438110}
   m_Layer: 0
   m_Name: enemy2
   m_TagString: Untagged
@@ -126,7 +125,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1625473817456084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.170528, y: 1.1654592, z: 1.693378}
+  m_LocalPosition: {x: -6.864394, y: 0.3082872, z: 1.693378}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4189122919961838}
@@ -197,20 +196,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.05, y: 0.85, z: 0.39}
+  m_Size: {x: 1.35, y: 0.81, z: 0.39}
   m_Center: {x: 0.00054454803, y: -0.00000047683716, z: -0.23}
---- !u!65 &65795664468438110
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1625473817456084}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.67, y: 1.91, z: 0.52}
-  m_Center: {x: 0.42, y: 0, z: -0.21}
 --- !u!95 &95454065006312716
 Animator:
   serializedVersion: 3
