@@ -7,7 +7,7 @@ public abstract class Ship : MonoBehaviour {
 	protected Vector3 velocity = Vector3.zero;
 	public float accel = .9f;
 	protected float friction = .9f;
-	protected float rotSpeed, rotAccel = 170f, rotFric = .93f;
+	protected float rotSpeed, rotAccel = 170f, rotFric = .89f;
 	protected Vector3 baseRot;
 	public static GameObject stage;
 

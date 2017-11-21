@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour {
 
+	public GameObject player;
 	[HideInInspector]
 	public float minX, minY, maxX, maxY;
 
