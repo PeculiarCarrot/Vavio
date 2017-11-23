@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Bullet : MonoBehaviour {
 	public static GameObject stage;
 
-	protected Vector3 velocity = Vector3.zero;
+	public Vector3 velocity = Vector3.zero;
 
 	// Use this for initialization
 	void Start () {

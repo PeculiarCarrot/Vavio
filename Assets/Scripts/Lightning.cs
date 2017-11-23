@@ -30,7 +30,7 @@ public class Lightning : MonoBehaviour {
 				points[i].x += Random.Range(-randomWidth, randomWidth);
 		}
 
-		GetComponent<LineRenderer>().numPositions = points.Length;
+		GetComponent<LineRenderer>().positionCount = points.Length;
 		GetComponent<LineRenderer>().SetPositions(points);
 	}
 	

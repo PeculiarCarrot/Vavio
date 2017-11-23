@@ -68,6 +68,7 @@ public class Enemy : Ship {
 							partner.GetComponent<Enemy>().maxHP = maxHP;
 							partner.GetComponent<Enemy>().hp = hp;
 						}
+						shootCooldownAmount = .08f;
 						hp = maxHP;
 						accel *= .75f;
 						Destroy(myLightning);
@@ -101,9 +102,11 @@ public class Enemy : Ship {
 		rotSpeed += rotAccel * dir;
 		if(transform.position.x < stage.GetComponent<Stage>().minX - 3)
 			Destroy(gameObject);
+		if(hp <= 0)
+			Die();
 	}
 
-	public void GetHurt(float damage)
+	public new void GetHurt(float damage)
 	{
 		hp -= damage;
 		if(partner != null && !combining)
@@ -111,7 +114,7 @@ public class Enemy : Ship {
 	}
 	
 	// Update is called once per frame
-	public void DoUpdate () {
+	public new void DoUpdate () {
 		velocity *= friction;
 		rotSpeed *= rotFric;
 		if(combinePercent == 0)

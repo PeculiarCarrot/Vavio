@@ -33,8 +33,6 @@ public abstract class Ship : MonoBehaviour {
 		rotSpeed *= rotFric;
 		transform.eulerAngles = baseRot + new Vector3(rotSpeed * Time.deltaTime, 0, 0);
 		shootCooldown += Time.deltaTime;
-		if(hp <= 0)
-			Die();
 	}
 
 
@@ -51,6 +49,12 @@ public abstract class Ship : MonoBehaviour {
 	public bool CanShoot()
 	{
 		return shootCooldown > shootCooldownAmount;
+	}
+
+	protected void Shoot()
+	{
+		Object.Instantiate(bullet, bulletSpawn.transform.position, bullet.transform.rotation);
+		shootCooldown = 0;
 	}
 
 	public abstract void DoStart();
@@ -75,11 +79,5 @@ public abstract class Ship : MonoBehaviour {
 	{
 		velocity.y -= accel;
 		rotSpeed -= rotAccel;
-	}
-
-	protected void Shoot()
-	{
-		Object.Instantiate(bullet, bulletSpawn.transform.position, bullet.transform.rotation);
-		shootCooldown = 0;
 	}
 }

@@ -15,6 +15,11 @@ public class EnemySpawner : MonoBehaviour {
 	void Start () {
 		stage = GameObject.Find("Stage").GetComponent<Stage>();
 	}
+
+	public List<GameObject> GetLiveEnemies()
+	{
+		return liveEnemies;
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -50,6 +55,8 @@ public class EnemySpawner : MonoBehaviour {
 		ship2.GetComponent<Enemy>().Combine(ship1);
 		ship1.GetComponent<Enemy>().accel = .15f;
 		ship2.GetComponent<Enemy>().accel = .15f;
+		liveEnemies.Add(ship1);
+		liveEnemies.Add(ship2);
 		timeUntilCombine = 6;
 	}
 
@@ -59,7 +66,7 @@ public class EnemySpawner : MonoBehaviour {
 		if(spawn == nullVector)
 			return;
 		GameObject enemy = GetNewEnemy();
-		Object.Instantiate(enemy, spawn, enemy.transform.rotation);
+		liveEnemies.Add(Object.Instantiate(enemy, spawn, enemy.transform.rotation));
 	}
 
 	private Vector3 TryGetSpawnLocation()
@@ -81,7 +88,7 @@ public class EnemySpawner : MonoBehaviour {
 	private Vector3 GetSpawnLocation(Vector3 avoid)
 	{
 		Vector3 v = new Vector3(stage.maxX + 1, Random.Range(stage.minY, stage.maxY), transform.position.y);
-		if(avoid != null && Vector3.Distance(v, avoid) < 2f)
+		if(avoid != nullVector && Vector3.Distance(v, avoid) < 2f)
 			return nullVector;
 
 		foreach(GameObject o in liveEnemies)
