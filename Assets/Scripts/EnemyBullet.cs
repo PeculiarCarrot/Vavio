@@ -33,7 +33,7 @@ public class EnemyBullet : Bullet {
 			case BulletType.Homing:
 			if(target != null)
 			{
-				float speed = .08f;
+				float speed = .04f;
 				float dx = target.transform.position.x - transform.position.x;
 				float dy = target.transform.position.y - transform.position.y;
 				float a = Mathf.Atan2(dy, dx) + Mathf.PI / 2;

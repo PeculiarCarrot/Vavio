@@ -10,7 +10,9 @@ public abstract class Bullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if(stage == null)
+		{
 			stage = GameObject.Find("Stage");
+		}
 		DoStart();
 	}
 	

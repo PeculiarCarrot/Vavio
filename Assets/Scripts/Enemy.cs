@@ -24,17 +24,19 @@ public class Enemy : Ship {
 	// Use this for initialization
 	public override void DoStart () {
 		rotAccel = 100f;
+		velocity.x = -10f;
 	}
 
 	// Use this for initialization
 	public void Awake () {
-		accel = .15f + Random.value * .05f;
+		accel = .1f + Random.value * .05f;
+		friction = .95f;
 	}
 	
 	// Update is called once per frame
 	public void Update () {
 		DoUpdate();
-		if(combining && transform.position.x < stage.GetComponent<Stage>().maxX - 3)
+		if(combining && transform.position.x < stage.GetComponent<Stage>().maxX - 4)
 		{	
 			if(partner != null)
 			{

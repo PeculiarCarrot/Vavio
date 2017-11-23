@@ -23,6 +23,7 @@ public class PlayerBullet : Bullet {
 		{
 			case BulletType.Homing:
 				target = GetNearestEnemy();
+				fric = .95f;
 			break;
 			default:
 			break;

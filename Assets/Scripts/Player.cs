@@ -7,6 +7,8 @@ public class Player : Ship {
 
 	private PowerUp.PowerUpType currentPowerUp;
 	private float remainingPowerUpDuration;
+	private float invincibilityDuration;
+	private float flickerTimer, flickerDuration = .05f;
 
 	// Use this for initialization
 	public override void DoStart () {
@@ -16,7 +18,7 @@ public class Player : Ship {
     {
     	EnemyBullet bullet = col.gameObject.GetComponent<EnemyBullet>();
     	PowerUp powerUp = col.gameObject.GetComponent<PowerUp>();
-        if(bullet != null)
+        if(bullet != null && !IsInvincible())
         {
             bullet.Die();
             GetHurt(bullet.GetDamage());
@@ -29,6 +31,14 @@ public class Player : Ship {
             return;
         }
     }
+
+
+	public new void GetHurt(float damage)
+	{
+		hp -= damage;
+		invincibilityDuration = 1.5f;
+		flickerTimer = flickerDuration;
+	}
 
 	public new void Die()
 	{
@@ -79,7 +89,7 @@ public class Player : Ship {
 			break;
 			case PowerUp.PowerUpType.HomingShot:
 				bulletInstance = Object.Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletPrefab.transform.rotation);
-				bulletInstance.GetComponent<PlayerBullet>().velocity.x = 10f;
+				bulletInstance.GetComponent<PlayerBullet>().velocity.x = 13f;
 			break;
 			default:
 				bulletInstance = Object.Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletPrefab.transform.rotation);
@@ -88,6 +98,11 @@ public class Player : Ship {
 		}
 
 		shootCooldown = 0;
+	}
+
+	public bool IsInvincible()
+	{
+		return invincibilityDuration > 0;
 	}
 
 	// Update is called once per frame
@@ -103,6 +118,14 @@ public class Player : Ship {
 				remainingPowerUpDuration = 0;
 				currentPowerUp = PowerUp.PowerUpType.None;
 			}
+		}
+		if(invincibilityDuration > 0)
+		{
+			invincibilityDuration -= Time.deltaTime;
+			flickerTimer -= Time.deltaTime;
+			if(flickerTimer < - flickerDuration)
+				flickerTimer = flickerDuration;
+			transform.GetChild(0).GetComponent<Renderer>().enabled = invincibilityDuration <= 0 || flickerTimer < 0;
 		}
 
 		/*if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
