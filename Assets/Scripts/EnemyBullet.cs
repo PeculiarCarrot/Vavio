@@ -12,7 +12,7 @@ public class EnemyBullet : Bullet {
 	public float damage = 20;
 	public BulletType type;
 	float speed = 5;
-	float spread = 10f;
+	float spread = 15f;
 	private float accel = .03f;
 	private float fric = .99f;
 	GameObject target;

@@ -24,13 +24,29 @@ public class Enemy : Ship {
 	// Use this for initialization
 	public override void DoStart () {
 		rotAccel = 100f;
-		velocity.x = -10f;
+		velocity.x = -15f;
+	}
+
+	protected override void Shoot()
+	{
+		Object.Instantiate(bullet, bulletSpawn.transform.position, bullet.transform.rotation);
+		shootCooldown = shootCooldownAmount;
 	}
 
 	// Use this for initialization
 	public void Awake () {
-		accel = .1f + Random.value * .05f;
+		accel = .08f + Random.value * .02f;
 		friction = .95f;
+
+		if(type == EnemyType.Minion)
+			shootCooldownAmount = .5f;
+		else if(type == EnemyType.Homing)
+			shootCooldownAmount = 1f;
+	}
+
+	public bool IsInvincible()
+	{
+		return combinePercent != 0;
 	}
 	
 	// Update is called once per frame
@@ -66,11 +82,11 @@ public class Enemy : Ship {
 						combinePercent = 0;
 						if(partner.GetComponent<Enemy>().combining)
 						{
-							maxHP = hp + partner.GetComponent<Enemy>().hp;
+							maxHP = (hp + partner.GetComponent<Enemy>().hp) * 1.5f;
 							partner.GetComponent<Enemy>().maxHP = maxHP;
 							partner.GetComponent<Enemy>().hp = hp;
 						}
-						shootCooldownAmount = .08f;
+						shootCooldownAmount = shootCooldownAmount * .75f;
 						hp = maxHP;
 						accel *= .75f;
 						Destroy(myLightning);
@@ -89,16 +105,8 @@ public class Enemy : Ship {
 			myLightning.GetComponent<Lightning>().SetPoints(transform.position, partner.transform.position);
 		//if(Random.value < .05)
 			//NewDirection();
-		if(type == EnemyType.Minion)
-		{
-			if(CanShoot() && Random.value < .03)
-				Shoot();
-		}
-		else if(type == EnemyType.Homing)
-		{
-			if(CanShoot() && Random.value < .01)
-				Shoot();
-		}
+		if(CanShoot())
+			Shoot();
 
 		velocity.y += (accel / 4f) * dir;
 		rotSpeed += rotAccel * dir;
@@ -110,9 +118,12 @@ public class Enemy : Ship {
 
 	public new void GetHurt(float damage)
 	{
-		hp -= damage;
-		if(partner != null && !combining)
-			partner.GetComponent<Enemy>().hp -= damage;
+		if(!IsInvincible())
+		{
+			hp -= damage;
+			if(partner != null && !combining)
+				partner.GetComponent<Enemy>().hp -= damage;
+		}
 	}
 	
 	// Update is called once per frame
@@ -124,7 +135,8 @@ public class Enemy : Ship {
 			transform.position += velocity * Time.deltaTime;
 			transform.eulerAngles = baseRot + new Vector3(rotSpeed * Time.deltaTime, 0, 0);
 		}
-		shootCooldown += Time.deltaTime;
+		shootCooldown -= Time.deltaTime;
+		shootCooldown = Mathf.Max(shootCooldown, 0);
 		if(hp <= 0)
 			Die();
 	}
@@ -146,13 +158,6 @@ public class Enemy : Ship {
             	GetHurt(bullet.GetDamage());
             return;
         }
-    	Player player = col.gameObject.GetComponent<Player>();
-    	if(player != null)
-    	{
-    		player.GetHurt(50);
-    		GetHurt(50);
-    		return;
-    	}
     }
 
 	private void NewDirection()

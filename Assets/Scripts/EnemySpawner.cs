@@ -53,8 +53,7 @@ public class EnemySpawner : MonoBehaviour {
 
 		ship1.GetComponent<Enemy>().Combine(ship2);
 		ship2.GetComponent<Enemy>().Combine(ship1);
-		ship1.GetComponent<Enemy>().accel = .15f;
-		ship2.GetComponent<Enemy>().accel = .15f;
+		ship2.GetComponent<Enemy>().accel = ship1.GetComponent<Enemy>().accel;
 		liveEnemies.Add(ship1);
 		liveEnemies.Add(ship2);
 		timeUntilCombine = 6;

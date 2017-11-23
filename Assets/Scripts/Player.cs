@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Player : Ship {
 
+	public GameObject mesh;
+	public GameObject core;
 	private PowerUp.PowerUpType currentPowerUp;
 	private float remainingPowerUpDuration;
 	private float invincibilityDuration;
@@ -16,14 +18,7 @@ public class Player : Ship {
 
 	void OnTriggerEnter (Collider col)
     {
-    	EnemyBullet bullet = col.gameObject.GetComponent<EnemyBullet>();
     	PowerUp powerUp = col.gameObject.GetComponent<PowerUp>();
-        if(bullet != null && !IsInvincible())
-        {
-            bullet.Die();
-            GetHurt(bullet.GetDamage());
-            return;
-        }
         if(powerUp != null)
         {
             powerUp.Die();
@@ -53,7 +48,7 @@ public class Player : Ship {
 
 	public new bool CanShoot()
 	{
-		return shootCooldown > GetShootCooldownAmount();
+		return shootCooldown <= 0;
 	}
 
 	private float GetShootCooldownAmount()
@@ -69,7 +64,7 @@ public class Player : Ship {
 		}
 	}
 
-	protected new void Shoot()
+	protected override void Shoot()
 	{
 		GameObject bulletPrefab = this.bullet;
 		if(currentPowerUp == PowerUp.PowerUpType.HomingShot)
@@ -97,7 +92,7 @@ public class Player : Ship {
 			break;
 		}
 
-		shootCooldown = 0;
+		shootCooldown = GetShootCooldownAmount();
 	}
 
 	public bool IsInvincible()
@@ -125,7 +120,8 @@ public class Player : Ship {
 			flickerTimer -= Time.deltaTime;
 			if(flickerTimer < - flickerDuration)
 				flickerTimer = flickerDuration;
-			transform.GetChild(0).GetComponent<Renderer>().enabled = invincibilityDuration <= 0 || flickerTimer < 0;
+			mesh.GetComponent<Renderer>().enabled = invincibilityDuration <= 0 || flickerTimer < 0;
+			core.GetComponent<Renderer>().enabled = invincibilityDuration <= 0 || flickerTimer < 0;
 		}
 
 		/*if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
