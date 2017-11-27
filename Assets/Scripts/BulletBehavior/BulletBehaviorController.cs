@@ -62,6 +62,8 @@ public class BulletBehaviorController : MonoBehaviour {
 
 		//Timers
 		private float bulletFireTimer;
+		private float initialDelayTimer;
+		private float pauseTimer;
 
 		public void SetController(BulletBehaviorController controller)
 		{
@@ -74,18 +76,37 @@ public class BulletBehaviorController : MonoBehaviour {
 			currentAngle = angle;
 			currentSpread = spread;
 			secondsPerBullet = 1 / bulletsPerSecond;
+			bulletFireTimer = secondsPerBullet;
 		}
 
 		public void Update()
 		{
-			anglePerSet = numberOfSets > 1 ? (currentSpread / (numberOfSets - 1)) : 0;
-			setOffset = anglePerSet / 2;
-			if(bulletFireTimer < secondsPerBullet)
-				bulletFireTimer += Time.deltaTime;
+			if(initialDelayTimer < initialDelay)
+			{
+				initialDelayTimer += Time.deltaTime;
+			}
 			else
 			{
-				bulletFireTimer -= secondsPerBullet;
-				FireSet();
+				if(pauseTimer < secondsToFire)
+					pauseTimer += Time.deltaTime;
+				else
+				{
+					pauseTimer -= secondsToFire + secondsToPause;
+					bulletFireTimer = secondsPerBullet;
+				}
+
+				if(pauseTimer > 0)
+				{
+					anglePerSet = numberOfSets > 1 ? (currentSpread / (numberOfSets - 1)) : 0;
+					setOffset = anglePerSet / 2;
+					if(bulletFireTimer < secondsPerBullet)
+						bulletFireTimer += Time.deltaTime;
+					else
+					{
+						bulletFireTimer -= secondsPerBullet;
+						FireSet();
+					}
+				}
 			}
 		}
 
@@ -106,6 +127,8 @@ public class BulletBehaviorController : MonoBehaviour {
 			BulletBase bullet = b.GetComponent<BulletBase>();
 			bullet.velocity.x = (float)(bulletSpeed * Mathf.Sin(Mathf.Deg2Rad * bAngle));
 			bullet.velocity.y = -(float)(bulletSpeed * Mathf.Cos(Mathf.Deg2Rad * bAngle));
+			bullet.SetVelocityMultiplier(bulletSpeedMultiplier);
+			bullet.SetLifetime(bulletLifetime);
 		}
 
 		public GameObject SpawnBullet()

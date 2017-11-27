@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BulletBase : MonoBehaviour {
+public class BulletBase : MonoBehaviour {
 
 	public Vector3 velocity = Vector3.zero;
-	//public float velocityMultiplier = 1;
+	private float velocityMultiplier = 1;
+	private float remainingLife = 30;
 
 	void Awake () {
 		Initialize();
@@ -15,12 +16,38 @@ public abstract class BulletBase : MonoBehaviour {
 		UpdateBullet();
 	}
 
+	public void SetVelocityMultiplier(float velocityMultiplier)
+	{
+		this.velocityMultiplier = velocityMultiplier - 1;
+	}
+
+	public void SetLifetime(float lifetime)
+	{
+		remainingLife = lifetime;
+	}
+
 	public void Initialize()
 	{
 
 	}
+
+	public void OnDie()
+	{
+
+	}
+
+	public void Die()
+	{
+		OnDie();
+		Destroy(gameObject);
+	}
 	
 	public void UpdateBullet () {
+		remainingLife -= Time.deltaTime;
+		velocity += velocity * velocityMultiplier * Time.deltaTime; 
 		transform.position += velocity * Time.deltaTime;
+
+		if(remainingLife <= 0)
+			Die();
 	}
 }

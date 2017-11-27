@@ -1,0 +1,17 @@
+{
+  "angle": -90,
+  "numberOfSets": 4,
+  "spread": 90,
+  "spreadMax": 120,
+  "spreadMin": 60,
+  "secondsPerSpreadPulse": 3,
+  "bulletsPerSecond": 4,
+  "bulletSpeed": 3,
+  "bulletSpeedMultiplier": 1.3,
+  "bulletLifetime": 6,
+  "degreesPerSecond": 45,
+  "maxAngleDifference": 90,
+  "secondsToFire": 1,
+  "secondsToPause": 2,
+  "initialDelay": 0
+}

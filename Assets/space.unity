@@ -125,7 +125,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4154519323495974, guid: 97d7c137f5b0085428e651f72514a177, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 8.1705
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4154519323495974, guid: 97d7c137f5b0085428e651f72514a177, type: 2}
       propertyPath: m_LocalRotation.x
@@ -432,6 +432,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 3.137, y: -36.661003, z: 14.999001}
+--- !u!1 &1037204982 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1519782565139170, guid: 97d7c137f5b0085428e651f72514a177,
+    type: 2}
+  m_PrefabInternal: {fileID: 188718351}
+--- !u!114 &1037204983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1037204982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c9139f61b25444f8577fa27c040b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behavior:
+    behavior: {fileID: 4900000, guid: 18248d353cf1536469f2d6b024b3b044, type: 3}
+    bulletPrefab: {fileID: 1577445791541076, guid: 162c0213ec98b4c4d95d7fb1948a6b3f,
+      type: 2}
+    numberOfSets: 0
+    angle: 0
+    spread: 0
+    spreadMin: 0
+    spreadMax: 0
+    secondsPerSpreadPulse: 0
+    bulletsPerSecond: 0
+    bulletSpeed: 0
+    bulletSpeedMultiplier: 0
+    bulletLifetime: 0
+    degreesPerSecond: 0
+    maxAngleDifference: 0
+    secondsToFire: 0
+    secondsToPause: 0
+    initialDelay: 0
+  x: -0.44
+  y: 0
+--- !u!114 &1037204989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1037204982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c9139f61b25444f8577fa27c040b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behavior:
+    behavior: {fileID: 4900000, guid: f3dceccc115c94f49899e084731a7126, type: 3}
+    bulletPrefab: {fileID: 1577445791541076, guid: 162c0213ec98b4c4d95d7fb1948a6b3f,
+      type: 2}
+    numberOfSets: 0
+    angle: 0
+    spread: 0
+    spreadMin: 0
+    spreadMax: 0
+    secondsPerSpreadPulse: 0
+    bulletsPerSecond: 0
+    bulletSpeed: 0
+    bulletSpeedMultiplier: 0
+    bulletLifetime: 0
+    degreesPerSecond: 0
+    maxAngleDifference: 0
+    secondsToFire: 0
+    secondsToPause: 0
+    initialDelay: 0
+  x: -0.44
+  y: 0
 --- !u!1 &1258905406
 GameObject:
   m_ObjectHideFlags: 0
