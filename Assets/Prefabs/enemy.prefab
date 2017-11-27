@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 54822091599681004}
   - component: {fileID: 65751641079691880}
   - component: {fileID: 65581121599791624}
+  - component: {fileID: 114075250795716774}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -85,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1519782565139170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.5907, y: -0.046499, z: 8.1705}
+  m_LocalPosition: {x: 4.24, y: 1.23, z: 8.1705}
   m_LocalScale: {x: 0.47098935, y: 0.47098935, z: 0.47098935}
   m_Children:
   - {fileID: 4186835941821106}
@@ -228,6 +229,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114075250795716774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1519782565139170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c9139f61b25444f8577fa27c040b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behavior: {fileID: 11400000, guid: 9b764ccb289956a4c9f47e34062e0025, type: 2}
+  x: -0.44
+  y: 0
 --- !u!114 &114935664661529678
 MonoBehaviour:
   m_ObjectHideFlags: 1

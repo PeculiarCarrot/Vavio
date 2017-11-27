@@ -12,17 +12,21 @@ public class EnemyBullet : Bullet {
 	public float damage = 20;
 	public BulletType type;
 	float speed = 5;
-	float spread = 15f;
+	float spread = 0f;
 	private float accel = .03f;
 	private float fric = .99f;
 	GameObject target;
 
-	// Use this for initialization
-	public override void DoStart () {
-		transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z - 90 + Random.Range(-spread, spread));
+	public void SetAngleOffset(float angleOffset)
+	{
+		transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, transform.rotation.z - 90 + angleOffset + Random.Range(-spread, spread));
 		float r = -transform.rotation.eulerAngles.z;
 		velocity.x = Mathf.Sin(Mathf.Deg2Rad * (r + 180)) * speed;
 		velocity.y = Mathf.Cos(Mathf.Deg2Rad * (r + 180)) * speed;
+	}
+
+	// Use this for initialization
+	public override void DoStart () {
 		target = stage.GetComponent<Stage>().player;
 	}
 	

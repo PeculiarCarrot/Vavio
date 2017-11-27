@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +9,7 @@ public class PlayerBullet : Bullet {
 		Homing
 	}
 
+	
 	public float damage = 20;
 	public BulletType type;
 	float speed = 5;

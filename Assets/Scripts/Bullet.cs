@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Bullet : MonoBehaviour {
+public abstract class Bullet : BulletBase {
 	public static GameObject stage;
 
-	public Vector3 velocity = Vector3.zero;
-
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+		Initialize();
 		if(stage == null)
 		{
 			stage = GameObject.Find("Stage");
@@ -18,8 +17,8 @@ public abstract class Bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		UpdateBullet();
 		DoUpdate();
-		transform.position += velocity * Time.deltaTime;
 	}
 
 	public abstract void DoUpdate();

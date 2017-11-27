@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour {
 
 	public GameObject[] enemy;
+	public bool enabled = true;
 	private Stage stage;
 	private float spawnRate = .0004f;
 	private float timeUntilCombine = 1f;
@@ -23,12 +24,15 @@ public class EnemySpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Random.value < spawnRate)
-			SpawnEnemy();
-		spawnRate += .000001f;
-		timeUntilCombine -= Time.deltaTime;
-		if(timeUntilCombine <= 0)
-			Combine();
+		if(enabled)
+		{
+			if(Random.value < spawnRate)
+				SpawnEnemy();
+			spawnRate += .000001f;
+			timeUntilCombine -= Time.deltaTime;
+			if(timeUntilCombine <= 0)
+				Combine();
+		}
 	}
 
 	private GameObject GetNewEnemy()
