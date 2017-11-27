@@ -6,7 +6,7 @@ public class BulletBehaviorController : MonoBehaviour {
 
 	public BulletBehavior behavior;
 	public float x, y;
-	public Vector3 rotatedPos;
+	Vector3 rotatedPos;
 
 	// Use this for initialization
 	void Start () {
@@ -33,7 +33,7 @@ public class BulletBehaviorController : MonoBehaviour {
 	{
 		rotatedPos = new Vector3(x, y, 0);
 		float r = -gameObject.transform.rotation.eulerAngles.z * Mathf.Deg2Rad;
-		rotatedPos = new Vector3(rotatedPos.x * Mathf.Sin(r) + rotatedPos.y * Mathf.Cos(r), rotatedPos.x * Mathf.Cos(r) - rotatedPos.y * Mathf.Sin(r), 1);
+		rotatedPos = new Vector3(rotatedPos.x * Mathf.Sin(r) + rotatedPos.y * Mathf.Cos(r), rotatedPos.x * Mathf.Cos(r) - rotatedPos.y * Mathf.Sin(r), 0);
 	}
 
 	void OnDrawGizmosSelected() {
@@ -111,6 +111,7 @@ public class BulletBehaviorController : MonoBehaviour {
 			JsonUtility.FromJsonOverwrite(behavior.text, this);
 			currentAngle = angle;
 			currentSpread = spread;
+			currentSpinSpeed = spinSpeed;
 			secondsPerBullet = 1 / bulletsPerSecond;
 			bulletFireTimer = secondsPerBullet;
 			goalSpread = (spreadMin == 0 && spreadMax == 0) ? spread : spreadMax;
@@ -135,7 +136,7 @@ public class BulletBehaviorController : MonoBehaviour {
 				else if(currentSpinSpeed <= -maxSpinSpeed)
 					spinningClockwise = false;
 			}
-			else
+			else if(maxSpinSpeed != 0)
 				currentSpinSpeed = Mathf.Clamp(currentSpinSpeed, -maxSpinSpeed, maxSpinSpeed);
 
 			if(initialDelayTimer < initialDelay)
