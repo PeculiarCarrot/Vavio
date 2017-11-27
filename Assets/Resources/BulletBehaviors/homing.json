@@ -10,5 +10,5 @@
   "reverseSpin": false,
   "reverseSpinSpeed": 0.99,
   "secondsToFire": 0,
-  "initialDelay": 1
+  "initialDelay": 0
 }

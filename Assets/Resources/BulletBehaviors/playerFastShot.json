@@ -1,0 +1,6 @@
+{
+  "angle": 90,
+  "bulletsPerSecond": 10,
+  "bulletSpeed": 10,
+  "bulletLifetime": 6
+}

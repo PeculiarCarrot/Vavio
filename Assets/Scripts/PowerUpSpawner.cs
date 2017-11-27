@@ -6,7 +6,7 @@ public class PowerUpSpawner : MonoBehaviour {
 
 	public GameObject prefab;
 	private Stage stage;
-	private float spawnRate = .0001f;
+	private float spawnRate = .01f;
 
 	// Use this for initialization
 	void Start () {

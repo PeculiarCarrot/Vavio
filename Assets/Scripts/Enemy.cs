@@ -20,49 +20,16 @@ public class Enemy : Ship {
 	int dir = 0;
 	private float combinePercent, combineSpeed;
 	GameObject myLightning;
-	private float fireAngle;
-	private float fireAngleDirection;
-	private float maxFireAngle;
 
 	// Use this for initialization
 	public override void DoStart () {
 		rotAccel = 100f;
-		//velocity.x = -15f;
-	}
-
-	protected override void Shoot()
-	{
-		GameObject b = Object.Instantiate(bullet, bulletSpawn.transform.position, bullet.transform.rotation);
-		b.GetComponent<EnemyBullet>().SetAngleOffset(fireAngle);
-		shootCooldown = shootCooldownAmount;
-		switch(type)
-		{
-			case EnemyType.Minion:
-				fireAngle += fireAngleDirection;
-				if(fireAngle >= maxFireAngle || fireAngle <= -maxFireAngle)
-					fireAngleDirection *= -1;
-			break;
-			default:
-			break;
-		}
 	}
 
 	// Use this for initialization
 	public void Awake () {
 		accel = .08f + Random.value * .02f;
 		friction = .95f;
-
-		switch(type)
-		{
-			case EnemyType.Minion:
-			shootCooldownAmount = .5f;
-			fireAngleDirection = 10f;
-			maxFireAngle = fireAngleDirection;
-			break;
-			default:
-			shootCooldownAmount = 1f;
-			break;
-		}
 	}
 
 	public bool IsInvincible()
@@ -107,7 +74,6 @@ public class Enemy : Ship {
 							partner.GetComponent<Enemy>().maxHP = maxHP;
 							partner.GetComponent<Enemy>().hp = hp;
 						}
-						shootCooldownAmount = shootCooldownAmount * .75f;
 						hp = maxHP;
 						accel *= .75f;
 						Destroy(myLightning);
@@ -156,8 +122,6 @@ public class Enemy : Ship {
 			transform.position += velocity * Time.deltaTime;
 			transform.eulerAngles = baseRot + new Vector3(rotSpeed * Time.deltaTime, 0, 0);
 		}
-		shootCooldown -= Time.deltaTime;
-		shootCooldown = Mathf.Max(shootCooldown, 0);
 		if(hp <= 0)
 			Die();
 	}

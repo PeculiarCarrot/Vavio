@@ -115,6 +115,8 @@ public class BulletBehaviorController : MonoBehaviour {
 			secondsPerBullet = 1 / bulletsPerSecond;
 			bulletFireTimer = secondsPerBullet;
 			goalSpread = (spreadMin == 0 && spreadMax == 0) ? spread : spreadMax;
+			initialDelay += .1f;
+			pauseTimer = 0;
 		}
 
 		public void Update()
@@ -151,11 +153,11 @@ public class BulletBehaviorController : MonoBehaviour {
 						pauseTimer += 1 / 60f;
 					else
 					{
-						pauseTimer -= secondsToFire + secondsToPause;
+						pauseTimer = -secondsToPause;
 						bulletFireTimer = secondsPerBullet;
 					}
 				}
-				else
+				if(secondsToPause == 0 || pauseTimer > 0)
 				{
 					anglePerSet = numberOfSets > 1 ? (currentSpread / (numberOfSets - 1)) : 0;
 					setOffset = anglePerSet / 2;

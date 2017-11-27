@@ -11,9 +11,6 @@ public abstract class Ship : MonoBehaviour {
 	protected Vector3 baseRot;
 	public static GameObject stage;
 
-	public GameObject bullet, bulletSpawn;
-
-	protected float shootCooldown, shootCooldownAmount = .15f;
 	public float maxHP = 100;
 	protected float hp;
 
@@ -32,8 +29,6 @@ public abstract class Ship : MonoBehaviour {
 		transform.position += velocity * Time.deltaTime;
 		rotSpeed *= rotFric;
 		transform.eulerAngles = baseRot + new Vector3(rotSpeed * Time.deltaTime, 0, 0);
-		shootCooldown -= Time.deltaTime;
-		shootCooldown = Mathf.Max(shootCooldown, 0);
 	}
 
 
@@ -47,13 +42,7 @@ public abstract class Ship : MonoBehaviour {
 		Destroy(gameObject);
 	}
 
-	public bool CanShoot()
-	{
-		return shootCooldown <= 0;
-	}
-
 	public abstract void DoStart();
-	protected abstract void Shoot();
 
 	public void MoveUp()
 	{

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletBase : MonoBehaviour {
 
+	[HideInInspector]
 	public Vector3 velocity = Vector3.zero;
 	private float velocityMultiplier = 1;
 	private float remainingLife = 30;

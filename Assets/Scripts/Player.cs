@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+[RequireComponent(typeof(BulletBehaviorController))]
 public class Player : Ship {
 
 	public GameObject mesh;
@@ -48,56 +48,28 @@ public class Player : Ship {
     {
     	currentPowerUp = type;
     	remainingPowerUpDuration = duration;
+
+    	switch(type)
+    	{
+    		case PowerUp.PowerUpType.FastShot:
+    		GetComponent<BulletBehaviorController>().behavior.behavior = Resources.Load("BulletBehaviors/playerFastShot") as TextAsset;
+    		GetComponent<BulletBehaviorController>().behavior.bulletPrefab = Resources.Load("Prefabs/PlayerBullet") as GameObject;
+    		break;
+    		case PowerUp.PowerUpType.TripleShot:
+    		GetComponent<BulletBehaviorController>().behavior.behavior = Resources.Load("BulletBehaviors/playerTripleShot") as TextAsset;
+    		GetComponent<BulletBehaviorController>().behavior.bulletPrefab = Resources.Load("Prefabs/PlayerBullet") as GameObject;
+    		break;
+    		case PowerUp.PowerUpType.HomingShot:
+    		GetComponent<BulletBehaviorController>().behavior.behavior = Resources.Load("BulletBehaviors/playerHomingShot") as TextAsset;
+    		GetComponent<BulletBehaviorController>().behavior.bulletPrefab = Resources.Load("Prefabs/PlayerBulletHoming") as GameObject;
+    		break;
+    		default:
+    		GetComponent<BulletBehaviorController>().behavior.behavior = Resources.Load("BulletBehaviors/player") as TextAsset;
+    		GetComponent<BulletBehaviorController>().behavior.bulletPrefab = Resources.Load("Prefabs/PlayerBullet") as GameObject;
+    		break;
+    	}
+    	GetComponent<BulletBehaviorController>().behavior.LoadFromFile();
     }
-
-	public new bool CanShoot()
-	{
-		return !debug && shootCooldown <= 0;
-	}
-
-	private float GetShootCooldownAmount()
-	{
-		switch(currentPowerUp)
-		{
-			case PowerUp.PowerUpType.FastShot:
-				return .03f;
-			case PowerUp.PowerUpType.HomingShot:
-				return .2f;
-			default:
-				return shootCooldownAmount;
-		}
-	}
-
-	protected override void Shoot()
-	{
-		GameObject bulletPrefab = this.bullet;
-		if(currentPowerUp == PowerUp.PowerUpType.HomingShot)
-			bulletPrefab = (GameObject)Resources.Load("PlayerBulletHoming");
-		GameObject bulletInstance = null;
-		switch(currentPowerUp)
-		{
-			case PowerUp.PowerUpType.TripleShot:
-				float speed = 20f;
-				for(int i = -1; i < 2; i++)
-				{
-					Quaternion rotation = Quaternion.Euler(bulletPrefab.transform.rotation.eulerAngles.x, bulletPrefab.transform.rotation.eulerAngles.y, bulletPrefab.transform.rotation.eulerAngles.z + 10 * i);
-					bulletInstance = Object.Instantiate(bulletPrefab, bulletSpawn.transform.position, rotation);
-					bulletInstance.GetComponent<PlayerBullet>().velocity.x = Mathf.Sin(Mathf.Deg2Rad * rotation.eulerAngles.z) * speed;
-					bulletInstance.GetComponent<PlayerBullet>().velocity.y = Mathf.Cos(Mathf.Deg2Rad * rotation.eulerAngles.z) * speed;
-				}
-			break;
-			case PowerUp.PowerUpType.HomingShot:
-				bulletInstance = Object.Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletPrefab.transform.rotation);
-				bulletInstance.GetComponent<PlayerBullet>().velocity.x = 13f;
-			break;
-			default:
-				bulletInstance = Object.Instantiate(bulletPrefab, bulletSpawn.transform.position, bulletPrefab.transform.rotation);
-				bulletInstance.GetComponent<PlayerBullet>().velocity.x = 40f;
-			break;
-		}
-
-		shootCooldown = GetShootCooldownAmount();
-	}
 
 	public bool IsInvincible()
 	{
@@ -115,7 +87,7 @@ public class Player : Ship {
 			if(remainingPowerUpDuration <= 0)
 			{
 				remainingPowerUpDuration = 0;
-				currentPowerUp = PowerUp.PowerUpType.None;
+				ApplyPowerUp(PowerUp.PowerUpType.None, 0);
 			}
 		}
 		if(invincibilityDuration > 0)
@@ -141,8 +113,8 @@ public class Player : Ship {
         rotSpeed += rotAccel * (target.y - transform.position.y) * 2;
         transform.position = Vector3.Lerp(transform.position, target, .3f);
 
-		if(CanShoot())
-			Shoot();
+        GetComponent<BulletBehaviorController>().enabled = !debug;
+
 		transform.position = new Vector3(Mathf.Clamp(transform.position.x, stage.GetComponent<Stage>().minX, stage.GetComponent<Stage>().maxX),
 			Mathf.Clamp(transform.position.y, stage.GetComponent<Stage>().minY, stage.GetComponent<Stage>().maxY), transform.position.z);
 		if(hp <= 0)
