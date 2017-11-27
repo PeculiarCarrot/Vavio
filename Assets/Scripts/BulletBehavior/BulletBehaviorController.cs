@@ -57,7 +57,7 @@ public class BulletBehaviorController : MonoBehaviour {
 
 		//Changing values
 		private float currentAngle;
-		private float currentSpread;
+		private float currentSpread, goalSpread, spreadSpeed;
 		private float anglePerSet, setOffset;
 
 		//Constant timer values
@@ -103,11 +103,17 @@ public class BulletBehaviorController : MonoBehaviour {
 			currentSpread = spread;
 			secondsPerBullet = 1 / bulletsPerSecond;
 			bulletFireTimer = secondsPerBullet;
+			goalSpread = (spreadMin == 0 && spreadMax == 0) ? spread : spreadMax;
 		}
 
 		public void Update()
 		{
-			Debug.Log(currentSpinSpeed);
+			currentSpread = Mathf.SmoothDamp(currentSpread, goalSpread, ref spreadSpeed, secondsPerSpreadPulse);
+			if(Mathf.Abs(currentSpread - goalSpread) < 5f && !(spreadMin == 0 && spreadMax == 0))
+			{
+				goalSpread = Mathf.Abs(currentSpread - spreadMax) < Mathf.Abs(currentSpread - spreadMin) ? spreadMin : spreadMax;
+			}
+
 			currentAngle += currentSpinSpeed * Time.deltaTime;
 			currentSpinSpeed += spinAcceleration * (spinningClockwise ? -1 : 1);
 			if(reverseSpin)
