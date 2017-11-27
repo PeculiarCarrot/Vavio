@@ -11,6 +11,7 @@ public class Player : Ship {
 	private float remainingPowerUpDuration;
 	private float invincibilityDuration;
 	private float flickerTimer, flickerDuration = .05f;
+	public bool debug;
 
 	// Use this for initialization
 	public override void DoStart () {
@@ -30,9 +31,12 @@ public class Player : Ship {
 
 	public new void GetHurt(float damage)
 	{
-		hp -= damage;
-		invincibilityDuration = 1.5f;
-		flickerTimer = flickerDuration;
+		if(!debug)
+		{
+			hp -= damage;
+			invincibilityDuration = 1.5f;
+			flickerTimer = flickerDuration;
+		}
 	}
 
 	public new void Die()
@@ -48,7 +52,7 @@ public class Player : Ship {
 
 	public new bool CanShoot()
 	{
-		return shootCooldown <= 0;
+		return !debug && shootCooldown <= 0;
 	}
 
 	private float GetShootCooldownAmount()

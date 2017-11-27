@@ -41,16 +41,19 @@ public class BulletBehaviorController : MonoBehaviour {
 		[HideInInspector]
 		public int numberOfSets;
 		[HideInInspector]
+		public bool reverseSpin;
+		[HideInInspector]
 		public float angle,
 		spread, spreadMin, spreadMax,
 		secondsPerSpreadPulse,
 		bulletsPerSecond, bulletSpeed, bulletSpeedMultiplier, bulletLifetime,
-		degreesPerSecond, maxAngleDifference,
+		spinSpeed, maxSpinSpeed, spinAcceleration, reverseSpinSpeed,
 		secondsToFire, secondsToPause, initialDelay;
 
 		private BulletBehaviorController controller;
 
-		//Calculated constant values
+		private float currentSpinSpeed;
+		private bool spinningClockwise;
 
 		//Changing values
 		private float currentAngle;
@@ -70,8 +73,31 @@ public class BulletBehaviorController : MonoBehaviour {
 			this.controller = controller;
 		}
 
+		public void RestoreDefaults()
+		{
+			numberOfSets = 1;
+			reverseSpin = false;
+			angle = 0;
+			spread = 0;
+			spreadMin = 0;
+			spreadMax = 0;
+			secondsPerSpreadPulse = 0;
+			bulletsPerSecond = 3;
+			bulletSpeed = 0;
+			bulletSpeedMultiplier = 1;
+			bulletLifetime = 30;
+			spinSpeed = 0;
+			maxSpinSpeed = 0;
+			spinAcceleration = 0;
+			reverseSpinSpeed = .95f;
+			secondsToFire = 3;
+			secondsToPause = 0;
+			initialDelay = 0;
+		}
+
 		public void LoadFromFile()
 		{
+			RestoreDefaults();
 			JsonUtility.FromJsonOverwrite(behavior.text, this);
 			currentAngle = angle;
 			currentSpread = spread;
@@ -81,6 +107,21 @@ public class BulletBehaviorController : MonoBehaviour {
 
 		public void Update()
 		{
+			Debug.Log(currentSpinSpeed);
+			currentAngle += currentSpinSpeed * Time.deltaTime;
+			currentSpinSpeed += spinAcceleration * (spinningClockwise ? -1 : 1);
+			if(reverseSpin)
+			{
+				if(currentSpinSpeed < 0 != spinningClockwise)
+					currentSpinSpeed *= reverseSpinSpeed;
+				if(currentSpinSpeed >= maxSpinSpeed)
+					spinningClockwise = true;
+				else if(currentSpinSpeed <= -maxSpinSpeed)
+					spinningClockwise = false;
+			}
+			else
+				currentSpinSpeed = Mathf.Clamp(currentSpinSpeed, -maxSpinSpeed, maxSpinSpeed);
+
 			if(initialDelayTimer < initialDelay)
 			{
 				initialDelayTimer += Time.deltaTime;
@@ -95,7 +136,7 @@ public class BulletBehaviorController : MonoBehaviour {
 					bulletFireTimer = secondsPerBullet;
 				}
 
-				if(pauseTimer > 0)
+				if(pauseTimer > 0 || pauseTimer == 0)
 				{
 					anglePerSet = numberOfSets > 1 ? (currentSpread / (numberOfSets - 1)) : 0;
 					setOffset = anglePerSet / 2;
@@ -103,7 +144,7 @@ public class BulletBehaviorController : MonoBehaviour {
 						bulletFireTimer += Time.deltaTime;
 					else
 					{
-						bulletFireTimer -= secondsPerBullet;
+						bulletFireTimer = 0;
 						FireSet();
 					}
 				}
@@ -125,8 +166,8 @@ public class BulletBehaviorController : MonoBehaviour {
 			float bAngle = currentAngle + i * anglePerSet + setOffset;
 			b.transform.Rotate(0, 0, bAngle);
 			BulletBase bullet = b.GetComponent<BulletBase>();
-			bullet.velocity.x = (float)(bulletSpeed * Mathf.Sin(Mathf.Deg2Rad * bAngle));
-			bullet.velocity.y = -(float)(bulletSpeed * Mathf.Cos(Mathf.Deg2Rad * bAngle));
+			bullet.velocity.x = (bulletSpeed * Mathf.Sin(Mathf.Deg2Rad * bAngle));
+			bullet.velocity.y = -(bulletSpeed * Mathf.Cos(Mathf.Deg2Rad * bAngle));
 			bullet.SetVelocityMultiplier(bulletSpeedMultiplier);
 			bullet.SetLifetime(bulletLifetime);
 		}
