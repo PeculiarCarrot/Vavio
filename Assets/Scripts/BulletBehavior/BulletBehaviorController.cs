@@ -125,7 +125,7 @@ public class BulletBehaviorController : MonoBehaviour {
 				goalSpread = Mathf.Abs(currentSpread - spreadMax) < Mathf.Abs(currentSpread - spreadMin) ? spreadMin : spreadMax;
 			}
 
-			currentAngle += currentSpinSpeed * Time.deltaTime;
+			currentAngle += currentSpinSpeed * (1 / 60f);
 			currentSpinSpeed += spinAcceleration * (spinningClockwise ? -1 : 1);
 			if(reverseSpin)
 			{
@@ -141,24 +141,26 @@ public class BulletBehaviorController : MonoBehaviour {
 
 			if(initialDelayTimer < initialDelay)
 			{
-				initialDelayTimer += Time.deltaTime;
+				initialDelayTimer += 1 / 60f;
 			}
 			else
 			{
-				if(pauseTimer < secondsToFire)
-					pauseTimer += Time.deltaTime;
-				else
+				if(secondsToPause != 0)
 				{
-					pauseTimer -= secondsToFire + secondsToPause;
-					bulletFireTimer = secondsPerBullet;
+					if(pauseTimer < secondsToFire)
+						pauseTimer += 1 / 60f;
+					else
+					{
+						pauseTimer -= secondsToFire + secondsToPause;
+						bulletFireTimer = secondsPerBullet;
+					}
 				}
-
-				if(pauseTimer > 0 || pauseTimer == 0)
+				else
 				{
 					anglePerSet = numberOfSets > 1 ? (currentSpread / (numberOfSets - 1)) : 0;
 					setOffset = anglePerSet / 2;
 					if(bulletFireTimer < secondsPerBullet)
-						bulletFireTimer += Time.deltaTime;
+						bulletFireTimer += 1 / 60f;
 					else
 					{
 						bulletFireTimer = 0;
