@@ -6,6 +6,7 @@ public class BulletBehaviorController : MonoBehaviour {
 
 	public BulletBehavior behavior;
 	public float x, y;
+	public Vector3 rotatedPos;
 
 	// Use this for initialization
 	void Start () {
@@ -24,12 +25,21 @@ public class BulletBehaviorController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		UpdateRotatedPos();
 		behavior.Update();
 	}
 
+	private void UpdateRotatedPos()
+	{
+		rotatedPos = new Vector3(x, y, 0);
+		float r = -gameObject.transform.rotation.eulerAngles.z * Mathf.Deg2Rad;
+		rotatedPos = new Vector3(rotatedPos.x * Mathf.Sin(r) + rotatedPos.y * Mathf.Cos(r), rotatedPos.x * Mathf.Cos(r) - rotatedPos.y * Mathf.Sin(r), 1);
+	}
+
 	void OnDrawGizmosSelected() {
+		UpdateRotatedPos();
         Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(new Vector3( gameObject.transform.position.x + x,  gameObject.transform.position.y + y, gameObject.transform.position.z), .1f);
+        Gizmos.DrawSphere(new Vector3( gameObject.transform.position.x + rotatedPos.x,  gameObject.transform.position.y + rotatedPos.y, gameObject.transform.position.z + rotatedPos.z), .1f);
     }
 
 	[System.Serializable]
@@ -169,8 +179,8 @@ public class BulletBehaviorController : MonoBehaviour {
 		private void FireBullet(float i)
 		{
 			GameObject b = SpawnBullet();
-			float bAngle = currentAngle + i * anglePerSet + setOffset;
-			b.transform.Rotate(0, 0, bAngle);
+			float bAngle = currentAngle + i * anglePerSet + setOffset + b.transform.rotation.eulerAngles.z;
+			b.transform.rotation = Quaternion.Euler(0, 0, bAngle);
 			BulletBase bullet = b.GetComponent<BulletBase>();
 			bullet.velocity.x = (bulletSpeed * Mathf.Sin(Mathf.Deg2Rad * bAngle));
 			bullet.velocity.y = -(bulletSpeed * Mathf.Cos(Mathf.Deg2Rad * bAngle));
@@ -180,7 +190,7 @@ public class BulletBehaviorController : MonoBehaviour {
 
 		public GameObject SpawnBullet()
 		{
-			return Object.Instantiate(bulletPrefab, controller.gameObject.transform.position + new Vector3(controller.x, controller.y, 0), controller.gameObject.transform.rotation);
+			return Object.Instantiate(bulletPrefab, controller.gameObject.transform.position + controller.rotatedPos, controller.gameObject.transform.rotation);
 		}
 
 	}
