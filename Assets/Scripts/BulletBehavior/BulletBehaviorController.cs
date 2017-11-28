@@ -185,6 +185,7 @@ public class BulletBehaviorController : MonoBehaviour {
 		{
 			GameObject b = SpawnBullet();
 			float bAngle = currentAngle + i * anglePerSet + setOffset + b.transform.rotation.eulerAngles.z;
+			Debug.Log(controller.gameObject + " - " + bAngle);
 			b.transform.rotation = Quaternion.Euler(0, 0, bAngle);
 			BulletBase bullet = b.GetComponent<BulletBase>();
 			bullet.velocity.x = (bulletSpeed * Mathf.Sin(Mathf.Deg2Rad * bAngle));

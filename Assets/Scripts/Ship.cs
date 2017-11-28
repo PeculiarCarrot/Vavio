@@ -7,7 +7,7 @@ public abstract class Ship : MonoBehaviour {
 	protected Vector3 velocity = Vector3.zero;
 	public float accel = .9f;
 	protected float friction = .9f;
-	protected float rotSpeed, rotAccel = 170f, rotFric = .89f;
+	protected float rotSpeed, rotAccel = 170f, rotFric = .99f;
 	protected Vector3 baseRot;
 	public static GameObject stage;
 
@@ -28,7 +28,7 @@ public abstract class Ship : MonoBehaviour {
 		velocity *= friction;
 		transform.position += velocity * Time.deltaTime;
 		rotSpeed *= rotFric;
-		transform.eulerAngles = baseRot + new Vector3(rotSpeed * Time.deltaTime, 0, 0);
+		//transform.eulerAngles = baseRot + new Vector3(0, rotSpeed * Time.deltaTime, 0);
 	}
 
 

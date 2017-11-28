@@ -15,6 +15,8 @@ public class Player : Ship {
 
 	// Use this for initialization
 	public override void DoStart () {
+		rotFric = 1;
+		rotAccel = 6;
 	}
 
 	void OnTriggerEnter (Collider col)
@@ -110,7 +112,16 @@ public class Player : Ship {
 			MoveRight();*/
 		Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         target.z = transform.position.z;
-        rotSpeed += rotAccel * (target.y - transform.position.y) * 2;
+        Vector3 newRot = transform.rotation.eulerAngles;
+        newRot.y -= rotAccel * (target.x - transform.position.x);
+        if(newRot.y < 0)
+        	newRot.y += 360;
+        if(newRot.y < 180)
+        	newRot.y = Mathf.Clamp(newRot.y, 0, 45);
+        else
+        	newRot.y = Mathf.Clamp(newRot.y, 315, 360);
+        newRot.y = Mathf.SmoothDampAngle(newRot.y, 0, ref rotSpeed, .3f);
+        transform.eulerAngles = newRot;
         transform.position = Vector3.Lerp(transform.position, target, .3f);
 
         GetComponent<BulletBehaviorController>().enabled = !debug;

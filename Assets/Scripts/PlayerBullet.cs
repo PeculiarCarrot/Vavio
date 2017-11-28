@@ -12,8 +12,6 @@ public class PlayerBullet : Bullet {
 	
 	public float damage = 20;
 	public BulletType type;
-	float speed = 5;
-	float spread = 10f;
 	private float accel = .03f;
 	private float fric = .99f;
 	private GameObject target;
@@ -68,7 +66,7 @@ public class PlayerBullet : Bullet {
 				 velocity.y += -speed * Mathf.Cos(a);
 				 velocity *= fric;
 				 //velocity.x = Mathf.Min(-1f, velocity.x);
-				 transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, -Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg + 90);
+				 transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg + 90);
 			}
 			break;
 			default:

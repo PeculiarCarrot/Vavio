@@ -7,7 +7,7 @@ public class EnemySpawner : MonoBehaviour {
 	public GameObject[] enemy;
 	public bool enabled = true;
 	private Stage stage;
-	private float spawnRate = .0004f;
+	private float spawnRate = .04f;
 	private float timeUntilCombine = 1f;
 	private List<GameObject> liveEnemies = new List<GameObject>();
 	private Vector3 nullVector = new Vector3(12345.123f, 12345.123f);
@@ -30,8 +30,8 @@ public class EnemySpawner : MonoBehaviour {
 				SpawnEnemy();
 			spawnRate += .000001f;
 			timeUntilCombine -= Time.deltaTime;
-			if(timeUntilCombine <= 0)
-				Combine();
+			//if(timeUntilCombine <= 0)
+			//	Combine();
 		}
 	}
 
@@ -90,7 +90,7 @@ public class EnemySpawner : MonoBehaviour {
 
 	private Vector3 GetSpawnLocation(Vector3 avoid)
 	{
-		Vector3 v = new Vector3(stage.maxX + 1, Random.Range(stage.minY, stage.maxY), transform.position.y);
+		Vector3 v = new Vector3(Random.Range(stage.minX, stage.maxX), stage.maxY - 3, transform.position.y);
 		if(avoid != nullVector && Vector3.Distance(v, avoid) < 2f)
 			return nullVector;
 

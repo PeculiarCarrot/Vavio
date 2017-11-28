@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114524876365346128}
   - component: {fileID: 54012128298579186}
   - component: {fileID: 65279951182182204}
+  - component: {fileID: 114966311474611080}
   m_Layer: 0
   m_Name: enemyHoming
   m_TagString: Untagged
@@ -111,14 +112,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1063114291188132}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.0538, y: 0.4545, z: 10.086}
+  m_LocalRotation: {x: -0, y: -0, z: 0.70710677, w: 0.7071068}
+  m_LocalPosition: {x: -5.407312, y: -0.36465675, z: 10.086}
   m_LocalScale: {x: 0.5397467, y: 0.5397467, z: 0.5397467}
   m_Children:
   - {fileID: 4035200731556376}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
 --- !u!4 &4635163584396532
 Transform:
   m_ObjectHideFlags: 1
@@ -227,10 +228,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accel: 0.9
-  bullet: {fileID: 1371641849877342, guid: 72633a6ee54106947a00166027c80f73, type: 2}
-  bulletSpawn: {fileID: 1893131521859662}
   maxHP: 300
   type: 1
   lightningPrefab: {fileID: 1562435578132352, guid: 367f07ff7247d184f8b89b9239faba50,
     type: 2}
   combineLocation: {fileID: 1746311229856448}
+--- !u!114 &114966311474611080
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1063114291188132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c9139f61b25444f8577fa27c040b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  behavior:
+    behavior: {fileID: 4900000, guid: 81796d4bcea9db348810639715ff9e68, type: 3}
+    bulletPrefab: {fileID: 1371641849877342, guid: 72633a6ee54106947a00166027c80f73,
+      type: 2}
+    numberOfSets: 0
+    reverseSpin: 0
+    angle: 0
+    spread: 0
+    spreadMin: 0
+    spreadMax: 0
+    secondsPerSpreadPulse: 0
+    bulletsPerSecond: 0
+    bulletSpeed: 0
+    bulletSpeedMultiplier: 0
+    bulletLifetime: 0
+    spinSpeed: 0
+    maxSpinSpeed: 0
+    spinAcceleration: 0
+    reverseSpinSpeed: 0.8
+    secondsToFire: 0
+    secondsToPause: 0
+    initialDelay: 0
+  x: 0
+  y: -0.44
