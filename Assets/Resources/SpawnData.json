@@ -2,39 +2,51 @@
   "l0": [
     {
       "time": 0.3,
-      "leave": 11.7,
-      "type": "basic",
-      "x": 0.15
-    },
-    {
-      "time": 3.2,
-      "leave": 11.7,
+      "leave": 11.3,
       "type": "basic",
       "x": 0.3
     },
     {
-      "time": 5.6,
-      "leave": 11.7,
+      "time": 3.2,
+      "leave": 11.5,
       "type": "basic",
-      "x": 0.45
+      "x": 0.7,
+    },
+    {
+      "time": 5.6,
+      "leave": 11.3,
+      "type": "basic",
+      "x": 0.2,
+      "y": 0.2,
+      "from": "down",
+      "rotation": 180
     },
     {
       "time": 5.75,
-      "leave": 11.7,
+      "leave": 11.5,
       "type": "basic2",
-      "x": 0.6
+      "x": 0.8,
+      "y": 0.2,
+      "from": "down",
+      "rotation": 180
     },
     {
       "time": 8.5,
       "leave": 11.5,
       "type": "basic",
-      "x": 0.75
+      "y": 0.5,
+      "x": 0.9,
+      "from": "right",
+      "rotation": -90
     },
     {
       "time": 8.7,
       "leave": 11.3,
       "type": "basic",
-      "x": 0.9
+      "y": 0.5,
+      "x": 0.1,
+      "from": "left",
+      "rotation": 90
     },
     {
       "time": 11.7,

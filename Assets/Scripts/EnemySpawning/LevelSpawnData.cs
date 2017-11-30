@@ -36,7 +36,7 @@ public class LevelSpawnData {
 			if(esd.time + beginTime < t)
 			{
 				enemySpawnData.RemoveAt(i);
-				spawner.SpawnEnemy(esd.type, esd.x, esd.leave);
+				spawner.SpawnEnemy(esd);
 			}
 		}
 	}

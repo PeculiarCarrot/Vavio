@@ -11,19 +11,23 @@ public class Enemy : Ship {
 
 	public EnemyType type;
 
-	private Quaternion goalRotation, startRotation;
-	private Vector3 goalPos, startPos;
 	int dir = 0;
 	[HideInInspector]
 	public float leave;
 	private AudioSource song;
 	private bool leaving;
+	public Vector3 goalPos;
+	private bool reachedGoal = false;
+	public float reachGoalTime = .2f;
+	private Vector3 goalVelocity = Vector3.zero;
+	private Vector3 startPos;
 
 	// Use this for initialization
 	public override void DoStart () {
 		rotAccel = 100f;
-		velocity.y = -20f;
+		Stage s = stage.GetComponent<Stage>();
 		song = stage.GetComponent<AudioSource>();
+		startPos = transform.position;
 	}
 
 	// Use this for initialization
@@ -41,23 +45,31 @@ public class Enemy : Ship {
 	public void FixedUpdate () {
 		DoUpdate();
 
+		if(!reachedGoal)
+		{
+			transform.position = Vector3.SmoothDamp(transform.position, goalPos, ref velocity, reachGoalTime);
+			if(Vector3.Distance(transform.position, goalPos) < .2f)
+			{
+				reachedGoal = true;
+				velocity *= 2;
+				if(leaving)
+					Die();
+			}
+		}
 		//velocity.y += (accel / 4f) * dir;
 		rotSpeed += rotAccel * dir;
-		if(transform.position.x < stage.GetComponent<Stage>().minX - 3)
-			Destroy(gameObject);
 
 		if(song.time >= leave)
 			Leave();
 		if(hp <= 0)
 			Die();
-		if(leaving)
-			hp -= 1;
 	}
 
 	public void Leave()
 	{
 		leaving = true;
-		velocity.y = 10;
+		reachedGoal = false;
+		goalPos = startPos;
 		Component[] behaviors;
 
         behaviors = GetComponents(typeof(BulletBehaviorController));

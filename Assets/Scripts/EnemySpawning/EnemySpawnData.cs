@@ -4,9 +4,9 @@ using UnityEngine;
 
 [System.Serializable]
 public class EnemySpawnData {
-	public float time, leave;
-	public float x;
-	public string type;
+	public float time, leave, reachGoalTime = .2f;
+	public float x = float.MaxValue, y = float.MaxValue, rotation;
+	public string type, from = "up";
 
 	public static EnemySpawnData FromJSON(JSONObject o)
 	{
@@ -23,11 +23,23 @@ public class EnemySpawnData {
 				case "leave":
 					esd.leave = (float)j.n;
 				break;
+				case "rotation":
+					esd.rotation = (float)j.n;
+				break;
 				case "x":
 					esd.x = (float)j.n;
 				break;
+				case "y":
+					esd.y = (float)j.n;
+				break;
+				case "reachGoalTime":
+					esd.reachGoalTime = (float)j.n;
+				break;
 				case "type":
 					esd.type = (string)j.str;
+				break;
+				case "from":
+					esd.from = (string)j.str;
 				break;
 			}
 		}

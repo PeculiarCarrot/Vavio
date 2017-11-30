@@ -34,21 +34,34 @@ public class EnemySpawner : MonoBehaviour {
 		spawns.Begin(this);
 	}
 
-	public void SpawnEnemy(string type, float x, float leave)
+	public void SpawnEnemy(EnemySpawnData data)
 	{
-		GameObject prefab = GetEnemyFromName(type);
+		GameObject prefab = GetEnemyFromName(data.type);
 		if(prefab != null)
 		{
-			Vector3 pos = Vector3.zero;
-			pos.x = stage.minX + stage.width * x;
-			pos.y = stage.maxY + 1;
-			GameObject e = Instantiate(prefab, pos, prefab.transform.rotation);
-			e.GetComponent<Enemy>().leave = leave;
+			Vector3 goalPos = Vector3.zero;
+			goalPos.x = stage.minX + stage.width * (data.x == float.MaxValue ? .8f : data.x);
+			goalPos.y = stage.minY + stage.height * (data.y == float.MaxValue ? .8f : data.y);
+
+			Vector3 pos = goalPos;
+			if(data.from == "left")
+				pos.x = stage.minX;
+			else if(data.from == "right")
+				pos.x = stage.maxX;
+			else if(data.from == "down")
+				pos.y = stage.minY;
+			else if(data.from == "up")
+				pos.y = stage.maxY;
+
+			GameObject e = Instantiate(prefab, pos, Quaternion.Euler(new Vector3(prefab.transform.eulerAngles.x, prefab.transform.eulerAngles.x, prefab.transform.eulerAngles.z + data.rotation)));
+			e.GetComponent<Enemy>().leave = data.leave;
+			e.GetComponent<Enemy>().reachGoalTime = data.reachGoalTime;
+			e.GetComponent<Enemy>().goalPos = goalPos;
 			liveEnemies.Add(e);
 		}
 		else
 		{
-			Debug.LogError("No enemy type exists: " + type);
+			Debug.LogError("No enemy type exists: " + data.type);
 		}
 	}
 
