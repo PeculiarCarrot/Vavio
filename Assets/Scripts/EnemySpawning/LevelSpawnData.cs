@@ -29,14 +29,14 @@ public class LevelSpawnData {
 
 	public void Update()
 	{
-		float t = Time.time;
+		float t = spawner.stage.GetComponent<AudioSource>().time;
 		for(int i = enemySpawnData.Count - 1; i >= 0; i--)
 		{
 			EnemySpawnData esd = enemySpawnData[i];
 			if(esd.time + beginTime < t)
 			{
 				enemySpawnData.RemoveAt(i);
-				spawner.SpawnEnemy(esd.type, esd.x);
+				spawner.SpawnEnemy(esd.type, esd.x, esd.leave);
 			}
 		}
 	}

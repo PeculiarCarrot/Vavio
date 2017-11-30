@@ -1,19 +1,40 @@
 {
   "l0": [
     {
-      "time": 1,
-      "type": "minion",
-      "x": 0.25
+      "time": 0.3,
+      "leave": 11.7,
+      "type": "basic",
+      "x": 0.15
     },
     {
-      "time": 1.5,
-      "type": "homing",
+      "time": 3.2,
+      "leave": 11.7,
+      "type": "basic",
+      "x": 0.3
+    },
+    {
+      "time": 5.7,
+      "leave": 11.7,
+      "type": "basic",
+      "x": 0.45
+    },
+    {
+      "time": 5.85,
+      "leave": 11.7,
+      "type": "basic2",
+      "x": 0.6
+    },
+    {
+      "time": 8.5,
+      "leave": 11.7,
+      "type": "basic",
       "x": 0.75
     },
     {
-      "time": 3.5,
-      "type": "minion",
-      "x": 0.5
+      "time": 8.7,
+      "leave": 11.7,
+      "type": "basic2",
+      "x": 0.9
     }
   ],
   "l1": [

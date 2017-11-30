@@ -122,7 +122,7 @@ public class BulletBehaviorController : MonoBehaviour {
 			secondsPerBullet = 1 / bulletsPerSecond;
 			bulletFireTimer = secondsPerBullet;
 			goalSpread = (spreadMin == 0 && spreadMax == 0) ? spread : spreadMax;
-			initialDelay += .1f;
+			initialDelay += 1f;
 			pauseTimer = 0;
 		}
 

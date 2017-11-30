@@ -20,25 +20,31 @@ public class Enemy : Ship {
 	int dir = 0;
 	private float combinePercent, combineSpeed;
 	GameObject myLightning;
+	[HideInInspector]
+	public float leave;
+	private AudioSource song;
+	private bool leaving;
 
 	// Use this for initialization
 	public override void DoStart () {
 		rotAccel = 100f;
+		velocity.y = -20f;
+		song = stage.GetComponent<AudioSource>();
 	}
 
 	// Use this for initialization
 	public void Awake () {
-		accel = .08f + Random.value * .02f;
-		friction = .95f;
+		accel = .08f;
+		friction = .86f;
 	}
 
 	public bool IsInvincible()
 	{
 		return combinePercent != 0;
 	}
-	
+
 	// Update is called once per frame
-	public void Update () {
+	public void FixedUpdate () {
 		DoUpdate();
 		if(combining && transform.position.x < stage.GetComponent<Stage>().maxX - 4)
 		{	
@@ -54,7 +60,7 @@ public class Enemy : Ship {
 					combineSpeed = Mathf.Min(1 / (Vector3.Distance(transform.position, partner.transform.position) * .3f), 1);
 					myLightning = Object.Instantiate(lightningPrefab);
 				}
-				float increment = Time.deltaTime * combineSpeed;
+				float increment = (1/60f) * combineSpeed;
 				combinePercent += increment;
 				if(combinePercent != increment)
 				{
@@ -99,8 +105,24 @@ public class Enemy : Ship {
 		rotSpeed += rotAccel * dir;
 		if(transform.position.x < stage.GetComponent<Stage>().minX - 3)
 			Destroy(gameObject);
+		if(song.time >= leave)
+			Leave();
 		if(hp <= 0)
 			Die();
+		if(leaving)
+			hp -= 3;
+	}
+
+	public void Leave()
+	{
+		leaving = true;
+		velocity.y = 10;
+		Component[] behaviors;
+
+        behaviors = GetComponents(typeof(BulletBehaviorController));
+
+        foreach (BulletBehaviorController b in behaviors)
+            b.enabled = false;
 	}
 
 	public new void GetHurt(float damage)

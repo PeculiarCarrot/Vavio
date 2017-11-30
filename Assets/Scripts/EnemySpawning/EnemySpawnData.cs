@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class EnemySpawnData {
-	public float time;
+	public float time, leave;
 	public float x;
 	public string type;
 
@@ -19,6 +19,9 @@ public class EnemySpawnData {
 			{
 				case "time":
 					esd.time = (float)j.n;
+				break;
+				case "leave":
+					esd.leave = (float)j.n;
 				break;
 				case "x":
 					esd.x = (float)j.n;

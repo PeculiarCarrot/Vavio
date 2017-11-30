@@ -99,19 +99,9 @@ public class Player : Ship {
 				flickerTimer = flickerDuration;
 			mesh.GetComponent<Renderer>().enabled = invincibilityDuration <= 0 || flickerTimer < 0;
 			core.GetComponent<Renderer>().enabled = invincibilityDuration <= 0 || flickerTimer < 0;
-		}
-
-		/*if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
-			MoveUp();
-		if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-			MoveDown();
-		if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-			MoveLeft();
-		if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-			MoveRight();*/
-		Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		}		Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         target.z = transform.position.z;
-        Vector3 newRot = transform.rotation.eulerAngles;
+       /* Vector3 newRot = transform.rotation.eulerAngles;
         newRot.y -= rotAccel * (target.x - transform.position.x);
         if(newRot.y < 0)
         	newRot.y += 360;
@@ -120,7 +110,7 @@ public class Player : Ship {
         else
         	newRot.y = Mathf.Clamp(newRot.y, 315, 360);
         newRot.y = Mathf.SmoothDampAngle(newRot.y, 0, ref rotSpeed, .3f);
-        transform.eulerAngles = newRot;
+        transform.eulerAngles = newRot;*/
         transform.position = Vector3.Lerp(transform.position, target, .3f);
 
         GetComponent<BulletBehaviorController>().enabled = !debug;

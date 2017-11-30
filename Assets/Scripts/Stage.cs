@@ -19,7 +19,7 @@ public class Stage : MonoBehaviour {
 		minY = min.y;
 		width = maxX - minX;
 		height = maxY - minY;
-		Debug.Log(minX+", "+minY +" - "+maxX+", "+maxY);
+		//Debug.Log(minX+", "+minY +" - "+maxX+", "+maxY);
 	}
 	
 	// Update is called once per frame

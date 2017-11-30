@@ -26,7 +26,7 @@ public abstract class Ship : MonoBehaviour {
 	// Update is called once per frame
 	public void DoUpdate () {
 		velocity *= friction;
-		transform.position += velocity * Time.deltaTime;
+		transform.position += velocity * (1 / 60f);
 		rotSpeed *= rotFric;
 		//transform.eulerAngles = baseRot + new Vector3(0, rotSpeed * Time.deltaTime, 0);
 	}
