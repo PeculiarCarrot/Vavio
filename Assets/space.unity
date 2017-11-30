@@ -153,6 +153,8 @@ MonoBehaviour:
     prefab: {fileID: 1079808692666654, guid: 8e51e1ec8aed7f048aeebe8688f62b33, type: 2}
   - name: homing
     prefab: {fileID: 1063114291188132, guid: fa47ace42156d534094644ac0dc19da9, type: 2}
+  - name: pepper
+    prefab: {fileID: 1851103019144696, guid: 3ca6719f596f41241a3f3da649ac381d, type: 2}
   spawningEnabled: 1
   stage: {fileID: 0}
 --- !u!4 &723507421
@@ -426,6 +428,9 @@ MonoBehaviour:
   maxY: 0
   width: 0
   height: 0
+  songs:
+  - {fileID: 8300000, guid: 0f9c5713891c667429b566f37c020718, type: 3}
+  - {fileID: 8300000, guid: 2e6bc248eb50f5d498bb7321edd3b85f, type: 3}
 --- !u!4 &1828452934
 Transform:
   m_ObjectHideFlags: 0
@@ -449,8 +454,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2e6bc248eb50f5d498bb7321edd3b85f, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.042
+  m_PlayOnAwake: 0
+  m_Volume: 0.222
   m_Pitch: 1
   Loop: 0
   Mute: 0

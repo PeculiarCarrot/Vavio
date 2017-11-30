@@ -1,5 +1,92 @@
 {
+  
   "l0": [
+    {
+      "time": 3.4,
+      "leave": 12.8,
+      "type": "basic",
+      "x": 0.5
+    },
+    {
+      "time": 6.8,
+      "leave": 12.8,
+      "type": "basic",
+      "x": 0.25
+    },
+    {
+      "time": 8.5,
+      "leave": 12.8,
+      "type": "basic",
+      "x": 0.75
+    },
+    {
+      "time": 13.7,
+      "leave": 19.6,
+      "type": "basic",
+      "x": 0.4
+    },
+    {
+      "time": 13.7,
+      "leave": 19.6,
+      "type": "basic",
+      "x": 0.6
+    },
+    {
+      "time": 14.5,
+      "leave": 19.8,
+      "type": "basic2",
+      "x": 0.2
+    },,
+    {
+      "time": 14.5,
+      "leave": 19.8,
+      "type": "basic2",
+      "x": 0.8
+    },
+    {
+      "time": 20.6,
+      "leave": 27,
+      "type": "basic",
+      "x": 0.1,
+      "y": 0.9
+    },
+    {
+      "time": 20.6,
+      "leave": 27,
+      "type": "basic",
+      "x": 0.9,
+      "y": 0.9
+    },
+    {
+      "time": 21.2,
+      "leave": 27,
+      "type": "basic",
+      "x": 0.3,
+      "y": 0.8
+    },
+    {
+      "time": 21.2,
+      "leave": 27,
+      "type": "basic",
+      "x": 0.7,
+      "y": 0.8
+    },
+    {
+      "time": 21.4,
+      "leave": 27,
+      "type": "basic",
+      "x": 0.5,
+      "y": 0.7
+    },
+    {
+      "time": 26.4,
+      "leave": 54.5,
+      "type": "pepper",
+      "x": 0.5,
+      "y": 0.9
+    }
+  ],
+  "l1": [
     {
       "time": 0.3,
       "leave": 11.3,
@@ -91,16 +178,4 @@
       "x": 0.6
     }
   ],
-  "l1": [
-    {
-      "time": 1,
-      "type": "minion",
-      "x": 0.25
-    },
-    {
-      "time": 1.5,
-      "type": "minion",
-      "x": 0.75
-    }
-  ]
 }

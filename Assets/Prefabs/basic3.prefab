@@ -143,10 +143,9 @@ MonoBehaviour:
   accel: 0.9
   maxHP: 300
   type: 0
-  lightningPrefab: {fileID: 1562435578132352, guid: 367f07ff7247d184f8b89b9239faba50,
-    type: 2}
-  combineLocation: {fileID: 0}
   leave: 0
+  goalPos: {x: 0, y: 0, z: 0}
+  reachGoalTime: 0.2
 --- !u!114 &114479558746347050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behavior:
     behavior: {fileID: 4900000, guid: eb011e9a348b11f4ea5ad11627adbf35, type: 3}
-    bulletPrefab: {fileID: 1371641849877342, guid: 72633a6ee54106947a00166027c80f73,
+    bulletPrefab: {fileID: 1577445791541076, guid: 162c0213ec98b4c4d95d7fb1948a6b3f,
       type: 2}
     numberOfSets: 0
     reverseSpin: 0

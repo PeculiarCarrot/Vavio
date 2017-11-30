@@ -150,14 +150,14 @@ public class BulletBehaviorController : MonoBehaviour {
 
 			if(initialDelayTimer < initialDelay)
 			{
-				initialDelayTimer += 1 / 60f;
+				initialDelayTimer += Stage.deltaTime;
 			}
 			else
 			{
 				if(secondsToPause != 0)
 				{
 					if(pauseTimer < secondsToFire)
-						pauseTimer += 1 / 60f;
+						pauseTimer += Stage.deltaTime;
 					else
 					{
 						pauseTimer = -secondsToPause;
@@ -169,7 +169,7 @@ public class BulletBehaviorController : MonoBehaviour {
 					anglePerSet = numberOfSets > 1 ? (currentSpread / (numberOfSets - 1)) : 0;
 					setOffset = anglePerSet / 2;
 					if(bulletFireTimer < secondsPerBullet)
-						bulletFireTimer += 1 / 60f;
+						bulletFireTimer += Stage.deltaTime;
 					else
 					{
 						bulletFireTimer = 0;

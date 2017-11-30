@@ -31,6 +31,9 @@ public class EnemySpawner : MonoBehaviour {
 	public void BeginLevel(int level)
 	{
 		spawns = AllLevelData.FromJSON(new JSONObject(spawnData.text), level);
+		stage.GetComponent<AudioSource>().clip = stage.songs[level];
+		//stage.GetComponent<AudioSource>().time = 24f;
+		stage.GetComponent<AudioSource>().Play();
 		spawns.Begin(this);
 	}
 
@@ -45,13 +48,13 @@ public class EnemySpawner : MonoBehaviour {
 
 			Vector3 pos = goalPos;
 			if(data.from == "left")
-				pos.x = stage.minX;
+				pos.x = stage.minX - 1;
 			else if(data.from == "right")
-				pos.x = stage.maxX;
+				pos.x = stage.maxX + 1;
 			else if(data.from == "down")
-				pos.y = stage.minY;
+				pos.y = stage.minY - 1;
 			else if(data.from == "up")
-				pos.y = stage.maxY;
+				pos.y = stage.maxY + 1;
 
 			GameObject e = Instantiate(prefab, pos, Quaternion.Euler(new Vector3(prefab.transform.eulerAngles.x, prefab.transform.eulerAngles.x, prefab.transform.eulerAngles.z + data.rotation)));
 			e.GetComponent<Enemy>().leave = data.leave;

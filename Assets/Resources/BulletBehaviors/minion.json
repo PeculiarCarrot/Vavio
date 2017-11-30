@@ -5,16 +5,13 @@
   "spreadMax": 120,
   "spreadMin": 20,
   "secondsPerSpreadPulse": 1,
-  "bulletsPerSecond": 10,
+  "bulletsPerSecond": 4.66666,
   "bulletSpeed": 10,
-  "bulletSpeedMultiplier": 0.6,
   "bulletLifetime": 6,
   "spinSpeed": 0,
   "maxSpinSpeed": 0,
   "spinAcceleration": 0,
   "reverseSpin": true,
   "reverseSpinSpeed": 0.99,
-  "secondsToFire": 1,
-  "secondsToPause": 1,
-  "initialDelay": 1
+  "initialDelay": 0
 }
