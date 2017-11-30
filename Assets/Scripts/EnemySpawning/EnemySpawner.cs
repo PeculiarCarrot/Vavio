@@ -2,19 +2,64 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class EnemySpawner : MonoBehaviour {
 
-	public GameObject[] enemy;
-	public bool enabled = true;
+	[System.Serializable]
+	public struct NamedEnemy
+	{
+		public string name;
+		public GameObject prefab;
+	}
+
+	public TextAsset spawnData;
+
+	public NamedEnemy[] enemy;
+
+	private int level = 0;
+	private LevelSpawnData spawns;
+
+	private float spawnRate = 0.004f;
+	public bool spawningEnabled = true;
 	private Stage stage;
-	private float spawnRate = .04f;
-	private float timeUntilCombine = 1f;
 	private List<GameObject> liveEnemies = new List<GameObject>();
 	private Vector3 nullVector = new Vector3(12345.123f, 12345.123f);
 
 	// Use this for initialization
 	void Start () {
 		stage = GameObject.Find("Stage").GetComponent<Stage>();
+		BeginLevel(level);
+	}
+
+	public void BeginLevel(int level)
+	{
+		spawns = AllLevelData.FromJSON(new JSONObject(spawnData.text), level);
+		spawns.Begin(this);
+	}
+
+	public void SpawnEnemy(string type, float x)
+	{
+		Debug.Log(type);
+		GameObject prefab = GetEnemyFromName(type);
+		if(prefab != null)
+		{
+			Vector3 pos = Vector3.zero;
+			pos.x = stage.minX + stage.width * x;
+			pos.y = stage.maxY + 2;
+			Instantiate(prefab, pos, prefab.transform.rotation);
+		}
+		else
+		{
+			Debug.LogError("No enemy type exists: " + type);
+		}
+	}
+
+	public GameObject GetEnemyFromName(string name)
+	{
+		foreach(NamedEnemy e in enemy)
+			if(e.name == name)
+				return e.prefab;
+		return null;
 	}
 
 	public List<GameObject> GetLiveEnemies()
@@ -24,23 +69,24 @@ public class EnemySpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(enabled)
+		if(spawningEnabled)
 		{
-			if(Random.value < spawnRate)
-				SpawnEnemy();
-			spawnRate += .000001f;
-			timeUntilCombine -= Time.deltaTime;
+			spawns.Update();
+			//if(Random.value < spawnRate)
+			//	SpawnEnemy();
+			//spawnRate += .000001f;
+			//timeUntilCombine -= Time.deltaTime;
 			//if(timeUntilCombine <= 0)
 			//	Combine();
 		}
 	}
 
-	private GameObject GetNewEnemy()
+	private NamedEnemy GetNewEnemy()
 	{
 		return enemy[Random.Range(0, enemy.Length)];
 	}
 
-	private void Combine()
+	/*private void Combine()
 	{
 		Vector3 spawn = TryGetSpawnLocation();
 		if(spawn == nullVector)
@@ -61,15 +107,15 @@ public class EnemySpawner : MonoBehaviour {
 		liveEnemies.Add(ship1);
 		liveEnemies.Add(ship2);
 		timeUntilCombine = 6;
-	}
+	}*/
 
 	private void SpawnEnemy()
 	{
 		Vector3 spawn = TryGetSpawnLocation();
 		if(spawn == nullVector)
 			return;
-		GameObject enemy = GetNewEnemy();
-		liveEnemies.Add(Object.Instantiate(enemy, spawn, enemy.transform.rotation));
+		NamedEnemy enemy = GetNewEnemy();
+		liveEnemies.Add(Object.Instantiate(enemy.prefab, spawn, enemy.prefab.transform.rotation));
 	}
 
 	private Vector3 TryGetSpawnLocation()

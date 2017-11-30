@@ -1,0 +1,31 @@
+{
+  "l0": [
+    {
+      "time": 1,
+      "type": "minion",
+      "x": 0.25
+    },
+    {
+      "time": 1.5,
+      "type": "homing",
+      "x": 0.75
+    },
+    {
+      "time": 3.5,
+      "type": "minion",
+      "x": 0.5
+    }
+  ],
+  "l1": [
+    {
+      "time": 1,
+      "type": "minion",
+      "x": 0.25
+    },
+    {
+      "time": 1.5,
+      "type": "minion",
+      "x": 0.75
+    }
+  ]
+}

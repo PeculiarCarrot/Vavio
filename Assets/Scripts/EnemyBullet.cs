@@ -11,11 +11,9 @@ public class EnemyBullet : Bullet {
 
 	public float damage = 20;
 	public BulletType type;
-	float speed = 5;
-	float spread = 0f;
-	private float accel = .03f;
-	private float fric = .97f;
+	private float fric = .98f;
 	GameObject target;
+	private float turnVelocity;
 
 	public void SetAngleOffset(float angleOffset)
 	{
@@ -37,14 +35,14 @@ public class EnemyBullet : Bullet {
 			case BulletType.Homing:
 			if(target != null)
 			{
-				float speed = .1f;
+				float speed = 3f;
 				float dx = target.transform.position.x - transform.position.x;
 				float dy = target.transform.position.y - transform.position.y;
 				float a = Mathf.Atan2(dy, dx) + Mathf.PI / 2;
-				 velocity.x += speed * Mathf.Sin(a);
-				 velocity.y += -speed * Mathf.Cos(a);
-				 //velocity.x = Mathf.Min(-1f, velocity.x);
-				 transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg + 90);
+				 transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.SmoothDampAngle(transform.eulerAngles.z, a * Mathf.Rad2Deg, ref turnVelocity, 1f));
+				 velocity.x = speed * Mathf.Sin(Mathf.Deg2Rad * transform.rotation.eulerAngles.z);
+				 velocity.y = -speed * Mathf.Cos(Mathf.Deg2Rad * transform.rotation.eulerAngles.z);
+				 velocity *= fric;
 			}
 			break;
 			default:
@@ -59,7 +57,7 @@ public class EnemyBullet : Bullet {
 		return damage;
 	}
 
-	public void Die()
+	public new void OnDie()
 	{
 		Destroy(gameObject);
 	}

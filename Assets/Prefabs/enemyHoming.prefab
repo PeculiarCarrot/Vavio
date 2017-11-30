@@ -84,7 +84,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1871554398395456}
-  m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
+  m_LocalRotation: {x: 0.7071065, y: 0.7071071, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.11}
   m_LocalScale: {x: 0.39295435, y: 0.39295435, z: 0.39295435}
   m_Children:
@@ -92,7 +92,7 @@ Transform:
   - {fileID: 4073292044746782}
   m_Father: {fileID: 4189861467197150}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 90.00001}
 --- !u!4 &4073292044746782
 Transform:
   m_ObjectHideFlags: 1
@@ -112,14 +112,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1063114291188132}
-  m_LocalRotation: {x: -0, y: -0, z: 0.70710677, w: 0.7071068}
-  m_LocalPosition: {x: -5.407312, y: -0.36465675, z: 10.086}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.144565, y: -1.2419612, z: 0}
   m_LocalScale: {x: 0.5397467, y: 0.5397467, z: 0.5397467}
   m_Children:
   - {fileID: 4035200731556376}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4635163584396532
 Transform:
   m_ObjectHideFlags: 1
@@ -197,8 +197,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.35, y: 0.81, z: 0.512019}
-  m_Center: {x: 0.00054454803, y: -0.00000047683716, z: -0.29100952}
+  m_Size: {x: 0.9055102, y: 1.5352178, z: 0.51201886}
+  m_Center: {x: 0.012241444, y: -0.011696855, z: -0.2910095}
 --- !u!95 &95937334762282118
 Animator:
   serializedVersion: 3
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   behavior:
-    behavior: {fileID: 4900000, guid: 81796d4bcea9db348810639715ff9e68, type: 3}
+    behavior: {fileID: 4900000, guid: 7ffc6af930004a94596f3262399b680d, type: 3}
     bulletPrefab: {fileID: 1371641849877342, guid: 72633a6ee54106947a00166027c80f73,
       type: 2}
     numberOfSets: 0

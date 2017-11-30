@@ -57,10 +57,6 @@ GameObject:
   - component: {fileID: 65751641079691880}
   - component: {fileID: 65581121599791624}
   - component: {fileID: 114075250795716774}
-  - component: {fileID: 114176566746944978}
-  - component: {fileID: 114379555436897554}
-  - component: {fileID: 114689388138305476}
-  - component: {fileID: 114177545322351386}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -75,8 +71,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1519782565139170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1929853, y: -0.3321734, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.914584, y: -0.8833336, z: 0}
+  m_LocalScale: {x: 2.0063076, y: 2.0063057, z: 2.0063057}
   m_Children:
   - {fileID: 4186835941821106}
   m_Father: {fileID: 0}
@@ -174,7 +170,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.7228438, y: 0.26406792, z: 0.52000004}
-  m_Center: {x: 0.017038552, y: 0.15398672, z: -0.21000001}
+  m_Center: {x: -0, y: 0.15398672, z: -0.21000001}
 --- !u!65 &65751641079691880
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -237,148 +233,8 @@ MonoBehaviour:
     secondsToFire: 0
     secondsToPause: 0
     initialDelay: 0
-  x: -0.44
-  y: 0
---- !u!114 &114176566746944978
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1519782565139170}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7c9139f61b25444f8577fa27c040b13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  behavior:
-    behavior: {fileID: 4900000, guid: 18248d353cf1536469f2d6b024b3b044, type: 3}
-    bulletPrefab: {fileID: 1577445791541076, guid: 162c0213ec98b4c4d95d7fb1948a6b3f,
-      type: 2}
-    numberOfSets: 0
-    reverseSpin: 0
-    angle: 0
-    spread: 0
-    spreadMin: 0
-    spreadMax: 0
-    secondsPerSpreadPulse: 0
-    bulletsPerSecond: 0
-    bulletSpeed: 0
-    bulletSpeedMultiplier: 0
-    bulletLifetime: 0
-    spinSpeed: 0
-    maxSpinSpeed: 0
-    spinAcceleration: 0
-    reverseSpinSpeed: 0.8
-    secondsToFire: 0
-    secondsToPause: 0
-    initialDelay: 0
   x: 0
-  y: 0.44
---- !u!114 &114177545322351386
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1519782565139170}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7c9139f61b25444f8577fa27c040b13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  behavior:
-    behavior: {fileID: 4900000, guid: f3dceccc115c94f49899e084731a7126, type: 3}
-    bulletPrefab: {fileID: 1371641849877342, guid: 72633a6ee54106947a00166027c80f73,
-      type: 2}
-    numberOfSets: 0
-    reverseSpin: 0
-    angle: 0
-    spread: 0
-    spreadMin: 0
-    spreadMax: 0
-    secondsPerSpreadPulse: 0
-    bulletsPerSecond: 0
-    bulletSpeed: 0
-    bulletSpeedMultiplier: 0
-    bulletLifetime: 0
-    spinSpeed: 0
-    maxSpinSpeed: 0
-    spinAcceleration: 0
-    reverseSpinSpeed: 0.8
-    secondsToFire: 0
-    secondsToPause: 0
-    initialDelay: 0
-  x: 0
-  y: 0.44
---- !u!114 &114379555436897554
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1519782565139170}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7c9139f61b25444f8577fa27c040b13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  behavior:
-    behavior: {fileID: 4900000, guid: 5bace354fa9152e4bb9977e9834675c5, type: 3}
-    bulletPrefab: {fileID: 1577445791541076, guid: 162c0213ec98b4c4d95d7fb1948a6b3f,
-      type: 2}
-    numberOfSets: 0
-    reverseSpin: 0
-    angle: 0
-    spread: 0
-    spreadMin: 0
-    spreadMax: 0
-    secondsPerSpreadPulse: 0
-    bulletsPerSecond: 0
-    bulletSpeed: 0
-    bulletSpeedMultiplier: 0
-    bulletLifetime: 0
-    spinSpeed: 0
-    maxSpinSpeed: 0
-    spinAcceleration: 0
-    reverseSpinSpeed: 0
-    secondsToFire: 0
-    secondsToPause: 0
-    initialDelay: 0
-  x: 0
-  y: 0.44
---- !u!114 &114689388138305476
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1519782565139170}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7c9139f61b25444f8577fa27c040b13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  behavior:
-    behavior: {fileID: 4900000, guid: 7ffc6af930004a94596f3262399b680d, type: 3}
-    bulletPrefab: {fileID: 1577445791541076, guid: 162c0213ec98b4c4d95d7fb1948a6b3f,
-      type: 2}
-    numberOfSets: 0
-    reverseSpin: 0
-    angle: 0
-    spread: 0
-    spreadMin: 0
-    spreadMax: 0
-    secondsPerSpreadPulse: 0
-    bulletsPerSecond: 0
-    bulletSpeed: 0
-    bulletSpeedMultiplier: 0
-    bulletLifetime: 0
-    spinSpeed: 0
-    maxSpinSpeed: 0
-    spinAcceleration: 0
-    reverseSpinSpeed: 0
-    secondsToFire: 0
-    secondsToPause: 0
-    initialDelay: 0
-  x: 0
-  y: 0.44
+  y: -0.37
 --- !u!114 &114935664661529678
 MonoBehaviour:
   m_ObjectHideFlags: 1

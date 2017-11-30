@@ -12,7 +12,6 @@ public class PlayerBullet : Bullet {
 	
 	public float damage = 20;
 	public BulletType type;
-	private float accel = .03f;
 	private float fric = .99f;
 	private GameObject target;
 
@@ -81,7 +80,7 @@ public class PlayerBullet : Bullet {
 		return damage;
 	}
 
-	public void Die()
+	public new void OnDie()
 	{
 		Destroy(gameObject);
 	}

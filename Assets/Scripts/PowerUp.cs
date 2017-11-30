@@ -33,16 +33,12 @@ public class PowerUp : MonoBehaviour {
 		{
 			case PowerUpType.TripleShot:
 				return 10f;
-			break;
 			case PowerUpType.FastShot:
 				return 10f;
-			break;
 			case PowerUpType.HomingShot:
 				return 10f;
-			break;
 			default:
 				return 10f;
-			break;
 		}
 	}
 

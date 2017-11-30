@@ -7,7 +7,7 @@ public class Stage : MonoBehaviour {
 	public GameObject player;
 	public GameObject spawner;
 	[HideInInspector]
-	public float minX, minY, maxX, maxY;
+	public float minX, minY, maxX, maxY, width, height;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +17,9 @@ public class Stage : MonoBehaviour {
 		maxY = max.y;
 		minX = min.x;
 		minY = min.y;
+		width = maxX - minX;
+		height = maxY - minY;
+		Debug.Log(minX+", "+minY +" - "+maxX+", "+maxY);
 	}
 	
 	// Update is called once per frame

@@ -82,7 +82,6 @@ public class Player : Ship {
 	public void Update () {
 		Cursor.visible = false;
 		DoUpdate();
-
 		if(currentPowerUp != PowerUp.PowerUpType.None)
 		{
 			remainingPowerUpDuration -= Time.deltaTime;

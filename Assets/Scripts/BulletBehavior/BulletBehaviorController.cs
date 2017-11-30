@@ -22,6 +22,12 @@ public class BulletBehaviorController : MonoBehaviour {
 			Debug.LogError("The bullet prefab must have a Bullet component attached!");
 		}
 	}
+
+	public void SetPos(float x, float y)
+	{
+		this.x = x;
+		this.y = y;
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -33,7 +39,8 @@ public class BulletBehaviorController : MonoBehaviour {
 	{
 		rotatedPos = new Vector3(x, y, 0);
 		float r = -gameObject.transform.rotation.eulerAngles.z * Mathf.Deg2Rad;
-		rotatedPos = new Vector3(rotatedPos.x * Mathf.Sin(r) + rotatedPos.y * Mathf.Cos(r), rotatedPos.x * Mathf.Cos(r) - rotatedPos.y * Mathf.Sin(r), 0);
+		rotatedPos = new Vector3(rotatedPos.x * Mathf.Cos(r) - rotatedPos.y * Mathf.Sin(r), rotatedPos.x * Mathf.Sin(r) + rotatedPos.y * Mathf.Cos(r), 0);
+		rotatedPos = Vector3.Scale(rotatedPos, gameObject.transform.localScale);
 	}
 
 	void OnDrawGizmosSelected() {
@@ -185,7 +192,6 @@ public class BulletBehaviorController : MonoBehaviour {
 		{
 			GameObject b = SpawnBullet();
 			float bAngle = currentAngle + i * anglePerSet + setOffset + b.transform.rotation.eulerAngles.z;
-			Debug.Log(controller.gameObject + " - " + bAngle);
 			b.transform.rotation = Quaternion.Euler(0, 0, bAngle);
 			BulletBase bullet = b.GetComponent<BulletBase>();
 			bullet.velocity.x = (bulletSpeed * Mathf.Sin(Mathf.Deg2Rad * bAngle));
