@@ -1,7 +1,7 @@
 {
-  "angle": 0,
+  "angle": -90,
   "spinSpeed": 30,
-  "bulletsPerSecond": 0.5,
+  "bulletsPerSecond": 1,
   "bulletSpeed": 2,
   "bulletLifetime": 20
 }

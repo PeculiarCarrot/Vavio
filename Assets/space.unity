@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.046652384, g: 0.022940494, b: 0.068227805, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -149,6 +149,8 @@ MonoBehaviour:
     prefab: {fileID: 1416482367453358, guid: 0b4791a2a9aa07742994d817001dd47a, type: 2}
   - name: basic2
     prefab: {fileID: 1331925139387466, guid: 9584c610bfba2234f9b8981eb4bb3833, type: 2}
+  - name: basic3
+    prefab: {fileID: 1079808692666654, guid: 8e51e1ec8aed7f048aeebe8688f62b33, type: 2}
   - name: homing
     prefab: {fileID: 1063114291188132, guid: fa47ace42156d534094644ac0dc19da9, type: 2}
   spawningEnabled: 1

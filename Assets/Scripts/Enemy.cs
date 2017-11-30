@@ -10,16 +10,10 @@ public class Enemy : Ship {
 	}
 
 	public EnemyType type;
-	public GameObject lightningPrefab;
 
-	public GameObject combineLocation;
-	private GameObject partner;
-	private bool combining;
 	private Quaternion goalRotation, startRotation;
 	private Vector3 goalPos, startPos;
 	int dir = 0;
-	private float combinePercent, combineSpeed;
-	GameObject myLightning;
 	[HideInInspector]
 	public float leave;
 	private AudioSource song;
@@ -40,77 +34,24 @@ public class Enemy : Ship {
 
 	public bool IsInvincible()
 	{
-		return combinePercent != 0;
+		return false;
 	}
 
 	// Update is called once per frame
 	public void FixedUpdate () {
 		DoUpdate();
-		if(combining && transform.position.x < stage.GetComponent<Stage>().maxX - 4)
-		{	
-			if(partner != null)
-			{
-				if(combinePercent == 0)
-				{
-					startPos = transform.position;
-					startRotation = transform.rotation;
-					goalPos = Vector3.Lerp(partner.GetComponent<Enemy>().combineLocation.transform.position, combineLocation.transform.position, 0.5f);
-					goalPos.x = transform.position.x;
-					goalRotation = Quaternion.Euler(partner.transform.position.y > transform.position.y ? -90 : 90, 180, 180);
-					combineSpeed = Mathf.Min(1 / (Vector3.Distance(transform.position, partner.transform.position) * .3f), 1);
-					myLightning = Object.Instantiate(lightningPrefab);
-				}
-				float increment = (1/60f) * combineSpeed;
-				combinePercent += increment;
-				if(combinePercent != increment)
-				{
-					if(combinePercent > 1)
-						combinePercent = 1;
-					
-					transform.rotation = Quaternion.Slerp(startRotation, goalRotation, combinePercent);
-					transform.position = Vector3.Lerp(startPos, goalPos, combinePercent);
-					if(combinePercent >= 1)
-					{
-						baseRot = transform.rotation.eulerAngles;
-						combining = false;
-						combinePercent = 0;
-						if(partner.GetComponent<Enemy>().combining)
-						{
-							maxHP = (hp + partner.GetComponent<Enemy>().hp) * 1.5f;
-							partner.GetComponent<Enemy>().maxHP = maxHP;
-							partner.GetComponent<Enemy>().hp = hp;
-						}
-						hp = maxHP;
-						accel *= .75f;
-						Destroy(myLightning);
-					}
-				}
-			}
-			else
-			{
-				combining = false;
-			}
-		}
-		//else
-		//	MoveLeft();
 
-		if(myLightning != null && partner != null)
-			myLightning.GetComponent<Lightning>().SetPoints(transform.position, partner.transform.position);
-		//if(Random.value < .05)
-			//NewDirection();
-		//if(CanShoot())
-		//	Shoot();
-
-		velocity.y += (accel / 4f) * dir;
+		//velocity.y += (accel / 4f) * dir;
 		rotSpeed += rotAccel * dir;
 		if(transform.position.x < stage.GetComponent<Stage>().minX - 3)
 			Destroy(gameObject);
+
 		if(song.time >= leave)
 			Leave();
 		if(hp <= 0)
 			Die();
 		if(leaving)
-			hp -= 3;
+			hp -= 1;
 	}
 
 	public void Leave()
@@ -130,8 +71,6 @@ public class Enemy : Ship {
 		if(!IsInvincible())
 		{
 			hp -= damage;
-			if(partner != null && !combining)
-				partner.GetComponent<Enemy>().hp -= damage;
 		}
 	}
 	
@@ -139,20 +78,10 @@ public class Enemy : Ship {
 	public new void DoUpdate () {
 		velocity *= friction;
 		rotSpeed *= rotFric;
-		if(combinePercent == 0)
-		{
-			transform.position += velocity * Time.deltaTime;
-			transform.eulerAngles = baseRot + new Vector3(rotSpeed * Time.deltaTime, 0, 0);
-		}
+		transform.position += velocity * Time.deltaTime;
+		transform.eulerAngles = baseRot + new Vector3(rotSpeed * Time.deltaTime, 0, 0);
 		if(hp <= 0)
 			Die();
-	}
-
-	public void Combine(GameObject partner)
-	{
-		combinePercent = 0;
-		combining = true;
-		this.partner = partner;
 	}
 
 	void OnTriggerEnter (Collider col)
@@ -161,8 +90,7 @@ public class Enemy : Ship {
         if(bullet != null)
         {
             bullet.Die();
-    		if(combinePercent == 0)
-            	GetHurt(bullet.GetDamage());
+            GetHurt(bullet.GetDamage());
             return;
         }
     }
