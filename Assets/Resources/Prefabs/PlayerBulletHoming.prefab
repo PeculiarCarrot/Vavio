@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 40, y: 0, z: 0}
-  damage: 20
+  damage: 30
   type: 1
 --- !u!136 &136032543801787782
 CapsuleCollider:

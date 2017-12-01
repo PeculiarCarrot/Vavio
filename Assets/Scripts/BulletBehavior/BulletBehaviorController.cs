@@ -134,7 +134,7 @@ public class BulletBehaviorController : MonoBehaviour {
 				goalSpread = Mathf.Abs(currentSpread - spreadMax) < Mathf.Abs(currentSpread - spreadMin) ? spreadMin : spreadMax;
 			}
 
-			currentAngle += currentSpinSpeed * (1 / 60f);
+			currentAngle += currentSpinSpeed * Stage.deltaTime;
 			currentSpinSpeed += spinAcceleration * (spinningClockwise ? -1 : 1);
 			if(reverseSpin)
 			{
@@ -166,7 +166,7 @@ public class BulletBehaviorController : MonoBehaviour {
 				}
 				if(secondsToPause == 0 || pauseTimer > 0)
 				{
-					anglePerSet = numberOfSets > 1 ? (currentSpread / (numberOfSets - 1)) : 0;
+					anglePerSet = numberOfSets > 1 ? (currentSpread / (numberOfSets)) : 0;
 					setOffset = anglePerSet / 2;
 					if(bulletFireTimer < secondsPerBullet)
 						bulletFireTimer += Stage.deltaTime;
@@ -184,8 +184,12 @@ public class BulletBehaviorController : MonoBehaviour {
 			if(numberOfSets == 1)
 				FireBullet(0);
 			else
+			{
 				for(float i = -numberOfSets / 2f; i < numberOfSets / 2f; i++)
+				{
 					FireBullet(i);
+				}
+			}
 		}
 
 		private void FireBullet(float i)

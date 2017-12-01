@@ -7,6 +7,7 @@ public class EnemySpawnData {
 	public float time, leave, reachGoalTime = .2f;
 	public float x = float.MaxValue, y = float.MaxValue, rotation;
 	public string type, from = "up";
+	public bool invul;
 
 	public static EnemySpawnData FromJSON(JSONObject o)
 	{
@@ -40,6 +41,9 @@ public class EnemySpawnData {
 				break;
 				case "from":
 					esd.from = (string)j.str;
+				break;
+				case "invul":
+					esd.invul = (bool)j.b;
 				break;
 			}
 		}

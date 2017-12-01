@@ -39,7 +39,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4529286592538602}
   - component: {fileID: 33712837063233104}
-  - component: {fileID: 135850370967761450}
   - component: {fileID: 23829465902013030}
   m_Layer: 0
   m_Name: Sphere
@@ -143,10 +142,9 @@ MonoBehaviour:
   accel: 0.9
   maxHP: 300
   type: 0
-  lightningPrefab: {fileID: 1562435578132352, guid: 367f07ff7247d184f8b89b9239faba50,
-    type: 2}
-  combineLocation: {fileID: 0}
   leave: 0
+  reachGoalTime: 0.2
+  invul: 0
 --- !u!114 &114608257276874188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,19 +187,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416482367453358}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135850370967761450
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1767956452605536}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

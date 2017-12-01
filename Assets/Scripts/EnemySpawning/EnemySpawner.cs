@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class EnemySpawner : MonoBehaviour {
@@ -23,7 +24,8 @@ public class EnemySpawner : MonoBehaviour {
 	public Stage stage;
 	private List<GameObject> liveEnemies = new List<GameObject>();
 
-	void Start () {
+	void Start()
+	{
 		stage = GameObject.Find("Stage").GetComponent<Stage>();
 		BeginLevel(level);
 	}
@@ -32,7 +34,7 @@ public class EnemySpawner : MonoBehaviour {
 	{
 		spawns = AllLevelData.FromJSON(new JSONObject(spawnData.text), level);
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
-		//stage.GetComponent<AudioSource>().time = 24f;
+		stage.GetComponent<AudioSource>().time = 0;
 		stage.GetComponent<AudioSource>().Play();
 		spawns.Begin(this);
 	}
@@ -59,7 +61,8 @@ public class EnemySpawner : MonoBehaviour {
 			GameObject e = Instantiate(prefab, pos, Quaternion.Euler(new Vector3(prefab.transform.eulerAngles.x, prefab.transform.eulerAngles.x, prefab.transform.eulerAngles.z + data.rotation)));
 			e.GetComponent<Enemy>().leave = data.leave;
 			e.GetComponent<Enemy>().reachGoalTime = data.reachGoalTime;
-			e.GetComponent<Enemy>().goalPos = goalPos;
+			e.GetComponent<Enemy>().invul = data.invul;
+			e.GetComponent<Enemy>().SetGoalPos(goalPos);
 			liveEnemies.Add(e);
 		}
 		else

@@ -1,0 +1,17 @@
+{
+  "angle": 0,
+  "numberOfSets": 4,
+  "spread": 90,
+  "spreadMax": 120,
+  "spreadMin": 20,
+  "secondsPerSpreadPulse": 1,
+  "bulletsPerSecond": 4.934,
+  "bulletSpeed": 4,
+  "bulletLifetime": 6,
+  "spinSpeed": 0,
+  "maxSpinSpeed": 0,
+  "spinAcceleration": 0,
+  "reverseSpin": true,
+  "reverseSpinSpeed": 0.99,
+  "initialDelay": 0
+}

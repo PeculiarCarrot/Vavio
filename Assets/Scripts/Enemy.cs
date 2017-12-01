@@ -16,11 +16,14 @@ public class Enemy : Ship {
 	public float leave;
 	private AudioSource song;
 	private bool leaving;
-	public Vector3 goalPos;
-	private bool reachedGoal = false;
+	[HideInInspector]
+	private Vector3 goalPos;
+	private bool reachedGoal = true;
+	[HideInInspector]
 	public float reachGoalTime = .2f;
 	private Vector3 goalVelocity = Vector3.zero;
 	private Vector3 startPos;
+	public bool invul;
 
 	// Use this for initialization
 	public override void DoStart () {
@@ -30,15 +33,22 @@ public class Enemy : Ship {
 		startPos = transform.position;
 	}
 
+	public void SetGoalPos(Vector3 pos)
+	{
+		goalPos = pos;
+		reachedGoal = false;
+	}
+
 	// Use this for initialization
 	public void Awake () {
 		accel = .08f;
 		friction = .86f;
+		leave = 9999;
 	}
 
 	public bool IsInvincible()
 	{
-		return false;
+		return invul || (!reachedGoal && !leaving);
 	}
 
 	// Update is called once per frame
@@ -58,8 +68,7 @@ public class Enemy : Ship {
 		}
 		//velocity.y += (accel / 4f) * dir;
 		rotSpeed += rotAccel * dir;
-
-		if(song.time >= leave)
+		if(Stage.time >= leave && !leaving)
 			Leave();
 		if(hp <= 0)
 			Die();

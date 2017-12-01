@@ -98,8 +98,8 @@ public class Player : Ship {
 			if(flickerTimer < - flickerDuration)
 				flickerTimer = flickerDuration;
 			mesh.GetComponent<Renderer>().enabled = invincibilityDuration <= 0 || flickerTimer < 0;
-			core.GetComponent<Renderer>().enabled = invincibilityDuration <= 0 || flickerTimer < 0;
-		}		Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		}
+		Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         target.z = transform.position.z;
        /* Vector3 newRot = transform.rotation.eulerAngles;
         newRot.y -= rotAccel * (target.x - transform.position.x);

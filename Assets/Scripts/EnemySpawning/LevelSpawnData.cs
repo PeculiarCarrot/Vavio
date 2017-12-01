@@ -5,7 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class LevelSpawnData {
 
-	private float beginTime;
 	private EnemySpawner spawner;
 	public List<EnemySpawnData> enemySpawnData;
 
@@ -24,19 +23,18 @@ public class LevelSpawnData {
 	public void Begin(EnemySpawner spawner)
 	{
 		this.spawner = spawner;
-		beginTime = Time.time;
 	}
 
 	public void Update()
 	{
-		float t = spawner.stage.GetComponent<AudioSource>().time;
+		float t = Stage.time;
 		for(int i = enemySpawnData.Count - 1; i >= 0; i--)
 		{
 			EnemySpawnData esd = enemySpawnData[i];
-			if(esd.time + beginTime < t)
+			if(esd.time < t)
 			{
 				enemySpawnData.RemoveAt(i);
-				if(Mathf.Abs(esd.time + beginTime - t) < 1f)
+				if(Mathf.Abs(esd.time - t) < 1f)
 					spawner.SpawnEnemy(esd);
 			}
 		}

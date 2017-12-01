@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour {
 
-	public static float deltaTime;
+	public static float deltaTime, time;
+	private float lastTime;
 
 	public GameObject player;
 	public GameObject spawner;
@@ -12,7 +13,6 @@ public class Stage : MonoBehaviour {
 	public float minX, minY, maxX, maxY, width, height;
 	public AudioClip[] songs;
 	private AudioSource song;
-	private float lastTime;
 
 	// Use this for initialization
 	void Start () {
@@ -25,12 +25,20 @@ public class Stage : MonoBehaviour {
 		width = maxX - minX;
 		height = maxY - minY;
 		song = GetComponent<AudioSource>();
+		deltaTime = 0;
+		time = 0;
+		lastTime = 0;
 		//Debug.Log(minX+", "+minY +" - "+maxX+", "+maxY);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		deltaTime = song.time - lastTime;
-		lastTime = song.time;
+		//Debug.Log(time);
+		time = (float)song.timeSamples/song.clip.frequency;
+		deltaTime = time - lastTime;
+		lastTime = time;
+		 if(Input.GetKeyDown(KeyCode.Escape)){
+		 	Application.Quit();
+		 }
 	}
 }

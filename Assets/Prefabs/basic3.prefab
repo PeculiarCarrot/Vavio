@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   accel: 0.9
-  maxHP: 300
+  maxHP: 500
   type: 0
   leave: 0
   goalPos: {x: 0, y: 0, z: 0}
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behavior:
     behavior: {fileID: 4900000, guid: eb011e9a348b11f4ea5ad11627adbf35, type: 3}
-    bulletPrefab: {fileID: 1577445791541076, guid: 162c0213ec98b4c4d95d7fb1948a6b3f,
+    bulletPrefab: {fileID: 1371641849877342, guid: 72633a6ee54106947a00166027c80f73,
       type: 2}
     numberOfSets: 0
     reverseSpin: 0
