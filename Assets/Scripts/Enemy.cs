@@ -6,7 +6,9 @@ public class Enemy : Ship {
 
 	public enum EnemyType {
 		Minion,
-		Homing
+		Homing,
+		Laser,
+		LaserWarning
 	}
 
 	public EnemyType type;
@@ -37,6 +39,8 @@ public class Enemy : Ship {
 	{
 		goalPos = pos;
 		reachedGoal = false;
+		if(type == EnemyType.LaserWarning || type == EnemyType.Laser)
+			transform.position = goalPos;
 	}
 
 	// Use this for initialization
@@ -48,7 +52,7 @@ public class Enemy : Ship {
 
 	public bool IsInvincible()
 	{
-		return invul || (!reachedGoal && !leaving);
+		return invul || (!reachedGoal && !leaving) || type == EnemyType.LaserWarning || type == EnemyType.Laser;
 	}
 
 	// Update is called once per frame
@@ -57,7 +61,9 @@ public class Enemy : Ship {
 
 		if(!reachedGoal)
 		{
-			transform.position = Vector3.SmoothDamp(transform.position, goalPos, ref velocity, reachGoalTime);
+		
+			if(type == EnemyType.LaserWarning || type == EnemyType.Laser)
+				transform.position = goalPos;	transform.position = Vector3.SmoothDamp(transform.position, goalPos, ref velocity, reachGoalTime);
 			if(Vector3.Distance(transform.position, goalPos) < .2f)
 			{
 				reachedGoal = true;
@@ -72,10 +78,26 @@ public class Enemy : Ship {
 			Leave();
 		if(hp <= 0)
 			Die();
+		if(type == EnemyType.LaserWarning)
+		{
+			Vector3 scale = transform.localScale;
+			scale.x += 2f * Stage.deltaTime;
+			transform.localScale = scale;
+		}
+		if(type == EnemyType.Laser)
+		{
+			Vector3 scale = transform.localScale;
+			scale.x *= .9f;
+			transform.localScale = scale;
+			if(scale.x < .15f)
+				Die();
+		}
 	}
 
 	public void Leave()
 	{
+		if(type == EnemyType.LaserWarning || type == EnemyType.Laser)
+			Die();
 		leaving = true;
 		reachedGoal = false;
 		goalPos = startPos;
@@ -92,6 +114,7 @@ public class Enemy : Ship {
 		if(!IsInvincible())
 		{
 			hp -= damage;
+			Flash();
 		}
 	}
 	
@@ -108,7 +131,7 @@ public class Enemy : Ship {
 	void OnTriggerEnter (Collider col)
     {
     	PlayerBullet bullet = col.gameObject.GetComponent<PlayerBullet>();
-        if(bullet != null)
+        if(bullet != null && !(type == EnemyType.LaserWarning || type == EnemyType.Laser))
         {
             bullet.Die();
             GetHurt(bullet.GetDamage());

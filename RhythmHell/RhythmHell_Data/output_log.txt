@@ -19,17 +19,6 @@ Platform assembly: C:\Users\aharm\Documents\Unity Projects\ShipShmup\RhythmHell\
 Loading C:\Users\aharm\Documents\Unity Projects\ShipShmup\RhythmHell\RhythmHell_Data\Managed\UnityEngine.Timeline.dll into Unity Child Domain
 Platform assembly: C:\Users\aharm\Documents\Unity Projects\ShipShmup\RhythmHell\RhythmHell_Data\Managed\System.dll (this message is harmless)
 Platform assembly: C:\Users\aharm\Documents\Unity Projects\ShipShmup\RhythmHell\RhythmHell_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.018 seconds
+- Completed reload, in  0.272 seconds
 <RI> Initializing input.
 <RI> Input initialized.
-<RI> Initialized touch support.
-UnloadTime: 0.822183 ms
-Setting up 2 worker threads for Enlighten.
-  Thread -> id: 36c -> priority: 1 
-  Thread -> id: 98 -> priority: 1 
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.733970 ms
-
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 510.
-Total: 0.226682 ms (FindLiveObjects: 0.044498 ms CreateObjectMapping: 0.022772 ms MarkObjects: 0.152605 ms  DeleteObjects: 0.005496 ms)
-

@@ -159,6 +159,10 @@ MonoBehaviour:
     prefab: {fileID: 1851103019144696, guid: 3ca6719f596f41241a3f3da649ac381d, type: 2}
   - name: fourwave
     prefab: {fileID: 1047115897955578, guid: d110762af4b25c24a8c1ddba6b3ab51b, type: 2}
+  - name: laser
+    prefab: {fileID: 1610798915423642, guid: dbdd4e24d1438f94db5bbe18dd5f1d4c, type: 2}
+  - name: laserWarning
+    prefab: {fileID: 1701090241566652, guid: dd098fbb4c291cb46bc890bd8f081c12, type: 2}
   spawningEnabled: 1
   stage: {fileID: 0}
 --- !u!4 &723507421
@@ -459,12 +463,24 @@ Prefab:
     - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
         type: 2}
       propertyPath: maxHP
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 65656693386631300, guid: a1d643d648358444aa0fd108b58bcec4,
         type: 2}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369263866553832, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.0556653
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369263866553832, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.0556654
+      objectReference: {fileID: 0}
+    - target: {fileID: 4369263866553832, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.0556654
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 23993043325985912, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
@@ -509,8 +525,8 @@ MonoBehaviour:
   width: 0
   height: 0
   songs:
-  - {fileID: 8300000, guid: 0f9c5713891c667429b566f37c020718, type: 3}
-  - {fileID: 8300000, guid: 2e6bc248eb50f5d498bb7321edd3b85f, type: 3}
+  - {fileID: 8300000, guid: 6e5260fa52327ea44a9ff090a5a3c495, type: 3}
+  - {fileID: 8300000, guid: 9a8dc4a4d97e0804980edc7c967aec46, type: 3}
 --- !u!4 &1828452934
 Transform:
   m_ObjectHideFlags: 0

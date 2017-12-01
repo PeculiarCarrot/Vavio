@@ -108,13 +108,13 @@
       "time": 63.4,
       "leave": 69.6,
       "type": "basic2",
-      "x": 0.333
+      "x": 0.1
     },
     {
       "time": 63.4,
       "leave": 69.6,
       "type": "basic2",
-      "x": 0.666
+      "x": 0.9
     },
     {
       "time": 70.2,
@@ -172,37 +172,28 @@
     },
     {
       "time": 83,
-      "leave": 97,
-      "type": "pepper",
-      "x": 0.5,
-      "invul": true
-    },
-    {
-      "time": 96.7,
       "leave": 111.1,
       "type": "pepper",
       "x": 0.5,
-      "y": 0.1,
-      "from": "down",
       "invul": true
     },
     {
       "time": 97.7,
       "leave": 111.1,
       "type": "basic",
-      "x": 0.25,
-      "y": 0.1,
-      "rotation": 180,
-      "from": "down"
+      "x": 0.2,
+      "y": 0.6,
+      "rotation": 90,
+      "from": "left"
     },
     {
       "time": 97.7,
       "leave": 111.1,
       "type": "basic",
-      "x": 0.75,
-      "y": 0.1,
-      "rotation": 180,
-      "from": "down"
+      "x": 0.8,
+      "y": 0.6,
+      "rotation": -90,
+      "from": "right"
     },
     {
       "time": 114,
@@ -222,55 +213,223 @@
       "time": 116.6,
       "leave": 125.1,
       "type": "basic",
-      "x": 0.8,
-      "y": 0.8
+      "x": 0.65,
+      "y": 0.9
     },
     {
       "time": 118.3,
       "leave": 125.1,
       "type": "basic",
-      "x": 0.65,
-      "y": 0.9
+      "x": 0.8,
+      "y": 0.8
     },
     {
-      "time": 120.9,
+      "time": 124.3,
       "leave": 152.3,
       "type": "basicfaster",
       "x": 0.1,
-      "y": 0.5,
+      "y": 0.333,
       "from": "left",
-      "rotation": 90,
-      "invul": true
+      "rotation": 90
     },
     {
-      "time": 121.7,
+      "time": 124.3,
       "leave": 152.3,
       "type": "basicfaster",
       "x": 0.9,
-      "y": 0.5,
+      "y": 0.333,
       "from": "right",
-      "rotation": 90,
-      "invul": true
+      "rotation": 90
     },
     {
-      "time": 124.1,
-      "leave": 138.8,
+      "time": 124.3,
+      "leave": 152.3,
       "type": "fourwave",
       "x": 0.5,
+      "y": 0.95,
       "invul": true
     },
     {
       "time": 137.8,
       "leave": 152.3,
-      "type": "fourwave",
-      "x": 0.5,
-      "y": 0.1,
-      "rotation": 180,
-      "from": "down",
-      "invul": true
+      "type": "basicfaster",
+      "x": 0.1,
+      "y": 0.666,
+      "from": "left",
+      "rotation": 90
+    },
+    {
+      "time": 137.8,
+      "leave": 152.3,
+      "type": "basicfaster",
+      "x": 0.9,
+      "y": 0.666,
+      "from": "right",
+      "rotation": 90
     },
   ],
+
   "l1": [
+  	{
+      "time": 1.8,
+      "leave": 15,
+      "type": "basic",
+      "x": 0.1
+    },
+  	{
+      "time": 2.2,
+      "leave": 15,
+      "type": "basic",
+      "x": 0.2
+    },
+  	{
+      "time": 2.9,
+      "leave": 15,
+      "type": "basic",
+      "x": 0.3
+    },
+  	{
+      "time": 3.2,
+      "leave": 15,
+      "type": "basic",
+      "x": 0.4
+    },
+  	{
+      "time": 3.9,
+      "leave": 15,
+      "type": "basic",
+      "x": 0.5
+    },
+  	{
+      "time": 4.26,
+      "leave": 15,
+      "type": "basic",
+      "x": 0.6
+    },
+  	{
+      "time": 5.2,
+      "leave": 15,
+      "type": "basic",
+      "x": 0.7
+    },
+  	{
+      "time": 5.6,
+      "leave": 15,
+      "type": "basic",
+      "x": 0.8
+    },
+  	{
+      "time": 6.3,
+      "leave": 11.3,
+      "type": "basic",
+      "x": 0.9
+    },
+  	{
+      "time": 6.7,
+      "leave": 15,
+      "type": "basic2",
+      "x": 0.1,
+      "y": 0.3,
+      "from": "left",
+      "rotation": 90
+    },
+  	{
+      "time": 7.4,
+      "leave": 15,
+      "type": "basic2",
+      "x": 0.9,
+      "y": 0.3,
+      "from": "right",
+      "rotation": -90
+    },
+  	{
+      "time": 7.8,
+      "leave": 15,
+      "type": "basic3",
+      "x": 0.5,
+      "y": 0.9
+    },
+  	{
+      "time": 13.2,
+      "leave": 15.1,
+      "type": "laserWarning",
+      "x": 0.25
+    },
+  	{
+      "time": 15.1,
+      "leave": 18.6,
+      "type": "laser",
+      "x": 0.25
+    },
+  	{
+      "time": 17.6,
+      "leave": 18.5,
+      "type": "laserWarning",
+      "x": 0.75
+    },
+  	{
+      "time": 18.5,
+      "leave": 21,
+      "type": "laser",
+      "x": 0.75
+    },
+  	{
+      "time": 20.6,
+      "leave": 29,
+      "type": "basic3",
+      "x": 0.5,
+      "y": 0.9
+    },
+  	{
+      "time": 20.6,
+      "leave": 29,
+      "type": "basic3",
+      "x": 0.2,
+      "y": 0.9
+    },
+  	{
+      "time": 20.6,
+      "leave": 29,
+      "type": "basic3",
+      "x": 0.8,
+      "y": 0.9
+    },
+  	{
+      "time": 20.6,
+      "leave": 21.9,
+      "type": "laserWarning",
+      "x": 0.5,
+      "y": 0.5,
+      "rotation": 45
+    },
+  	{
+      "time": 21.9,
+      "leave": 24,
+      "type": "laser",
+      "x": 0.5,
+      "y": 0.5,
+      "rotation": 45
+    },
+  	{
+      "time": 24.1,
+      "leave": 25.4,
+      "type": "laserWarning",
+      "x": 0.5,
+      "y": 0.5,
+      "rotation": -45
+    },
+  	{
+      "time": 25.4,
+      "leave": 29,
+      "type": "laser",
+      "x": 0.5,
+      "y": 0.5,
+      "rotation": -45
+    }
+  ],
+
+
+  "l2": [
     {
       "time": 0.3,
       "leave": 11.3,

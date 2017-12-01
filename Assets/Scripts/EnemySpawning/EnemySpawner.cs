@@ -34,8 +34,9 @@ public class EnemySpawner : MonoBehaviour {
 	{
 		spawns = AllLevelData.FromJSON(new JSONObject(spawnData.text), level);
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
-		stage.GetComponent<AudioSource>().time = 0;
+		stage.GetComponent<AudioSource>().time = 0;// level == 1 ? 120 : 0;
 		stage.GetComponent<AudioSource>().Play();
+		stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Start();
 		spawns.Begin(this);
 	}
 
@@ -88,6 +89,17 @@ public class EnemySpawner : MonoBehaviour {
 		if(spawningEnabled)
 		{
 			spawns.Update();
+		}
+		if(!stage.GetComponent<AudioSource>().isPlaying)
+		{
+			level++;
+			if(level >= stage.GetComponent<Stage>().songs.Length)
+			{
+				Debug.Log("Done");
+				Application.Quit();
+			}
+			else
+				BeginLevel(level);
 		}
 	}
 }

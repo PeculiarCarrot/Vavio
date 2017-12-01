@@ -22,6 +22,24 @@ public abstract class Ship : MonoBehaviour {
 		baseRot = transform.eulerAngles;
 		hp = maxHP;
 	}
+
+	IEnumerator CollideFlash(Renderer mainRenderer)
+	{
+		Material m = mainRenderer.material;
+		Color32 c = mainRenderer.material.color;
+		mainRenderer.material = null;
+		mainRenderer.material.color = Color.white;
+		mainRenderer.material.shader = Shader.Find("Unlit/Color");		
+		yield return new WaitForSeconds(0.05f);
+		mainRenderer.material = m;
+		mainRenderer.material.color = c;
+	}
+
+	public void Flash()
+	{
+		foreach(Renderer r in GetComponentsInChildren<Renderer>())
+			StartCoroutine(CollideFlash(r));
+	}
 	
 	// Update is called once per frame
 	public void DoUpdate () {

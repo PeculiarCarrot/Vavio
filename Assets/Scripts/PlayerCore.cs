@@ -28,8 +28,22 @@ public class PlayerCore : MonoBehaviour {
         }
         if(enemy != null && !player.GetComponent<Player>().IsInvincible())
         {
+            float playerDamage = 50;
+            switch(enemy.type)
+            {
+                case Enemy.EnemyType.Laser:
+                playerDamage = 50;
+                break;
+                case Enemy.EnemyType.LaserWarning:
+                playerDamage = 0;
+                break;
+                default:
+                playerDamage = 50;
+                break;
+            }
             enemy.GetHurt(50);
-            player.GetComponent<Player>().GetHurt(50);
+            if(playerDamage > 0)
+                player.GetComponent<Player>().GetHurt(playerDamage);
             return;
         }
     }

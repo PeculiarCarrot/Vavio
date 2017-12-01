@@ -9,7 +9,7 @@ public class BulletBehaviorController : MonoBehaviour {
 	Vector3 rotatedPos;
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 		behavior.SetController(this);
 		behavior.LoadFromFile();
 	}
