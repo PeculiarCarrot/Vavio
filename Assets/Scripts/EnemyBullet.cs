@@ -6,7 +6,9 @@ public class EnemyBullet : Bullet {
 
 	public enum BulletType {
 		Regular,
-		Homing
+		Homing,
+		IndependentHoming,
+		HurtyBall
 	}
 
 	public float damage = 20;
@@ -14,6 +16,8 @@ public class EnemyBullet : Bullet {
 	private float fric = .98f;
 	GameObject target;
 	private float turnVelocity;
+	private float spd;
+	private float turnSpd;
 
 	public void SetAngleOffset(float angleOffset)
 	{
@@ -26,6 +30,37 @@ public class EnemyBullet : Bullet {
 	// Use this for initialization
 	public override void DoStart () {
 		target = stage.GetComponent<Stage>().player;
+		spd = Random.value * 2 + 2;
+		if(type == BulletType.IndependentHoming)
+		{
+			fric = .9f;
+			spd = .25f + Random.value * .5f;
+			SetLifetime(20);
+		}
+		turnSpd = type == BulletType.Homing ? 1f : .5f + Random.value * .5f;
+	}
+
+	private void Track()
+	{
+		if(target != null)
+			{
+				float speed = type == BulletType.IndependentHoming? spd : 3f;
+				float dx = target.transform.position.x - transform.position.x;
+				float dy = target.transform.position.y - transform.position.y;
+				float a = Mathf.Atan2(dy, dx) + Mathf.PI / 2;
+				 transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.SmoothDampAngle(transform.eulerAngles.z, a * Mathf.Rad2Deg, ref turnVelocity, turnSpd));
+				 if(type == BulletType.IndependentHoming)
+				 {
+				 	velocity.x += speed * Mathf.Sin(Mathf.Deg2Rad * transform.rotation.eulerAngles.z);
+				 	velocity.y += -speed * Mathf.Cos(Mathf.Deg2Rad * transform.rotation.eulerAngles.z);
+				 }
+				 else
+				 {
+				 	velocity.x = speed * Mathf.Sin(Mathf.Deg2Rad * transform.rotation.eulerAngles.z);
+				 	velocity.y = -speed * Mathf.Cos(Mathf.Deg2Rad * transform.rotation.eulerAngles.z);
+				 }
+				 velocity *= fric;
+			}
 	}
 	
 	// Update is called once per frame
@@ -33,23 +68,24 @@ public class EnemyBullet : Bullet {
 		switch(type)
 		{
 			case BulletType.Homing:
-			if(target != null)
+				Track();
+			break;
+			case BulletType.IndependentHoming:
+				Track();
+			break;
+			case BulletType.HurtyBall:
 			{
-				float speed = 3f;
-				float dx = target.transform.position.x - transform.position.x;
-				float dy = target.transform.position.y - transform.position.y;
-				float a = Mathf.Atan2(dy, dx) + Mathf.PI / 2;
-				 transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.SmoothDampAngle(transform.eulerAngles.z, a * Mathf.Rad2Deg, ref turnVelocity, 1f));
-				 velocity.x = speed * Mathf.Sin(Mathf.Deg2Rad * transform.rotation.eulerAngles.z);
-				 velocity.y = -speed * Mathf.Cos(Mathf.Deg2Rad * transform.rotation.eulerAngles.z);
-				 velocity *= fric;
+				float speed = spd;
+				velocity.x = speed * Mathf.Sin(Mathf.Deg2Rad * transform.rotation.eulerAngles.z);
+				velocity.y = -speed * Mathf.Cos(Mathf.Deg2Rad * transform.rotation.eulerAngles.z);
 			}
 			break;
 			default:
 			break;
 		}
-		if(transform.position.x < stage.GetComponent<Stage>().minX || transform.position.y < stage.GetComponent<Stage>().minY || transform.position.y > stage.GetComponent<Stage>().maxX)
-			Destroy(gameObject);
+		if(type != BulletType.IndependentHoming)
+			if(transform.position.x < stage.GetComponent<Stage>().minX - 2 || transform.position.y < stage.GetComponent<Stage>().minY - 2 || transform.position.x > stage.GetComponent<Stage>().maxX + 2 || transform.position.x < stage.GetComponent<Stage>().minX - 2)
+				Destroy(gameObject);
 	}
 
 	public float GetDamage()

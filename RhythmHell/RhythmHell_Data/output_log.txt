@@ -19,6 +19,39 @@ Platform assembly: C:\Users\aharm\Documents\Unity Projects\ShipShmup\RhythmHell\
 Loading C:\Users\aharm\Documents\Unity Projects\ShipShmup\RhythmHell\RhythmHell_Data\Managed\UnityEngine.Timeline.dll into Unity Child Domain
 Platform assembly: C:\Users\aharm\Documents\Unity Projects\ShipShmup\RhythmHell\RhythmHell_Data\Managed\System.dll (this message is harmless)
 Platform assembly: C:\Users\aharm\Documents\Unity Projects\ShipShmup\RhythmHell\RhythmHell_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.272 seconds
+- Completed reload, in  0.179 seconds
 <RI> Initializing input.
 <RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.934216 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 43c8 -> priority: 1 
+  Thread -> id: 458c -> priority: 1 
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.038575 ms
+
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 630.
+Total: 0.295263 ms (FindLiveObjects: 0.041357 ms CreateObjectMapping: 0.038478 ms MarkObjects: 0.192392 ms  DeleteObjects: 0.022249 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.957430 ms
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 630.
+Total: 0.225897 ms (FindLiveObjects: 0.059157 ms CreateObjectMapping: 0.015443 ms MarkObjects: 0.121455 ms  DeleteObjects: 0.027746 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.099647 ms
+
+Unloading 40 unused Assets to reduce memory usage. Loaded Objects now: 630.
+Total: 0.226944 ms (FindLiveObjects: 0.027746 ms CreateObjectMapping: 0.015705 ms MarkObjects: 0.147108 ms  DeleteObjects: 0.035860 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.659549 ms
+
+Unloading 51 unused Assets to reduce memory usage. Loaded Objects now: 630.
+Total: 0.459647 ms (FindLiveObjects: 0.080621 ms CreateObjectMapping: 0.039263 ms MarkObjects: 0.246314 ms  DeleteObjects: 0.091877 ms)
+
+Done
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+

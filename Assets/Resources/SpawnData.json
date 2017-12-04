@@ -425,100 +425,922 @@
       "x": 0.5,
       "y": 0.5,
       "rotation": -45
-    }
-  ],
-
-
-  "l2": [
-    {
-      "time": 0.3,
-      "leave": 11.3,
-      "type": "basic",
-      "x": 0.3
     },
-    {
-      "time": 3.2,
-      "leave": 11.5,
-      "type": "basic",
-      "x": 0.7,
-    },
-    {
-      "time": 5.6,
-      "leave": 11.3,
-      "type": "basic",
-      "x": 0.2,
-      "y": 0.2,
-      "from": "down",
-      "rotation": 180
-    },
-    {
-      "time": 5.75,
-      "leave": 11.5,
-      "type": "basic2",
-      "x": 0.8,
-      "y": 0.2,
-      "from": "down",
-      "rotation": 180
-    },
-    {
-      "time": 8.5,
-      "leave": 11.5,
-      "type": "basic",
-      "y": 0.5,
+  	{
+      "time": 28.8,
+      "leave": 40.8,
+      "type": "stt2GuitarWave",
       "x": 0.9,
+      "y": 0.5,
       "from": "right",
       "rotation": -90
     },
-    {
-      "time": 8.7,
-      "leave": 11.3,
-      "type": "basic",
-      "y": 0.5,
+  	{
+      "time": 28.8,
+      "leave": 40.8,
+      "type": "stt2GuitarWave",
       "x": 0.1,
+      "y": 0.5,
       "from": "left",
       "rotation": 90
     },
-    {
-      "time": 11.7,
-      "leave": 21.6,
-      "type": "basic",
+  	{
+      "time": 27.8,
+      "leave": 56.2,
+      "type": "stt2SynthDude",
+      "x": 0.5,
+      "invul": true
+    },
+  	{
+      "time": 56.2,
+      "type": "hurtyBall",
+      "x": 0.1,
+      "y": 1.1
+    },
+  	{
+      "time": 56.2,
+      "type": "hurtyBall",
+      "x": 0.2,
+      "y": 1.1
+    },
+  	{
+      "time": 56.2,
+      "type": "hurtyBall",
+      "x": 0.3,
+      "y": 1.1
+    },
+  	{
+      "time": 56.2,
+      "type": "hurtyBall",
+      "x": 0.4,
+      "y": 1.1
+    },
+  	{
+      "time": 56.2,
+      "type": "hurtyBall",
+      "x": 0.5,
+      "y": 1.1
+    },
+  	{
+      "time": 56.2,
+      "type": "hurtyBall",
+      "x": 0.6,
+      "y": 1.1
+    },
+  	{
+      "time": 56.2,
+      "type": "hurtyBall",
+      "x": 0.7,
+      "y": 1.1
+    },
+  	{
+      "time": 56.2,
+      "type": "hurtyBall",
+      "x": 0.8,
+      "y": 1.1
+    },
+  	{
+      "time": 56.2,
+      "type": "hurtyBall",
+      "x": 0.9,
+      "y": 1.1
+    },
+  	{
+      "time": 56.6,
+      "type": "hurtyBall",
+      "x": 0.15,
+      "y": 1.1
+    },
+  	{
+      "time": 56.6,
+      "type": "hurtyBall",
+      "x": 0.05,
+      "y": 1.1
+    },
+  	{
+      "time": 56.6,
+      "type": "hurtyBall",
+      "x": 0.35,
+      "y": 1.1
+    },
+  	{
+      "time": 56.6,
+      "type": "hurtyBall",
+      "x": 0.55,
+      "y": 1.1
+    },
+  	{
+      "time": 56.6,
+      "type": "hurtyBall",
+      "x": 0.75,
+      "y": 1.1
+    },
+  	{
+      "time": 56.6,
+      "type": "hurtyBall",
+      "x": 0.95,
+      "y": 1.1
+    },
+  	{
+      "time": 59,
+      "type": "hurtyBall",
+      "x": 0.1,
+      "y": 1.1
+    },
+  	{
+      "time": 59,
+      "type": "hurtyBall",
+      "x": 0.2,
+      "y": 1.1
+    },
+  	{
+      "time": 59,
+      "type": "hurtyBall",
+      "x": 0.3,
+      "y": 1.1
+    },
+  	{
+      "time": 59,
+      "type": "hurtyBall",
+      "x": 0.4,
+      "y": 1.1
+    },
+  	{
+      "time": 59,
+      "type": "hurtyBall",
+      "x": 0.5,
+      "y": 1.1
+    },
+  	{
+      "time": 59,
+      "type": "hurtyBall",
+      "x": 0.6,
+      "y": 1.1
+    },
+  	{
+      "time": 59,
+      "type": "hurtyBall",
+      "x": 0.7,
+      "y": 1.1
+    },
+  	{
+      "time": 59,
+      "type": "hurtyBall",
+      "x": 0.8,
+      "y": 1.1
+    },
+  	{
+      "time": 59,
+      "type": "hurtyBall",
+      "x": 0.9,
+      "y": 1.1
+    },
+  	{
+      "time": 59.6,
+      "type": "hurtyBall",
+      "x": 0.15,
+      "y": 1.1
+    },
+  	{
+      "time": 59.6,
+      "type": "hurtyBall",
+      "x": 0.05,
+      "y": 1.1
+    },
+  	{
+      "time": 59.6,
+      "type": "hurtyBall",
+      "x": 0.35,
+      "y": 1.1
+    },
+  	{
+      "time": 59.6,
+      "type": "hurtyBall",
+      "x": 0.55,
+      "y": 1.1
+    },
+  	{
+      "time": 59.67,
+      "type": "hurtyBall",
+      "x": 0.75,
+      "y": 1.1
+    },
+  	{
+      "time": 59.67,
+      "type": "hurtyBall",
+      "x": 0.95,
+      "y": 1.1
+    },
+  	{
+      "time": 61.4,
+      "type": "hurtyBall",
+      "x": 0.1,
+      "y": 1.1
+    },
+  	{
+      "time": 61.4,
+      "type": "hurtyBall",
+      "x": 0.2,
+      "y": 1.1
+    },
+  	{
+      "time": 61.4,
+      "type": "hurtyBall",
+      "x": 0.3,
+      "y": 1.1
+    },
+  	{
+      "time": 61.4,
+      "type": "hurtyBall",
+      "x": 0.4,
+      "y": 1.1
+    },
+  	{
+      "time": 61.4,
+      "type": "hurtyBall",
+      "x": 0.5,
+      "y": 1.1
+    },
+  	{
+      "time": 61.4,
+      "type": "hurtyBall",
+      "x": 0.6,
+      "y": 1.1
+    },
+  	{
+      "time": 61.4,
+      "type": "hurtyBall",
+      "x": 0.7,
+      "y": 1.1
+    },
+  	{
+      "time": 61.4,
+      "type": "hurtyBall",
+      "x": 0.8,
+      "y": 1.1
+    },
+  	{
+      "time": 61.4,
+      "type": "hurtyBall",
+      "x": 0.9,
+      "y": 1.1
+    },
+  	{
+      "time": 62.5,
+      "type": "hurtyBall",
+      "x": 0.15,
+      "y": 1.1
+    },
+  	{
+      "time": 62.5,
+      "type": "hurtyBall",
+      "x": 0.05,
+      "y": 1.1
+    },
+  	{
+      "time": 62.5,
+      "type": "hurtyBall",
+      "x": 0.35,
+      "y": 1.1
+    },
+  	{
+      "time": 62.5,
+      "type": "hurtyBall",
+      "x": 0.55,
+      "y": 1.1
+    },
+  	{
+      "time": 62.5,
+      "type": "hurtyBall",
+      "x": 0.75,
+      "y": 1.1
+    },
+  	{
+      "time": 62.5,
+      "type": "hurtyBall",
+      "x": 0.95,
+      "y": 1.1
+    },
+  	{
+      "time": 63.1,
+      "type": "hurtyBall",
+      "x": 0.1,
+      "y": 1.1
+    },
+  	{
+      "time": 63.1,
+      "type": "hurtyBall",
+      "x": 0.2,
+      "y": 1.1
+    },
+  	{
+      "time": 63.1,
+      "type": "hurtyBall",
+      "x": 0.3,
+      "y": 1.1
+    },
+  	{
+      "time": 63.1,
+      "type": "hurtyBall",
+      "x": 0.4,
+      "y": 1.1
+    },
+  	{
+      "time": 63.1,
+      "type": "hurtyBall",
+      "x": 0.5,
+      "y": 1.1
+    },
+  	{
+      "time": 63.1,
+      "type": "hurtyBall",
+      "x": 0.6,
+      "y": 1.1
+    },
+  	{
+      "time": 63.1,
+      "type": "hurtyBall",
+      "x": 0.7,
+      "y": 1.1
+    },
+  	{
+      "time": 63.1,
+      "type": "hurtyBall",
+      "x": 0.8,
+      "y": 1.1
+    },
+  	{
+      "time": 63.1,
+      "type": "hurtyBall",
+      "x": 0.9,
+      "y": 1.1
+    },
+  	{
+      "time": 65.7,
+      "type": "hurtyBall",
+      "x": 0.15,
+      "y": 1.1
+    },
+  	{
+      "time": 65.7,
+      "type": "hurtyBall",
+      "x": 0.05,
+      "y": 1.1
+    },
+  	{
+      "time": 65.7,
+      "type": "hurtyBall",
+      "x": 0.35,
+      "y": 1.1
+    },
+  	{
+      "time": 65.7,
+      "type": "hurtyBall",
+      "x": 0.55,
+      "y": 1.1
+    },
+  	{
+      "time": 65.7,
+      "type": "hurtyBall",
+      "x": 0.75,
+      "y": 1.1
+    },
+  	{
+      "time": 65.7,
+      "type": "hurtyBall",
+      "x": 0.95,
+      "y": 1.1
+    },
+  	{
+      "time": 66,
+      "type": "hurtyBall",
+      "x": 0.1,
+      "y": 1.1
+    },
+  	{
+      "time": 66,
+      "type": "hurtyBall",
+      "x": 0.2,
+      "y": 1.1
+    },
+  	{
+      "time": 66,
+      "type": "hurtyBall",
+      "x": 0.3,
+      "y": 1.1
+    },
+  	{
+      "time": 66,
+      "type": "hurtyBall",
+      "x": 0.4,
+      "y": 1.1
+    },
+  	{
+      "time": 66,
+      "type": "hurtyBall",
+      "x": 0.5,
+      "y": 1.1
+    },
+  	{
+      "time": 66,
+      "type": "hurtyBall",
+      "x": 0.6,
+      "y": 1.1
+    },
+  	{
+      "time": 66,
+      "type": "hurtyBall",
+      "x": 0.7,
+      "y": 1.1
+    },
+  	{
+      "time": 66,
+      "type": "hurtyBall",
+      "x": 0.8,
+      "y": 1.1
+    },
+  	{
+      "time": 66,
+      "type": "hurtyBall",
+      "x": 0.9,
+      "y": 1.1
+    },
+  	{
+      "time": 66.5,
+      "type": "hurtyBall",
+      "x": 0.15,
+      "y": 1.1
+    },
+  	{
+      "time": 66.5,
+      "type": "hurtyBall",
+      "x": 0.05,
+      "y": 1.1
+    },
+  	{
+      "time": 66.5,
+      "type": "hurtyBall",
+      "x": 0.35,
+      "y": 1.1
+    },
+  	{
+      "time": 66.5,
+      "type": "hurtyBall",
+      "x": 0.55,
+      "y": 1.1
+    },
+  	{
+      "time": 66.5,
+      "type": "hurtyBall",
+      "x": 0.75,
+      "y": 1.1
+    },
+  	{
+      "time": 65.7,
+      "type": "hurtyBall",
+      "x": 0.95,
+      "y": 1.1
+    },
+  	{
+      "time": 68.2,
+      "type": "hurtyBall",
+      "x": 0.1,
+      "y": 1.1
+    },
+  	{
+      "time": 68.2,
+      "type": "hurtyBall",
+      "x": 0.2,
+      "y": 1.1
+    },
+  	{
+      "time": 68.2,
+      "type": "hurtyBall",
+      "x": 0.3,
+      "y": 1.1
+    },
+  	{
+      "time": 68.2,
+      "type": "hurtyBall",
+      "x": 0.4,
+      "y": 1.1
+    },
+  	{
+      "time": 68.2,
+      "type": "hurtyBall",
+      "x": 0.5,
+      "y": 1.1
+    },
+  	{
+      "time": 68.2,
+      "type": "hurtyBall",
+      "x": 0.6,
+      "y": 1.1
+    },
+  	{
+      "time": 68.2,
+      "type": "hurtyBall",
+      "x": 0.7,
+      "y": 1.1
+    },
+  	{
+      "time": 68.2,
+      "type": "hurtyBall",
+      "x": 0.8,
+      "y": 1.1
+    },
+  	{
+      "time": 68.2,
+      "type": "hurtyBall",
+      "x": 0.9,
+      "y": 1.1
+    },
+  	{
+      "time": 72.7,
+      "leave": 97.1,
+      "type": "octopus",
+      "x": 0.5,
+      "invul": true
+    },
+  	{
+      "time": 97.3,
+      "type": "homingBullet",
+      "x": 0.15,
+      "y": 1.05
+    },
+  	{
+      "time": 97.5,
+      "type": "homingBullet",
+      "x": 0.65,
+      "y": 1.05
+    },
+  	{
+      "time": 97.7,
+      "type": "homingBullet",
+      "x": 0.45,
+      "y": 1.05
+    },
+  	{
+      "time": 100.1,
+      "type": "homingBullet",
+      "x": 0.85,
+      "y": 1.05
+    },
+  	{
+      "time": 100.8,
+      "type": "homingBullet",
+      "x": 0.25,
+      "y": 1.05
+    },
+  	{
+      "time": 102,
+      "type": "homingBullet",
+      "x": 0.55,
+      "y": 1.05
+    },
+  	{
+      "time": 102.3,
+      "type": "homingBullet",
+      "x": 0.35,
+      "y": 1.05
+    },
+  	{
+      "time": 102.3,
+      "type": "homingBullet",
+      "x": 0.95,
+      "y": 1.05
+    },
+  	{
+      "time": 102.5,
+      "type": "homingBullet",
+      "x": 0.15,
+      "y": 1.05
+    },
+  	{
+      "time": 102.7,
+      "type": "homingBullet",
+      "x": 0.75,
+      "y": 1.05
+    },
+  	{
+      "time": 103.1,
+      "type": "homingBullet",
+      "x": 0.45,
+      "y": 1.05
+    },
+  	{
+      "time": 103.5,
+      "type": "homingBullet",
+      "x": 0.15,
+      "y": 1.05
+    },
+  	{
+      "time": 104,
+      "type": "homingBullet",
+      "x": 0.85,
+      "y": 1.05
+    },
+  	{
+      "time": 104.4,
+      "type": "homingBullet",
+      "x": 0.55,
+      "y": 1.05
+    },
+  	{
+      "time": 106.1,
+      "type": "homingBullet",
+      "x": 0.35,
+      "y": 1.05
+    },
+  	{
+      "time": 106.35,
+      "type": "homingBullet",
+      "x": 0.95,
+      "y": 1.05
+    },
+  	{
+      "time": 106.6,
+      "type": "homingBullet",
+      "x": 0.25,
+      "y": 1.05
+    },
+  	{
+      "time": 106.7,
+      "type": "homingBullet",
+      "x": 0.75,
+      "y": 1.05
+    },
+  	{
+      "time": 106.9,
+      "type": "homingBullet",
+      "x": 0.45,
+      "y": 1.05
+    },
+  	{
+      "time": 107.2,
+      "type": "homingBullet",
+      "x": 0.15,
+      "y": 1.05
+    },
+  	{
+      "time": 107.4,
+      "type": "homingBullet",
+      "x": 0.95,
+      "y": 1.05
+    },
+  	{
+      "time": 107.6,
+      "type": "homingBullet",
+      "x": 0.65,
+      "y": 1.05
+    },
+  	{
+      "time": 107.8,
+      "type": "homingBullet",
+      "x": 0.35,
+      "y": 1.05
+    },
+  	{
+      "time": 108.3,
+      "type": "homingBullet",
+      "x": 0.65,
+      "y": 1.05
+    },
+  	{
+      "time": 108.9,
+      "type": "homingBullet",
+      "x": 0.85,
+      "y": 1.05
+    },
+  	{
+      "time": 109.3,
+      "type": "homingBullet",
+      "x": 0.35,
+      "y": 1.05
+    },
+  	{
+      "time": 110,
+      "type": "homingBullet",
+      "x": 0.25,
+      "y": 1.05
+    },
+  	{
+      "time": 110.6,
+      "type": "homingBullet",
+      "x": 0.55,
+      "y": 1.05
+    },
+  	{
+      "time": 111.1,
+      "leave": 111.9,
+      "type": "laserWarning",
       "x": 0.25
     },
-    {
-      "time": 13,
-      "leave": 21.6,
-      "type": "basic",
+  	{
+      "time": 111.9,
+      "leave": 115,
+      "type": "laser",
+      "x": 0.25
+    },
+  	{
+      "time": 114.5,
+      "leave": 115.3,
+      "type": "laserWarning",
       "x": 0.75
+    },
+  	{
+      "time": 115.3,
+      "leave": 120,
+      "type": "laser",
+      "x": 0.75
+    },
+  	{
+      "time": 117.9,
+      "leave": 118.7,
+      "type": "laserWarning",
+      "x": 0.5,
+      "y": 0.5,
+      "rotation": 90
+    },
+  	{
+      "time": 118.7,
+      "leave": 125,
+      "type": "laser",
+      "x": 0.5,
+      "y": 0.5,
+      "rotation": 90
+    },
+  	{
+      "time": 121.3,
+      "leave": 122.2,
+      "type": "laserWarning",
+      "x": 0.5,
+      "y": 0.5,
+      "rotation": 45
+    },
+  	{
+      "time": 122.2,
+      "leave": 125,
+      "type": "laser",
+      "x": 0.5,
+      "y": 0.5,
+      "rotation": 45
+    },
+  	{
+      "time": 121.3,
+      "leave": 122.2,
+      "type": "laserWarning",
+      "x": 0.5,
+      "y": 0.5,
+      "rotation": -45
+    },
+  	{
+      "time": 122.2,
+      "leave": 125,
+      "type": "laser",
+      "x": 0.5,
+      "y": 0.5,
+      "rotation": -45
+    },
+  	{
+      "time": 123.1,
+      "leave": 123.9,
+      "type": "laserWarning",
+      "x": 0.5,
+      "y": 0.5,
+      "rotation": 90
+    },
+  	{
+      "time": 123.9,
+      "leave": 125,
+      "type": "laser",
+      "x": 0.5,
+      "y": 0.5,
+      "rotation": 90
+    },
+  	{
+      "time": 123.1,
+      "leave": 123.9,
+      "type": "laserWarning",
+      "x": 0.5,
+      "y": 0.5,
+      "rotation": 0
+    },
+  	{
+      "time": 123.9,
+      "leave": 125,
+      "type": "laser",
+      "x": 0.5,
+      "y": 0.5,
+      "rotation": 0
+    },
+  ],
+
+  "l2": [
+    {
+      "time": 6.4,
+      "leave": 29.2,
+      "type": "basic-infectious",
+      "x": 0.3,
+      "invul": true
+    },
+    {
+      "time": 10.2,
+      "leave": 29.2,
+      "type": "basic-infectious",
+      "x": 0.7,
+      "invul": true
+    },
+    {
+      "time": 11.9,
+      "leave": 29.2,
+      "type": "basic-infectious",
+      "x": 0.5,
+      "invul": true
     },
     {
       "time": 14.5,
-      "leave": 21.6,
-      "type": "basic3",
-      "x": 0.5
+      "leave": 29.2,
+      "type": "slow-infectious",
+      "x": 0.9,
+      "y": 0.5
     },
     {
-      "time": 22.1,
-      "leave": 33.5,
-      "type": "basic3",
-      "x": 0.8
+      "time": 18.4,
+      "leave": 29.2,
+      "type": "slow-infectious",
+      "x": 0.1,
+      "y": 0.5
     },
     {
-      "time": 22.1,
-      "leave": 33.5,
-      "type": "basic3",
-      "x": 0.2
+      "time": 29.0,
+      "leave": 35.6,
+      "type": "circle-infectious",
+      "x": 0.5,
+      "y": 0.8,
+      "invul": true
     },
     {
-      "time": 22.65,
-      "leave": 33.5,
-      "type": "basic2",
-      "x": 0.4
+      "time": 43.9,
+      "leave": 59,
+      "type": "slow-infectious",
+      "x": 0.7,
+      "invul": true
     },
     {
-      "time": 22.8,
-      "leave": 33.5,
-      "type": "basic2",
-      "x": 0.6
-    }
-  ],
+      "time": 43.9,
+      "leave": 59,
+      "type": "slow-infectious",
+      "x": 0.3,
+      "invul": true
+    },
+    {
+      "time": 43.9,
+      "leave": 59,
+      "type": "slow-infectious",
+      "x": 0.2,
+      "y": 0.4,
+      "invul": true,
+      "from": "down"
+    },
+    {
+      "time": 43.9,
+      "leave": 59,
+      "type": "slow-infectious",
+      "x": 0.8,
+      "y": 0.4,
+      "invul": true,
+      "from": "down"
+    },
+    {
+      "time": 59.9,
+      "leave": 85.6,
+      "type": "slow-infectious",
+      "x": 0.1,
+      "y": 0.5,
+      "invul": true
+    },
+    {
+      "time": 59.9,
+      "leave": 90.6,
+      "type": "circle-infectious",
+      "x": 0.5,
+      "invul": true
+    },
+    {
+      "time": 73.9,
+      "leave": 85.6,
+      "type": "circle-infectious",
+      "x": 0.5,
+      "invul": true
+    },
+    {
+      "time": 73.9,
+      "leave": 85.6,
+      "type": "slow-infectious",
+      "x": 0.9,
+      "y": 0.5,
+      "invul": true
+    },
+	],
 }

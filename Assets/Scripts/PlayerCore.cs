@@ -22,7 +22,8 @@ public class PlayerCore : MonoBehaviour {
     	Enemy enemy = col.gameObject.GetComponent<Enemy>();
         if(bullet != null && !player.GetComponent<Player>().IsInvincible())
         {
-            bullet.Die();
+            if(bullet.type != EnemyBullet.BulletType.HurtyBall)
+                bullet.Die();
             player.GetComponent<Player>().GetHurt(bullet.GetDamage());
             return;
         }

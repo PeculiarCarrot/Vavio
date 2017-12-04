@@ -13,6 +13,7 @@ public abstract class Ship : MonoBehaviour {
 
 	public float maxHP = 100;
 	protected float hp;
+	private bool flashing;
 
 	// Use this for initialization
 	void Start () {
@@ -29,16 +30,19 @@ public abstract class Ship : MonoBehaviour {
 		Color32 c = mainRenderer.material.color;
 		mainRenderer.material = null;
 		mainRenderer.material.color = Color.white;
-		mainRenderer.material.shader = Shader.Find("Unlit/Color");		
+		mainRenderer.material.shader = Shader.Find("Unlit/Color");
+		flashing = true;		
 		yield return new WaitForSeconds(0.05f);
 		mainRenderer.material = m;
 		mainRenderer.material.color = c;
+		flashing = false;
 	}
 
 	public void Flash()
 	{
-		foreach(Renderer r in GetComponentsInChildren<Renderer>())
-			StartCoroutine(CollideFlash(r));
+		if(!flashing)
+			foreach(Renderer r in GetComponentsInChildren<Renderer>())
+				StartCoroutine(CollideFlash(r));
 	}
 	
 	// Update is called once per frame

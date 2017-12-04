@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(BulletBehaviorController))]
 public class Player : Ship {
 
+	public EnemySpawner spawner;
 	public GameObject mesh;
 	public GameObject core;
 	private PowerUp.PowerUpType currentPowerUp;
@@ -12,6 +13,8 @@ public class Player : Ship {
 	private float invincibilityDuration;
 	private float flickerTimer, flickerDuration = .05f;
 	public bool debug;
+	public Texture livesTexture;
+	private bool regenerating;
 
 	// Use this for initialization
 	public override void DoStart () {
@@ -30,12 +33,20 @@ public class Player : Ship {
         }
     }
 
+    void OnGUI()
+    {
+    	float size = 16;
+    	for(int i = 0; i < hp; i++)
+    	{
+    		 GUI.DrawTexture(new Rect(30 + (size + 20) * i, Screen.height - 56, size, size), livesTexture);
+    	}
+    }
 
 	public new void GetHurt(float damage)
 	{
 		if(!debug)
 		{
-			hp -= damage;
+			hp -= 1;
 			invincibilityDuration = 1.5f;
 			flickerTimer = flickerDuration;
 		}
@@ -43,7 +54,9 @@ public class Player : Ship {
 
 	public new void Die()
 	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		PlayerPrefs.SetInt("diedOnLevel", spawner.level);
+		PlayerPrefs.Save();
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name); //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa just restart the level not the scene
 	}
 	
     private void ApplyPowerUp(PowerUp.PowerUpType type, float duration)
@@ -76,6 +89,11 @@ public class Player : Ship {
 	public bool IsInvincible()
 	{
 		return invincibilityDuration > 0;
+	}
+
+	public void Regenerate()
+	{
+		regenerating = true;
 	}
 
 	// Update is called once per frame
@@ -112,6 +130,15 @@ public class Player : Ship {
         newRot.y = Mathf.SmoothDampAngle(newRot.y, 0, ref rotSpeed, .3f);
         transform.eulerAngles = newRot;*/
         transform.position = Vector3.Lerp(transform.position, target, .3f);
+        if(regenerating)
+        {
+        	hp += 3f * Time.deltaTime;
+        	if(hp >= maxHP)
+        	{
+        		hp = maxHP;
+        		regenerating = false;
+        	}
+        }
 
         GetComponent<BulletBehaviorController>().enabled = !debug;
 

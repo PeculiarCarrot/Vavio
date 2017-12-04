@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 0}
-  damage: 20
+  damage: 1
   type: 1
 --- !u!135 &135817316279064896
 SphereCollider:

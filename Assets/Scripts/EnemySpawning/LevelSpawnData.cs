@@ -27,7 +27,7 @@ public class LevelSpawnData {
 
 	public void Update()
 	{
-		float t = Stage.time;
+		float t = (float)Stage.time;
 		for(int i = enemySpawnData.Count - 1; i >= 0; i--)
 		{
 			EnemySpawnData esd = enemySpawnData[i];

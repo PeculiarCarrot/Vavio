@@ -12,12 +12,19 @@ public class EnemySpawner : MonoBehaviour {
 		public string name;
 		public GameObject prefab;
 	}
+	[System.Serializable]
+	public struct NamedEnemyBehavior
+	{
+		public string name;
+		public TextAsset behavior;
+	}
 
 	public TextAsset spawnData;
 
 	public NamedEnemy[] enemy;
+	public NamedEnemyBehavior[] enemyBehavior;
 
-	private int level = 0;
+	public int level;
 	private LevelSpawnData spawns;
 
 	public bool spawningEnabled = true;
@@ -26,6 +33,13 @@ public class EnemySpawner : MonoBehaviour {
 
 	void Start()
 	{
+		level = 2;
+		if(PlayerPrefs.HasKey("diedOnLevel"))
+		{
+			level = PlayerPrefs.GetInt("diedOnLevel");
+			PlayerPrefs.DeleteKey("diedOnLevel");
+			PlayerPrefs.Save();
+		}
 		stage = GameObject.Find("Stage").GetComponent<Stage>();
 		BeginLevel(level);
 	}
@@ -34,10 +48,23 @@ public class EnemySpawner : MonoBehaviour {
 	{
 		spawns = AllLevelData.FromJSON(new JSONObject(spawnData.text), level);
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
-		stage.GetComponent<AudioSource>().time = 0;// level == 1 ? 120 : 0;
+		stage.GetComponent<AudioSource>().time = 60;//0;
 		stage.GetComponent<AudioSource>().Play();
 		stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Start();
+		stage.GetComponent<Stage>().player.GetComponent<Player>().Regenerate();
+		stage.GetComponent<Stage>().Begin();
+		//stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Regenerate();
 		spawns.Begin(this);
+	}
+
+	private EnemyBehavior GenerateEnemyBehavior(string name)
+	{
+		foreach(NamedEnemyBehavior neb in enemyBehavior)
+			if(neb.name == name)
+				return EnemyBehavior.FromJSON(neb.behavior.text);
+
+		Debug.LogError("No enemy behavior found with name: "+name);
+		return null;
 	}
 
 	public void SpawnEnemy(EnemySpawnData data)
@@ -59,12 +86,21 @@ public class EnemySpawner : MonoBehaviour {
 			else if(data.from == "up")
 				pos.y = stage.maxY + 1;
 
-			GameObject e = Instantiate(prefab, pos, Quaternion.Euler(new Vector3(prefab.transform.eulerAngles.x, prefab.transform.eulerAngles.x, prefab.transform.eulerAngles.z + data.rotation)));
-			e.GetComponent<Enemy>().leave = data.leave;
-			e.GetComponent<Enemy>().reachGoalTime = data.reachGoalTime;
-			e.GetComponent<Enemy>().invul = data.invul;
-			e.GetComponent<Enemy>().SetGoalPos(goalPos);
-			liveEnemies.Add(e);
+			if(prefab.GetComponent<Enemy>() != null)
+			{
+				GameObject e = Instantiate(prefab, pos, Quaternion.Euler(new Vector3(prefab.transform.eulerAngles.x, prefab.transform.eulerAngles.y, prefab.transform.eulerAngles.z + data.rotation)));
+				e.GetComponent<Enemy>().leave = data.leave;
+				e.GetComponent<Enemy>().reachGoalTime = data.reachGoalTime;
+				e.GetComponent<Enemy>().invul = data.invul;
+				if(data.behavior != null)
+					e.GetComponent<Enemy>().SetBehavior(GenerateEnemyBehavior(data.behavior));
+				e.GetComponent<Enemy>().SetGoalPos(goalPos);
+				liveEnemies.Add(e);
+			}
+			else
+			{
+				GameObject e = Instantiate(prefab, goalPos, Quaternion.Euler(new Vector3(prefab.transform.eulerAngles.x, prefab.transform.eulerAngles.y, prefab.transform.eulerAngles.z + data.rotation)));
+			}
 		}
 		else
 		{

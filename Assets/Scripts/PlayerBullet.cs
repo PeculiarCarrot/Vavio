@@ -35,7 +35,7 @@ public class PlayerBullet : Bullet {
 		GameObject closest = null;
 		foreach(GameObject e in enemies)
 		{
-			if(e != null)
+			if(e != null/* && !e.GetComponent<Enemy>().invul*/)
 			{
 				float dist = Vector3.Distance(e.transform.position, transform.position);
 				if(dist < closestDistance || closest == null)

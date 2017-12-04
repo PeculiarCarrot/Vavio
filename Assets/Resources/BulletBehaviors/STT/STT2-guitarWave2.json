@@ -1,0 +1,13 @@
+{
+  "angle": 0,
+  "numberOfSets": 7,
+  "spread": 90,
+  "spreadMax": 180,
+  "spreadMin": 70,
+  "secondsPerSpreadPulse": 2,
+  "bulletsPerSecond": 0.588,
+  "bulletSpeed": 3,
+  "bulletSpeedMultiplier": 0.9,
+  "bulletLifetime": 15,
+  "initialDelay": 0.18333333
+}

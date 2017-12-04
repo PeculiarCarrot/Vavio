@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : Ship {
+public class Enemy : EnemyBase {
 
 	public enum EnemyType {
 		Minion,
@@ -20,12 +20,18 @@ public class Enemy : Ship {
 	private bool leaving;
 	[HideInInspector]
 	private Vector3 goalPos;
-	private bool reachedGoal = true;
 	[HideInInspector]
 	public float reachGoalTime = .2f;
 	private Vector3 goalVelocity = Vector3.zero;
 	private Vector3 startPos;
 	public bool invul;
+	private EnemyBehavior behavior;
+
+	public void SetBehavior(EnemyBehavior b)
+	{
+		behavior = b;
+		b.SetEnemy(this);
+	}
 
 	// Use this for initialization
 	public override void DoStart () {
@@ -57,6 +63,8 @@ public class Enemy : Ship {
 
 	// Update is called once per frame
 	public void FixedUpdate () {
+		if(behavior != null)
+			behavior.Update();
 		DoUpdate();
 
 		if(!reachedGoal)
@@ -87,9 +95,9 @@ public class Enemy : Ship {
 		if(type == EnemyType.Laser)
 		{
 			Vector3 scale = transform.localScale;
-			scale.x *= .9f;
+			scale.x *= .8f;
 			transform.localScale = scale;
-			if(scale.x < .15f)
+			if(scale.x < .2f)
 				Die();
 		}
 	}
@@ -122,7 +130,7 @@ public class Enemy : Ship {
 	public new void DoUpdate () {
 		velocity *= friction;
 		rotSpeed *= rotFric;
-		transform.position += velocity * Time.deltaTime;
+		transform.position += velocity * (1/60f);
 		transform.eulerAngles = baseRot + new Vector3(rotSpeed * Time.deltaTime, 0, 0);
 		if(hp <= 0)
 			Die();

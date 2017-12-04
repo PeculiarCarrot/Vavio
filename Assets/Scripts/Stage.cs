@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour {
 
-	public static float deltaTime, time;
-	private float lastTime;
+	public static float deltaTime;
+	public static double lastTime, timeOffset, time;
 
 	public GameObject player;
 	public GameObject spawner;
 	[HideInInspector]
 	public float minX, minY, maxX, maxY, width, height;
 	public AudioClip[] songs;
-	private AudioSource song;
+	public AudioSource song;
 
 	// Use this for initialization
 	void Start () {
@@ -24,19 +24,28 @@ public class Stage : MonoBehaviour {
 		minY = min.y;
 		width = maxX - minX;
 		height = maxY - minY;
-		song = GetComponent<AudioSource>();
 		deltaTime = 0;
 		time = 0;
 		lastTime = 0;
 		//Debug.Log(minX+", "+minY +" - "+maxX+", "+maxY);
 	}
-	
+
+	public void Begin()
+	{
+		timeOffset = AudioSettings.dspTime - song.timeSamples/song.clip.frequency;
+	}
+
+	void FixedUpdate()
+	{
+
+		time = AudioSettings.dspTime - timeOffset;
+		//Debug.Log(time);
+		deltaTime = (float)(time - lastTime);
+		lastTime = time;
+	}
+
 	// Update is called once per frame
 	void Update () {
-		//Debug.Log(time);
-		time = (float)song.timeSamples/song.clip.frequency;
-		deltaTime = time - lastTime;
-		lastTime = time;
 		 if(Input.GetKeyDown(KeyCode.Escape)){
 		 	Application.Quit();
 		 }
