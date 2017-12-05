@@ -3,9 +3,9 @@
   "numberOfSets": 20,
   "spread": 360,
   "spinSpeed": 180,
-  "bulletsPerSecond": 2.23228,
+  "bulletsPerSecond": 2.133333333,
   "bulletSpeed": 2,
   "bulletSpeedMultiplier": 0.9,
   "bulletLifetime": 20,
-  "initialDelay": -0.469
+  "initialDelay": -0.6
 }

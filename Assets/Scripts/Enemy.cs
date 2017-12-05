@@ -15,7 +15,6 @@ public class Enemy : EnemyBase {
 
 	int dir = 0;
 	[HideInInspector]
-	public float leave;
 	private AudioSource song;
 	private bool leaving;
 	[HideInInspector]

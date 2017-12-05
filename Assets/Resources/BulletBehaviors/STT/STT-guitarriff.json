@@ -2,7 +2,7 @@
   "angle": 0,
   "numberOfSets": 11,
   "spread": 360,
-  "bulletsPerSecond": 4.934,
+  "bulletsPerSecond": 4.666666,
   "bulletSpeed": 5,
   "bulletSpeedMultiplier": 0.9,
   "bulletLifetime": 10,
@@ -11,7 +11,6 @@
   "spinAcceleration": 0.5,
   "reverseSpin": true,
   "reverseSpinSpeed": 0.99,
-  "secondsToFire": 12,
-  "secondsToPause": 1.7,
-  "initialDelay": 0
+  "secondsToFire": 12.2,
+  "secondsToPause": 1.7
 }

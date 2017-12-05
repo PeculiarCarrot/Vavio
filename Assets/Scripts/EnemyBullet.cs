@@ -84,7 +84,7 @@ public class EnemyBullet : Bullet {
 			break;
 		}
 		if(type != BulletType.IndependentHoming)
-			if(transform.position.x < stage.GetComponent<Stage>().minX - 2 || transform.position.y < stage.GetComponent<Stage>().minY - 2 || transform.position.x > stage.GetComponent<Stage>().maxX + 2 || transform.position.x < stage.GetComponent<Stage>().minX - 2)
+			if(transform.position.x < stage.GetComponent<Stage>().minX - 5 || transform.position.y < stage.GetComponent<Stage>().minY - 5 || transform.position.x > stage.GetComponent<Stage>().maxX + 5 || transform.position.y > stage.GetComponent<Stage>().maxY + 5)
 				Destroy(gameObject);
 	}
 

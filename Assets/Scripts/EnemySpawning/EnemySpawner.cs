@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour {
 
 	void Start()
 	{
-		level = 2;
+		level = 0;
 		if(PlayerPrefs.HasKey("diedOnLevel"))
 		{
 			level = PlayerPrefs.GetInt("diedOnLevel");
@@ -48,11 +48,11 @@ public class EnemySpawner : MonoBehaviour {
 	{
 		spawns = AllLevelData.FromJSON(new JSONObject(spawnData.text), level);
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
-		stage.GetComponent<AudioSource>().time = 60;//0;
+		stage.GetComponent<AudioSource>().time = level == 0 ? 163 : 0;//0;
 		stage.GetComponent<AudioSource>().Play();
+		stage.GetComponent<Stage>().Begin();
 		stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Start();
 		stage.GetComponent<Stage>().player.GetComponent<Player>().Regenerate();
-		stage.GetComponent<Stage>().Begin();
 		//stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Regenerate();
 		spawns.Begin(this);
 	}
@@ -90,6 +90,8 @@ public class EnemySpawner : MonoBehaviour {
 			{
 				GameObject e = Instantiate(prefab, pos, Quaternion.Euler(new Vector3(prefab.transform.eulerAngles.x, prefab.transform.eulerAngles.y, prefab.transform.eulerAngles.z + data.rotation)));
 				e.GetComponent<Enemy>().leave = data.leave;
+				if(e.GetComponent<BulletBehaviorController>() != null)
+					e.GetComponent<BulletBehaviorController>().entity = e.GetComponent<Enemy>();
 				e.GetComponent<Enemy>().reachGoalTime = data.reachGoalTime;
 				e.GetComponent<Enemy>().invul = data.invul;
 				if(data.behavior != null)
@@ -120,15 +122,18 @@ public class EnemySpawner : MonoBehaviour {
 	{
 		return liveEnemies;
 	}
-	
+	private float prevTime = 0;
 	void Update () {
 		if(spawningEnabled)
 		{
 			spawns.Update();
 		}
-		if(!stage.GetComponent<AudioSource>().isPlaying)
+		if(prevTime > stage.GetComponent<AudioSource>().time)
 		{
+			//Debug.Log(prevTime + "    "+ stage.GetComponent<AudioSource>().time);
+			prevTime = 0;
 			level++;
+			stage.GetComponent<AudioSource>().time = 0;
 			if(level >= stage.GetComponent<Stage>().songs.Length)
 			{
 				Debug.Log("Done");
@@ -137,5 +142,6 @@ public class EnemySpawner : MonoBehaviour {
 			else
 				BeginLevel(level);
 		}
+		prevTime = stage.GetComponent<AudioSource>().time;
 	}
 }

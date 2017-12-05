@@ -6,6 +6,7 @@ public class Stage : MonoBehaviour {
 
 	public static float deltaTime;
 	public static double lastTime, timeOffset, time;
+	private static double beginTime;
 
 	public GameObject player;
 	public GameObject spawner;
@@ -32,20 +33,25 @@ public class Stage : MonoBehaviour {
 
 	public void Begin()
 	{
-		timeOffset = AudioSettings.dspTime - song.timeSamples/song.clip.frequency;
+		beginTime = AudioSettings.dspTime - song.timeSamples/song.clip.frequency;
+		time = AudioSettings.dspTime - beginTime;
+		lastTime = time;
+		deltaTime = 0;
+		timeOffset = 0;//AudioSettings.dspTime - song.timeSamples/song.clip.frequency;
+
 	}
 
 	void FixedUpdate()
 	{
-
-		time = AudioSettings.dspTime - timeOffset;
-		//Debug.Log(time);
+		time = AudioSettings.dspTime - beginTime;
 		deltaTime = (float)(time - lastTime);
 		lastTime = time;
 	}
 
 	// Update is called once per frame
 	void Update () {
+		//Debug.Log("S: "+deltaTime);
+		//Debug.Log("T: "+Time.deltaTime);
 		 if(Input.GetKeyDown(KeyCode.Escape)){
 		 	Application.Quit();
 		 }

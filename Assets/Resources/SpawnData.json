@@ -224,7 +224,7 @@
       "y": 0.8
     },
     {
-      "time": 124.3,
+      "time": 124.2,
       "leave": 152.3,
       "type": "basicfaster",
       "x": 0.1,
@@ -1281,21 +1281,21 @@
       "invul": true
     },
     {
-      "time": 43.9,
+      "time": 43.47,
       "leave": 59,
       "type": "slow-infectious",
       "x": 0.7,
       "invul": true
     },
     {
-      "time": 43.9,
+      "time": 43.47,
       "leave": 59,
       "type": "slow-infectious",
       "x": 0.3,
       "invul": true
     },
     {
-      "time": 43.9,
+      "time": 43.47,
       "leave": 59,
       "type": "slow-infectious",
       "x": 0.2,
@@ -1304,7 +1304,7 @@
       "from": "down"
     },
     {
-      "time": 43.9,
+      "time": 43.47,
       "leave": 59,
       "type": "slow-infectious",
       "x": 0.8,
@@ -1322,25 +1322,282 @@
     },
     {
       "time": 59.9,
-      "leave": 90.6,
-      "type": "circle-infectious",
-      "x": 0.5,
-      "invul": true
-    },
-    {
-      "time": 73.9,
       "leave": 85.6,
       "type": "circle-infectious",
       "x": 0.5,
       "invul": true
     },
     {
-      "time": 73.9,
+      "time": 73.48,
       "leave": 85.6,
       "type": "slow-infectious",
       "x": 0.9,
       "y": 0.5,
       "invul": true
+    },
+    {
+      "time": 91,
+      "leave": 104.1,
+      "type": "circle-infectious",
+      "x": 0.5,
+      "invul": true,
+      "behavior": "lrrl-infectious"
+    },
+    {
+      "time": 103.9,
+      "leave": 127.1,
+      "type": "basic2-infectious",
+      "x": 0.5,
+      "invul": true
+    },
+  	{
+      "time": 112.0,
+      "type": "hurtyBall",
+      "x": -0.1,
+      "y": 0.6,
+      "rotation": 90
+    },
+  	{
+      "time": 112.5,
+      "type": "hurtyBall",
+      "x": -0.1,
+      "y": 0.1,
+      "rotation": 90
+    },
+  	{
+      "time": 112.8,
+      "type": "hurtyBall",
+      "x": -0.1,
+      "y": 0.8,
+      "rotation": 90
+    },
+  	{
+      "time": 113,
+      "type": "hurtyBall",
+      "x": -0.1,
+      "y": 0.5,
+      "rotation": 90
+    },
+  	{
+      "time": 113.2,
+      "type": "hurtyBall",
+      "x": -0.1,
+      "y": 0.2,
+      "rotation": 90
+    },
+  	{
+      "time": 113.5,
+      "type": "hurtyBall",
+      "x": -0.1,
+      "y": 0.4,
+      "rotation": 90
+    },
+  	{
+      "time": 113.9,
+      "type": "hurtyBall",
+      "x": 1.1,
+      "y": 0.1,
+      "rotation": -90
+    },
+  	{
+      "time": 114.4,
+      "type": "hurtyBall",
+      "x": 1.1,
+      "y": 0.6,
+      "rotation": -90
+    },
+  	{
+      "time": 114.7,
+      "type": "hurtyBall",
+      "x": 1.1,
+      "y": 0.4,
+      "rotation": -90
+    },
+  	{
+      "time": 114.9,
+      "type": "hurtyBall",
+      "x": 1.1,
+      "y": 0.5,
+      "rotation": -90
+    },
+  	{
+      "time": 115.1,
+      "type": "hurtyBall",
+      "x": 1.1,
+      "y": 0.2,
+      "rotation": -90
+    },
+  	{
+      "time": 115.4,
+      "type": "hurtyBall",
+      "x": 1.1,
+      "y": 0.8,
+      "rotation": -90
+    },
+  	{
+      "time": 119.3,
+      "type": "hurtyBall",
+      "x": -0.1,
+      "y": 0.5,
+      "rotation": 90
+    },
+  	{
+      "time": 119.8,
+      "type": "hurtyBall",
+      "x": 1.1,
+      "y": 0.1,
+      "rotation": -90
+    },
+  	{
+      "time": 120.1,
+      "type": "hurtyBall",
+      "x": -0.1,
+      "y": 0.7,
+      "rotation": 90
+    },
+  	{
+      "time": 120.3,
+      "type": "hurtyBall",
+      "x": 1.1,
+      "y": 0.6,
+      "rotation": -90
+    },
+  	{
+      "time": 120.5,
+      "type": "hurtyBall",
+      "x": -0.1,
+      "y": 0.5,
+      "rotation": 90
+    },
+  	{
+      "time": 120.8,
+      "type": "hurtyBall",
+      "x": 1.1,
+      "y": 0.8,
+      "rotation": -90
+    },
+  	{
+      "time": 123,
+      "type": "hurtyBall",
+      "x": -0.1,
+      "y": 0.45,
+      "rotation": 90
+    },
+  	{
+      "time": 123.5,
+      "type": "hurtyBall",
+      "x": 1.1,
+      "y": 0.15,
+      "rotation": -90
+    },
+  	{
+      "time": 123.8,
+      "type": "hurtyBall",
+      "x": -0.1,
+      "y": 0.85,
+      "rotation": 90
+    },
+  	{
+      "time": 124.0,
+      "type": "hurtyBall",
+      "x": 1.1,
+      "y": 0.35,
+      "rotation": -90
+    },
+  	{
+      "time": 124.2,
+      "type": "hurtyBall",
+      "x": -0.1,
+      "y": 0.75,
+      "rotation": 90
+    },
+  	{
+      "time": 124.5,
+      "type": "hurtyBall",
+      "x": 1.1,
+      "y": 0.65,
+      "rotation": -90
+    },
+  	{
+      "time": 133.7,
+      "leave": 149.2,
+      "type": "barrier",
+      "x": 0.2,
+      "y": 0.9,
+      "rotation": 0,
+      "invul": true,
+      "from": "up"
+    },
+  	{
+      "time": 133.7,
+      "leave": 149.2,
+      "type": "barrier",
+      "x": 0.2,
+      "y": 0.1,
+      "rotation": 90,
+      "invul": true,
+      "from": "left"
+    },
+  	{
+      "time": 133.7,
+      "leave": 149.2,
+      "type": "barrier",
+      "x": 0.8,
+      "y": 0.1,
+      "rotation": 180,
+      "invul": true,
+      "from": "down"
+    },
+  	{
+      "time": 133.7,
+      "leave": 149.2,
+      "type": "barrier",
+      "x": 0.8,
+      "y": 0.9,
+      "rotation": 270,
+      "invul": true,
+      "from": "right"
+    },
+  	{
+      "time": 133.7,
+      "leave": 149.2,
+      "type": "slow-infectious",
+      "x": 0.5,
+      "y": 0.8,
+      "rotation": 0,
+      "invul": true
+    },
+  	{
+      "time": 133.7,
+      "leave": 149.2,
+      "type": "slow-infectious",
+      "x": 0.66,
+      "y": 0.2,
+      "from": "down",
+      "rotation": 0,
+      "invul": true
+    },
+  	{
+      "time": 133.7,
+      "leave": 149.2,
+      "type": "slow-infectious",
+      "x": 0.33,
+      "y": 0.2,
+      "from": "down",
+      "rotation": 0,
+      "invul": true
+    },
+  	{
+      "time": 148.2,
+      "leave": 149.4,
+      "type": "laserWarning",
+      "x": 0.5
+    },
+  	{
+      "time": 149.4,
+      "leave": 160,
+      "type": "laser",
+      "x": 0.5
     },
 	],
 }

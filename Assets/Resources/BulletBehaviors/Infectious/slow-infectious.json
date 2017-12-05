@@ -2,10 +2,10 @@
   "angle": 0,
   "numberOfSets": 4,
   "spread": 360,
-  "spinSpeed": 50,
-  "bulletsPerSecond": 2.23228,
+  "spinSpeed": 20,
+  "bulletsPerSecond": 2.133333333,
   "bulletSpeed": 1,
   "bulletSpeedMultiplier": 2,
   "bulletLifetime": 20,
-  "initialDelay": -0.469
+  "initialDelay": -0.2
 }

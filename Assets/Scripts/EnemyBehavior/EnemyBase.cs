@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class EnemyBase : MonoBehaviour {
+public abstract class EnemyBase : ShooterBase {
 
 	public Vector3 velocity = Vector3.zero;
 	public float accel = .9f;

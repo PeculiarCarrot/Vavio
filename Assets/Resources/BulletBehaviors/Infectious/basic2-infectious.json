@@ -4,7 +4,7 @@
   "spread": 360,
   "spinSpeed": 30,
   "bulletsPerSecond": 4.266666,
-  "bulletSpeed": 2,
+  "bulletSpeed": 1,
   "bulletLifetime": 20,
   "initialDelay": -0.5
 }

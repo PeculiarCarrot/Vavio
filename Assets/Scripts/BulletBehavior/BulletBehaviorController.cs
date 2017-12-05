@@ -6,6 +6,8 @@ public class BulletBehaviorController : MonoBehaviour {
 
 	public BulletBehavior behavior;
 	public float x, y;
+	[HideInInspector]
+	public ShooterBase entity;
 	Vector3 rotatedPos;
 
 	// Use this for initialization
@@ -58,7 +60,7 @@ public class BulletBehaviorController : MonoBehaviour {
 		[HideInInspector]
 		public int numberOfSets;
 		[HideInInspector]
-		public bool reverseSpin;
+		public bool reverseSpin, synced;
 		[HideInInspector]
 		public float angle,
 		spread, spreadMin, spreadMax,
@@ -85,6 +87,9 @@ public class BulletBehaviorController : MonoBehaviour {
 		private float initialDelayTimer;
 		private float pauseTimer;
 
+		private float[] fireTimes;
+		private int fireIndex;
+
 		public void SetController(BulletBehaviorController controller)
 		{
 			this.controller = controller;
@@ -110,6 +115,8 @@ public class BulletBehaviorController : MonoBehaviour {
 			secondsToFire = 3;
 			secondsToPause = 0;
 			initialDelay = 0;
+			fireTimes = null;
+			synced = true;
 		}
 
 		public void LoadFromFile()
@@ -119,15 +126,47 @@ public class BulletBehaviorController : MonoBehaviour {
 			currentAngle = angle;
 			currentSpread = spread;
 			currentSpinSpeed = spinSpeed;
-			secondsPerBullet = 1 / bulletsPerSecond;
+			secondsPerBullet = (float)(1 / (double)bulletsPerSecond);
 			bulletFireTimer = secondsPerBullet;
 			goalSpread = (spreadMin == 0 && spreadMax == 0) ? spread : spreadMax;
 			initialDelay += 1f;
 			pauseTimer = 0;
+			initialDelayTimer = 0;
+			fireTimes = null;
+		}
+
+		private void GetFireTimes()
+		{
+			List<float> times = new List<float>();
+			float timeUntilChange = secondsToFire;
+			bool paused = false;
+			for(float i = initialDelay; i < controller.entity.leave; i += secondsPerBullet)
+			{
+				if(secondsToPause > 0)
+				{
+					//Debug.Log(timeUntilChange);
+					timeUntilChange -= secondsPerBullet;
+					if(timeUntilChange <= 0)
+					{
+						paused = !paused;
+						timeUntilChange = paused ? secondsToPause : secondsToFire;
+					}
+				}
+				if(!paused)
+					times.Add(i);
+			}
+			fireTimes = new float[times.Count];
+			for(int i = 0; i < fireTimes.Length; i++)
+			{
+				fireTimes[i] = times[i] + (float)Stage.time;
+			}
 		}
 
 		public void Update()
 		{
+			if(!(controller == null || controller.entity == null) && fireTimes == null && synced)
+				GetFireTimes();
+
 			currentSpread = Mathf.SmoothDamp(currentSpread, goalSpread, ref spreadSpeed, secondsPerSpreadPulse);
 			if(Mathf.Abs(currentSpread - goalSpread) < 5f && !(spreadMin == 0 && spreadMax == 0))
 			{
@@ -152,7 +191,7 @@ public class BulletBehaviorController : MonoBehaviour {
 			{
 				initialDelayTimer += Stage.deltaTime;
 			}
-			else
+			if(synced || (!synced && initialDelayTimer >= initialDelay))
 			{
 				if(secondsToPause != 0)
 				{
@@ -164,16 +203,24 @@ public class BulletBehaviorController : MonoBehaviour {
 						bulletFireTimer = secondsPerBullet;
 					}
 				}
-				if(secondsToPause == 0 || pauseTimer > 0)
+				if(((secondsToPause == 0 || pauseTimer > 0) && !synced) || synced)
 				{
 					anglePerSet = numberOfSets > 1 ? (currentSpread / (numberOfSets)) : 0;
 					setOffset = anglePerSet / 2;
-					if(bulletFireTimer < secondsPerBullet)
-						bulletFireTimer += Stage.deltaTime;
-					else
+					if((synced && Stage.time >= fireTimes[fireIndex]))
 					{
-						bulletFireTimer = 0;
+						fireIndex++;
 						FireSet();
+					}
+					if(!synced)
+					{
+						if(bulletFireTimer < secondsPerBullet)
+							bulletFireTimer += Stage.deltaTime;
+						else
+						{
+							bulletFireTimer = 0;
+							FireSet();
+						}
 					}
 				}
 			}

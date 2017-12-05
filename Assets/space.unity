@@ -251,13 +251,21 @@ MonoBehaviour:
     prefab: {fileID: 1742208454877308, guid: 63aad7f4826d66c499da1fba5792e2eb, type: 2}
   - name: octopus
     prefab: {fileID: 1873153687831220, guid: bc7acff0f4faca44cbccaafc6b2b332d, type: 2}
+  - name: basic2-infectious
+    prefab: {fileID: 1825753355920988, guid: ad5c14cb71a76e44fa999186f3d18f5b, type: 2}
   - name: basic-infectious
     prefab: {fileID: 1036713177179016, guid: 43b6cdcb249ad9d46a81583a28e5ef0c, type: 2}
   - name: slow-infectious
     prefab: {fileID: 1870292449335902, guid: a7d84178f3250cc42b843116932ed14a, type: 2}
   - name: circle-infectious
     prefab: {fileID: 1917978454502954, guid: c110d312ab1831c4f91649459410071f, type: 2}
+  - name: barrier
+    prefab: {fileID: 1811677859063582, guid: 211b7036c9e1ac8479cb8212feb48cef, type: 2}
   enemyBehavior:
+  - name: lrrl-infectious
+    behavior: {fileID: 4900000, guid: 429987dc99d2c0e4d8f9a478f1255961, type: 3}
+  - name: left-right-infectious
+    behavior: {fileID: 4900000, guid: 37d30a0a02b53e246bde551a1a546a70, type: 3}
   - name: left-right
     behavior: {fileID: 4900000, guid: b301072c0a9c184478133000f95d77f5, type: 3}
   level: 1
@@ -381,7 +389,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1141456111
 Transform:
   m_ObjectHideFlags: 0

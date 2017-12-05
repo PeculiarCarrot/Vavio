@@ -13,5 +13,6 @@
   "reverseSpinSpeed": 0.99999999,
   "secondsToFire": 5,
   "secondsToPause": 0,
-  "initialDelay": -0.3
+  "initialDelay": 0.1,
+  "synced": false
 }

@@ -1,6 +1,7 @@
 {
   "angle": 0,
-  "bulletsPerSecond": 4.934,
+  "bulletsPerSecond": 4,
   "bulletSpeed": 6,
-  "bulletLifetime": 6
+  "bulletLifetime": 6,
+  "synced": false
 }

@@ -4,5 +4,6 @@
   "spread": 20,
   "bulletsPerSecond": 7,
   "bulletSpeed": 10,
-  "bulletLifetime": 6
+  "bulletLifetime": 6,
+  "synced": false
 }

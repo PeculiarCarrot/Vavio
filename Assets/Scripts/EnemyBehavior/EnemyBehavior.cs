@@ -94,6 +94,6 @@ public class EnemyBehavior {
 	{
 			enemy.accel = steps[currentStep].accel;
 			enemy.friction = steps[currentStep].friction;
-			enemy.velocity = steps[currentStep].speed * enemy.accel;
+			enemy.velocity += steps[currentStep].speed * enemy.accel;
 	}
 }
