@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour {
 
 	void Start()
 	{
-		level = 2;
+		level = 3;
 		if(PlayerPrefs.HasKey("diedOnLevel"))
 		{
 			level = PlayerPrefs.GetInt("diedOnLevel");
@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour {
 	{
 		spawns = AllLevelData.FromJSON(new JSONObject(spawnData.text), level);
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
-		stage.GetComponent<AudioSource>().time = 58;//0;
+		stage.GetComponent<AudioSource>().time = 0;//0;
 		stage.GetComponent<AudioSource>().Play();
 		stage.GetComponent<Stage>().Begin();
 		stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Start();

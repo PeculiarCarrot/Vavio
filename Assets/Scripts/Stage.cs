@@ -33,8 +33,8 @@ public class Stage : MonoBehaviour {
 
 	public void Begin()
 	{
-		beginTime = AudioSettings.dspTime - song.timeSamples/song.clip.frequency;
-		time = AudioSettings.dspTime - beginTime;
+		beginTime = song.time - song.timeSamples/song.clip.frequency;
+		time = song.time - beginTime;
 		lastTime = time;
 		deltaTime = 0;
 		timeOffset = 0;//AudioSettings.dspTime - song.timeSamples/song.clip.frequency;
@@ -43,15 +43,43 @@ public class Stage : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		time = AudioSettings.dspTime - beginTime;
+		time = song.time - beginTime;
 		deltaTime = (float)(time - lastTime);
 		lastTime = time;
 	}
+
+	private float timeVelocity;
 
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log("S: "+deltaTime);
 		//Debug.Log("T: "+Time.deltaTime);
+		float scale = 5;
+		float f = Time.timeScale;
+		if(Input.GetKey("right"))
+		{
+			f *= 1.01f;
+		}
+		else if(Input.GetKey("left"))
+		{
+			f -= .01f;
+		}
+		else
+		{
+			f = Mathf.Max(f, .2f);
+			f = Mathf.SmoothDamp(f, 1f, ref timeVelocity, .3f);
+		}
+
+		f = Mathf.Clamp(f, 0, 100);
+		if(f != 1)
+		{
+			player.GetComponent<Player>().debug = true;
+		}
+		else
+			player.GetComponent<Player>().debug = player.GetComponent<Player>().wasDebug;
+		Time.timeScale = f;
+		song.pitch = Time.timeScale;
+
 		 if(Input.GetKeyDown(KeyCode.Escape)){
 		 	Application.Quit();
 		 }

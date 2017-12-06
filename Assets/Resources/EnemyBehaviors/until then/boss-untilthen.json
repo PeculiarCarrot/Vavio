@@ -1,0 +1,66 @@
+{
+	"steps":
+	[
+		{
+			"accel": 4,
+			"friction": 0.8,
+			"time": 29
+		},
+		{
+			"accel": 1,
+			"friction": 0.8,
+			"x": -1,
+			"y": -1,
+			"time": 0.857142
+		},
+		{
+			"accel": 0,
+			"friction": 0.8,
+			"x": -1,
+			"y": -1,
+			"time": 0.857142
+		},
+		{
+			"accel": 1,
+			"friction": 0.8,
+			"x": 1,
+			"y": 1,
+			"time": 0.857142
+		},
+		{
+			"accel": 0,
+			"friction": 0.8,
+			"x": 1,
+			"y": 1,
+			"time": 0.857142
+		},
+		{
+			"accel": 1,
+			"friction": 0.8,
+			"x": 1,
+			"y": -1,
+			"time": 0.857142
+		},
+		{
+			"accel": 0,
+			"friction": 0.8,
+			"x": -1,
+			"y": -1,
+			"time": 0.857142
+		},
+		{
+			"accel": 1,
+			"friction": 0.8,
+			"x": -1,
+			"y": 1,
+			"time": 0.857142
+		},
+		{
+			"accel": 0,
+			"friction": 0.8,
+			"x": -1,
+			"y": -1,
+			"time": 0.857142
+		},
+	]
+}

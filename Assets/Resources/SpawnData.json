@@ -1591,4 +1591,67 @@
       "x": 0.5
     },
 	],
+	"l3":[
+  	{
+      "time": 0,
+      "leave": 153.1,
+      "type": "boss-until-then",
+      "x": 0.5,
+      "behavior": "boss-until-then"
+    },
+  	{
+      "time": 14.8,
+      "leave": 28.5,
+      "type": "basic-untilthen",
+      "x": 0.2,
+      "y": 0.8,
+      "rotation": 45
+    },
+  	{
+      "time": 14.8,
+      "leave": 28.5,
+      "type": "basic-untilthen",
+      "x": 0.8,
+      "y": 0.8,
+      "rotation": -45
+    },
+  	{
+      "time": 29,
+      "leave": 29.4,
+      "type": "bass-untilthen",
+      "x": 0.5,
+      "y": 1.1
+    },
+  	{
+      "time": 42.7,
+      "leave": 42.9,
+      "type": "bass-untilthen",
+      "x": 0.5,
+      "y": 1.1
+    },
+  	{
+      "time": 46.2,
+      "leave": 46.5,
+      "type": "bass-untilthen",
+      "x": 0.5,
+      "y": -0.1,
+      "from": "down"
+    },
+  	{
+      "time": 49.6,
+      "leave": 49.9,
+      "type": "bass-untilthen",
+      "x": -0.1,
+      "y": 0.5,
+      "from": "left"
+    },
+  	{
+      "time": 49.6,
+      "leave": 49.9,
+      "type": "bass-untilthen",
+      "x": 1.1,
+      "y": 0.5,
+      "from": "right"
+    },
+	]
 }

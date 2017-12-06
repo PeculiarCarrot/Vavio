@@ -13,11 +13,14 @@ public class Player : Ship {
 	private float invincibilityDuration;
 	private float flickerTimer, flickerDuration = .05f;
 	public bool debug;
+	[HideInInspector]
+	public bool wasDebug;
 	public Texture livesTexture;
 	private bool regenerating;
 
 	// Use this for initialization
 	public override void DoStart () {
+		wasDebug = debug;
 		rotFric = 1;
 		rotAccel = 6;
 	}

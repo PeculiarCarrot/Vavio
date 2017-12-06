@@ -34,7 +34,7 @@ public class LevelSpawnData {
 			if(esd.time < t)
 			{
 				enemySpawnData.RemoveAt(i);
-				if(Mathf.Abs(esd.time - t) < 1f)
+				if(Mathf.Abs(esd.time - t) < 1f || esd.type == "boss-until-then")
 					spawner.SpawnEnemy(esd);
 			}
 		}

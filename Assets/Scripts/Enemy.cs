@@ -8,7 +8,8 @@ public class Enemy : EnemyBase {
 		Minion,
 		Homing,
 		Laser,
-		LaserWarning
+		LaserWarning,
+		Boss
 	}
 
 	public EnemyType type;
@@ -25,6 +26,7 @@ public class Enemy : EnemyBase {
 	private Vector3 startPos;
 	public bool invul;
 	private EnemyBehavior behavior;
+	public Texture healthBarTexture;
 
 	public void SetBehavior(EnemyBehavior b)
 	{
@@ -122,6 +124,18 @@ public class Enemy : EnemyBase {
 		{
 			hp -= damage;
 			Flash();
+		}
+	}
+
+	public void OnGUI()
+	{
+		if(type == EnemyType.Boss)
+		{
+			float frac = hp / (float)maxHP;
+			frac*= .5f;
+			float padding = .5f;
+			float w = Screen.width * (1 - padding);
+			GUI.DrawTexture(new Rect(.5f * Screen.width - (w * frac), 20, w * frac * 2, 30), healthBarTexture);
 		}
 	}
 	

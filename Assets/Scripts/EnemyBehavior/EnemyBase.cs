@@ -33,15 +33,38 @@ public abstract class EnemyBase : ShooterBase {
 	IEnumerator CollideFlash(Renderer mainRenderer)
 	{
 		Material m = mainRenderer.material;
-		Color32 c = mainRenderer.material.color;
+		Color c = mainRenderer.material.color;
 		mainRenderer.material = null;
-		mainRenderer.material.color = Color.white;
+		mainRenderer.material.color = ChangeColorBrightness(c, .2f);
 		mainRenderer.material.shader = Shader.Find("Unlit/Color");
 		flashing = true;		
-		yield return new WaitForSeconds(0.05f);
+		yield return new WaitForSeconds(0.03f);
 		mainRenderer.material = m;
 		mainRenderer.material.color = c;
 		flashing = false;
+	}
+
+	private Color ChangeColorBrightness(Color color, float correctionFactor)
+	{
+	    float red = (float)color.r;
+	    float green = (float)color.g;
+	    float blue = (float)color.b;
+
+	    if (correctionFactor < 0)
+	    {
+	        correctionFactor = 1 + correctionFactor;
+	        red *= correctionFactor;
+	        green *= correctionFactor;
+	        blue *= correctionFactor;
+	    }
+	    else
+	    {
+	        red = (1 - red) * correctionFactor + red;
+	        green = (1 - green) * correctionFactor + green;
+	        blue = (1 - blue) * correctionFactor + blue;
+	    }
+
+	    return new Color(red, green, blue, color.a);
 	}
 
 	public void Flash()
