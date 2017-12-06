@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour {
 
 	void Start()
 	{
-		level = 0;
+		level = 2;
 		if(PlayerPrefs.HasKey("diedOnLevel"))
 		{
 			level = PlayerPrefs.GetInt("diedOnLevel");
@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour {
 	{
 		spawns = AllLevelData.FromJSON(new JSONObject(spawnData.text), level);
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
-		stage.GetComponent<AudioSource>().time = level == 0 ? 163 : 0;//0;
+		stage.GetComponent<AudioSource>().time = 58;//0;
 		stage.GetComponent<AudioSource>().Play();
 		stage.GetComponent<Stage>().Begin();
 		stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Start();
@@ -90,8 +90,10 @@ public class EnemySpawner : MonoBehaviour {
 			{
 				GameObject e = Instantiate(prefab, pos, Quaternion.Euler(new Vector3(prefab.transform.eulerAngles.x, prefab.transform.eulerAngles.y, prefab.transform.eulerAngles.z + data.rotation)));
 				e.GetComponent<Enemy>().leave = data.leave;
-				if(e.GetComponent<BulletBehaviorController>() != null)
-					e.GetComponent<BulletBehaviorController>().entity = e.GetComponent<Enemy>();
+				foreach(BulletBehaviorController bbc in e.GetComponentsInChildren<BulletBehaviorController>())
+				{
+					bbc.SetEntity(e.GetComponent<Enemy>());
+				}
 				e.GetComponent<Enemy>().reachGoalTime = data.reachGoalTime;
 				e.GetComponent<Enemy>().invul = data.invul;
 				if(data.behavior != null)

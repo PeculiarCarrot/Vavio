@@ -1281,21 +1281,21 @@
       "invul": true
     },
     {
-      "time": 43.47,
+      "time": 43.6,
       "leave": 59,
       "type": "slow-infectious",
       "x": 0.7,
       "invul": true
     },
     {
-      "time": 43.47,
+      "time": 43.6,
       "leave": 59,
       "type": "slow-infectious",
       "x": 0.3,
       "invul": true
     },
     {
-      "time": 43.47,
+      "time": 43.6,
       "leave": 59,
       "type": "slow-infectious",
       "x": 0.2,
@@ -1304,7 +1304,7 @@
       "from": "down"
     },
     {
-      "time": 43.47,
+      "time": 43.6,
       "leave": 59,
       "type": "slow-infectious",
       "x": 0.8,
@@ -1313,26 +1313,17 @@
       "from": "down"
     },
     {
-      "time": 59.9,
+      "time": 59.6,
       "leave": 85.6,
       "type": "slow-infectious",
       "x": 0.1,
-      "y": 0.5,
-      "invul": true
+      "y": 0.5
     },
     {
       "time": 59.9,
       "leave": 85.6,
       "type": "circle-infectious",
       "x": 0.5,
-      "invul": true
-    },
-    {
-      "time": 73.48,
-      "leave": 85.6,
-      "type": "slow-infectious",
-      "x": 0.9,
-      "y": 0.5,
       "invul": true
     },
     {

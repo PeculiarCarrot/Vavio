@@ -146,6 +146,7 @@ MonoBehaviour:
       type: 2}
     numberOfSets: 0
     reverseSpin: 0
+    synced: 0
     angle: 0
     spread: 0
     spreadMin: 0
@@ -164,6 +165,7 @@ MonoBehaviour:
     initialDelay: 0
   x: 0
   y: 0
+  entity: {fileID: 0}
 --- !u!114 &114453697898735706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,10 +177,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92c0b31a4f95484d97710c3ae80ed02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leave: 0
+  velocity: {x: 0, y: 0, z: 0}
   accel: 0.9
+  friction: 0.9
   maxHP: 300
   type: 0
-  leave: 0
   reachGoalTime: 0.2
   invul: 0
 --- !u!114 &114522816785082090
@@ -198,6 +202,7 @@ MonoBehaviour:
       type: 2}
     numberOfSets: 0
     reverseSpin: 0
+    synced: 0
     angle: 0
     spread: 0
     spreadMin: 0
@@ -216,6 +221,7 @@ MonoBehaviour:
     initialDelay: 0
   x: 0
   y: 0
+  entity: {fileID: 0}
 --- !u!135 &135595427653457304
 SphereCollider:
   m_ObjectHideFlags: 1

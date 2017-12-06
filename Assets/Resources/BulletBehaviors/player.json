@@ -1,6 +1,6 @@
 {
   "angle": 0,
-  "bulletsPerSecond": 2.333333,
+  "bulletsPerSecond": 4.666666,
   "bulletSpeed": 10,
   "bulletLifetime": 6,
   "initialDelay": -1,

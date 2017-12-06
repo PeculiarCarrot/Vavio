@@ -10,6 +10,11 @@ public class BulletBehaviorController : MonoBehaviour {
 	public ShooterBase entity;
 	Vector3 rotatedPos;
 
+		public void SetEntity(ShooterBase b)
+		{
+			entity = b;
+		}
+
 	// Use this for initialization
 	public void Start () {
 		behavior.SetController(this);
@@ -165,7 +170,9 @@ public class BulletBehaviorController : MonoBehaviour {
 		public void Update()
 		{
 			if(!(controller == null || controller.entity == null) && fireTimes == null && synced)
+			{
 				GetFireTimes();
+			}
 
 			currentSpread = Mathf.SmoothDamp(currentSpread, goalSpread, ref spreadSpeed, secondsPerSpreadPulse);
 			if(Mathf.Abs(currentSpread - goalSpread) < 5f && !(spreadMin == 0 && spreadMax == 0))
@@ -207,6 +214,7 @@ public class BulletBehaviorController : MonoBehaviour {
 				{
 					anglePerSet = numberOfSets > 1 ? (currentSpread / (numberOfSets)) : 0;
 					setOffset = anglePerSet / 2;
+					//Debug.Log("-"+controller.entity);
 					if((synced && Stage.time >= fireTimes[fireIndex]))
 					{
 						fireIndex++;

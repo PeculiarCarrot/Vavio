@@ -5,7 +5,7 @@
   "spinSpeed": 20,
   "bulletsPerSecond": 2.133333333,
   "bulletSpeed": 1,
-  "bulletSpeedMultiplier": 2,
+  "bulletSpeedMultiplier": 1.7,
   "bulletLifetime": 20,
   "initialDelay": -0.2
 }
