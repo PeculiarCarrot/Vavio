@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using MoonSharp.Interpreter;
 
 public class EnemySpawner : MonoBehaviour {
 	
@@ -14,6 +14,13 @@ public class EnemySpawner : MonoBehaviour {
 	{
 		if (!loaded)
 		{
+
+			UserData.RegisterType<GameObject>();
+			UserData.RegisterType<Vector3>();
+			UserData.RegisterType<Transform>();
+			UserData.RegisterType<Quaternion>();
+			UserData.RegisterType<float[]>();
+			UserData.RegisterAssembly();
 			//Load in bullet models
 			enemyModels.Add("circle", GetEnemyModel("circle"));
 

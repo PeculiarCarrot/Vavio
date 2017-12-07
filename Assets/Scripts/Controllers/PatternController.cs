@@ -47,12 +47,16 @@ public class PatternController : ScriptController{
 	new void Start()
 	{
 		base.Start();
-		try{
-			CallLuaFunction("init", this);
-		}
-		catch (ScriptRuntimeException ex)
+		if (script != null)
 		{
-			Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   "+ex.DecoratedMessage);
+			try
+			{
+				CallLuaFunction("init", this);
+			}
+			catch (ScriptRuntimeException ex)
+			{
+				Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   " + ex.DecoratedMessage);
+			}
 		}
 	}
 
@@ -68,12 +72,16 @@ public class PatternController : ScriptController{
 
 	public void Update()
 	{
-		try{
-			CallLuaFunction("update", this, Stage.deltaTime);
-		}
-		catch (ScriptRuntimeException ex)
+		if (script != null)
 		{
-			Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   "+ex.DecoratedMessage);
+			try
+			{
+				CallLuaFunction("update", this, Stage.deltaTime);
+			}
+			catch (ScriptRuntimeException ex)
+			{
+				Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   " + ex.DecoratedMessage);
+			}
 		}
 	}
 
@@ -126,7 +134,7 @@ public class PatternController : ScriptController{
 		bd.type = "capsule";
 		bd.material = "red";
 		bd.movement = "General/forward";
-		bd.pattern = "General/none";
+		bd.pattern = null;
 		bd.angle = 0;
 		bd.destroyOnHit = true;
 		bd.scale = 1;

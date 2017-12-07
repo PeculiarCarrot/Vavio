@@ -4,7 +4,8 @@
     {
       "time": 3.4,
       "leave": 12.8,
-      "type": "basic",
+      "pattern": "STT/basic",
+      "model": "circle",
       "x": 0.5
     },
     {

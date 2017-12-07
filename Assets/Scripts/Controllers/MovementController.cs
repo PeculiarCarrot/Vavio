@@ -25,12 +25,16 @@ public class MovementController : ScriptController {
 	// Use this for initialization
 	new void Start () {
 		base.Start();
-		try{
-			CallLuaFunction("init", this);
-		}
-		catch (ScriptRuntimeException ex)
+		if (script != null)
 		{
-			Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   "+ex.DecoratedMessage);
+			try
+			{
+				CallLuaFunction("init", this);
+			}
+			catch (ScriptRuntimeException ex)
+			{
+				Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   " + ex.DecoratedMessage);
+			}
 		}
 	}
 
@@ -140,13 +144,17 @@ public class MovementController : ScriptController {
 	void Update () {
 		if (resetMoveOnUpdate)
 			move = Vector3.zero;
-		
-		try{
-			CallLuaFunction("update", this, Time.deltaTime);
-		}
-		catch (ScriptRuntimeException ex)
+
+		if (script != null)
 		{
-			Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   "+ex.DecoratedMessage);
+			try
+			{
+				CallLuaFunction("update", this, Time.deltaTime);
+			}
+			catch (ScriptRuntimeException ex)
+			{
+				Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   " + ex.DecoratedMessage);
+			}
 		}
 
 		if(!ignoreAngle)

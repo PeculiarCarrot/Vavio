@@ -8,6 +8,7 @@ public class ScriptController : MonoBehaviour {
 	protected Stage stage;
 	public string patternPath;
 	private string defaultPath;
+	private static Dictionary<string, string> cachedFiles = new Dictionary<string, string>();
 
 	protected Script script;
 
@@ -16,16 +17,25 @@ public class ScriptController : MonoBehaviour {
 		this.defaultPath = defaultPath;
 	}
 
+	private string GetCode(string filePath)
+	{
+		string code = "";
+		if (cachedFiles.ContainsKey(filePath))
+		{
+			if (!cachedFiles.TryGetValue(filePath, out code))
+				Debug.LogError("?????");
+			return code;
+		}
+		code = System.IO.File.ReadAllText(filePath);
+		cachedFiles.Add(filePath, code);
+		return code;
+	}
+
 	public void Start()
 	{
 		stage = GameObject.Find("Stage").GetComponent<Stage>();
-
-		UserData.RegisterType<GameObject>();
-		UserData.RegisterType<Vector3>();
-		UserData.RegisterType<Transform>();
-		UserData.RegisterType<Quaternion>();
-		UserData.RegisterType<float[]>();
-		UserData.RegisterAssembly();
+		if (patternPath == null)
+			return;
 		patternPath = defaultPath + patternPath;
 
 		//Make sure we're getting the right path regardless of operating system
@@ -35,9 +45,11 @@ public class ScriptController : MonoBehaviour {
 			path = System.IO.Path.Combine(path, dir);
 		path += ".lua";
 
-		string code = System.IO.File.ReadAllText(path);
+		string code = GetCode(path);
 		script = new Script();
+		//int m = System.DateTime.Now;
 		script.DoString(code);
+		//Debug.Log((System.DateTime.Now.Millisecond - m));
 	}
 
 	public DynValue CallLuaFunction(string function, params object[] parameters)

@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemySpawnData {
 	public float time, leave, reachGoalTime = .2f;
 	public float x = float.MaxValue, y = float.MaxValue, rotation, scale = 1;
-	public string type, from = "up", movement = "General/none", pattern = "General/basic", model = "circle", material = "red";
+	public string type, from = "up", movement = null, pattern = "General/basic", model = "circle", material = "red";
 	public bool invul;
 
 	public static EnemySpawnData FromJSON(JSONObject o)
