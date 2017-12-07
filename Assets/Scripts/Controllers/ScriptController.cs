@@ -20,9 +20,11 @@ public class ScriptController : MonoBehaviour {
 	{
 		stage = GameObject.Find("Stage").GetComponent<Stage>();
 
+		UserData.RegisterType<GameObject>();
 		UserData.RegisterType<Vector3>();
 		UserData.RegisterType<Transform>();
 		UserData.RegisterType<Quaternion>();
+		UserData.RegisterType<float[]>();
 		UserData.RegisterAssembly();
 		patternPath = defaultPath + patternPath;
 
@@ -31,7 +33,8 @@ public class ScriptController : MonoBehaviour {
 		string[] directories = patternPath.Split('/');
 		foreach (string dir in directories)
 			path = System.IO.Path.Combine(path, dir);
-		
+		path += ".lua";
+
 		string code = System.IO.File.ReadAllText(path);
 		script = new Script();
 		script.DoString(code);

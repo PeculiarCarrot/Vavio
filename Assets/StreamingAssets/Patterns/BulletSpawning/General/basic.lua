@@ -1,15 +1,16 @@
-
-delayTimer = 0
-delayTime = 1
+fireIndex = 0
 
 function update(pattern, deltaTime)
-	if delayTimer >= delayTime then
-		bullet = pattern.NewBullet()
-		bullet.movement = "General/basic.lua"
-		pattern.SpawnBullet(bullet)
-		delayTimer = 0
+	if(fireTimes == nil) then
+		fireTimes = pattern.GetFireTimes(0.58333333, 1.7, 20)
 	end
-	delayTimer = delayTimer + deltaTime
+
+	if(pattern.GetStageTime() >= fireTimes[fireIndex]) then
+		fireIndex = fireIndex + 1
+		bullet = pattern.NewBullet()
+		bullet.movement = "General/basic"
+		pattern.SpawnBullet(bullet)
+	end
 end
 
 function init(pattern)

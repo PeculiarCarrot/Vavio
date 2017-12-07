@@ -5,24 +5,36 @@ using UnityEngine.SceneManagement;
 
 
 public class EnemySpawner : MonoBehaviour {
+	
+	private static bool loaded;
+	private static Dictionary<string, GameObject> enemyModels = new Dictionary<string, GameObject>();
+	private static Dictionary<string, Material> enemyMaterials = new Dictionary<string, Material>();
 
-	[System.Serializable]
-	public struct NamedEnemy
+	public static void Load()
 	{
-		public string name;
-		public GameObject prefab;
+		if (!loaded)
+		{
+			//Load in bullet models
+			enemyModels.Add("circle", GetEnemyModel("circle"));
+
+			//Load in bullet materials
+			enemyMaterials.Add("red", GetEnemyMaterial("red"));
+		}
+
+		loaded = true;
 	}
-	[System.Serializable]
-	public struct NamedEnemyBehavior
+
+	private static GameObject GetEnemyModel(string name)
 	{
-		public string name;
-		public TextAsset behavior;
+		return (GameObject) Resources.Load("Prefabs/Models/Enemies/"+name);
+	}
+
+	private static Material GetEnemyMaterial(string name)
+	{
+		return (Material) Resources.Load("Materials/Enemies/"+name);
 	}
 
 	public TextAsset spawnData;
-
-	public NamedEnemy[] enemy;
-	public NamedEnemyBehavior[] enemyBehavior;
 
 	public int level;
 	private LevelSpawnData spawns;
@@ -33,7 +45,7 @@ public class EnemySpawner : MonoBehaviour {
 
 	void Start()
 	{
-		level = 3;
+		level = 0;
 		if(PlayerPrefs.HasKey("diedOnLevel"))
 		{
 			level = PlayerPrefs.GetInt("diedOnLevel");
@@ -57,67 +69,55 @@ public class EnemySpawner : MonoBehaviour {
 		spawns.Begin(this);
 	}
 
-	private EnemyBehavior GenerateEnemyBehavior(string name)
-	{
-		foreach(NamedEnemyBehavior neb in enemyBehavior)
-			if(neb.name == name)
-				return EnemyBehavior.FromJSON(neb.behavior.text);
-
-		Debug.LogError("No enemy behavior found with name: "+name);
-		return null;
-	}
-
 	public void SpawnEnemy(EnemySpawnData data)
 	{
-		GameObject prefab = GetEnemyFromName(data.type);
-		if(prefab != null)
+		GameObject model;
+		Material material;
+
+		if(enemyModels.TryGetValue(data.model, out model) == false)
 		{
-			Vector3 goalPos = Vector3.zero;
-			goalPos.x = Stage.minX + Stage.width * (data.x == float.MaxValue ? .8f : data.x);
-			goalPos.y = Stage.minY + Stage.height * (data.y == float.MaxValue ? .8f : data.y);
-
-			Vector3 pos = goalPos;
-			if(data.from == "left")
-				pos.x = Stage.minX - 1;
-			else if(data.from == "right")
-				pos.x = Stage.maxX + 1;
-			else if(data.from == "down")
-				pos.y = Stage.minY - 1;
-			else if(data.from == "up")
-				pos.y = Stage.maxY + 1;
-
-			if(prefab.GetComponent<Enemy>() != null)
-			{
-				GameObject e = Instantiate(prefab, pos, Quaternion.Euler(new Vector3(prefab.transform.eulerAngles.x, prefab.transform.eulerAngles.y, prefab.transform.eulerAngles.z + data.rotation)));
-				e.GetComponent<Enemy>().leave = data.leave;
-				foreach(BulletBehaviorController bbc in e.GetComponentsInChildren<BulletBehaviorController>())
-				{
-					bbc.SetEntity(e.GetComponent<Enemy>());
-				}
-				e.GetComponent<Enemy>().reachGoalTime = data.reachGoalTime;
-				e.GetComponent<Enemy>().invul = data.invul;
-				if(data.behavior != null)
-					e.GetComponent<Enemy>().SetBehavior(GenerateEnemyBehavior(data.behavior));
-				e.GetComponent<Enemy>().SetGoalPos(goalPos);
-				liveEnemies.Add(e);
-			}
-			else
-			{
-				GameObject e = Instantiate(prefab, goalPos, Quaternion.Euler(new Vector3(prefab.transform.eulerAngles.x, prefab.transform.eulerAngles.y, prefab.transform.eulerAngles.z + data.rotation)));
-			}
+			Debug.LogError("No enemy type/model named '" + data.model + "' exists");
+			return;
 		}
-		else
+
+		if(enemyMaterials.TryGetValue(data.material, out material) == false)
 		{
-			Debug.LogError("No enemy type exists: " + data.type);
+			Debug.LogError("No enemy material named '" + data.model + "' exists");
+			return;
 		}
-	}
 
-	public GameObject GetEnemyFromName(string name)
-	{
-		foreach(NamedEnemy e in enemy)
-			if(e.name == name)
-				return e.prefab;
-		return null;
+		Vector3 goalPos = Vector3.zero;
+		goalPos.x = Stage.minX + Stage.width * (data.x == float.MaxValue ? .8f : data.x);
+		goalPos.y = Stage.minY + Stage.height * (data.y == float.MaxValue ? .8f : data.y);
+
+		Vector3 pos = goalPos;
+		if(data.from == "left")
+			pos.x = Stage.minX - 1;
+		else if(data.from == "right")
+			pos.x = Stage.maxX + 1;
+		else if(data.from == "down")
+			pos.y = Stage.minY - 1;
+		else if(data.from == "up")
+			pos.y = Stage.maxY + 1;
+
+			GameObject e = Instantiate(model, pos, Quaternion.Euler(new Vector3(model.transform.eulerAngles.x, model.transform.eulerAngles.y, model.transform.eulerAngles.z + data.rotation)));
+			e.transform.localScale = e.transform.localScale * data.scale;
+
+			foreach (Renderer renderer in e.GetComponentsInChildren<Renderer>())
+				renderer.material = material;
+
+		if(model.GetComponent<Enemy>() != null)
+		{
+			e.GetComponent<Enemy>().leave = data.leave;
+			e.GetComponent<Enemy>().reachGoalTime = data.reachGoalTime;
+			e.GetComponent<Enemy>().invul = data.invul;
+			e.GetComponent<Enemy>().SetGoalPos(goalPos);
+			liveEnemies.Add(e);
+		}
+		if(model.GetComponent<PatternController>() != null)
+			e.GetComponent<PatternController>().patternPath = data.pattern;
+		if(model.GetComponent<MovementController>() != null)
+			e.GetComponent<MovementController>().patternPath = data.movement;
 	}
 
 	public List<GameObject> GetLiveEnemies()

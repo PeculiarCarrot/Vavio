@@ -15,8 +15,15 @@ public class Stage : MonoBehaviour {
 	public AudioClip[] songs;
 	public AudioSource song;
 
+	void Awake()
+	{
+		PatternController.Load();
+		EnemySpawner.Load();
+	}
+
 	// Use this for initialization
 	void Start () {
+
 		UpdateScreenPositions();
 		deltaTime = 0;
 		time = 0;

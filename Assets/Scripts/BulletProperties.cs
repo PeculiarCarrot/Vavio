@@ -9,7 +9,7 @@ public class BulletProperties : MonoBehaviour {
 	[HideInInspector]
 	public float lifetime;
 	[HideInInspector]
-	public bool destroyOnExitStage;
+	public bool destroyOnExitStage, destroyOnHit;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +25,7 @@ public class BulletProperties : MonoBehaviour {
 			Destroy(gameObject);
 	}
 
-	void Die()
+	public void Die()
 	{
 		Destroy(gameObject);
 	}

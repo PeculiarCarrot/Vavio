@@ -5,8 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class EnemySpawnData {
 	public float time, leave, reachGoalTime = .2f;
-	public float x = float.MaxValue, y = float.MaxValue, rotation;
-	public string type, from = "up", behavior;
+	public float x = float.MaxValue, y = float.MaxValue, rotation, scale = 1;
+	public string type, from = "up", movement = "General/none", pattern = "General/basic", model = "circle", material = "red";
 	public bool invul;
 
 	public static EnemySpawnData FromJSON(JSONObject o)
@@ -38,10 +38,19 @@ public class EnemySpawnData {
 				break;
 				case "type":
 					esd.type = (string)j.str;
-				break;
-				case "behavior":
-					esd.behavior = (string)j.str;
-				break;
+					break;
+				case "movement":
+					esd.movement = (string)j.str;
+					break;
+				case "pattern":
+					esd.pattern = (string)j.str;
+					break;
+				case "model":
+					esd.model = (string)j.str;
+					break;
+				case "material":
+					esd.model = (string)j.str;
+					break;
 				case "from":
 					esd.from = (string)j.str;
 				break;

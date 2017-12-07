@@ -34,6 +34,11 @@ public class MovementController : ScriptController {
 		}
 	}
 
+	public float GetStageDeltaTime()
+	{
+		return Stage.deltaTime;
+	}
+
 	public void FindTarget()
 	{
 		if(targetType == "player")
@@ -137,7 +142,7 @@ public class MovementController : ScriptController {
 			move = Vector3.zero;
 		
 		try{
-			CallLuaFunction("update", this, Stage.deltaTime);
+			CallLuaFunction("update", this, Time.deltaTime);
 		}
 		catch (ScriptRuntimeException ex)
 		{

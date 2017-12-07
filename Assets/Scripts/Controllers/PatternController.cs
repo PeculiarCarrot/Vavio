@@ -10,22 +10,23 @@ public class PatternController : ScriptController{
 	private static Dictionary<string, GameObject> bulletModels = new Dictionary<string, GameObject>();
 	private static Dictionary<string, Material> bulletMaterials = new Dictionary<string, Material>();
 
-	private static void Load()
+	public static void Load()
 	{
-		//Load in bullet models
-		bulletModels.Add("capsule", GetBulletModel("capsule"));
+		if (!loaded)
+		{
+			//Load in bullet models
+			bulletModels.Add("capsule", GetBulletModel("capsule"));
 
-		//Load in bullet materials
-		bulletMaterials.Add("red", GetBulletMaterial("red"));
-
-		UserData.RegisterType<GameObject>();
+			//Load in bullet materials
+			bulletMaterials.Add("red", GetBulletMaterial("red"));
+		}
 
 		loaded = true;
 	}
 
 	private static GameObject GetBulletModel(string name)
 	{
-		return (GameObject) Resources.Load("Prefabs/BulletModels/"+name);
+		return (GameObject) Resources.Load("Prefabs/Models/Bullets/"+name);
 	}
 
 	private static Material GetBulletMaterial(string name)
@@ -36,18 +37,15 @@ public class PatternController : ScriptController{
 	[MoonSharpUserData]
 	public struct BulletData
 	{
-		public float x, y, z, angle, speed, lifetime;
-		public string type, material, owner, movement;
-		public bool destroyOnExitStage;
+		public float x, y, z, angle, speed, lifetime, scale;
+		public string type, material, owner, movement, pattern;
+		public bool destroyOnExitStage, destroyOnHit;
 	}
 
 	public PatternController() : base("Patterns/BulletSpawning/"){}
 
 	new void Start()
 	{
-		if (!loaded)
-			Load();
-		
 		base.Start();
 		try{
 			CallLuaFunction("init", this);
@@ -56,6 +54,11 @@ public class PatternController : ScriptController{
 		{
 			Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   "+ex.DecoratedMessage);
 		}
+	}
+
+	public void Print(string message)
+	{
+		Debug.Log(message);
 	}
 
 	public float GetAngle()
@@ -74,6 +77,45 @@ public class PatternController : ScriptController{
 		}
 	}
 
+	public float[] GetFireTimes(float bulletsPerSecond, float initialDelay, float leaveTime)
+	{
+		return GetFireTimes(bulletsPerSecond, initialDelay, leaveTime, 0, 0);
+	}
+
+	public float GetStageTime()
+	{
+		return (float)Stage.time;
+	}
+
+	public float[] GetFireTimes(float bulletsPerSecond, float initialDelay, float leaveTime, float secondsToFire, float secondsToPause)
+	{
+		float secondsPerBullet = 1 / bulletsPerSecond;
+		List<float> times = new List<float>();
+		float timeUntilChange = secondsToFire;
+		bool paused = false;
+		for(float i = initialDelay; i < leaveTime; i += secondsPerBullet)
+		{
+			if(secondsToPause > 0)
+			{
+				//Debug.Log(timeUntilChange);
+				timeUntilChange -= secondsPerBullet;
+				if(timeUntilChange <= 0)
+				{
+					paused = !paused;
+					timeUntilChange = paused ? secondsToPause : secondsToFire;
+				}
+			}
+			if(!paused)
+				times.Add(i);
+		}
+		float[] fireTimes = new float[times.Count];
+		for(int i = 0; i < fireTimes.Length; i++)
+		{
+			fireTimes[i] = times[i] + (float)Stage.time;
+		}
+		return fireTimes;
+	}
+
 	public BulletData NewBullet()
 	{
 		BulletData bd = new BulletData();
@@ -83,8 +125,11 @@ public class PatternController : ScriptController{
 		bd.owner = "enemy";
 		bd.type = "capsule";
 		bd.material = "red";
-		bd.movement = "General/forward.lua";
-		bd.angle = GetAngle();
+		bd.movement = "General/forward";
+		bd.pattern = "General/none";
+		bd.angle = 0;
+		bd.destroyOnHit = true;
+		bd.scale = 1;
 		return bd;
 	}
 
@@ -107,15 +152,17 @@ public class PatternController : ScriptController{
 		//Spawn the bullet and apply all properties to it
 		GameObject bullet = Object.Instantiate(model);
 		bullet.GetComponent<MovementController>().patternPath = b.movement;
+		bullet.GetComponent<PatternController>().patternPath = b.pattern;
 		bullet.transform.position = gameObject.transform.position + new Vector3(b.x, b.y, b.z);
-		bullet.transform.rotation = gameObject.transform.rotation;
-		bullet.transform.Rotate(0, 0, b.angle);
+		bullet.transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + b.angle);
+		bullet.transform.localScale = bullet.transform.localScale * b.scale;
 
 		foreach (Renderer renderer in bullet.GetComponentsInChildren<Renderer>())
 			renderer.material = material;
 
 		BulletProperties bp = bullet.GetComponent<BulletProperties>();
 		bp.destroyOnExitStage = b.destroyOnExitStage;
+		bp.destroyOnHit = b.destroyOnHit;
 		bp.owner = b.owner;
 		bp.lifetime = b.lifetime;
 	}

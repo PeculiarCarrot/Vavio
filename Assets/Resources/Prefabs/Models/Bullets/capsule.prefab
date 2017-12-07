@@ -214,6 +214,7 @@ MonoBehaviour:
   owner: 
   lifetime: 0
   destroyOnExitStage: 0
+  destroyOnHit: 0
 --- !u!136 &136796953174083900
 CapsuleCollider:
   m_ObjectHideFlags: 1

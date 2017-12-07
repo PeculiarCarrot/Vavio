@@ -18,33 +18,33 @@ public class PlayerCore : MonoBehaviour {
 
 	void OnTriggerEnter (Collider col)
     {
-    	EnemyBullet bullet = col.gameObject.GetComponent<EnemyBullet>();
+		BulletProperties bullet = col.gameObject.GetComponent<BulletProperties>();
     	Enemy enemy = col.gameObject.GetComponent<Enemy>();
         if(bullet != null && !player.GetComponent<Player>().IsInvincible())
         {
-            if(bullet.type != EnemyBullet.BulletType.HurtyBall)
-                bullet.Die();
-            player.GetComponent<Player>().GetHurt(bullet.GetDamage());
-            return;
+			if(bullet.owner != "player")
+			{
+				if (bullet.destroyOnHit)
+					bullet.Die();
+				player.GetComponent<Player>().GetHurt();
+			}
+			return;
         }
         if(enemy != null && !player.GetComponent<Player>().IsInvincible())
         {
-            float playerDamage = 50;
+            bool damaged = true;
             switch(enemy.type)
             {
-                case Enemy.EnemyType.Laser:
-                playerDamage = 50;
+				case Enemy.EnemyType.LaserWarning:
+					damaged = false;
                 break;
-                case Enemy.EnemyType.LaserWarning:
-                playerDamage = 0;
-                break;
-                default:
-                playerDamage = 50;
+				default:
+					damaged = true;
                 break;
             }
             enemy.GetHurt(50);
-            if(playerDamage > 0)
-                player.GetComponent<Player>().GetHurt(playerDamage);
+			if(damaged)
+                player.GetComponent<Player>().GetHurt();
             return;
         }
     }

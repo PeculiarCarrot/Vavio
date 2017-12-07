@@ -45,7 +45,7 @@ public class Player : Ship {
     	}
     }
 
-	public new void GetHurt(float damage)
+	public void GetHurt()
 	{
 		if(!debug)
 		{
@@ -59,7 +59,7 @@ public class Player : Ship {
 	{
 		PlayerPrefs.SetInt("diedOnLevel", spawner.level);
 		PlayerPrefs.Save();
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name); //aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa just restart the level not the scene
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 	
     private void ApplyPowerUp(PowerUp.PowerUpType type, float duration)
