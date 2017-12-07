@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 4645349590765634}
   - component: {fileID: 136796953174083900}
   - component: {fileID: 114886439947973348}
+  - component: {fileID: 114986538283672388}
   m_Layer: 0
   m_Name: capsule
   m_TagString: Untagged
@@ -192,8 +193,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194367b20cf994e4784dc23c5a04e3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patternPath: General/forward.lua
-  pos: {x: 0, y: 0, z: 0}
+  patternPath: General/followPlayer.lua
+  move: {x: 0, y: 0, z: 0}
+  friction: 1
+  resetMoveOnUpdate: 1
+  ignoreAngle: 0
+  speed: 1
+  targetType: 
+--- !u!114 &114986538283672388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1839784169979414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cbcb34d9c5278a41b81d0b980f30621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: 
+  lifetime: 0
+  destroyOnExitStage: 0
 --- !u!136 &136796953174083900
 CapsuleCollider:
   m_ObjectHideFlags: 1

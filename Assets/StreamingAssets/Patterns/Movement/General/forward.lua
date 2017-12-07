@@ -1,7 +1,7 @@
 function init(movement)
-	movement.resetPosOnUpdate = true
+	movement.resetMoveOnUpdate = true
 end
 
 function update(movement, deltaTime)
-	movement.SetPos(movement.GetSpeed() * deltaTime)
+	movement.SetMove(movement.speed * deltaTime)
 end

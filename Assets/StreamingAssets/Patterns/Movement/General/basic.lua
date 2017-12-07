@@ -1,7 +1,7 @@
-function init()
-	
+function init(movement)
+	movement.resetMoveOnUpdate = true
 end
 
 function update(movement, deltaTime)
-	--movement.pos.x += 1 * deltaTime
+	movement.SetMove(movement.speed * deltaTime)
 end

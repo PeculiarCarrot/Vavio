@@ -195,18 +195,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1467157894760724, guid: a1d643d648358444aa0fd108b58bcec4,
     type: 2}
   m_PrefabInternal: {fileID: 1769361959}
---- !u!114 &505942957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 505942951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 491ddc0804440844d865368bef8804d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patternPath: patterns/until then/boss.lua
 --- !u!1 &723507419
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,10 +518,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194367b20cf994e4784dc23c5a04e3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patternPath: General/basic.lua
-  pos: {x: 0, y: 0, z: 0}
-  resetPosOnUpdate: 1
+  patternPath: General/none.lua
+  move: {x: 0, y: 0, z: 0}
+  friction: 1
+  resetMoveOnUpdate: 1
   ignoreAngle: 0
+  speed: 1
+  targetType: 
 --- !u!114 &1624877474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,6 +598,11 @@ Prefab:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 723507420}
+    - target: {fileID: 114519326508080882, guid: a1d643d648358444aa0fd108b58bcec4,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
   m_IsPrefabParent: 0
@@ -640,12 +636,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 505942951}
   spawner: {fileID: 723507419}
-  minX: 0
-  minY: 0
-  maxX: 0
-  maxY: 0
-  width: 0
-  height: 0
   songs:
   - {fileID: 8300000, guid: 6e5260fa52327ea44a9ff090a5a3c495, type: 3}
   - {fileID: 8300000, guid: 9a8dc4a4d97e0804980edc7c967aec46, type: 3}

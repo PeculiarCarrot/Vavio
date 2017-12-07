@@ -7,11 +7,11 @@ using MoonSharp.Interpreter;
 public class MovementController : ScriptController {
 
 	[HideInInspector]
-	public Vector3 pos = Vector3.zero;
+	public Vector3 move = Vector3.zero;
 	[HideInInspector]
 	public float friction = 1f;
 	[HideInInspector]
-	public bool resetPosOnUpdate = true;
+	public bool resetMoveOnUpdate = true;
 	[HideInInspector]
 	public bool ignoreAngle = false;
 	[HideInInspector]
@@ -25,7 +25,13 @@ public class MovementController : ScriptController {
 	// Use this for initialization
 	new void Start () {
 		base.Start();
-		CallLuaFunction("init", this);
+		try{
+			CallLuaFunction("init", this);
+		}
+		catch (ScriptRuntimeException ex)
+		{
+			Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   "+ex.DecoratedMessage);
+		}
 	}
 
 	public void FindTarget()
@@ -60,9 +66,44 @@ public class MovementController : ScriptController {
 		return closest;
 	}
 
-	public void SetPos(float x)
+	public float GetTargetX()
 	{
-		pos = new Vector3(x, 0, 0);
+		if(target == null)
+		{
+			Debug.LogError("Target is null but its X value was requested: " + patternPath);
+			return 0;
+		}
+		return target.transform.position.x;
+	}
+
+	public float GetTargetY()
+	{
+		if(target == null)
+		{
+			Debug.LogError("Target is null but its Y value was requested: " + patternPath);
+			return 0;
+		}
+		return target.transform.position.y;
+	}
+
+	public float GetX()
+	{
+		return transform.position.x;
+	}
+
+	public float GetY()
+	{
+		return transform.position.y;
+	}
+
+	public void SetMove(float x)
+	{
+		move = new Vector3(x, 0, 0);
+	}
+
+	public void SetMove(float x, float y)
+	{
+		move = new Vector3(x, y, 0);
 	}
 
 	public float GetSpeed()
@@ -70,19 +111,14 @@ public class MovementController : ScriptController {
 		return speed;
 	}
 
-	public void SetPos(float x, float y)
+	public float GetMoveX()
 	{
-		pos = new Vector3(x, y, 0);
+		return move.x;
 	}
 
-	public float GetPosX()
+	public float GetMoveY()
 	{
-		return pos.x;
-	}
-
-	public float GetPosY()
-	{
-		return pos.y;
+		return move.y;
 	}
 
 	public void Rotate(float angle)
@@ -97,16 +133,23 @@ public class MovementController : ScriptController {
 	
 	// Update is called once per frame
 	void Update () {
-		if (resetPosOnUpdate)
-			pos = Vector3.zero;
-		CallLuaFunction("update", this, Stage.deltaTime);
+		if (resetMoveOnUpdate)
+			move = Vector3.zero;
+		
+		try{
+			CallLuaFunction("update", this, Stage.deltaTime);
+		}
+		catch (ScriptRuntimeException ex)
+		{
+			Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   "+ex.DecoratedMessage);
+		}
 
 		if(!ignoreAngle)
 		{
-			pos = Quaternion.Euler(0, 0, transform.eulerAngles.z) * pos;
+			move = Quaternion.Euler(0, 0, transform.eulerAngles.z) * move;
 		}
 
-		transform.position = transform.position + pos;
-		pos *= friction;
+		transform.position = transform.position + move;
+		move *= friction;
 	}
 }

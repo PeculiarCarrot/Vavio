@@ -37,7 +37,7 @@ public class PatternController : ScriptController{
 	public struct BulletData
 	{
 		public float x, y, z, angle, speed, lifetime;
-		public string type, material, owner;
+		public string type, material, owner, movement;
 		public bool destroyOnExitStage;
 	}
 
@@ -49,7 +49,13 @@ public class PatternController : ScriptController{
 			Load();
 		
 		base.Start();
-		CallLuaFunction("init", this);
+		try{
+			CallLuaFunction("init", this);
+		}
+		catch (ScriptRuntimeException ex)
+		{
+			Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   "+ex.DecoratedMessage);
+		}
 	}
 
 	public float GetAngle()
@@ -59,7 +65,13 @@ public class PatternController : ScriptController{
 
 	public void Update()
 	{
-		CallLuaFunction("update", this, Stage.deltaTime);
+		try{
+			CallLuaFunction("update", this, Stage.deltaTime);
+		}
+		catch (ScriptRuntimeException ex)
+		{
+			Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   "+ex.DecoratedMessage);
+		}
 	}
 
 	public BulletData NewBullet()
@@ -71,6 +83,7 @@ public class PatternController : ScriptController{
 		bd.owner = "enemy";
 		bd.type = "capsule";
 		bd.material = "red";
+		bd.movement = "General/forward.lua";
 		bd.angle = GetAngle();
 		return bd;
 	}
@@ -93,6 +106,7 @@ public class PatternController : ScriptController{
 
 		//Spawn the bullet and apply all properties to it
 		GameObject bullet = Object.Instantiate(model);
+		bullet.GetComponent<MovementController>().patternPath = b.movement;
 		bullet.transform.position = gameObject.transform.position + new Vector3(b.x, b.y, b.z);
 		bullet.transform.rotation = gameObject.transform.rotation;
 		bullet.transform.Rotate(0, 0, b.angle);
