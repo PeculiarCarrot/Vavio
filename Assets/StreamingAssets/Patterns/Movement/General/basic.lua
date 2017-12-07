@@ -1,7 +1,7 @@
 function init(movement)
-	movement.resetMoveOnUpdate = true
+	movement.resetMoveOnUpdate = false
 end
 
 function update(movement, deltaTime)
-	movement.SetMove(movement.speed * deltaTime)
+	movement.SetMove(movement.speed)
 end

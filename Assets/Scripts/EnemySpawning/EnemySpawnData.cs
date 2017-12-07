@@ -49,7 +49,7 @@ public class EnemySpawnData {
 					esd.model = (string)j.str;
 					break;
 				case "material":
-					esd.model = (string)j.str;
+					esd.material = (string)j.str;
 					break;
 				case "from":
 					esd.from = (string)j.str;

@@ -2,13 +2,17 @@ fireIndex = 0
 
 function update(pattern, deltaTime)
 	if(fireTimes == nil) then
-		fireTimes = pattern.GetFireTimes(0.58333333, 1.6)
+		fireTimes = pattern.GetFireTimes(1.16666, 1)
 	end
 
 	if(pattern.GetStageTime() >= fireTimes[fireIndex]) then
 		fireIndex = fireIndex + 1
+
 		bullet = pattern.NewBullet()
-		bullet.movement = "General/basic"
+		bullet.movement = "General/homing"
+		bullet.material = "orange"
+		bullet.speed = 1
+		bullet.lifetime = 4
 		pattern.SpawnBullet(bullet)
 	end
 end

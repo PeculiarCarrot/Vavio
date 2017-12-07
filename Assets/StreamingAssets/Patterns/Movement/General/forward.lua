@@ -1,7 +1,8 @@
 function init(movement)
-	movement.resetMoveOnUpdate = true
+	movement.resetMoveOnUpdate = false
+	movement.friction = .98
 end
 
 function update(movement, deltaTime)
-	movement.SetMove(movement.speed * deltaTime)
+	movement.SetMove(movement.speed)
 end

@@ -19,6 +19,8 @@ public class PatternController : ScriptController{
 
 			//Load in bullet materials
 			bulletMaterials.Add("red", GetBulletMaterial("red"));
+			bulletMaterials.Add("darkRed", GetBulletMaterial("darkRed"));
+			bulletMaterials.Add("orange", GetBulletMaterial("orange"));
 		}
 
 		loaded = true;
@@ -41,6 +43,9 @@ public class PatternController : ScriptController{
 		public string type, material, owner, movement, pattern;
 		public bool destroyOnExitStage, destroyOnHit;
 	}
+
+	[HideInInspector]
+	public float leave;
 
 	public PatternController() : base("Patterns/BulletSpawning/"){}
 
@@ -70,6 +75,16 @@ public class PatternController : ScriptController{
 		return transform.eulerAngles.z;
 	}
 
+	public float RandomValue()
+	{
+		return Random.value;
+	}
+
+	public float RandomRange(float x, float y)
+	{
+		return Random.Range(x, y);
+	}
+
 	public void Update()
 	{
 		if (script != null)
@@ -85,9 +100,9 @@ public class PatternController : ScriptController{
 		}
 	}
 
-	public float[] GetFireTimes(float bulletsPerSecond, float initialDelay, float leaveTime)
+	public float[] GetFireTimes(float bulletsPerSecond, float initialDelay)
 	{
-		return GetFireTimes(bulletsPerSecond, initialDelay, leaveTime, 0, 0);
+		return GetFireTimes(bulletsPerSecond, initialDelay, 0, 0);
 	}
 
 	public float GetStageTime()
@@ -95,13 +110,13 @@ public class PatternController : ScriptController{
 		return (float)Stage.time;
 	}
 
-	public float[] GetFireTimes(float bulletsPerSecond, float initialDelay, float leaveTime, float secondsToFire, float secondsToPause)
+	public float[] GetFireTimes(float bulletsPerSecond, float initialDelay, float secondsToFire, float secondsToPause)
 	{
 		float secondsPerBullet = 1 / bulletsPerSecond;
 		List<float> times = new List<float>();
 		float timeUntilChange = secondsToFire;
 		bool paused = false;
-		for(float i = initialDelay; i < leaveTime; i += secondsPerBullet)
+		for(float i = initialDelay; i < leave; i += secondsPerBullet)
 		{
 			if(secondsToPause > 0)
 			{

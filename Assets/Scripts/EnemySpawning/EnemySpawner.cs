@@ -19,13 +19,17 @@ public class EnemySpawner : MonoBehaviour {
 			UserData.RegisterType<Vector3>();
 			UserData.RegisterType<Transform>();
 			UserData.RegisterType<Quaternion>();
+			UserData.RegisterType<LuaMath>();
 			UserData.RegisterType<float[]>();
 			UserData.RegisterAssembly();
 			//Load in bullet models
 			enemyModels.Add("circle", GetEnemyModel("circle"));
+			enemyModels.Add("pepper", GetEnemyModel("pepper"));
 
 			//Load in bullet materials
 			enemyMaterials.Add("red", GetEnemyMaterial("red"));
+			enemyMaterials.Add("lightRed", GetEnemyMaterial("lightRed"));
+			enemyMaterials.Add("orange", GetEnemyMaterial("orange"));
 		}
 
 		loaded = true;
@@ -89,7 +93,7 @@ public class EnemySpawner : MonoBehaviour {
 
 		if(enemyMaterials.TryGetValue(data.material, out material) == false)
 		{
-			Debug.LogError("No enemy material named '" + data.model + "' exists");
+			Debug.LogError("No enemy material named '" + data.material + "' exists");
 			return;
 		}
 
@@ -107,11 +111,11 @@ public class EnemySpawner : MonoBehaviour {
 		else if(data.from == "up")
 			pos.y = Stage.maxY + 1;
 
-			GameObject e = Instantiate(model, pos, Quaternion.Euler(new Vector3(model.transform.eulerAngles.x, model.transform.eulerAngles.y, model.transform.eulerAngles.z + data.rotation)));
-			e.transform.localScale = e.transform.localScale * data.scale;
+		GameObject e = Instantiate(model, pos, Quaternion.Euler(new Vector3(model.transform.eulerAngles.x, model.transform.eulerAngles.y, model.transform.eulerAngles.z + data.rotation)));
+		e.transform.localScale = e.transform.localScale * data.scale;
 
-			foreach (Renderer renderer in e.GetComponentsInChildren<Renderer>())
-				renderer.material = material;
+		foreach (Renderer renderer in e.GetComponentsInChildren<Renderer>())
+			renderer.material = material;
 
 		if(model.GetComponent<Enemy>() != null)
 		{
@@ -121,8 +125,11 @@ public class EnemySpawner : MonoBehaviour {
 			e.GetComponent<Enemy>().SetGoalPos(goalPos);
 			liveEnemies.Add(e);
 		}
-		if(model.GetComponent<PatternController>() != null)
+		if (model.GetComponent<PatternController>() != null)
+		{
 			e.GetComponent<PatternController>().patternPath = data.pattern;
+			e.GetComponent<PatternController>().leave = data.leave;
+		}
 		if(model.GetComponent<MovementController>() != null)
 			e.GetComponent<MovementController>().patternPath = data.movement;
 	}

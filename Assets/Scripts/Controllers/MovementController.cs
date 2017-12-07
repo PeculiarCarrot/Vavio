@@ -20,6 +20,8 @@ public class MovementController : ScriptController {
 	public string targetType;
 	private GameObject target;
 
+	private LuaMath luaMath = new LuaMath();
+
 	public MovementController() : base("Patterns/Movement/"){}
 
 	// Use this for initialization
@@ -36,6 +38,11 @@ public class MovementController : ScriptController {
 				Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   " + ex.DecoratedMessage);
 			}
 		}
+	}
+
+	public LuaMath Math()
+	{
+		return luaMath;
 	}
 
 	public float GetStageDeltaTime()
@@ -105,6 +112,11 @@ public class MovementController : ScriptController {
 		return transform.position.y;
 	}
 
+	public float GetAngle()
+	{
+		return transform.eulerAngles.z;
+	}
+
 	public void SetMove(float x)
 	{
 		move = new Vector3(x, 0, 0);
@@ -162,7 +174,7 @@ public class MovementController : ScriptController {
 			move = Quaternion.Euler(0, 0, transform.eulerAngles.z) * move;
 		}
 
-		transform.position = transform.position + move;
+		transform.position = transform.position + move * Time.deltaTime;
 		move *= friction;
 	}
 }
