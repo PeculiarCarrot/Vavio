@@ -145,8 +145,8 @@ public class Player : Ship {
 
         GetComponent<BulletBehaviorController>().enabled = !debug;
 
-		transform.position = new Vector3(Mathf.Clamp(transform.position.x, stage.GetComponent<Stage>().minX, stage.GetComponent<Stage>().maxX),
-			Mathf.Clamp(transform.position.y, stage.GetComponent<Stage>().minY, stage.GetComponent<Stage>().maxY), transform.position.z);
+		transform.position = new Vector3(Mathf.Clamp(transform.position.x, Stage.minX, Stage.maxX),
+			Mathf.Clamp(transform.position.y, Stage.minY, Stage.maxY), transform.position.z);
 		if(hp <= 0)
 			Die();
 	}

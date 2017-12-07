@@ -11,12 +11,21 @@ public class Stage : MonoBehaviour {
 	public GameObject player;
 	public GameObject spawner;
 	[HideInInspector]
-	public float minX, minY, maxX, maxY, width, height;
+	public static float minX, minY, maxX, maxY, width, height;
 	public AudioClip[] songs;
 	public AudioSource song;
 
 	// Use this for initialization
 	void Start () {
+		UpdateScreenPositions();
+		deltaTime = 0;
+		time = 0;
+		lastTime = 0;
+		//Debug.Log(minX+", "+minY +" - "+maxX+", "+maxY);
+	}
+
+	public static void UpdateScreenPositions()
+	{
 		Vector3 max = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height,0));
 		Vector3 min = Camera.main.ScreenToWorldPoint(Vector3.zero);
 		maxX = max.x;
@@ -25,10 +34,6 @@ public class Stage : MonoBehaviour {
 		minY = min.y;
 		width = maxX - minX;
 		height = maxY - minY;
-		deltaTime = 0;
-		time = 0;
-		lastTime = 0;
-		//Debug.Log(minX+", "+minY +" - "+maxX+", "+maxY);
 	}
 
 	public void Begin()
@@ -52,9 +57,9 @@ public class Stage : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		UpdateScreenPositions();
 		//Debug.Log("S: "+deltaTime);
 		//Debug.Log("T: "+Time.deltaTime);
-		float scale = 5;
 		float f = Time.timeScale;
 		if(Input.GetKey("right"))
 		{

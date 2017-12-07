@@ -22,7 +22,7 @@ public class PowerUpSpawner : MonoBehaviour {
 
 	private void SpawnPowerUp()
 	{
-		Vector3 spawn = new Vector3(stage.maxX + 1, Random.Range(stage.minY, stage.maxY), transform.position.y);
+		Vector3 spawn = new Vector3(Stage.maxX + 1, Random.Range(Stage.minY, Stage.maxY), transform.position.y);
 		GameObject spawned = Object.Instantiate(prefab, spawn, prefab.transform.rotation);
 		spawned.GetComponent<PowerUp>().type = (PowerUp.PowerUpType)Random.Range(1, System.Enum.GetValues(typeof(PowerUp.PowerUpType)).Length);
 	}

@@ -4,18 +4,23 @@ using UnityEngine;
 using MoonSharp.Interpreter;
 
 [MoonSharpUserData]
-public class PatternController : MonoBehaviour{
+public class PatternController : ScriptController{
 
+	private static bool loaded;
 	private static Dictionary<string, GameObject> bulletModels = new Dictionary<string, GameObject>();
 	private static Dictionary<string, Material> bulletMaterials = new Dictionary<string, Material>();
 
-	static PatternController()
+	private static void Load()
 	{
 		//Load in bullet models
 		bulletModels.Add("capsule", GetBulletModel("capsule"));
 
 		//Load in bullet materials
-		bulletMaterials.Add("red", GetBulletModel("red"));
+		bulletMaterials.Add("red", GetBulletMaterial("red"));
+
+		UserData.RegisterType<GameObject>();
+
+		loaded = true;
 	}
 
 	private static GameObject GetBulletModel(string name)
@@ -28,34 +33,28 @@ public class PatternController : MonoBehaviour{
 		return (Material) Resources.Load("Materials/Bullets/"+name);
 	}
 
+	[MoonSharpUserData]
 	public struct BulletData
 	{
-		public float x, y, z, angle, speed;
-		public string type, material;
-	}
-	
-	public string patternPath;
-
-	private Script script;
-
-	public PatternController()
-	{
-		UserData.RegisterAssembly();
-
-		//Make sure we're getting the right path regardless of operating system
-		string path = Application.streamingAssetsPath;
-		string[] directories = patternPath.Split('/');
-		foreach (string dir in directories)
-			path = System.IO.Path.Combine(path, dir);
-
-		string code = System.IO.File.ReadAllText(path);
-		script = new Script();
-		script.DoString(code);
+		public float x, y, z, angle, speed, lifetime;
+		public string type, material, owner;
+		public bool destroyOnExitStage;
 	}
 
-	public void Start()
+	public PatternController() : base("Patterns/BulletSpawning/"){}
+
+	new void Start()
 	{
+		if (!loaded)
+			Load();
+		
+		base.Start();
 		CallLuaFunction("init", this);
+	}
+
+	public float GetAngle()
+	{
+		return transform.eulerAngles.z;
 	}
 
 	public void Update()
@@ -63,21 +62,17 @@ public class PatternController : MonoBehaviour{
 		CallLuaFunction("update", this, Stage.deltaTime);
 	}
 
-	public DynValue CallLuaFunction(string function, params object[] parameters)
-	{
-		object func = script.Globals[function];
-		if (func == null)
-		{
-			Debug.Log("'" + function + "' does not exist");
-			return null;
-		}
-
-		return script.Call(func, parameters);
-	}
-
 	public BulletData NewBullet()
 	{
-		return new BulletData();
+		BulletData bd = new BulletData();
+		bd.destroyOnExitStage = true;
+		bd.speed = 1;
+		bd.lifetime = 99f;
+		bd.owner = "enemy";
+		bd.type = "capsule";
+		bd.material = "red";
+		bd.angle = GetAngle();
+		return bd;
 	}
 
 	public void SpawnBullet(BulletData b)
@@ -96,12 +91,19 @@ public class PatternController : MonoBehaviour{
 			return;
 		}
 
+		//Spawn the bullet and apply all properties to it
 		GameObject bullet = Object.Instantiate(model);
 		bullet.transform.position = gameObject.transform.position + new Vector3(b.x, b.y, b.z);
 		bullet.transform.rotation = gameObject.transform.rotation;
 		bullet.transform.Rotate(0, 0, b.angle);
+
 		foreach (Renderer renderer in bullet.GetComponentsInChildren<Renderer>())
 			renderer.material = material;
+
+		BulletProperties bp = bullet.GetComponent<BulletProperties>();
+		bp.destroyOnExitStage = b.destroyOnExitStage;
+		bp.owner = b.owner;
+		bp.lifetime = b.lifetime;
 	}
 
 }

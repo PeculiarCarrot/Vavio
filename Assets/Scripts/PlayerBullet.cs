@@ -71,8 +71,6 @@ public class PlayerBullet : Bullet {
 			default:
 			break;
 		}
-		if(transform.position.x > stage.GetComponent<Stage>().maxX)
-			Destroy(gameObject);
 	}
 
 	public float GetDamage()

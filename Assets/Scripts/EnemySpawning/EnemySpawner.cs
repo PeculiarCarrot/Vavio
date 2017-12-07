@@ -73,18 +73,18 @@ public class EnemySpawner : MonoBehaviour {
 		if(prefab != null)
 		{
 			Vector3 goalPos = Vector3.zero;
-			goalPos.x = stage.minX + stage.width * (data.x == float.MaxValue ? .8f : data.x);
-			goalPos.y = stage.minY + stage.height * (data.y == float.MaxValue ? .8f : data.y);
+			goalPos.x = Stage.minX + Stage.width * (data.x == float.MaxValue ? .8f : data.x);
+			goalPos.y = Stage.minY + Stage.height * (data.y == float.MaxValue ? .8f : data.y);
 
 			Vector3 pos = goalPos;
 			if(data.from == "left")
-				pos.x = stage.minX - 1;
+				pos.x = Stage.minX - 1;
 			else if(data.from == "right")
-				pos.x = stage.maxX + 1;
+				pos.x = Stage.maxX + 1;
 			else if(data.from == "down")
-				pos.y = stage.minY - 1;
+				pos.y = Stage.minY - 1;
 			else if(data.from == "up")
-				pos.y = stage.maxY + 1;
+				pos.y = Stage.maxY + 1;
 
 			if(prefab.GetComponent<Enemy>() != null)
 			{
