@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 136796953174083900}
   - component: {fileID: 114886439947973348}
   - component: {fileID: 114986538283672388}
+  - component: {fileID: 114343281509342006}
   m_Layer: 0
   m_Name: capsule
   m_TagString: Untagged
@@ -182,6 +183,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1384842181431648}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114343281509342006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1839784169979414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a2c93c7ad384b4fa27492979b53ba6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patternPath: 
 --- !u!114 &114886439947973348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194367b20cf994e4784dc23c5a04e3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patternPath: General/followPlayer.lua
+  patternPath: General/followPlayer
   move: {x: 0, y: 0, z: 0}
   friction: 1
   resetMoveOnUpdate: 1

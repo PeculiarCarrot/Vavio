@@ -224,58 +224,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnData: {fileID: 4900000, guid: eb28ad772b79f6d47babf29e484675e3, type: 3}
-  enemy:
-  - name: basic
-    prefab: {fileID: 1416482367453358, guid: 0b4791a2a9aa07742994d817001dd47a, type: 2}
-  - name: basicfaster
-    prefab: {fileID: 1030845695122916, guid: 564dca2da2329bf4da6ce62e6c79ede3, type: 2}
-  - name: basic2
-    prefab: {fileID: 1331925139387466, guid: 9584c610bfba2234f9b8981eb4bb3833, type: 2}
-  - name: basic3
-    prefab: {fileID: 1079808692666654, guid: 8e51e1ec8aed7f048aeebe8688f62b33, type: 2}
-  - name: pepper
-    prefab: {fileID: 1851103019144696, guid: 3ca6719f596f41241a3f3da649ac381d, type: 2}
-  - name: fourwave
-    prefab: {fileID: 1047115897955578, guid: d110762af4b25c24a8c1ddba6b3ab51b, type: 2}
-  - name: laser
-    prefab: {fileID: 1610798915423642, guid: dbdd4e24d1438f94db5bbe18dd5f1d4c, type: 2}
-  - name: laserWarning
-    prefab: {fileID: 1701090241566652, guid: dd098fbb4c291cb46bc890bd8f081c12, type: 2}
-  - name: stt2SynthDude
-    prefab: {fileID: 1989800737846346, guid: 56300cb9e36533f468184322299ea6e3, type: 2}
-  - name: stt2GuitarWave
-    prefab: {fileID: 1695569945098686, guid: 4336c7e83eeb99b47b047178bbdb1b00, type: 2}
-  - name: hurtyBall
-    prefab: {fileID: 1920981647563974, guid: d70df5dbaa786554eaf7cd20e0acede1, type: 2}
-  - name: homingBullet
-    prefab: {fileID: 1742208454877308, guid: 63aad7f4826d66c499da1fba5792e2eb, type: 2}
-  - name: octopus
-    prefab: {fileID: 1873153687831220, guid: bc7acff0f4faca44cbccaafc6b2b332d, type: 2}
-  - name: basic2-infectious
-    prefab: {fileID: 1825753355920988, guid: ad5c14cb71a76e44fa999186f3d18f5b, type: 2}
-  - name: basic-infectious
-    prefab: {fileID: 1036713177179016, guid: 43b6cdcb249ad9d46a81583a28e5ef0c, type: 2}
-  - name: basic-untilthen
-    prefab: {fileID: 1522239833612390, guid: 06f77b6e846bf1f4a98c05aad2032916, type: 2}
-  - name: slow-infectious
-    prefab: {fileID: 1870292449335902, guid: a7d84178f3250cc42b843116932ed14a, type: 2}
-  - name: circle-infectious
-    prefab: {fileID: 1917978454502954, guid: c110d312ab1831c4f91649459410071f, type: 2}
-  - name: bass-untilthen
-    prefab: {fileID: 1707109844618352, guid: f48e1720f8d79e34cbadbb6036e45570, type: 2}
-  - name: boss-until-then
-    prefab: {fileID: 1026945601676758, guid: 10e3127d49917fc4e9d1ec4f1abd248a, type: 2}
-  - name: barrier
-    prefab: {fileID: 1811677859063582, guid: 211b7036c9e1ac8479cb8212feb48cef, type: 2}
-  enemyBehavior:
-  - name: boss-until-then
-    behavior: {fileID: 4900000, guid: 98ea8bcdaac06bc4b94492a07639b5c8, type: 3}
-  - name: lrrl-infectious
-    behavior: {fileID: 4900000, guid: 429987dc99d2c0e4d8f9a478f1255961, type: 3}
-  - name: left-right-infectious
-    behavior: {fileID: 4900000, guid: 37d30a0a02b53e246bde551a1a546a70, type: 3}
-  - name: left-right
-    behavior: {fileID: 4900000, guid: b301072c0a9c184478133000f95d77f5, type: 3}
   level: 1
   spawningEnabled: 1
   stage: {fileID: 1828452933}
@@ -556,7 +504,7 @@ Prefab:
     - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
         type: 2}
       propertyPath: debug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
         type: 2}

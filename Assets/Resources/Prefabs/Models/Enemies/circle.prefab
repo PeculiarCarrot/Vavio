@@ -54,14 +54,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1885217340030810}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0.87029564, y: -0.28391978, z: 0}
   m_LocalScale: {x: 0.42910457, y: 0.42910352, z: 0.42910352}
   m_Children:
   - {fileID: 4848866473004394}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!4 &4848866473004394
 Transform:
   m_ObjectHideFlags: 1
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 194367b20cf994e4784dc23c5a04e3ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patternPath: General/none.lua
+  patternPath: General/none
   move: {x: 0, y: 0, z: 0}
   friction: 1
   resetMoveOnUpdate: 1
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a2c93c7ad384b4fa27492979b53ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patternPath: General/basic.lua
+  patternPath: General/basic
 --- !u!135 &135522891666947402
 SphereCollider:
   m_ObjectHideFlags: 1

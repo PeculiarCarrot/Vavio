@@ -160,6 +160,7 @@ public class PatternController : ScriptController{
 		//Spawn the bullet and apply all properties to it
 		GameObject bullet = Object.Instantiate(model);
 		bullet.GetComponent<MovementController>().patternPath = b.movement;
+		bullet.GetComponent<MovementController>().speed = b.speed;
 		bullet.GetComponent<PatternController>().patternPath = b.pattern;
 		bullet.transform.position = gameObject.transform.position + new Vector3(b.x, b.y, b.z);
 		bullet.transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + b.angle);

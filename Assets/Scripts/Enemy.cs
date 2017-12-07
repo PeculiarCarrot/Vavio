@@ -144,7 +144,7 @@ public class Enemy : EnemyBase {
 		velocity *= friction;
 		rotSpeed *= rotFric;
 		transform.position += velocity * (1/60f);
-		transform.eulerAngles = baseRot + new Vector3(rotSpeed * Time.deltaTime, 0, 0);
+		//transform.eulerAngles = baseRot + new Vector3(rotSpeed * Time.deltaTime, 0, 0);
 		if(hp <= 0)
 			Die();
 	}
