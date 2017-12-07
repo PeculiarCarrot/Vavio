@@ -261,7 +261,7 @@ MonoBehaviour:
     prefab: {fileID: 1870292449335902, guid: a7d84178f3250cc42b843116932ed14a, type: 2}
   - name: circle-infectious
     prefab: {fileID: 1917978454502954, guid: c110d312ab1831c4f91649459410071f, type: 2}
-  - name: bass-until-then
+  - name: bass-untilthen
     prefab: {fileID: 1707109844618352, guid: f48e1720f8d79e34cbadbb6036e45570, type: 2}
   - name: boss-until-then
     prefab: {fileID: 1026945601676758, guid: 10e3127d49917fc4e9d1ec4f1abd248a, type: 2}
@@ -556,7 +556,7 @@ Prefab:
     - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
         type: 2}
       propertyPath: debug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
         type: 2}

@@ -94,6 +94,7 @@ public class EnemyBehavior {
 	{
 			enemy.accel = steps[currentStep].accel;
 			enemy.friction = steps[currentStep].friction;
-			enemy.velocity += steps[currentStep].speed * enemy.accel;
+			Vector3 rotatedSpeed = steps[currentStep].speed;
+			enemy.velocity += rotatedSpeed * enemy.accel;
 	}
 }

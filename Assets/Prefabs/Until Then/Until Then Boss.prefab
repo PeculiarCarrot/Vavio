@@ -430,7 +430,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   accel: 0.9
   friction: 0.9
-  maxHP: 15000
+  maxHP: 30000
   type: 4
   reachGoalTime: 0.2
   invul: 0
