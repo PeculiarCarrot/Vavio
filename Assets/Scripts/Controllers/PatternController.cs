@@ -15,23 +15,44 @@ public class PatternController : ScriptController{
 		if (!loaded)
 		{
 			//Load in bullet models
-			bulletModels.Add("capsule", GetBulletModel("capsule"));
+			bulletModels.Add("capsule", LoadBulletModel("capsule"));
 
 			//Load in bullet materials
-			bulletMaterials.Add("red", GetBulletMaterial("red"));
-			bulletMaterials.Add("darkRed", GetBulletMaterial("darkRed"));
-			bulletMaterials.Add("orange", GetBulletMaterial("orange"));
+			bulletMaterials.Add("red", LoadBulletMaterial("red"));
+			bulletMaterials.Add("lightRed", LoadBulletMaterial("lightRed"));
+			bulletMaterials.Add("darkRed", LoadBulletMaterial("darkRed"));
+			bulletMaterials.Add("orange", LoadBulletMaterial("orange"));
 		}
 
 		loaded = true;
 	}
 
-	private static GameObject GetBulletModel(string name)
+	public static GameObject GetBulletModel(string type)
+	{
+		GameObject model;
+		if(bulletModels.TryGetValue(type, out model) == false)
+		{
+			Debug.LogError("No bullet type/model named '" + type + "' exists");
+		}
+		return model;
+	}
+
+	public static Material GetBulletMaterial(string type)
+	{
+		Material material;
+		if(bulletMaterials.TryGetValue(type, out material) == false)
+		{
+			Debug.LogError("No bullet material named '" + type + "' exists");
+		}
+		return material;
+	}
+
+	private static GameObject LoadBulletModel(string name)
 	{
 		return (GameObject) Resources.Load("Prefabs/Models/Bullets/"+name);
 	}
 
-	private static Material GetBulletMaterial(string name)
+	private static Material LoadBulletMaterial(string name)
 	{
 		return (Material) Resources.Load("Materials/Bullets/"+name);
 	}
@@ -116,7 +137,7 @@ public class PatternController : ScriptController{
 		List<float> times = new List<float>();
 		float timeUntilChange = secondsToFire;
 		bool paused = false;
-		for(float i = initialDelay; i < leave; i += secondsPerBullet)
+		for(float i = initialDelay; i < leave + initialDelay; i += secondsPerBullet)
 		{
 			if(secondsToPause > 0)
 			{
@@ -148,7 +169,7 @@ public class PatternController : ScriptController{
 		bd.owner = "enemy";
 		bd.type = "capsule";
 		bd.material = "red";
-		bd.movement = "General/forward";
+		bd.movement = "$forward";
 		bd.pattern = null;
 		bd.angle = 0;
 		bd.destroyOnHit = true;

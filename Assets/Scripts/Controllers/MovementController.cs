@@ -168,6 +168,17 @@ public class MovementController : ScriptController {
 				Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   " + ex.DecoratedMessage);
 			}
 		}
+		else{
+			switch(patternPath)
+			{
+				case "$forward":
+					friction = .98f;
+					move += new Vector3(speed, 0, 0);
+					break;
+				default:
+					break;
+			}
+		}
 
 		if(!ignoreAngle)
 		{

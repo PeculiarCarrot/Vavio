@@ -32,10 +32,13 @@ public class EnemySpawnData {
 				break;
 				case "y":
 					esd.y = (float)j.n;
-				break;
+					break;
 				case "reachGoalTime":
 					esd.reachGoalTime = (float)j.n;
-				break;
+					break;
+				case "scale":
+					esd.scale = (float)j.n;
+					break;
 				case "type":
 					esd.type = (string)j.str;
 					break;

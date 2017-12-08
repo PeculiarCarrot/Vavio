@@ -1,19 +1,43 @@
 function init(pattern)
 	fireIndex = 0
-	numSets = 11
-	spacePerSet = 360 / 11
+	numSets = 4
+
+	spread = 90
+	spreadMin = 40
+	spreadMax = 180
+	spreadChangeSpeed = 1
+	goalSpread = spreadMax
 
 	currentAngle = 0
 	currentSpinSpeed = 0
 	maxSpinSpeed = 100
-	spinAcceleration = .3
+	spinAcceleration = 0
 	reverseSpin = true
 	reverseSpinSpeed = .99
 	spinningClockwise = false
-	fireTimes = pattern.GetFireTimes(4.666666, 1, 12.2, 1.7)
+	fireTimes = pattern.GetFireTimes(4.666666, 1)
+end
+
+function updateSpread()
+	if(spread < goalSpread) then
+		spread = spread + spreadChangeSpeed
+	elseif spread > goalSpread then
+		spread = spread - spreadChangeSpeed
+	end
+
+	if(spread >= spreadMax) then
+		spread = spreadMax
+		goalSpread = spreadMin
+	elseif spread <= spreadMin then
+		spread = spreadMin
+		goalSpread = spreadMax
+	end
+
+	spacePerSet = spread / numSets
 end
 
 function update(pattern, deltaTime)
+	updateSpread()
 
 	currentAngle = currentAngle + currentSpinSpeed * deltaTime
 	if (spinningClockwise) then
@@ -33,11 +57,11 @@ function update(pattern, deltaTime)
 
 	if(pattern.GetStageTime() >= fireTimes[fireIndex]) then
 		fireIndex = fireIndex + 1
-		for place = 0, 360, spacePerSet do
+		for place = -spread / 2 + spacePerSet/2, spread / 2 - spacePerSet/2, spacePerSet do
 			bullet = pattern.NewBullet()
 			bullet.speed = 4
-			bullet.angle = place + currentAngle
-			bullet.material = "darkRed"
+			bullet.angle = place + currentAngle - 90
+			bullet.material = "lightRed"
 			pattern.SpawnBullet(bullet)
 		end
 	end

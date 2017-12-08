@@ -34,7 +34,7 @@ public class ScriptController : MonoBehaviour {
 	public void Start()
 	{
 		stage = GameObject.Find("Stage").GetComponent<Stage>();
-		if (patternPath == null)
+		if (patternPath == null || patternPath == "" || patternPath.StartsWith("$"))
 			return;
 		patternPath = defaultPath + patternPath;
 

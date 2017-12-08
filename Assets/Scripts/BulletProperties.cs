@@ -21,12 +21,13 @@ public class BulletProperties : MonoBehaviour {
 		lifetime -= Time.deltaTime;
 		if (lifetime <= 0)
 			Die();
-		if(transform.position.x < Stage.minX - 5 || transform.position.y < Stage.minY - 5 || transform.position.x > Stage.maxX + 5 || transform.position.y > Stage.maxY + 5)
-			Destroy(gameObject);
+		if (transform.position.x < Stage.minX - 2 || transform.position.y < Stage.minY - 2 || transform.position.x > Stage.maxX + 2 || transform.position.y > Stage.maxY + 2)
+			Die();
 	}
 
 	public void Die()
 	{
-		Destroy(gameObject);
+		gameObject.SetActive(false);
+		//Destroy(gameObject);
 	}
 }

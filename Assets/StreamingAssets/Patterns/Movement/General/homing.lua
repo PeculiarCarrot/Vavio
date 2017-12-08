@@ -5,7 +5,7 @@ function init(movement)
 	movement.ignoreAngle = true
 	movement.targetType = "player"
 	spd = movement.Math().RandomValue() * 2 + 2
-	movement.friction = .98
+	movement.friction = .97
 	spd = 3
 	turnSpd = .03
 end

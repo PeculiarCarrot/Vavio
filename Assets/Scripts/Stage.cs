@@ -71,6 +71,8 @@ public class Stage : MonoBehaviour {
 		if(Input.GetKey("right"))
 		{
 			f *= 1.01f;
+
+			Debug.Log(song.time);
 		}
 		else if(Input.GetKey("left"))
 		{
