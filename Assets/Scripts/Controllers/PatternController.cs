@@ -67,23 +67,40 @@ public class PatternController : ScriptController{
 
 	[HideInInspector]
 	public float leave;
+	private bool blank = true;
 
-	public PatternController() : base("Patterns/BulletSpawning/"){}
-
-	new void Start()
+	public void Reset()
 	{
-		base.Start();
-		if (script != null)
+		leave = 0;
+		script = null;
+		patternPath = null;
+		blank = true;
+	}
+
+	void Start()
+	{
+		Init();
+	}
+
+	public new void Init()
+	{
+		if (blank)
 		{
-			try
+			SetDefaultPath("Patterns/BulletSpawning/");
+			base.DoInit();
+			if (script != null)
 			{
-				CallLuaFunction("init", this);
-			}
-			catch (ScriptRuntimeException ex)
-			{
-				Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   " + ex.DecoratedMessage);
+				try
+				{
+					CallLuaFunction("init", this);
+				}
+				catch (ScriptRuntimeException ex)
+				{
+					Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   " + ex.DecoratedMessage);
+				}
 			}
 		}
+		blank = false;
 	}
 
 	public void Print(string message)
@@ -179,37 +196,8 @@ public class PatternController : ScriptController{
 
 	public void SpawnBullet(BulletData b)
 	{
-		GameObject model;
-		Material material;
-
-		if(bulletModels.TryGetValue(b.type, out model) == false)
-		{
-			Debug.LogError("No bullet type/model named '" + b.type + "' exists");
-			return;
-		}
-		if(bulletMaterials.TryGetValue(b.material, out material) == false)
-		{
-			Debug.LogError("No bullet material named '" + b.material + "' exists");
-			return;
-		}
-
-		//Spawn the bullet and apply all properties to it
-		GameObject bullet = Object.Instantiate(model);
-		bullet.GetComponent<MovementController>().patternPath = b.movement;
-		bullet.GetComponent<MovementController>().speed = b.speed;
-		bullet.GetComponent<PatternController>().patternPath = b.pattern;
-		bullet.transform.position = gameObject.transform.position + new Vector3(b.x, b.y, b.z);
-		bullet.transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + b.angle);
-		bullet.transform.localScale = bullet.transform.localScale * b.scale;
-
-		foreach (Renderer renderer in bullet.GetComponentsInChildren<Renderer>())
-			renderer.material = material;
-
-		BulletProperties bp = bullet.GetComponent<BulletProperties>();
-		bp.destroyOnExitStage = b.destroyOnExitStage;
-		bp.destroyOnHit = b.destroyOnHit;
-		bp.owner = b.owner;
-		bp.lifetime = b.lifetime;
+		//Debug.Log("BULLET "+patternPath);
+		BulletFactory.Create(transform, b);
 	}
 
 }

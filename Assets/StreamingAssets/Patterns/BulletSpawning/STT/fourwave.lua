@@ -1,4 +1,4 @@
-function init(pattern)
+function init(pattern, id)
 	fireIndex = 0
 	numSets = 4
 

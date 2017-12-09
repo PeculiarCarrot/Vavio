@@ -25,6 +25,26 @@ public class BulletProperties : MonoBehaviour {
 			Die();
 	}
 
+	public void Reset()
+	{
+		owner = null;
+		lifetime = 0;
+		destroyOnHit = false;
+		destroyOnExitStage = false;
+		if (GetComponent<MovementController>() != null)
+			GetComponent<MovementController>().Reset();
+		if (GetComponent<PatternController>() != null)
+			GetComponent<PatternController>().Reset();
+	}
+
+	public void Init()
+	{
+		if (GetComponent<MovementController>() != null)
+			GetComponent<MovementController>().Init();
+		if (GetComponent<PatternController>() != null)
+			GetComponent<PatternController>().Init();
+	}
+
 	public void Die()
 	{
 		gameObject.SetActive(false);

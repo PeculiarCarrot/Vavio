@@ -128,6 +128,7 @@ public class EnemySpawner : MonoBehaviour {
 		}
 		if (model.GetComponent<PatternController>() != null)
 		{
+			//Debug.Log("SET PATTERN: " + data.pattern);
 			e.GetComponent<PatternController>().patternPath = data.pattern;
 			e.GetComponent<PatternController>().leave = data.leave;
 		}

@@ -12,11 +12,6 @@ public class ScriptController : MonoBehaviour {
 
 	protected Script script;
 
-	public ScriptController(string defaultPath)
-	{
-		this.defaultPath = defaultPath;
-	}
-
 	private string GetCode(string filePath)
 	{
 		string code = "";
@@ -31,11 +26,25 @@ public class ScriptController : MonoBehaviour {
 		return code;
 	}
 
-	public void Start()
+	protected void SetDefaultPath(string dp)
+	{
+		defaultPath = dp;
+	}
+
+	void OnDisable() {
+		if (script != null)
+		{
+			LuaScriptFactory.SetUsable(script);
+		}
+	}
+
+	public void DoInit()
 	{
 		stage = GameObject.Find("Stage").GetComponent<Stage>();
 		if (patternPath == null || patternPath == "" || patternPath.StartsWith("$"))
+		{
 			return;
+		}
 		patternPath = defaultPath + patternPath;
 
 		//Make sure we're getting the right path regardless of operating system
@@ -46,9 +55,10 @@ public class ScriptController : MonoBehaviour {
 		path += ".lua";
 
 		string code = GetCode(path);
-		script = new Script();
+		script = LuaScriptFactory.GetUnused();
 		//int m = System.DateTime.Now;
 		script.DoString(code);
+
 		//Debug.Log((System.DateTime.Now.Millisecond - m));
 	}
 

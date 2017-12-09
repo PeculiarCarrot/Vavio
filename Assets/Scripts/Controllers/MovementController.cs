@@ -7,37 +7,64 @@ using MoonSharp.Interpreter;
 public class MovementController : ScriptController {
 
 	[HideInInspector]
-	public Vector3 move = Vector3.zero;
+	public Vector3 move;
 	[HideInInspector]
-	public float friction = 1f;
+	public float friction;
 	[HideInInspector]
-	public bool resetMoveOnUpdate = true;
+	public bool resetMoveOnUpdate;
 	[HideInInspector]
-	public bool ignoreAngle = false;
+	public bool ignoreAngle;
 	[HideInInspector]
-	public float speed = 1;
+	public float speed;
 	[HideInInspector]
 	public string targetType;
 	private GameObject target;
 
 	private LuaMath luaMath = new LuaMath();
 
-	public MovementController() : base("Patterns/Movement/"){}
+	private bool blank = true;
+
+	public void Reset()
+	{
+		move = Vector3.zero;
+		friction = 1f;
+		resetMoveOnUpdate = true;
+		ignoreAngle = false;
+		speed = 1;
+		targetType = null;
+		target = null;
+		script = null;
+		patternPath = null;
+		blank = true;
+	}
+
+	public MovementController(){
+	}
+
+	void Start()
+	{
+		Init();
+	}
 
 	// Use this for initialization
-	new void Start () {
-		base.Start();
-		if (script != null)
+	public new void Init () {
+		if (blank)
 		{
-			try
+			SetDefaultPath("Patterns/Movement/");
+			base.DoInit();
+			if (script != null)
 			{
-				CallLuaFunction("init", this);
-			}
-			catch (ScriptRuntimeException ex)
-			{
-				Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   " + ex.DecoratedMessage);
+				try
+				{
+					CallLuaFunction("init", this);
+				}
+				catch (ScriptRuntimeException ex)
+				{
+					Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   " + ex.DecoratedMessage);
+				}
 			}
 		}
+		blank = false;
 	}
 
 	public LuaMath Math()
@@ -154,6 +181,7 @@ public class MovementController : ScriptController {
 	
 	// Update is called once per frame
 	void Update () {
+		//Debug.Log("UPDATE  -  " + gameObject.GetInstanceID() + ": " + script);
 		if (resetMoveOnUpdate)
 			move = Vector3.zero;
 

@@ -11,6 +11,7 @@ using MoonSharp.Interpreter.IO;
 using MoonSharp.Interpreter.Platforms;
 using MoonSharp.Interpreter.Tree.Expressions;
 using MoonSharp.Interpreter.Tree.Fast_Interface;
+using UnityEngine;
 
 namespace MoonSharp.Interpreter
 {
@@ -37,6 +38,46 @@ namespace MoonSharp.Interpreter
 		IDebugger m_Debugger;
 		Table[] m_TypeMetatables = new Table[(int)LuaTypeExtensions.MaxMetaTypes];
 
+		public void Reset()
+		{
+			m_Sources = new List<SourceCode>();
+			m_Debugger = null;
+			NewTypeMetatables();
+
+			NewGreen();
+
+			NewByteCode();
+			NewMainProcessor();
+			NewGlobalTable();
+		}
+
+		private void NewGreen()
+		{
+			Options = new ScriptOptions(DefaultOptions);
+			PerformanceStats = new PerformanceStatistics();
+			Registry = new Table(this);
+		}
+
+		private void NewTypeMetatables()
+		{
+			m_TypeMetatables = new Table[(int)LuaTypeExtensions.MaxMetaTypes];
+		}
+
+		private void NewByteCode()
+		{
+			m_ByteCode = new ByteCode(this);
+		}
+
+		private void NewMainProcessor()
+		{
+			m_MainProcessor = new Processor(this, m_GlobalTable, m_ByteCode);
+		}
+
+		private void NewGlobalTable()
+		{
+			m_GlobalTable = new Table(this).RegisterCoreModules(CoreModules.Preset_Default);
+		}
+
 		/// <summary>
 		/// Initializes the <see cref="Script"/> class.
 		/// </summary>
@@ -55,7 +96,7 @@ namespace MoonSharp.Interpreter
 		}
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="Script"/> clas.s
+		/// Initializes a new instance of the <see cref="Script"/> class
 		/// </summary>
 		public Script()
 			: this(CoreModules.Preset_Default)
@@ -150,7 +191,6 @@ namespace MoonSharp.Interpreter
 				m_Debugger.SetSourceCode(source);
 			}
 		}
-
 
 		/// <summary>
 		/// Loads a string containing a Lua/MoonSharp script.
