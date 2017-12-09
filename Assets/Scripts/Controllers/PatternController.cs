@@ -22,6 +22,8 @@ public class PatternController : ScriptController{
 			bulletMaterials.Add("lightRed", LoadBulletMaterial("lightRed"));
 			bulletMaterials.Add("darkRed", LoadBulletMaterial("darkRed"));
 			bulletMaterials.Add("orange", LoadBulletMaterial("orange"));
+			bulletMaterials.Add("aqua", LoadBulletMaterial("aqua"));
+			bulletMaterials.Add("darkAqua", LoadBulletMaterial("darkAqua"));
 		}
 
 		loaded = true;
@@ -62,7 +64,7 @@ public class PatternController : ScriptController{
 	{
 		public float x, y, z, angle, speed, lifetime, scale, speedMultiplier;
 		public string type, material, owner, movement, pattern;
-		public bool destroyOnExitStage, destroyOnHit;
+		public bool destroyOnExitStage, destroyOnHit, synced;
 	}
 
 	[HideInInspector]
@@ -150,6 +152,11 @@ public class PatternController : ScriptController{
 		return (float)Stage.time;
 	}
 
+	public float GetRealDeltaTime()
+	{
+		return Time.deltaTime;
+	}
+
 	public float[] GetFireTimes(float bulletsPerSecond, float initialDelay, float secondsToFire, float secondsToPause)
 	{
 		float secondsPerBullet = 1 / bulletsPerSecond;
@@ -194,6 +201,7 @@ public class PatternController : ScriptController{
 		bd.destroyOnHit = true;
 		bd.scale = 1;
 		bd.speedMultiplier = 1;
+		bd.synced = true;
 		return bd;
 	}
 

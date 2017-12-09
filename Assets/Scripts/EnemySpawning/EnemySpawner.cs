@@ -24,12 +24,15 @@ public class EnemySpawner : MonoBehaviour {
 			//Load in enemy models
 			enemyModels.Add("circle", GetEnemyModel("circle"));
 			enemyModels.Add("pepper", GetEnemyModel("pepper"));
+			enemyModels.Add("capsule", GetEnemyModel("capsule"));
 			enemyModels.Add("cube", GetEnemyModel("cube"));
 
 			//Load in enemy materials
 			enemyMaterials.Add("red", GetEnemyMaterial("red"));
 			enemyMaterials.Add("lightRed", GetEnemyMaterial("lightRed"));
 			enemyMaterials.Add("orange", GetEnemyMaterial("orange"));
+			enemyMaterials.Add("aqua", GetEnemyMaterial("aqua"));
+			enemyMaterials.Add("darkAqua", GetEnemyMaterial("darkAqua"));
 		}
 
 		loaded = true;
@@ -71,7 +74,7 @@ public class EnemySpawner : MonoBehaviour {
 	{
 		spawns = AllLevelData.FromJSON(new JSONObject(spawnData.text), level);
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
-		stage.GetComponent<AudioSource>().time = 55;
+		stage.GetComponent<AudioSource>().time = 97;
 		stage.GetComponent<AudioSource>().Play();
 		stage.GetComponent<Stage>().Begin();
 		stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Start();

@@ -113,7 +113,7 @@ public class Enemy : EnemyBase {
 
 	public void Leave()
 	{
-		if(type == EnemyType.LaserWarning || type == EnemyType.Laser)
+		if(!introMovement)
 			Die();
 		leaving = true;
 		reachedGoal = false;

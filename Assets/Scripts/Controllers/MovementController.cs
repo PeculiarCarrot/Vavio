@@ -23,6 +23,7 @@ public class MovementController : ScriptController {
 	private LuaMath luaMath = new LuaMath();
 
 	private bool blank = true;
+	public bool synced;
 
 	public void Reset()
 	{
@@ -34,6 +35,7 @@ public class MovementController : ScriptController {
 		ignoreAngle = false;
 		speed = 1;
 		speedMultiplier = 1;
+		synced = true;
 		targetType = null;
 		target = null;
 		script = null;
@@ -250,7 +252,7 @@ public class MovementController : ScriptController {
 		{
 			try
 			{
-				CallLuaFunction("update", this, GetInstanceID(), Time.deltaTime);
+				CallLuaFunction("update", this, GetInstanceID(), synced ? Time.deltaTime : 1 / 60f);
 			}
 			catch (ScriptRuntimeException ex)
 			{
@@ -274,7 +276,7 @@ public class MovementController : ScriptController {
 			realMove = Quaternion.Euler(0, 0, transform.eulerAngles.z) * move;
 		}
 
-		transform.position = transform.position + realMove * Time.deltaTime;
+		transform.position = transform.position + realMove * (synced ? Time.deltaTime : 1 / 60f);
 		move *= friction;
 		move *= speedMultiplier;
 	}
