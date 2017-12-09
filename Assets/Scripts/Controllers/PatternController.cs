@@ -60,7 +60,7 @@ public class PatternController : ScriptController{
 	[MoonSharpUserData]
 	public struct BulletData
 	{
-		public float x, y, z, angle, speed, lifetime, scale;
+		public float x, y, z, angle, speed, lifetime, scale, speedMultiplier;
 		public string type, material, owner, movement, pattern;
 		public bool destroyOnExitStage, destroyOnHit;
 	}
@@ -193,6 +193,7 @@ public class PatternController : ScriptController{
 		bd.angle = 0;
 		bd.destroyOnHit = true;
 		bd.scale = 1;
+		bd.speedMultiplier = 1;
 		return bd;
 	}
 

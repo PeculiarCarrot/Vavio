@@ -15,6 +15,7 @@ public static class BulletFactory {
 		GameObject bullet = GetUnused(b.type);
 		bullet.GetComponent<MovementController>().patternPath = b.movement;
 		bullet.GetComponent<MovementController>().speed = b.speed;
+		bullet.GetComponent<MovementController>().speedMultiplier = b.speedMultiplier;
 		bullet.GetComponent<PatternController>().patternPath = b.pattern;
 		bullet.transform.position = shooter.position + new Vector3(b.x, b.y, b.z);
 		bullet.transform.rotation = Quaternion.Euler(shooter.eulerAngles.x, shooter.eulerAngles.y, shooter.eulerAngles.z + b.angle);

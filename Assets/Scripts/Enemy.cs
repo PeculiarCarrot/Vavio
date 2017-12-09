@@ -27,6 +27,7 @@ public class Enemy : EnemyBase {
 	public bool invul;
 	private EnemyBehavior behavior;
 	public Texture healthBarTexture;
+	public bool canCollide, introMovement;
 
 	public void SetBehavior(EnemyBehavior b)
 	{
@@ -44,6 +45,12 @@ public class Enemy : EnemyBase {
 
 	public void SetGoalPos(Vector3 pos)
 	{
+		if(!introMovement)
+		{
+			transform.position = pos;
+			reachedGoal = true;
+			return;
+		}
 		goalPos = pos;
 		reachedGoal = false;
 		if(type == EnemyType.LaserWarning || type == EnemyType.Laser)
@@ -72,7 +79,8 @@ public class Enemy : EnemyBase {
 		{
 		
 			if(type == EnemyType.LaserWarning || type == EnemyType.Laser)
-				transform.position = goalPos;	transform.position = Vector3.SmoothDamp(transform.position, goalPos, ref velocity, reachGoalTime);
+				transform.position = goalPos;
+			transform.position = Vector3.SmoothDamp(transform.position, goalPos, ref velocity, reachGoalTime);
 			if(Vector3.Distance(transform.position, goalPos) < .2f)
 			{
 				reachedGoal = true;
@@ -152,7 +160,7 @@ public class Enemy : EnemyBase {
 	void OnTriggerEnter (Collider col)
     {
     	PlayerBullet bullet = col.gameObject.GetComponent<PlayerBullet>();
-        if(bullet != null && !(type == EnemyType.LaserWarning || type == EnemyType.Laser))
+		if(bullet != null && !(type == EnemyType.LaserWarning || type == EnemyType.Laser) && canCollide)
         {
             bullet.Die();
             GetHurt(bullet.GetDamage());

@@ -4,10 +4,10 @@ using UnityEngine;
 
 [System.Serializable]
 public class EnemySpawnData {
-	public float time, leave, reachGoalTime = .2f;
-	public float x = float.MaxValue, y = float.MaxValue, rotation, scale = 1;
-	public string type, from = "up", movement = null, pattern = "General/basic", model = "circle", material = "red";
-	public bool invul;
+	public float time, leave = 999f, reachGoalTime = .2f, hp = 300;
+	public float x = float.MaxValue, y = float.MaxValue, z = float.MaxValue, rotation, scale = 1;
+	public string type, from = "up", movement = null, pattern = "General/none", model = "circle", material = "red";
+	public bool invul, canCollide = true, introMovement = true;
 
 	public static EnemySpawnData FromJSON(JSONObject o)
 	{
@@ -20,7 +20,10 @@ public class EnemySpawnData {
 			{
 				case "time":
 					esd.time = (float)j.n;
-				break;
+					break;
+				case "hp":
+					esd.hp = (float)j.n;
+					break;
 				case "leave":
 					esd.leave = (float)j.n;
 				break;
@@ -29,9 +32,12 @@ public class EnemySpawnData {
 				break;
 				case "x":
 					esd.x = (float)j.n;
-				break;
+					break;
 				case "y":
 					esd.y = (float)j.n;
+					break;
+				case "z":
+					esd.z = (float)j.n;
 					break;
 				case "reachGoalTime":
 					esd.reachGoalTime = (float)j.n;
@@ -56,10 +62,16 @@ public class EnemySpawnData {
 					break;
 				case "from":
 					esd.from = (string)j.str;
-				break;
+					break;
 				case "invul":
 					esd.invul = (bool)j.b;
-				break;
+					break;
+				case "canCollide":
+					esd.canCollide = (bool)j.b;
+					break;
+				case "introMovement":
+					esd.introMovement = (bool)j.b;
+					break;
 			}
 		}
 		return esd;

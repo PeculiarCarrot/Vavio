@@ -15,7 +15,7 @@ public class MovementController : ScriptController {
 	[HideInInspector]
 	public bool ignoreAngle;
 	[HideInInspector]
-	public float speed;
+	public float speed, speedMultiplier;
 	[HideInInspector]
 	public string targetType;
 	private GameObject target;
@@ -33,6 +33,7 @@ public class MovementController : ScriptController {
 		resetMoveOnUpdate = true;
 		ignoreAngle = false;
 		speed = 1;
+		speedMultiplier = 1;
 		targetType = null;
 		target = null;
 		script = null;
@@ -41,6 +42,11 @@ public class MovementController : ScriptController {
 	}
 
 	public MovementController(){
+	}
+
+	public void Print(string message)
+	{
+		Debug.Log(message);
 	}
 
 	void Start()
@@ -63,6 +69,18 @@ public class MovementController : ScriptController {
 				catch (ScriptRuntimeException ex)
 				{
 					Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   " + ex.DecoratedMessage);
+				}
+			}
+			else{
+				switch(patternPath)
+				{
+					case "$forward":
+						friction = 1f;
+						resetMoveOnUpdate = false;
+						move = new Vector3(speed, 0, 0);
+						break;
+					default:
+						break;
 				}
 			}
 		}
@@ -180,13 +198,54 @@ public class MovementController : ScriptController {
 	{
 		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, angle);
 	}
+
+	public float GetScaleX()
+	{
+		return transform.localScale.x;
+	}
+
+	public float GetScaleY()
+	{
+		return transform.localScale.y;
+	}
+
+	public float GetScaleZ()
+	{
+		return transform.localScale.z;
+	}
+
+	public void Die()
+	{
+		if (GetComponent<Enemy>() != null)
+			GetComponent<Enemy>().Die();
+	}
+
+	public void SetScaleX(float x)
+	{
+		Vector3 newScale = transform.localScale;
+		newScale.x = x;
+		transform.localScale = newScale;
+	}
+
+	public void SetScaleY(float y)
+	{
+		Vector3 newScale = transform.localScale;
+		newScale.y = y;
+		transform.localScale = newScale;
+	}
+
+	public void SetScaleZ(float z)
+	{
+		Vector3 newScale = transform.localScale;
+		newScale.z = z;
+		transform.localScale = newScale;
+	}
 	
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log("UPDATE  -  " + gameObject.GetInstanceID() + ": " + script);
 		if (resetMoveOnUpdate)
 			move = Vector3.zero;
-
 		if (script != null)
 		{
 			try
@@ -202,20 +261,21 @@ public class MovementController : ScriptController {
 			switch(patternPath)
 			{
 				case "$forward":
-					friction = .98f;
-					move += new Vector3(speed, 0, 0);
+					resetMoveOnUpdate = false;
+					//move += new Vector3(speed * Time.deltaTime, 0, 0);
 					break;
 				default:
 					break;
 			}
 		}
-
+		Vector3 realMove = move;
 		if(!ignoreAngle)
 		{
-			move = Quaternion.Euler(0, 0, transform.eulerAngles.z) * move;
+			realMove = Quaternion.Euler(0, 0, transform.eulerAngles.z) * move;
 		}
 
-		transform.position = transform.position + move * Time.deltaTime;
+		transform.position = transform.position + realMove * Time.deltaTime;
 		move *= friction;
+		move *= speedMultiplier;
 	}
 }

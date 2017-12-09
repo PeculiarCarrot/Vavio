@@ -30,21 +30,11 @@ public class PlayerCore : MonoBehaviour {
 			}
 			return;
         }
-        if(enemy != null && !player.GetComponent<Player>().IsInvincible())
+		if(enemy != null && !player.GetComponent<Player>().IsInvincible() && enemy.canCollide)
         {
-            bool damaged = true;
-            switch(enemy.type)
-            {
-				case Enemy.EnemyType.LaserWarning:
-					damaged = false;
-                break;
-				default:
-					damaged = true;
-                break;
-            }
-            enemy.GetHurt(50);
-			if(damaged)
-                player.GetComponent<Player>().GetHurt();
+			if(!enemy.IsInvincible())
+            	enemy.GetHurt(50);
+            player.GetComponent<Player>().GetHurt();
             return;
         }
     }

@@ -14,7 +14,6 @@ public class EnemySpawner : MonoBehaviour {
 	{
 		if (!loaded)
 		{
-
 			UserData.RegisterType<GameObject>();
 			UserData.RegisterType<Vector3>();
 			UserData.RegisterType<Transform>();
@@ -22,12 +21,12 @@ public class EnemySpawner : MonoBehaviour {
 			UserData.RegisterType<LuaMath>();
 			UserData.RegisterType<float[]>();
 			UserData.RegisterAssembly();
-			//Load in bullet models
+			//Load in enemy models
 			enemyModels.Add("circle", GetEnemyModel("circle"));
 			enemyModels.Add("pepper", GetEnemyModel("pepper"));
 			enemyModels.Add("cube", GetEnemyModel("cube"));
 
-			//Load in bullet materials
+			//Load in enemy materials
 			enemyMaterials.Add("red", GetEnemyMaterial("red"));
 			enemyMaterials.Add("lightRed", GetEnemyMaterial("lightRed"));
 			enemyMaterials.Add("orange", GetEnemyMaterial("orange"));
@@ -57,7 +56,7 @@ public class EnemySpawner : MonoBehaviour {
 
 	void Start()
 	{
-		level = 0;
+		level = 1;
 		if(PlayerPrefs.HasKey("diedOnLevel"))
 		{
 			level = PlayerPrefs.GetInt("diedOnLevel");
@@ -72,12 +71,11 @@ public class EnemySpawner : MonoBehaviour {
 	{
 		spawns = AllLevelData.FromJSON(new JSONObject(spawnData.text), level);
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
-		stage.GetComponent<AudioSource>().time = 123;//0;
+		stage.GetComponent<AudioSource>().time = 55;
 		stage.GetComponent<AudioSource>().Play();
 		stage.GetComponent<Stage>().Begin();
 		stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Start();
 		stage.GetComponent<Stage>().player.GetComponent<Player>().Regenerate();
-		//stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Regenerate();
 		spawns.Begin(this);
 	}
 
@@ -111,6 +109,9 @@ public class EnemySpawner : MonoBehaviour {
 			pos.y = Stage.minY - 1;
 		else if(data.from == "up")
 			pos.y = Stage.maxY + 1;
+		pos.z = data.z;
+		if (pos.z == float.MaxValue)
+			pos.z = 0;
 
 		GameObject e = Instantiate(model, pos, Quaternion.Euler(new Vector3(model.transform.eulerAngles.x, model.transform.eulerAngles.y, model.transform.eulerAngles.z + data.rotation)));
 		e.transform.localScale = e.transform.localScale * data.scale;
@@ -123,6 +124,10 @@ public class EnemySpawner : MonoBehaviour {
 			e.GetComponent<Enemy>().leave = data.leave;
 			e.GetComponent<Enemy>().reachGoalTime = data.reachGoalTime;
 			e.GetComponent<Enemy>().invul = data.invul;
+			e.GetComponent<Enemy>().canCollide = data.canCollide;
+			e.GetComponent<Enemy>().introMovement = data.introMovement;
+			e.GetComponent<Enemy>().maxHP = data.hp;
+			e.GetComponent<Enemy>().hp = data.hp;
 			e.GetComponent<Enemy>().SetGoalPos(goalPos);
 			liveEnemies.Add(e);
 		}

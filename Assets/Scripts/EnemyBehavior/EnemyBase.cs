@@ -12,7 +12,7 @@ public abstract class EnemyBase : ShooterBase {
 	public static GameObject stage;
 
 	public float maxHP = 100;
-	protected float hp;
+	public float hp;
 	private bool flashing;
 	protected bool reachedGoal = true;
 
@@ -35,7 +35,7 @@ public abstract class EnemyBase : ShooterBase {
 		Material m = mainRenderer.material;
 		Color c = mainRenderer.material.color;
 		mainRenderer.material = null;
-		mainRenderer.material.color = ChangeColorBrightness(c, .2f);
+		mainRenderer.material.color = ChangeColorBrightness(c, .6f);
 		mainRenderer.material.shader = Shader.Find("Unlit/Color");
 		flashing = true;		
 		yield return new WaitForSeconds(0.03f);
