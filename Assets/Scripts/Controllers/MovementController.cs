@@ -26,6 +26,8 @@ public class MovementController : ScriptController {
 
 	public void Reset()
 	{
+		if (script != null)
+			CallLuaFunction("init", this, GetInstanceID());
 		move = Vector3.zero;
 		friction = 1f;
 		resetMoveOnUpdate = true;
@@ -56,7 +58,7 @@ public class MovementController : ScriptController {
 			{
 				try
 				{
-					CallLuaFunction("init", this);
+					CallLuaFunction("init", this, GetInstanceID());
 				}
 				catch (ScriptRuntimeException ex)
 				{
@@ -189,7 +191,7 @@ public class MovementController : ScriptController {
 		{
 			try
 			{
-				CallLuaFunction("update", this, Time.deltaTime);
+				CallLuaFunction("update", this, GetInstanceID(), Time.deltaTime);
 			}
 			catch (ScriptRuntimeException ex)
 			{

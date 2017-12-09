@@ -71,6 +71,8 @@ public class PatternController : ScriptController{
 
 	public void Reset()
 	{
+		if (script != null)
+			CallLuaFunction("init", this, GetInstanceID());
 		leave = 0;
 		script = null;
 		patternPath = null;
@@ -92,7 +94,7 @@ public class PatternController : ScriptController{
 			{
 				try
 				{
-					CallLuaFunction("init", this);
+					CallLuaFunction("init", this, GetInstanceID());
 				}
 				catch (ScriptRuntimeException ex)
 				{
@@ -129,7 +131,7 @@ public class PatternController : ScriptController{
 		{
 			try
 			{
-				CallLuaFunction("update", this, Stage.deltaTime);
+				CallLuaFunction("update", this, GetInstanceID(), Stage.deltaTime);
 			}
 			catch (ScriptRuntimeException ex)
 			{

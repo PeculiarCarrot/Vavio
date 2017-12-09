@@ -1,66 +1,88 @@
+initialized = {}
+fireIndex = {}
+numSets = {}
+spread = {}
+spreadMax = {}
+spreadMin = {}
+spreadChangeSpeed = {}
+goalSpread = {}
+currentAngle = {}
+currentSpinSpeed = {}
+maxSpinSpeed = {}
+spinAcceleration = {}
+reverseSpin = {}
+reverseSpinSpeed = {}
+spinningClockwise = {}
+fireTimes = {}
+spacePerSet = {}
+
 function init(pattern, id)
-	fireIndex = 0
-	numSets = 4
+	fireIndex[id] = 0
+	numSets[id] = 4
 
-	spread = 90
-	spreadMin = 40
-	spreadMax = 180
-	spreadChangeSpeed = 1
-	goalSpread = spreadMax
+	spread[id] = 90
+	spreadMin[id] = 40
+	spreadMax[id] = 180
+	spreadChangeSpeed[id] = 1
+	goalSpread[id] = spreadMax[id]
 
-	currentAngle = 0
-	currentSpinSpeed = 0
-	maxSpinSpeed = 100
-	spinAcceleration = 0
-	reverseSpin = true
-	reverseSpinSpeed = .99
-	spinningClockwise = false
-	fireTimes = pattern.GetFireTimes(4.666666, 1)
+	currentAngle[id] = 0
+	currentSpinSpeed[id] = 0
+	maxSpinSpeed[id] = 100
+	spinAcceleration[id] = 0
+	reverseSpin[id] = true
+	reverseSpinSpeed[id] = .99
+	spinningClockwise[id] = false
+	fireTimes[id] = pattern.GetFireTimes(4.666666, 1)
+	initialized[id] = true
 end
 
-function updateSpread()
-	if(spread < goalSpread) then
-		spread = spread + spreadChangeSpeed
-	elseif spread > goalSpread then
-		spread = spread - spreadChangeSpeed
+function updateSpread(id)
+	if(spread[id] < goalSpread[id]) then
+		spread[id] = spread[id] + spreadChangeSpeed[id]
+	elseif spread[id] > goalSpread[id] then
+		spread[id] = spread[id] - spreadChangeSpeed[id]
 	end
 
-	if(spread >= spreadMax) then
-		spread = spreadMax
-		goalSpread = spreadMin
-	elseif spread <= spreadMin then
-		spread = spreadMin
-		goalSpread = spreadMax
+	if(spread[id] >= spreadMax[id]) then
+		spread[id] = spreadMax[id]
+		goalSpread[id] = spreadMin[id]
+	elseif spread[id] <= spreadMin[id] then
+		spread[id] = spreadMin[id]
+		goalSpread[id] = spreadMax[id]
 	end
 
-	spacePerSet = spread / numSets
+	spacePerSet[id] = spread[id] / numSets[id]
 end
 
-function update(pattern, deltaTime)
-	updateSpread()
+function update(pattern, id, deltaTime)
+	if(not initialized[id]) then
+		init(pattern, id)
+	end
+	updateSpread(id)
 
-	currentAngle = currentAngle + currentSpinSpeed * deltaTime
-	if (spinningClockwise) then
-		currentSpinSpeed = currentSpinSpeed + spinAcceleration * -1
+	currentAngle[id] = currentAngle[id] + currentSpinSpeed[id] * deltaTime
+	if (spinningClockwise[id]) then
+		currentSpinSpeed[id] = currentSpinSpeed[id] + spinAcceleration[id] * -1
 	else
-		currentSpinSpeed = currentSpinSpeed + spinAcceleration * 1
+		currentSpinSpeed[id] = currentSpinSpeed[id] + spinAcceleration[id] * 1
 	end
 
-	if(currentSpinSpeed < 0 ~= spinningClockwise) then
-		currentSpinSpeed = currentSpinSpeed * reverseSpinSpeed;
+	if(currentSpinSpeed[id] < 0 ~= spinningClockwise[id]) then
+		currentSpinSpeed[id] = currentSpinSpeed[id] * reverseSpinSpeed[id];
 	end
-	if(currentSpinSpeed >= maxSpinSpeed) then
-		spinningClockwise = true;
-	elseif(currentSpinSpeed <= -maxSpinSpeed) then
-		spinningClockwise = false;
+	if(currentSpinSpeed[id] >= maxSpinSpeed[id]) then
+		spinningClockwise[id] = true;
+	elseif(currentSpinSpeed[id] <= -maxSpinSpeed[id]) then
+		spinningClockwise[id] = false;
 	end
 
-	if(pattern.GetStageTime() >= fireTimes[fireIndex]) then
-		fireIndex = fireIndex + 1
-		for place = -spread / 2 + spacePerSet/2, spread / 2 - spacePerSet/2, spacePerSet do
+	if(pattern.GetStageTime() >= fireTimes[id][fireIndex[id]]) then
+		fireIndex[id] = fireIndex[id] + 1
+		for place = -spread[id] / 2 + spacePerSet[id]/2, spread[id] / 2 - spacePerSet[id]/2, spacePerSet[id] do
 			bullet = pattern.NewBullet()
 			bullet.speed = 4
-			bullet.angle = place + currentAngle - 90
+			bullet.angle = place + currentAngle[id] - 90
 			bullet.material = "lightRed"
 			pattern.SpawnBullet(bullet)
 		end

@@ -42,7 +42,9 @@ public class Player : Ship {
     	for(int i = 0; i < hp; i++)
     	{
     		 GUI.DrawTexture(new Rect(30 + (size + 20) * i, Screen.height - 56, size, size), livesTexture);
-    	}
+		}
+		if(debug)
+			GUI.Label(new Rect(0, 0, 100, 100), ""+(int)(1.0f / (Time.smoothDeltaTime/Time.timeScale)));    
     }
 
 	public void GetHurt()

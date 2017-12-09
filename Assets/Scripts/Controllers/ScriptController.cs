@@ -8,22 +8,29 @@ public class ScriptController : MonoBehaviour {
 	protected Stage stage;
 	public string patternPath;
 	private string defaultPath;
-	private static Dictionary<string, string> cachedFiles = new Dictionary<string, string>();
+	private static Dictionary<string, Script> cachedFiles = new Dictionary<string, Script>();
 
 	protected Script script;
 
-	private string GetCode(string filePath)
+	private Script GetScript(string filePath)
 	{
-		string code = "";
+		Script script = null;
 		if (cachedFiles.ContainsKey(filePath))
 		{
-			if (!cachedFiles.TryGetValue(filePath, out code))
+			if (!cachedFiles.TryGetValue(filePath, out script))
 				Debug.LogError("?????");
-			return code;
+			return script;
 		}
-		code = System.IO.File.ReadAllText(filePath);
-		cachedFiles.Add(filePath, code);
-		return code;
+		script = new Script();
+		try{
+			script.DoString(System.IO.File.ReadAllText(filePath));
+		}
+		catch (SyntaxErrorException ex)
+		{
+			Debug.LogError("Whoops, there was a syntax Lua error in '" + filePath + "'   -   " + ex.DecoratedMessage);
+		}
+		cachedFiles.Add(filePath, script);
+		return script;
 	}
 
 	protected void SetDefaultPath(string dp)
@@ -34,7 +41,7 @@ public class ScriptController : MonoBehaviour {
 	void OnDisable() {
 		if (script != null)
 		{
-			LuaScriptFactory.SetUsable(script);
+			//LuaScriptFactory.SetUsable(script);
 		}
 	}
 
@@ -53,11 +60,7 @@ public class ScriptController : MonoBehaviour {
 		foreach (string dir in directories)
 			path = System.IO.Path.Combine(path, dir);
 		path += ".lua";
-
-		string code = GetCode(path);
-		script = LuaScriptFactory.GetUnused();
-		//int m = System.DateTime.Now;
-		script.DoString(code);
+		script = GetScript(path);
 
 		//Debug.Log((System.DateTime.Now.Millisecond - m));
 	}
@@ -67,7 +70,7 @@ public class ScriptController : MonoBehaviour {
 		object func = script.Globals[function];
 		if (func == null)
 		{
-			Debug.Log("'" + function + "' does not exist in "+patternPath);
+			Debug.LogError("'" + function + "' does not exist in "+patternPath);
 			return null;
 		}
 

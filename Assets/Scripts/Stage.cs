@@ -72,7 +72,7 @@ public class Stage : MonoBehaviour {
 		{
 			f *= 1.01f;
 
-			Debug.Log(song.time);
+			Debug.Log("Song time: " + song.time);
 		}
 		else if(Input.GetKey("left"))
 		{

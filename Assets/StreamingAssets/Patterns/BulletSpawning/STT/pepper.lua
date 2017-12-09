@@ -1,42 +1,59 @@
-function init(pattern)
-	fireIndex = 0
-	numSets = 11
-	spacePerSet = 360 / 11
+initialized = {}
+fireIndex = {}
+numSets = {}
+currentAngle = {}
+currentSpinSpeed = {}
+maxSpinSpeed = {}
+spinAcceleration = {}
+reverseSpin = {}
+reverseSpinSpeed = {}
+spinningClockwise = {}
+fireTimes = {}
+spacePerSet = {}
 
-	currentAngle = 0
-	currentSpinSpeed = 0
-	maxSpinSpeed = 100
-	spinAcceleration = .3
-	reverseSpin = true
-	reverseSpinSpeed = .99
-	spinningClockwise = false
-	fireTimes = pattern.GetFireTimes(4.666666, 1, 12.2, 1.7)
+function init(pattern, id)
+	fireIndex[id] = 0
+	numSets[id] = 11
+	spacePerSet[id] = 360 / 11
+
+	currentAngle[id] = 0
+	currentSpinSpeed[id] = 0
+	maxSpinSpeed[id] = 100
+	spinAcceleration[id] = .3
+	reverseSpin[id] = true
+	reverseSpinSpeed[id] = .99
+	spinningClockwise[id] = false
+	fireTimes[id] = pattern.GetFireTimes(4.666666, 1, 12.2, 1.7)
+	initialized[id] = true
 end
 
-function update(pattern, deltaTime)
+function update(pattern, id, deltaTime)
+	if(not initialized[id]) then
+		init(pattern, id)
+	end
 
-	currentAngle = currentAngle + currentSpinSpeed * deltaTime
+	currentAngle[id] = currentAngle[id] + currentSpinSpeed[id] * deltaTime
 	if (spinningClockwise) then
-		currentSpinSpeed = currentSpinSpeed + spinAcceleration * -1
+		currentSpinSpeed[id] = currentSpinSpeed[id] + spinAcceleration[id] * -1
 	else
-		currentSpinSpeed = currentSpinSpeed + spinAcceleration * 1
+		currentSpinSpeed[id] = currentSpinSpeed[id] + spinAcceleration[id] * 1
 	end
 
-	if(currentSpinSpeed < 0 ~= spinningClockwise) then
-		currentSpinSpeed = currentSpinSpeed * reverseSpinSpeed;
+	if(currentSpinSpeed[id] < 0 ~= spinningClockwise[id]) then
+		currentSpinSpeed[id] = currentSpinSpeed[id] * reverseSpinSpeed[id];
 	end
-	if(currentSpinSpeed >= maxSpinSpeed) then
-		spinningClockwise = true;
-	elseif(currentSpinSpeed <= -maxSpinSpeed) then
-		spinningClockwise = false;
+	if(currentSpinSpeed[id] >= maxSpinSpeed[id]) then
+		spinningClockwise[id] = true;
+	elseif(currentSpinSpeed[id] <= -maxSpinSpeed[id]) then
+		spinningClockwise[id] = false;
 	end
 
-	if(pattern.GetStageTime() >= fireTimes[fireIndex]) then
-		fireIndex = fireIndex + 1
-		for place = 0, 360, spacePerSet do
+	if(pattern.GetStageTime() >= fireTimes[id][fireIndex[id]]) then
+		fireIndex[id] = fireIndex[id] + 1
+		for place = 0, 360, spacePerSet[id] do
 			bullet = pattern.NewBullet()
 			bullet.speed = 4
-			bullet.angle = place + currentAngle
+			bullet.angle = place + currentAngle[id]
 			bullet.material = "darkRed"
 			pattern.SpawnBullet(bullet)
 		end
