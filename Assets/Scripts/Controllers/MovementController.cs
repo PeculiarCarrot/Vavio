@@ -56,8 +56,42 @@ public class MovementController : ScriptController {
 		Init();
 	}
 
+	public float[] GetFireTimes(float bulletsPerSecond, float initialDelay, float duration)
+	{
+		return GetFireTimes(bulletsPerSecond, initialDelay, duration, 0, 0);
+	}
+
+	public float[] GetFireTimes(float bulletsPerSecond, float initialDelay, float duration, float secondsToFire, float secondsToPause)
+	{
+		float secondsPerBullet = 1 / bulletsPerSecond;
+		List<float> times = new List<float>();
+		float timeUntilChange = secondsToFire;
+		bool paused = false;
+		for(float i = initialDelay; i < initialDelay + duration; i += bulletsPerSecond)
+		{
+			if(secondsToPause > 0)
+			{
+				//Debug.Log(timeUntilChange);
+				timeUntilChange -= secondsPerBullet;
+				if(timeUntilChange <= 0)
+				{
+					paused = !paused;
+					timeUntilChange = paused ? secondsToPause : secondsToFire;
+				}
+			}
+			if(!paused)
+				times.Add(i);
+		}
+		float[] fireTimes = new float[times.Count];
+		for(int i = 0; i < fireTimes.Length; i++)
+		{
+			fireTimes[i] = times[i] + (float)Stage.time;
+		}
+		return fireTimes;
+	}
+
 	// Use this for initialization
-	public new void Init () {
+	public void Init () {
 		if (blank)
 		{
 			SetDefaultPath("Patterns/Movement/");
@@ -97,6 +131,11 @@ public class MovementController : ScriptController {
 	public float GetStageDeltaTime()
 	{
 		return Stage.deltaTime;
+	}
+
+	public float GetStageTime()
+	{
+		return (float)Stage.time;
 	}
 
 	public void FindTarget()

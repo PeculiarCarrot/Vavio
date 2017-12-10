@@ -23,4 +23,9 @@ public class LuaScriptFactory {
 		s.Reset();	
 		usableObjects.Add(s);
 	}
+
+	public static void ClearPool()
+	{
+		usableObjects.Clear();
+	}
 }

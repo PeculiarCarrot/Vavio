@@ -37,6 +37,11 @@ public static class BulletFactory {
 		return bullet;
 	}
 
+	public static void ClearPool()
+	{
+		objects.Clear();
+	}
+
 	private static GameObject GetUnused(string t)
 	{
 		foreach(GameObject b in objects)

@@ -33,6 +33,9 @@ public class EnemySpawner : MonoBehaviour {
 			enemyMaterials.Add("orange", GetEnemyMaterial("orange"));
 			enemyMaterials.Add("aqua", GetEnemyMaterial("aqua"));
 			enemyMaterials.Add("darkAqua", GetEnemyMaterial("darkAqua"));
+			enemyMaterials.Add("purple", GetEnemyMaterial("purple"));
+			enemyMaterials.Add("darkPurple", GetEnemyMaterial("darkPurple"));
+			enemyMaterials.Add("white", GetEnemyMaterial("white"));
 		}
 
 		loaded = true;
@@ -59,7 +62,7 @@ public class EnemySpawner : MonoBehaviour {
 
 	void Start()
 	{
-		level = 1;
+		level = 3;
 		if(PlayerPrefs.HasKey("diedOnLevel"))
 		{
 			level = PlayerPrefs.GetInt("diedOnLevel");
@@ -74,7 +77,7 @@ public class EnemySpawner : MonoBehaviour {
 	{
 		spawns = AllLevelData.FromJSON(new JSONObject(spawnData.text), level);
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
-		stage.GetComponent<AudioSource>().time = 97;
+		stage.GetComponent<AudioSource>().time = 0;
 		stage.GetComponent<AudioSource>().Play();
 		stage.GetComponent<Stage>().Begin();
 		stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Start();

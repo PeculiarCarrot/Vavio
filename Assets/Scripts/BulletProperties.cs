@@ -11,6 +11,13 @@ public class BulletProperties : MonoBehaviour {
 	[HideInInspector]
 	public bool destroyOnExitStage, destroyOnHit;
 
+	private Vector3 startScale;
+
+	public void Awake()
+	{
+		startScale = gameObject.transform.localScale;
+	}
+
 	// Use this for initialization
 	void Start () {
 		
@@ -31,6 +38,7 @@ public class BulletProperties : MonoBehaviour {
 		lifetime = 0;
 		destroyOnHit = false;
 		destroyOnExitStage = false;
+		transform.localScale = startScale;
 		if (GetComponent<MovementController>() != null)
 			GetComponent<MovementController>().Reset();
 		if (GetComponent<PatternController>() != null)

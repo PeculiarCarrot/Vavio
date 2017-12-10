@@ -16,6 +16,7 @@ public class PatternController : ScriptController{
 		{
 			//Load in bullet models
 			bulletModels.Add("capsule", LoadBulletModel("capsule"));
+			bulletModels.Add("circle", LoadBulletModel("circle"));
 
 			//Load in bullet materials
 			bulletMaterials.Add("red", LoadBulletMaterial("red"));
@@ -24,6 +25,9 @@ public class PatternController : ScriptController{
 			bulletMaterials.Add("orange", LoadBulletMaterial("orange"));
 			bulletMaterials.Add("aqua", LoadBulletMaterial("aqua"));
 			bulletMaterials.Add("darkAqua", LoadBulletMaterial("darkAqua"));
+			bulletMaterials.Add("darkPurple", LoadBulletMaterial("darkPurple"));
+			bulletMaterials.Add("purple", LoadBulletMaterial("purple"));
+			bulletMaterials.Add("white", LoadBulletMaterial("white"));
 		}
 
 		loaded = true;
@@ -86,7 +90,7 @@ public class PatternController : ScriptController{
 		Init();
 	}
 
-	public new void Init()
+	public void Init()
 	{
 		if (blank)
 		{
@@ -142,11 +146,6 @@ public class PatternController : ScriptController{
 		}
 	}
 
-	public float[] GetFireTimes(float bulletsPerSecond, float initialDelay)
-	{
-		return GetFireTimes(bulletsPerSecond, initialDelay, 0, 0);
-	}
-
 	public float GetStageTime()
 	{
 		return (float)Stage.time;
@@ -155,6 +154,11 @@ public class PatternController : ScriptController{
 	public float GetRealDeltaTime()
 	{
 		return Time.deltaTime;
+	}
+
+	public float[] GetFireTimes(float bulletsPerSecond, float initialDelay)
+	{
+		return GetFireTimes(bulletsPerSecond, initialDelay, 0, 0);
 	}
 
 	public float[] GetFireTimes(float bulletsPerSecond, float initialDelay, float secondsToFire, float secondsToPause)

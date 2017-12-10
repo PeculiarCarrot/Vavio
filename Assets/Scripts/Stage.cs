@@ -45,6 +45,8 @@ public class Stage : MonoBehaviour {
 
 	public void Begin()
 	{
+		BulletFactory.ClearPool();
+		LuaScriptFactory.ClearPool();
 		beginTime = song.time - song.timeSamples/song.clip.frequency;
 		time = song.time - beginTime;
 		lastTime = time;
