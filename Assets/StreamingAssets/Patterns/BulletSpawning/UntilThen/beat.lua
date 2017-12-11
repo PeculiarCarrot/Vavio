@@ -20,12 +20,12 @@ function update(pattern, id, deltaTime)
 
 		for i = angle[id], angle[id] + 360, (360/shots) do
 			bullet = pattern.NewBullet()
-			bullet.speed = 2
+			bullet.speed = 2.7
 			bullet.type = "circle"
 			bullet.material = "orange"
 			bullet.angle = i
 			bullet.scale = .5
-			bullet.speedMultiplier = 1.001
+			bullet.speedMultiplier = 1
 			pattern.SpawnBullet(bullet)
 		end
 	end

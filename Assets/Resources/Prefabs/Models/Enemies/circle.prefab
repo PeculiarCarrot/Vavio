@@ -146,7 +146,9 @@ MonoBehaviour:
   resetMoveOnUpdate: 1
   ignoreAngle: 0
   speed: 1
+  speedMultiplier: 0
   targetType: 
+  synced: 0
 --- !u!114 &114549713436867526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -162,11 +164,15 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   accel: 0.9
   friction: 0.9
-  maxHP: 100
+  maxHP: 200
+  hp: 0
   type: 0
   reachGoalTime: 0.2
   invul: 0
-  healthBarTexture: {fileID: 0}
+  canCollide: 0
+  introMovement: 0
+  boss: 0
+  mat: {fileID: 0}
 --- !u!114 &114727872866308626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,6 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patternPath: General/basic
+  leave: 0
 --- !u!135 &135522891666947402
 SphereCollider:
   m_ObjectHideFlags: 1

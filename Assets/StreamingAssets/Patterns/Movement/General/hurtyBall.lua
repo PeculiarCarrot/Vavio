@@ -1,6 +1,6 @@
 function init(movement, id)
 	movement.resetMoveOnUpdate = false
-	movement.speed = 1.75;
+	movement.speed = 1.75
 	movement.speed = movement.Math().RandomRange(movement.speed, movement.speed + 2)
 end
 

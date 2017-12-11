@@ -32,6 +32,8 @@ public class Enemy : EnemyBase {
 	public bool boss;
 
 	private static GameObject bossDeathEffect;
+	private static GameObject enemyDeathEffect;
+	public Material mat;
 
 	public void SetBehavior(EnemyBehavior b)
 	{
@@ -70,6 +72,8 @@ public class Enemy : EnemyBase {
 			healthBarTexture = Resources.Load<Texture>("Materials/bossHealthBar");
 		if(bossDeathEffect == null)
 			bossDeathEffect = Resources.Load<GameObject>("Prefabs/Effects/bossDeathEffect");
+		if(enemyDeathEffect == null)
+			enemyDeathEffect = Resources.Load<GameObject>("Prefabs/Effects/enemyDeathEffect");
 	}
 
 	public bool IsInvincible()
@@ -77,14 +81,22 @@ public class Enemy : EnemyBase {
 		return invul || (!reachedGoal && !leaving) || type == EnemyType.LaserWarning || type == EnemyType.Laser;
 	}
 
-	public new void Die()
+	public void Die(bool player)
 	{
-		if (boss)
+		if(player && mat.name != "transparent")
 		{
-			GameObject e = Instantiate(bossDeathEffect, transform.position, bossDeathEffect.transform.rotation);
+			GameObject prefab = boss ? bossDeathEffect : enemyDeathEffect;
+			GameObject e = Instantiate(prefab, transform.position, prefab.transform.rotation);
+			e.GetComponent<LineRenderer>().material = mat;
 		}
+
 		Stage.RemoveEnemy(gameObject);
 		Destroy(gameObject);
+	}
+
+	public new void Die()
+	{
+		Die(false);
 	}
 
 	// Update is called once per frame
@@ -112,7 +124,7 @@ public class Enemy : EnemyBase {
 		if(Stage.time >= leave && !leaving)
 			Leave();
 		if(hp <= 0)
-			Die();
+			Die(true);
 		if(type == EnemyType.LaserWarning)
 		{
 			Vector3 scale = transform.localScale;

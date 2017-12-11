@@ -669,6 +669,7 @@
       "z": 1,
       "model": "circle",
       "material": "orange",
+      "introMovement": false,
       "invul": true,
       "scale": 4,
       "x": 0.1,
@@ -681,6 +682,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.2,
       "y": 1.1
@@ -692,6 +694,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.3,
       "y": 1.1
@@ -703,6 +706,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.4,
       "y": 1.1
@@ -714,6 +718,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.5,
       "y": 1.1
@@ -725,6 +730,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.6,
       "y": 1.1
@@ -736,6 +742,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.7,
       "y": 1.1
@@ -747,6 +754,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.8,
       "y": 1.1
@@ -758,6 +766,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.9,
       "y": 1.1
@@ -769,6 +778,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.15,
       "y": 1.1
@@ -780,6 +790,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.05,
       "y": 1.1
@@ -791,6 +802,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.35,
       "y": 1.1
@@ -802,6 +814,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.55,
       "y": 1.1
@@ -813,6 +826,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.75,
       "y": 1.1
@@ -824,6 +838,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.95,
       "y": 1.1
@@ -835,6 +850,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.1,
       "y": 1.1
@@ -846,6 +862,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.2,
       "y": 1.1
@@ -857,6 +874,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.3,
       "y": 1.1
@@ -868,6 +886,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.4,
       "y": 1.1
@@ -879,6 +898,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.5,
       "y": 1.1
@@ -890,6 +910,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.6,
       "y": 1.1
@@ -901,6 +922,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.7,
       "y": 1.1
@@ -912,6 +934,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.8,
       "y": 1.1
@@ -923,6 +946,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.9,
       "y": 1.1
@@ -934,6 +958,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.15,
       "y": 1.1
@@ -945,6 +970,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.05,
       "y": 1.1
@@ -956,6 +982,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.35,
       "y": 1.1
@@ -967,6 +994,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.55,
       "y": 1.1
@@ -978,6 +1006,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.75,
       "y": 1.1
@@ -989,6 +1018,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.95,
       "y": 1.1
@@ -1000,6 +1030,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.1,
       "y": 1.1
@@ -1011,6 +1042,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.2,
       "y": 1.1
@@ -1022,6 +1054,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.3,
       "y": 1.1
@@ -1033,6 +1066,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.4,
       "y": 1.1
@@ -1044,6 +1078,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.5,
       "y": 1.1
@@ -1055,6 +1090,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.6,
       "y": 1.1
@@ -1066,6 +1102,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.7,
       "y": 1.1
@@ -1077,6 +1114,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.8,
       "y": 1.1
@@ -1088,6 +1126,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.9,
       "y": 1.1
@@ -1099,6 +1138,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.15,
       "y": 1.1
@@ -1110,6 +1150,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.05,
       "y": 1.1
@@ -1121,6 +1162,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.35,
       "y": 1.1
@@ -1132,6 +1174,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.55,
       "y": 1.1
@@ -1143,6 +1186,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.75,
       "y": 1.1
@@ -1154,6 +1198,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.95,
       "y": 1.1
@@ -1165,6 +1210,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.1,
       "y": 1.1
@@ -1176,6 +1222,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.2,
       "y": 1.1
@@ -1187,6 +1234,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.3,
       "y": 1.1
@@ -1198,6 +1246,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.4,
       "y": 1.1
@@ -1209,6 +1258,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.5,
       "y": 1.1
@@ -1220,6 +1270,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.6,
       "y": 1.1
@@ -1231,6 +1282,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.7,
       "y": 1.1
@@ -1242,6 +1294,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.8,
       "y": 1.1
@@ -1253,6 +1306,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.9,
       "y": 1.1
@@ -1264,6 +1318,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.15,
       "y": 1.1
@@ -1275,6 +1330,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.05,
       "y": 1.1
@@ -1286,6 +1342,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.35,
       "y": 1.1
@@ -1297,6 +1354,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.55,
       "y": 1.1
@@ -1308,6 +1366,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.75,
       "y": 1.1
@@ -1319,6 +1378,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.95,
       "y": 1.1
@@ -1330,6 +1390,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.1,
       "y": 1.1
@@ -1341,6 +1402,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.2,
       "y": 1.1
@@ -1352,6 +1414,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.3,
       "y": 1.1
@@ -1363,6 +1426,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.4,
       "y": 1.1
@@ -1374,6 +1438,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.5,
       "y": 1.1
@@ -1385,6 +1450,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.6,
       "y": 1.1
@@ -1396,6 +1462,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.7,
       "y": 1.1
@@ -1407,6 +1474,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.8,
       "y": 1.1
@@ -1418,6 +1486,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.9,
       "y": 1.1
@@ -1429,6 +1498,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.15,
       "y": 1.1
@@ -1440,6 +1510,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.05,
       "y": 1.1
@@ -1451,6 +1522,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.35,
       "y": 1.1
@@ -1462,6 +1534,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.55,
       "y": 1.1
@@ -1473,6 +1546,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.75,
       "y": 1.1
@@ -1484,6 +1558,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.95,
       "y": 1.1
@@ -1495,6 +1570,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.1,
       "y": 1.1
@@ -1506,6 +1582,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.2,
       "y": 1.1
@@ -1517,6 +1594,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.3,
       "y": 1.1
@@ -1528,6 +1606,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.4,
       "y": 1.1
@@ -1539,6 +1618,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.5,
       "y": 1.1
@@ -1550,6 +1630,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.6,
       "y": 1.1
@@ -1561,6 +1642,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.7,
       "y": 1.1
@@ -1572,6 +1654,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.8,
       "y": 1.1
@@ -1583,6 +1666,7 @@
       "model": "circle",
       "material": "orange",
       "invul": true,
+      "introMovement": false,
       "scale": 4,
       "x": 0.9,
       "y": 1.1
@@ -1605,6 +1689,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.15,
@@ -1618,6 +1703,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.65,
@@ -1631,6 +1717,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.45,
@@ -1644,6 +1731,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.85,
@@ -1657,6 +1745,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.25,
@@ -1670,6 +1759,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.55,
@@ -1683,6 +1773,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.35,
@@ -1696,6 +1787,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.95,
@@ -1709,6 +1801,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.15,
@@ -1722,6 +1815,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.75,
@@ -1735,6 +1829,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.45,
@@ -1748,6 +1843,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.15,
@@ -1761,6 +1857,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.85,
@@ -1774,6 +1871,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.55,
@@ -1787,6 +1885,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.35,
@@ -1800,6 +1899,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "x": 0.95,
       "y": 1.05
@@ -1812,6 +1912,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.25,
@@ -1825,6 +1926,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.75,
@@ -1838,6 +1940,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.45,
@@ -1851,6 +1954,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.15,
@@ -1864,6 +1968,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.95,
@@ -1877,6 +1982,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.65,
@@ -1890,6 +1996,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.35,
@@ -1903,6 +2010,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.65,
@@ -1916,6 +2024,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.85,
@@ -1929,6 +2038,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.35,
@@ -1942,6 +2052,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.25,
@@ -1955,6 +2066,7 @@
       "material": "orange",
       "introMovement": false,
       "invul": true,
+      "introMovement": false,
       "scale": 2,
       "rotation": -90,
       "x": 0.55,
@@ -2498,7 +2610,7 @@
       "invul": true,
       "scale": 4,
       "x": -0.1,
-      "y": 0.5,
+      "y": 0.3,
       "rotation": 90,
       "from": "left",
       "introMovement": false
@@ -2714,7 +2826,7 @@
       "model": "cube",
       "material": "aqua",
       "boss": true,
-      "hp": 100,
+      "hp": 25000,
       "x": 0.5,
       "y": 0.8,
       "rotation": 45
@@ -3977,7 +4089,7 @@
     },
     {
       "time": 126.8,
-      "leave": 154.2,
+      "leave": 153.1,
       "pattern": "UntilThen/beat",
       "model": "cube",
       "material": "transparent",

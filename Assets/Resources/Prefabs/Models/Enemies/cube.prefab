@@ -169,14 +169,15 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   accel: 0.9
   friction: 0.9
-  maxHP: 10000
+  maxHP: 200
   hp: 0
   type: 0
   reachGoalTime: 0.2
   invul: 1
-  healthBarTexture: {fileID: 0}
   canCollide: 0
   introMovement: 0
+  boss: 0
+  mat: {fileID: 0}
 --- !u!114 &114697204063186062
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -9,33 +9,33 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1197634196914256}
+  m_RootGameObject: {fileID: 1499544350562748}
   m_IsPrefabParent: 1
---- !u!1 &1197634196914256
+--- !u!1 &1499544350562748
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4706720561852958}
-  - component: {fileID: 114854542106123724}
-  - component: {fileID: 120108539494843094}
-  - component: {fileID: 135273986319129778}
-  - component: {fileID: 82635110348283390}
+  - component: {fileID: 4066855158242072}
+  - component: {fileID: 120211874316237782}
+  - component: {fileID: 135297396878939788}
+  - component: {fileID: 82145678310367434}
+  - component: {fileID: 114020137036798714}
   m_Layer: 0
-  m_Name: bossDeathEffect
+  m_Name: enemyDeathEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4706720561852958
+--- !u!4 &4066855158242072
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1197634196914256}
+  m_GameObject: {fileID: 1499544350562748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
@@ -43,18 +43,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &82635110348283390
+--- !u!82 &82145678310367434
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1197634196914256}
+  m_GameObject: {fileID: 1499544350562748}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 13a1b2c44ef42894982309a507811b73, type: 3}
+  m_audioClip: {fileID: 8300000, guid: dc60ad53fbe9f1c4595dfeb371212dea, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.556
+  m_Volume: 0.325
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -123,26 +123,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114854542106123724
+--- !u!114 &114020137036798714
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1197634196914256}
+  m_GameObject: {fileID: 1499544350562748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52755275aa3940247b6ab9642e29cfb4, type: 3}
+  m_Script: {fileID: 11500000, guid: babc2a6280d21124e89d0248ebb507aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segments: 50
+  segments: 100
   xradius: 5
   yradius: 5
---- !u!120 &120108539494843094
+--- !u!120 &120211874316237782
 LineRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1197634196914256}
+  m_GameObject: {fileID: 1499544350562748}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -150,7 +150,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: d8ada431a39464947b84a4f15cb30355, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -223,12 +223,12 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 1
---- !u!135 &135273986319129778
+--- !u!135 &135297396878939788
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1197634196914256}
+  m_GameObject: {fileID: 1499544350562748}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1

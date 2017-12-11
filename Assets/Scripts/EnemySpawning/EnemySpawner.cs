@@ -64,7 +64,7 @@ public class EnemySpawner : MonoBehaviour {
 
 	void Start()
 	{
-		level = 3;
+		level = 0;
 		if(PlayerPrefs.HasKey("diedOnLevel"))
 		{
 			level = PlayerPrefs.GetInt("diedOnLevel");
@@ -77,7 +77,6 @@ public class EnemySpawner : MonoBehaviour {
 
 	public void BeginLevel(int level)
 	{
-		timeUntilNext = 9999999f;
 		spawns = AllLevelData.FromJSON(new JSONObject(spawnData.text), level);
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
 		stage.GetComponent<AudioSource>().time = 0;
@@ -85,7 +84,15 @@ public class EnemySpawner : MonoBehaviour {
 		stage.GetComponent<Stage>().Begin();
 		stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Start();
 		stage.GetComponent<Stage>().player.GetComponent<Player>().Regenerate();
+		timeUntilNext = 9999999f;
 		spawns.Begin(this);
+	}
+
+	public static Material TryGetEnemyMaterial(string s)
+	{
+		Material m = null;
+		enemyMaterials.TryGetValue(s, out m);
+		return m;
 	}
 
 	public void SpawnEnemy(EnemySpawnData data)
@@ -132,6 +139,7 @@ public class EnemySpawner : MonoBehaviour {
 			v.z = data.z;
 			renderer.gameObject.transform.position = v;
 		}
+
 		if(model.GetComponent<Enemy>() != null)
 		{
 			e.GetComponent<Enemy>().leave = data.leave;
@@ -142,6 +150,7 @@ public class EnemySpawner : MonoBehaviour {
 			e.GetComponent<Enemy>().maxHP = data.hp;
 			e.GetComponent<Enemy>().hp = data.hp;
 			e.GetComponent<Enemy>().boss = data.boss;
+			e.GetComponent<Enemy>().mat = material;
 			e.GetComponent<Enemy>().SetGoalPos(goalPos);
 			liveEnemies.Add(e);
 			Stage.AddEnemy(e);
