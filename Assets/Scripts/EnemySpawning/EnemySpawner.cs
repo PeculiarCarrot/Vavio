@@ -36,6 +36,7 @@ public class EnemySpawner : MonoBehaviour {
 			enemyMaterials.Add("purple", GetEnemyMaterial("purple"));
 			enemyMaterials.Add("darkPurple", GetEnemyMaterial("darkPurple"));
 			enemyMaterials.Add("white", GetEnemyMaterial("white"));
+			enemyMaterials.Add("transparent", GetEnemyMaterial("transparent"));
 		}
 
 		loaded = true;
@@ -59,6 +60,7 @@ public class EnemySpawner : MonoBehaviour {
 	public bool spawningEnabled = true;
 	public Stage stage;
 	private List<GameObject> liveEnemies = new List<GameObject>();
+	public float timeUntilNext;
 
 	void Start()
 	{
@@ -75,6 +77,7 @@ public class EnemySpawner : MonoBehaviour {
 
 	public void BeginLevel(int level)
 	{
+		timeUntilNext = 9999999f;
 		spawns = AllLevelData.FromJSON(new JSONObject(spawnData.text), level);
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
 		stage.GetComponent<AudioSource>().time = 0;
@@ -121,10 +124,14 @@ public class EnemySpawner : MonoBehaviour {
 
 		GameObject e = Instantiate(model, pos, Quaternion.Euler(new Vector3(model.transform.eulerAngles.x, model.transform.eulerAngles.y, model.transform.eulerAngles.z + data.rotation)));
 		e.transform.localScale = e.transform.localScale * data.scale;
-
+			
 		foreach (Renderer renderer in e.GetComponentsInChildren<Renderer>())
+		{
 			renderer.material = material;
-
+			Vector3 v = e.transform.position;
+			v.z = data.z;
+			renderer.gameObject.transform.position = v;
+		}
 		if(model.GetComponent<Enemy>() != null)
 		{
 			e.GetComponent<Enemy>().leave = data.leave;
@@ -134,8 +141,10 @@ public class EnemySpawner : MonoBehaviour {
 			e.GetComponent<Enemy>().introMovement = data.introMovement;
 			e.GetComponent<Enemy>().maxHP = data.hp;
 			e.GetComponent<Enemy>().hp = data.hp;
+			e.GetComponent<Enemy>().boss = data.boss;
 			e.GetComponent<Enemy>().SetGoalPos(goalPos);
 			liveEnemies.Add(e);
+			Stage.AddEnemy(e);
 		}
 		if (model.GetComponent<PatternController>() != null)
 		{
@@ -153,11 +162,12 @@ public class EnemySpawner : MonoBehaviour {
 	}
 	private float prevTime = 0;
 	void Update () {
+		timeUntilNext -= Time.deltaTime;
 		if(spawningEnabled)
 		{
 			spawns.Update();
 		}
-		if(prevTime > stage.GetComponent<AudioSource>().time)
+		if(prevTime > stage.GetComponent<AudioSource>().time || timeUntilNext <= 0)
 		{
 			//Debug.Log(prevTime + "    "+ stage.GetComponent<AudioSource>().time);
 			prevTime = 0;

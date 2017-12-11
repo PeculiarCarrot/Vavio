@@ -17,6 +17,7 @@ public class PatternController : ScriptController{
 			//Load in bullet models
 			bulletModels.Add("capsule", LoadBulletModel("capsule"));
 			bulletModels.Add("circle", LoadBulletModel("circle"));
+			bulletModels.Add("cube", LoadBulletModel("cube"));
 
 			//Load in bullet materials
 			bulletMaterials.Add("red", LoadBulletMaterial("red"));
@@ -75,6 +76,8 @@ public class PatternController : ScriptController{
 	public float leave;
 	private bool blank = true;
 
+	private LuaMath luaMath = new LuaMath();
+
 	public void Reset()
 	{
 		if (script != null)
@@ -88,6 +91,11 @@ public class PatternController : ScriptController{
 	void Start()
 	{
 		Init();
+	}
+
+	public LuaMath Math()
+	{
+		return luaMath;
 	}
 
 	public void Init()
@@ -212,7 +220,7 @@ public class PatternController : ScriptController{
 	public void SpawnBullet(BulletData b)
 	{
 		//Debug.Log("BULLET "+patternPath);
-		BulletFactory.Create(transform, b);
+		Stage.AddBullet(BulletFactory.Create(transform, b));
 	}
 
 }

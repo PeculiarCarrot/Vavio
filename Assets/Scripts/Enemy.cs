@@ -26,8 +26,12 @@ public class Enemy : EnemyBase {
 	private Vector3 startPos;
 	public bool invul;
 	private EnemyBehavior behavior;
-	public Texture healthBarTexture;
+	private static Texture healthBarTexture;
 	public bool canCollide, introMovement;
+
+	public bool boss;
+
+	private static GameObject bossDeathEffect;
 
 	public void SetBehavior(EnemyBehavior b)
 	{
@@ -62,11 +66,25 @@ public class Enemy : EnemyBase {
 		accel = .08f;
 		friction = .86f;
 		leave = 9999;
+		if(healthBarTexture == null)
+			healthBarTexture = Resources.Load<Texture>("Materials/bossHealthBar");
+		if(bossDeathEffect == null)
+			bossDeathEffect = Resources.Load<GameObject>("Prefabs/Effects/bossDeathEffect");
 	}
 
 	public bool IsInvincible()
 	{
 		return invul || (!reachedGoal && !leaving) || type == EnemyType.LaserWarning || type == EnemyType.Laser;
+	}
+
+	public new void Die()
+	{
+		if (boss)
+		{
+			GameObject e = Instantiate(bossDeathEffect, transform.position, bossDeathEffect.transform.rotation);
+		}
+		Stage.RemoveEnemy(gameObject);
+		Destroy(gameObject);
 	}
 
 	// Update is called once per frame
@@ -137,7 +155,7 @@ public class Enemy : EnemyBase {
 
 	public void OnGUI()
 	{
-		if(type == EnemyType.Boss)
+		if(boss)
 		{
 			float frac = hp / (float)maxHP;
 			frac*= .5f;

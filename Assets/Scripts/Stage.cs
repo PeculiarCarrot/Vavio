@@ -15,6 +15,9 @@ public class Stage : MonoBehaviour {
 	public AudioClip[] songs;
 	public AudioSource song;
 
+	private static List<GameObject> bullets = new List<GameObject>();
+	private static List<GameObject> enemies = new List<GameObject>();
+
 	void Awake()
 	{
 		PatternController.Load();
@@ -31,6 +34,36 @@ public class Stage : MonoBehaviour {
 		//Debug.Log(minX+", "+minY +" - "+maxX+", "+maxY);
 	}
 
+	public static void AddEnemy(GameObject o)
+	{
+		enemies.Add(o);
+	}
+
+	public static void RemoveEnemy(GameObject o)
+	{
+		enemies.Remove(o);
+	}
+
+	public static void AddBullet(GameObject o)
+	{
+		bullets.Add(o);
+	}
+
+	public static void RemoveBullet(GameObject o)
+	{
+		bullets.Remove(o);
+	}
+
+	public static List<GameObject> GetBullets()
+	{
+		return bullets;
+	}
+
+	public static List<GameObject> GetEnemies()
+	{
+		return enemies;
+	}
+
 	public static void UpdateScreenPositions()
 	{
 		Vector3 max = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height,0));
@@ -45,6 +78,8 @@ public class Stage : MonoBehaviour {
 
 	public void Begin()
 	{
+		bullets.Clear();
+		enemies.Clear();
 		BulletFactory.ClearPool();
 		LuaScriptFactory.ClearPool();
 		beginTime = song.time - song.timeSamples/song.clip.frequency;
@@ -52,7 +87,6 @@ public class Stage : MonoBehaviour {
 		lastTime = time;
 		deltaTime = 0;
 		timeOffset = 0;//AudioSettings.dspTime - song.timeSamples/song.clip.frequency;
-
 	}
 
 	void FixedUpdate()
@@ -73,8 +107,6 @@ public class Stage : MonoBehaviour {
 		if(Input.GetKey("right"))
 		{
 			f *= 1.01f;
-
-			Debug.Log("Song time: " + song.time);
 		}
 		else if(Input.GetKey("left"))
 		{
@@ -87,7 +119,7 @@ public class Stage : MonoBehaviour {
 		}
 
 		f = Mathf.Clamp(f, 0, 100);
-		if(f != 1)
+		if(Mathf.Abs(f - 1) > .1)
 		{
 			player.GetComponent<Player>().debug = true;
 		}
@@ -99,5 +131,13 @@ public class Stage : MonoBehaviour {
 		 if(Input.GetKeyDown(KeyCode.Escape)){
 		 	Application.Quit();
 		 }
+	}
+
+	void OnGUI()
+	{
+		if(player.GetComponent<Player>().debug)
+		{
+			GUI.Label(new Rect(0, 20, 200, 100), "Song time: "+song.time);  
+		}
 	}
 }

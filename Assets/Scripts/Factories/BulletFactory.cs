@@ -18,13 +18,16 @@ public static class BulletFactory {
 		bullet.GetComponent<MovementController>().speedMultiplier = b.speedMultiplier;
 		bullet.GetComponent<MovementController>().synced = b.synced;
 		bullet.GetComponent<PatternController>().patternPath = b.pattern;
-		bullet.transform.position = shooter.position + new Vector3(b.x, b.y, b.z);
+		bullet.transform.position = shooter.position + new Vector3(b.x, b.y, 0);
 		bullet.transform.rotation = Quaternion.Euler(shooter.eulerAngles.x, shooter.eulerAngles.y, shooter.eulerAngles.z + b.angle);
 		bullet.transform.localScale = bullet.transform.localScale * b.scale;
 
 		foreach (Renderer renderer in bullet.GetComponentsInChildren<Renderer>())
 		{
 			renderer.material = material;
+			Vector3 v = bullet.transform.position;
+			v.z = b.z;
+			renderer.gameObject.transform.position = v;
 		}
 
 		BulletProperties bp = bullet.GetComponent<BulletProperties>();

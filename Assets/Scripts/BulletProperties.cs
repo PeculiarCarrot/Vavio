@@ -18,6 +18,8 @@ public class BulletProperties : MonoBehaviour {
 		startScale = gameObject.transform.localScale;
 	}
 
+	public bool inList;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -55,6 +57,7 @@ public class BulletProperties : MonoBehaviour {
 
 	public void Die()
 	{
+		Stage.RemoveBullet(gameObject);
 		gameObject.SetActive(false);
 		//Destroy(gameObject);
 	}

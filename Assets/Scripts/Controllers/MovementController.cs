@@ -190,6 +190,14 @@ public class MovementController : ScriptController {
 		return target.transform.position.y;
 	}
 
+	public void SetPos(float x, float y)
+	{
+		Vector3 v = transform.position;
+		v.x = x;
+		v.y = y;
+		transform.position = v;
+	}
+
 	public float GetX()
 	{
 		return transform.position.x;

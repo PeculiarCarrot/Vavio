@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class EnemySpawnData {
 	public float time, leave = 999f, reachGoalTime = .2f, hp = 300;
-	public float x = float.MaxValue, y = float.MaxValue, z = float.MaxValue, rotation, scale = 1;
+	public float x = float.MaxValue, y = float.MaxValue, z = 0, rotation, scale = 1;
 	public string type, from = "up", movement = null, pattern = "General/none", model = "circle", material = "red";
-	public bool invul, canCollide = true, introMovement = true;
+	public bool invul, canCollide = true, introMovement = true, boss;
 
 	public static EnemySpawnData FromJSON(JSONObject o)
 	{
@@ -65,6 +65,9 @@ public class EnemySpawnData {
 					break;
 				case "invul":
 					esd.invul = (bool)j.b;
+					break;
+				case "boss":
+					esd.boss = (bool)j.b;
 					break;
 				case "canCollide":
 					esd.canCollide = (bool)j.b;

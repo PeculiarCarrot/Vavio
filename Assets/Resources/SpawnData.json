@@ -666,6 +666,7 @@
   	{
       "time": 56.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -676,6 +677,7 @@
   	{
       "time": 56.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -686,6 +688,7 @@
   	{
       "time": 56.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -696,6 +699,7 @@
   	{
       "time": 56.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -706,6 +710,7 @@
   	{
       "time": 56.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -716,6 +721,7 @@
   	{
       "time": 56.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -726,6 +732,7 @@
   	{
       "time": 56.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -736,6 +743,7 @@
   	{
       "time": 56.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -746,6 +754,7 @@
   	{
       "time": 56.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -756,6 +765,7 @@
   	{
       "time": 56.6,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -766,6 +776,7 @@
   	{
       "time": 56.6,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -776,6 +787,7 @@
   	{
       "time": 56.6,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -786,6 +798,7 @@
   	{
       "time": 56.6,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -796,6 +809,7 @@
   	{
       "time": 56.6,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -806,6 +820,7 @@
   	{
       "time": 56.6,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -816,6 +831,7 @@
   	{
       "time": 59,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -826,6 +842,7 @@
   	{
       "time": 59,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -836,6 +853,7 @@
   	{
       "time": 59,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -846,6 +864,7 @@
   	{
       "time": 59,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -856,6 +875,7 @@
   	{
       "time": 59,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -866,6 +886,7 @@
   	{
       "time": 59,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -876,6 +897,7 @@
   	{
       "time": 59,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -886,6 +908,7 @@
   	{
       "time": 59,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -896,6 +919,7 @@
   	{
       "time": 59,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -906,6 +930,7 @@
   	{
       "time": 59.6,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -916,6 +941,7 @@
   	{
       "time": 59.6,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -926,6 +952,7 @@
   	{
       "time": 59.6,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -936,6 +963,7 @@
   	{
       "time": 59.6,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -946,6 +974,7 @@
   	{
       "time": 59.67,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -956,6 +985,7 @@
   	{
       "time": 59.67,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -966,6 +996,7 @@
   	{
       "time": 61.4,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -976,6 +1007,7 @@
   	{
       "time": 61.4,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -986,6 +1018,7 @@
   	{
       "time": 61.4,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -996,6 +1029,7 @@
   	{
       "time": 61.4,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1006,6 +1040,7 @@
   	{
       "time": 61.4,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1016,6 +1051,7 @@
   	{
       "time": 61.4,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1026,6 +1062,7 @@
   	{
       "time": 61.4,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1036,6 +1073,7 @@
   	{
       "time": 61.4,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1046,6 +1084,7 @@
   	{
       "time": 61.4,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1056,6 +1095,7 @@
   	{
       "time": 62.5,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1066,6 +1106,7 @@
   	{
       "time": 62.5,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1076,6 +1117,7 @@
   	{
       "time": 62.5,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1086,6 +1128,7 @@
   	{
       "time": 62.5,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1096,6 +1139,7 @@
   	{
       "time": 62.5,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1106,6 +1150,7 @@
   	{
       "time": 62.5,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1116,6 +1161,7 @@
   	{
       "time": 63.1,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1126,6 +1172,7 @@
   	{
       "time": 63.1,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1136,6 +1183,7 @@
   	{
       "time": 63.1,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1146,6 +1194,7 @@
   	{
       "time": 63.1,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1156,6 +1205,7 @@
   	{
       "time": 63.1,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1166,6 +1216,7 @@
   	{
       "time": 63.1,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1176,6 +1227,7 @@
   	{
       "time": 63.1,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1186,6 +1238,7 @@
   	{
       "time": 63.1,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1196,6 +1249,7 @@
   	{
       "time": 63.1,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1206,6 +1260,7 @@
   	{
       "time": 65.7,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1216,6 +1271,7 @@
   	{
       "time": 65.7,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1226,6 +1282,7 @@
   	{
       "time": 65.7,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1236,6 +1293,7 @@
   	{
       "time": 65.7,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1246,6 +1304,7 @@
   	{
       "time": 65.7,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1256,6 +1315,7 @@
   	{
       "time": 65.7,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1266,6 +1326,7 @@
   	{
       "time": 66,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1276,6 +1337,7 @@
   	{
       "time": 66,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1286,6 +1348,7 @@
   	{
       "time": 66,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1296,6 +1359,7 @@
   	{
       "time": 66,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1306,6 +1370,7 @@
   	{
       "time": 66,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1316,6 +1381,7 @@
   	{
       "time": 66,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1326,6 +1392,7 @@
   	{
       "time": 66,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1336,6 +1403,7 @@
   	{
       "time": 66,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1346,6 +1414,7 @@
   	{
       "time": 66,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1356,6 +1425,7 @@
   	{
       "time": 66.5,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1366,6 +1436,7 @@
   	{
       "time": 66.5,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1376,6 +1447,7 @@
   	{
       "time": 66.5,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1386,6 +1458,7 @@
   	{
       "time": 66.5,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1396,6 +1469,7 @@
   	{
       "time": 66.5,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1406,6 +1480,7 @@
   	{
       "time": 65.7,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1416,6 +1491,7 @@
   	{
       "time": 68.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1426,6 +1502,7 @@
   	{
       "time": 68.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1436,6 +1513,7 @@
   	{
       "time": 68.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1446,6 +1524,7 @@
   	{
       "time": 68.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1456,6 +1535,7 @@
   	{
       "time": 68.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1466,6 +1546,7 @@
   	{
       "time": 68.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1476,6 +1557,7 @@
   	{
       "time": 68.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1486,6 +1568,7 @@
   	{
       "time": 68.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -1496,6 +1579,7 @@
   	{
       "time": 68.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2184,6 +2268,7 @@
   	{
       "time": 112.0,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2197,6 +2282,7 @@
   	{
       "time": 112.5,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2210,6 +2296,7 @@
   	{
       "time": 112.8,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2223,6 +2310,7 @@
   	{
       "time": 113,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2236,6 +2324,7 @@
   	{
       "time": 113.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2249,6 +2338,7 @@
   	{
       "time": 113.5,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2262,6 +2352,7 @@
   	{
       "time": 113.9,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2275,6 +2366,7 @@
   	{
       "time": 114.4,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2288,6 +2380,7 @@
   	{
       "time": 114.7,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2301,6 +2394,7 @@
   	{
       "time": 114.9,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2314,6 +2408,7 @@
   	{
       "time": 115.1,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2327,6 +2422,7 @@
   	{
       "time": 115.4,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2340,6 +2436,7 @@
   	{
       "time": 119.3,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2353,6 +2450,7 @@
   	{
       "time": 119.8,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2366,6 +2464,7 @@
   	{
       "time": 120.1,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2379,6 +2478,7 @@
   	{
       "time": 120.3,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2392,6 +2492,7 @@
   	{
       "time": 120.5,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2405,6 +2506,7 @@
   	{
       "time": 120.8,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2418,6 +2520,7 @@
   	{
       "time": 123,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2431,6 +2534,7 @@
   	{
       "time": 123.5,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2444,6 +2548,7 @@
   	{
       "time": 123.8,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2457,6 +2562,7 @@
   	{
       "time": 124.0,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2470,6 +2576,7 @@
   	{
       "time": 124.2,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2483,6 +2590,7 @@
   	{
       "time": 124.5,
       "movement": "General/hurtyBall",
+      "z": 1,
       "model": "circle",
       "material": "orange",
       "invul": true,
@@ -2600,16 +2708,23 @@
 	],
 	"l3":[
   	{
-      "time": 0,
+      "time": 1.6,
       "leave": 153.1,
-      "type": "boss-until-then",
+      "pattern": "UntilThen/boss",
+      "model": "cube",
+      "material": "aqua",
+      "boss": true,
+      "hp": 100,
       "x": 0.5,
-      "behavior": "boss-until-then"
+      "y": 0.8,
+      "rotation": 45
     },
   	{
       "time": 14.8,
       "leave": 28.5,
-      "type": "basic-untilthen",
+      "pattern": "UntilThen/basic",
+      "model": "circle",
+      "material": "red",
       "x": 0.2,
       "y": 0.8,
       "rotation": 45
@@ -2617,7 +2732,9 @@
   	{
       "time": 14.8,
       "leave": 28.5,
-      "type": "basic-untilthen",
+      "pattern": "UntilThen/basic",
+      "model": "circle",
+      "material": "red",
       "x": 0.8,
       "y": 0.8,
       "rotation": -45
@@ -2625,40 +2742,1250 @@
   	{
       "time": 29,
       "leave": 29.4,
-      "type": "bass-untilthen",
+      "pattern": "UntilThen/bass",
+      "model": "cube",
+      "material": "red",
+      "invul": true,
+      "introMovement": false,
       "x": 0.5,
       "y": 1.1
     },
   	{
-      "time": 42.7,
+      "time": 42.5,
       "leave": 42.9,
-      "type": "bass-untilthen",
+      "pattern": "UntilThen/bass",
+      "model": "cube",
+      "material": "red",
+      "invul": true,
+      "introMovement": false,
       "x": 0.5,
       "y": 1.1
     },
   	{
-      "time": 46.2,
+      "time": 46.0,
       "leave": 46.5,
-      "type": "bass-untilthen",
+      "pattern": "UntilThen/bass",
+      "model": "cube",
+      "material": "red",
+      "invul": true,
+      "introMovement": false,
       "x": 0.5,
       "y": -0.1,
       "from": "down"
     },
   	{
-      "time": 49.6,
+      "time": 48.9,
       "leave": 49.9,
-      "type": "bass-untilthen",
+      "pattern": "UntilThen/bass",
+      "model": "cube",
+      "material": "red",
+      "invul": true,
+      "introMovement": false,
       "x": -0.1,
       "y": 0.5,
       "from": "left"
     },
-  	{
-      "time": 49.6,
+    {
+      "time": 48.9,
       "leave": 49.9,
-      "type": "bass-untilthen",
+      "pattern": "UntilThen/bass",
+      "model": "cube",
+      "material": "red",
+      "invul": true,
+      "introMovement": false,
       "x": 1.1,
       "y": 0.5,
       "from": "right"
+    },
+    {
+      "time": 52.9,
+      "leave": 52.8,
+      "pattern": "UntilThen/bass",
+      "model": "cube",
+      "material": "red",
+      "invul": true,
+      "introMovement": false,
+      "x": 0.5,
+      "y": -0.1,
+      "from": "down"
+    },
+    {
+      "time": 54.6,
+      "leave": 54.9,
+      "pattern": "UntilThen/bass",
+      "model": "cube",
+      "material": "red",
+      "invul": true,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 1.1
+    },
+    {
+      "time": 55.5,
+      "leave": 56,
+      "pattern": "UntilThen/bassFast",
+      "model": "cube",
+      "material": "red",
+      "invul": true,
+      "introMovement": false,
+      "x": -0.1,
+      "y": 0.5,
+      "from": "left"
+    },
+    {
+      "time": 55.6,
+      "leave": 56,
+      "pattern": "UntilThen/bassFast",
+      "model": "cube",
+      "material": "red",
+      "invul": true,
+      "introMovement": false,
+      "x": 1.1,
+      "y": 0.5,
+      "from": "right"
+    },
+    {
+      "time": 55.7,
+      "leave": 56,
+      "pattern": "UntilThen/bassFast",
+      "model": "cube",
+      "material": "red",
+      "invul": true,
+      "introMovement": false,
+      "x": -0.1,
+      "y": 0.5,
+      "from": "left"
+    },
+    {
+      "time": 55.8,
+      "leave": 56,
+      "pattern": "UntilThen/bassFast",
+      "model": "cube",
+      "material": "red",
+      "invul": true,
+      "introMovement": false,
+      "x": 1.1,
+      "y": 0.5,
+      "from": "right"
+    },
+    {
+      "time": 55.3,
+      "leave": 55.6,
+      "pattern": "UntilThen/bassFast",
+      "model": "cube",
+      "material": "red",
+      "invul": true,
+      "introMovement": false,
+      "x": -0.1,
+      "y": 0.5,
+      "from": "left"
+    },
+    {
+      "time": 55.4,
+      "leave": 55.6,
+      "pattern": "UntilThen/bassFast",
+      "model": "cube",
+      "material": "red",
+      "invul": true,
+      "introMovement": false,
+      "x": 1.1,
+      "y": 0.5,
+      "from": "right"
+    },
+    {
+      "time": 55.5,
+      "leave": 55.9,
+      "pattern": "UntilThen/bassFast",
+      "model": "cube",
+      "material": "red",
+      "invul": true,
+      "introMovement": false,
+      "x": -0.1,
+      "y": 0.5,
+      "from": "left"
+    },
+    {
+      "time": 55.6,
+      "leave": 55.9,
+      "pattern": "UntilThen/bassFast",
+      "model": "cube",
+      "material": "red",
+      "invul": true,
+      "introMovement": false,
+      "x": 1.1,
+      "y": 0.5,
+      "from": "right"
+    },
+    {
+      "time": 56.6,
+      "leave": 600,
+      "movement": "UntilThen/slide",
+      "pattern": "UntilThen/slide",
+      "model": "cube",
+      "material": "orange",
+      "invul": true,
+      "introMovement": false,
+      "x": -0.1,
+      "y": 0.95,
+      "from": "left"
+    },
+    {
+      "time": 59.8,
+      "leave": 63,
+      "movement": "UntilThen/slide",
+      "pattern": "UntilThen/slide",
+      "model": "cube",
+      "material": "orange",
+      "invul": true,
+      "introMovement": false,
+      "x": 1.1,
+      "y": 0.05,
+      "from": "right",
+      "rotation": 180
+    },
+    {
+      "time": 63.4,
+      "leave": 68,
+      "movement": "UntilThen/slide",
+      "pattern": "UntilThen/slide",
+      "model": "cube",
+      "material": "orange",
+      "invul": true,
+      "introMovement": false,
+      "x": -0.1,
+      "y": 0.95,
+      "from": "left"
+    },
+    {
+      "time": 66.7,
+      "leave": 70,
+      "movement": "UntilThen/slide",
+      "pattern": "UntilThen/slide",
+      "model": "cube",
+      "material": "orange",
+      "invul": true,
+      "introMovement": false,
+      "x": 1.1,
+      "y": 0.05,
+      "from": "right",
+      "rotation": 180
+    },
+    {
+      "time": 69.4,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": -0.03,
+      "y": 0.6
+    },
+    {
+      "time": 69.8,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": -0.03,
+      "y": 0.3
+    },
+    {
+      "time": 69.9,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": -0.03,
+      "y": 0.7
+    },
+    {
+      "time": 70.3,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": -0.03,
+      "y": 0.6
+    },
+    {
+      "time": 70.8,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": 1.03,
+      "y": 0.4,
+      "rotation": 90
+    },
+    {
+      "time": 71.1,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": 1.03,
+      "y": 0.8,
+      "rotation": 90
+    },
+    {
+      "time": 71.5,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": 1.03,
+      "y": 0.5,
+      "rotation": 90
+    },
+    {
+      "time": 71.6,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": 1.03,
+      "y": 0.4,
+      "rotation": 90
+    },
+    {
+      "time": 72,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": 1.03,
+      "y": 0.2,
+      "rotation": 90
+    },
+    {
+      "time": 72.6,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": -0.03,
+      "y": 0.9
+    },
+    {
+      "time": 72.8,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": 1.03,
+      "y": 0.7,
+      "rotation": 90
+    },
+    {
+      "time": 73.2,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": -0.03,
+      "y": 0.4
+    },
+    {
+      "time": 73.6,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": 1.03,
+      "y": 0.3,
+      "rotation": 90
+    },
+    {
+      "time": 74.1,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": -0.03,
+      "y": 0.3
+    },
+    {
+      "time": 74.3,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": 1.03,
+      "y": 0.1,
+      "rotation": 90
+    },
+    {
+      "time": 74.7,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": -0.03,
+      "y": 0.8
+    },
+    {
+      "time": 75.1,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": 1.03,
+      "y": 0.7,
+      "rotation": 90
+    },
+    {
+      "time": 75.4,
+      "leave": 128.2,
+      "movement": "UntilThen/sine",
+      "model": "circle",
+      "material": "lightRed",
+      "introMovement": false,
+      "invul": true,
+      "scale": 1,
+      "x": -0.03,
+      "y": 0.5
+    },
+    {
+      "time": 83.9,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 84.2,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 84.6,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 84.9,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 85.1,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 85.15,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 85.2,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 85.6,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 85.9,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 86.0,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 86.1,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 86.2,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 86.3,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 86.9,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 87.4,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 88.0,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 88.3,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 88.44,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 88.58,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 88.7,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 88.9,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 89.1,
+      "leave": 90,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 89.7,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 90.1,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 90.2,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 90.3,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 90.4,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 90.8,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 91.1,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 91.48,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 91.8,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 91.9,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 92.0,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 92.1,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 92.5,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 92.77,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 92.88,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 93.0,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 93.1,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 93.2,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 93.85,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 94.2,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 94.6,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 94.9,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 95.2,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 95.3,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 95.4,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 95.5,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 95.7,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 96.0,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 96.6,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 96.0,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 96.9,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 97.0,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 97.1,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 97.2,
+      "leave": 100,
+      "pattern": "UntilThen/lead",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 97.7,
+      "leave": 100,
+      "pattern": "UntilThen/denseCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.2,
+      "y": 0.8
+    },
+    {
+      "time": 99.4,
+      "leave": 100,
+      "pattern": "UntilThen/denseCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.8,
+      "y": 0.8
+    },
+    {
+      "time": 101.1,
+      "leave": 110,
+      "pattern": "UntilThen/denseCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.4,
+      "y": 0.8
+    },
+    {
+      "time": 102.8,
+      "leave": 110,
+      "pattern": "UntilThen/denseCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.6,
+      "y": 0.8
+    },
+    {
+      "time": 104.5,
+      "leave": 110,
+      "pattern": "UntilThen/denseCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.05,
+      "y": 0.333
+    },
+    {
+      "time": 106.2,
+      "leave": 110,
+      "pattern": "UntilThen/denseCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.05,
+      "y": 0.666
+    },
+    {
+      "time": 107.9,
+      "leave": 110,
+      "pattern": "UntilThen/denseCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.95,
+      "y": 0.333
+    },
+    {
+      "time": 109.7,
+      "leave": 110,
+      "pattern": "UntilThen/denseCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.95,
+      "y": 0.666
+    },
+    {
+      "time": 111.4,
+      "leave": 125.1,
+      "pattern": "UntilThen/octopus",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 126.8,
+      "leave": 154.2,
+      "pattern": "UntilThen/beat",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.8
     },
 	]
 }
