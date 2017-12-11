@@ -10,6 +10,7 @@ public class LevelSpawnData {
 
 	public static LevelSpawnData FromJSON(JSONObject o)
 	{
+		o = o.list[0];
 		LevelSpawnData lsd = new LevelSpawnData();
 		lsd.enemySpawnData = new List<EnemySpawnData>();
 		for(int i = 0; i < o.list.Count; i++)

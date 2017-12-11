@@ -53,7 +53,7 @@ public class EnemySpawner : MonoBehaviour {
 		return (Material) Resources.Load("Materials/Enemies/"+name);
 	}
 
-	public TextAsset spawnData;
+	public TextAsset[] spawnData;
 
 	public int level;
 	private LevelSpawnData spawns;
@@ -113,7 +113,7 @@ public class EnemySpawner : MonoBehaviour {
 		stageText.text = "";
 		musicText.text = "";
 		preparingLevel = false;
-		spawns = AllLevelData.FromJSON(new JSONObject(spawnData.text), level);
+		spawns = LevelSpawnData.FromJSON(new JSONObject(spawnData[level].text));
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
 		stage.GetComponent<AudioSource>().time = 0;
 		stage.GetComponent<AudioSource>().Play();
