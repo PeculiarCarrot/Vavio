@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using MoonSharp.Interpreter;
 
@@ -62,8 +63,15 @@ public class EnemySpawner : MonoBehaviour {
 	private List<GameObject> liveEnemies = new List<GameObject>();
 	public float timeUntilNext;
 
+	public Text stageText, musicText;
+	private float prepareLevelTimer, prepareLevelTime = 5;
+	private bool preparingLevel = false;
+
 	void Start()
 	{
+		timeUntilNext = 1;
+		stageText.text = "";
+		musicText.text = "";
 		level = 0;
 		if(PlayerPrefs.HasKey("diedOnLevel"))
 		{
@@ -72,11 +80,39 @@ public class EnemySpawner : MonoBehaviour {
 			PlayerPrefs.Save();
 		}
 		stage = GameObject.Find("Stage").GetComponent<Stage>();
-		BeginLevel(level);
+		level--;
 	}
 
-	public void BeginLevel(int level)
+	public void PrepareLevel()
 	{
+		prepareLevelTimer = prepareLevelTime;
+		preparingLevel = true;
+		stageText.text = "Stage " + (level + 1);
+		switch(level)
+		{
+			case 0:
+				musicText.text = "15thDimension - Suddenly Time Told";
+				break;
+			case 1:
+				musicText.text = "15thDimension - Suddenly Time Told (Part 2)";
+				break;
+			case 2:
+				musicText.text = "Tobu - Infectious";
+				break;
+			case 3:
+				musicText.text = "15thDimension - Until Then";
+				break;
+			default:
+				musicText.text = "give the song a name you dope";
+				break;
+		}
+	}
+
+	public void BeginLevel()
+	{
+		stageText.text = "";
+		musicText.text = "";
+		preparingLevel = false;
 		spawns = AllLevelData.FromJSON(new JSONObject(spawnData.text), level);
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
 		stage.GetComponent<AudioSource>().time = 0;
@@ -169,14 +205,47 @@ public class EnemySpawner : MonoBehaviour {
 	{
 		return liveEnemies;
 	}
+
+	private float GetLineValue(float x, float y, float x2, float y2, float xx)
+	{
+		float slope = (y2 - y) / (x2 - x);
+		float b = y - (slope * x);
+		return slope * xx + b;
+	}
+
 	private float prevTime = 0;
 	void Update () {
 		timeUntilNext -= Time.deltaTime;
-		if(spawningEnabled)
+		prepareLevelTimer -= Time.deltaTime;
+
+		//Fade level intro text in/out
+		if (preparingLevel)
+		{
+			float pad = .5f;
+			if(prepareLevelTimer > prepareLevelTime - pad)
+			{
+				Color c = stageText.color;
+				c.a = GetLineValue(prepareLevelTime, 0, prepareLevelTime - pad, 1, prepareLevelTimer);
+				stageText.color = c;
+				musicText.color = c;
+			}
+			else if(prepareLevelTimer < prepareLevelTime - (prepareLevelTime - 1))
+			{
+				Color c = stageText.color;
+				c.a = GetLineValue(prepareLevelTime - (prepareLevelTime - pad), 1, 0, 0, prepareLevelTimer);
+				stageText.color = c;
+				musicText.color = c;
+			}
+		}
+
+		if (prepareLevelTimer <= 0 && preparingLevel)
+			BeginLevel();
+
+		if(spawningEnabled && spawns != null)
 		{
 			spawns.Update();
 		}
-		if(prevTime > stage.GetComponent<AudioSource>().time || timeUntilNext <= 0)
+		if((prevTime > stage.GetComponent<AudioSource>().time || timeUntilNext <= 0) && !preparingLevel)
 		{
 			//Debug.Log(prevTime + "    "+ stage.GetComponent<AudioSource>().time);
 			prevTime = 0;
@@ -188,7 +257,7 @@ public class EnemySpawner : MonoBehaviour {
 				Application.Quit();
 			}
 			else
-				BeginLevel(level);
+				PrepareLevel();
 		}
 		prevTime = stage.GetComponent<AudioSource>().time;
 	}
