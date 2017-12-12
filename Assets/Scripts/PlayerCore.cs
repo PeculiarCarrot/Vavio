@@ -30,7 +30,7 @@ public class PlayerCore : MonoBehaviour {
 			}
 			return;
         }
-		if(enemy != null && !player.GetComponent<Player>().IsInvincible() && enemy.canCollide)
+		if(enemy != null && !player.GetComponent<Player>().IsInvincible() && enemy.CanCollide())
         {
 			if(!enemy.IsInvincible())
             	enemy.GetHurt(50);

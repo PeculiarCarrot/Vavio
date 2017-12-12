@@ -34,6 +34,7 @@ public class Enemy : EnemyBase {
 	private static GameObject bossDeathEffect;
 	private static GameObject enemyDeathEffect;
 	public Material mat;
+	private float noCollisionTimer = 1f;
 
 	public void SetBehavior(EnemyBehavior b)
 	{
@@ -104,6 +105,8 @@ public class Enemy : EnemyBase {
 		if(behavior != null)
 			behavior.Update();
 		DoUpdate();
+
+		noCollisionTimer -= Time.deltaTime;
 
 		if(!reachedGoal)
 		{
@@ -187,10 +190,15 @@ public class Enemy : EnemyBase {
 			Die();
 	}
 
+	public bool CanCollide()
+	{
+		return canCollide && noCollisionTimer <= 0;
+	}
+
 	void OnTriggerEnter (Collider col)
     {
     	PlayerBullet bullet = col.gameObject.GetComponent<PlayerBullet>();
-		if(bullet != null && !(type == EnemyType.LaserWarning || type == EnemyType.Laser) && canCollide)
+		if(bullet != null && !(type == EnemyType.LaserWarning || type == EnemyType.Laser) && CanCollide())
         {
             bullet.Die();
             GetHurt(bullet.GetDamage());

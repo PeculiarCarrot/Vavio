@@ -87,6 +87,22 @@ public class EnemySpawner : MonoBehaviour {
 		level--;
 	}
 
+	public void BeginLevel()
+	{
+		stageText.text = "";
+		musicText.text = "";
+		preparingLevel = false;
+		spawns = LevelSpawnData.FromJSON(new JSONObject(spawnData[level].text));
+		stage.GetComponent<AudioSource>().clip = stage.songs[level];
+		stage.GetComponent<AudioSource>().time = 123;
+		stage.GetComponent<AudioSource>().Play();
+		stage.GetComponent<Stage>().Begin();
+		stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Start();
+		stage.GetComponent<Stage>().player.GetComponent<Player>().Regenerate();
+		timeUntilNext = 9999999f;
+		spawns.Begin(this);
+	}
+
 	public void PrepareLevel()
 	{
 		prepareLevelTimer = prepareLevelTime;
@@ -107,28 +123,15 @@ public class EnemySpawner : MonoBehaviour {
 				musicText.text = "15thDimension - Until Then";
 				break;
 			case 4:
+				musicText.text = "Tobu & Itro - Sunburst";
+				break;
+			case 5:
 				musicText.text = "CØDE - Duck Face";
 				break;
 			default:
 				musicText.text = "give the song a name you dope";
 				break;
 		}
-	}
-
-	public void BeginLevel()
-	{
-		stageText.text = "";
-		musicText.text = "";
-		preparingLevel = false;
-		spawns = LevelSpawnData.FromJSON(new JSONObject(spawnData[level].text));
-		stage.GetComponent<AudioSource>().clip = stage.songs[level];
-		stage.GetComponent<AudioSource>().time = 24;
-		stage.GetComponent<AudioSource>().Play();
-		stage.GetComponent<Stage>().Begin();
-		stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Start();
-		stage.GetComponent<Stage>().player.GetComponent<Player>().Regenerate();
-		timeUntilNext = 9999999f;
-		spawns.Begin(this);
 	}
 
 	public static Material TryGetEnemyMaterial(string s)
