@@ -69,10 +69,14 @@ public class EnemySpawner : MonoBehaviour {
 
 	void Start()
 	{
-		timeUntilNext = 1;
+		timeUntilNext = 2;
 		stageText.text = "";
 		musicText.text = "";
-		level = 0;
+		level = 4;
+
+		prepareLevelTime = 0;
+		timeUntilNext = 0;
+
 		if(PlayerPrefs.HasKey("diedOnLevel"))
 		{
 			level = PlayerPrefs.GetInt("diedOnLevel");
@@ -102,6 +106,9 @@ public class EnemySpawner : MonoBehaviour {
 			case 3:
 				musicText.text = "15thDimension - Until Then";
 				break;
+			case 4:
+				musicText.text = "CØDE - Duck Face";
+				break;
 			default:
 				musicText.text = "give the song a name you dope";
 				break;
@@ -115,7 +122,7 @@ public class EnemySpawner : MonoBehaviour {
 		preparingLevel = false;
 		spawns = LevelSpawnData.FromJSON(new JSONObject(spawnData[level].text));
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
-		stage.GetComponent<AudioSource>().time = 0;
+		stage.GetComponent<AudioSource>().time = 24;
 		stage.GetComponent<AudioSource>().Play();
 		stage.GetComponent<Stage>().Begin();
 		stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Start();

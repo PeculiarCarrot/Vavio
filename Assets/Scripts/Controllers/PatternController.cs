@@ -179,7 +179,6 @@ public class PatternController : ScriptController{
 		{
 			if(secondsToPause > 0)
 			{
-				//Debug.Log(timeUntilChange);
 				timeUntilChange -= secondsPerBullet;
 				if(timeUntilChange <= 0)
 				{
