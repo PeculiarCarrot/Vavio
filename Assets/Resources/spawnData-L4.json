@@ -739,31 +739,19 @@
       "canCollide": false,
       "introMovement": false,
       "x": 0.5,
+      "y": 0
+    },
+    {
+      "time": 65.6,
+      "leave": 68.2,
+      "pattern": "DuckFace/fastSpin",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
       "y": 1
-    },
-    {
-      "time": 65.6,
-      "leave": 68.2,
-      "pattern": "DuckFace/fastSpin",
-      "model": "cube",
-      "material": "transparent",
-      "invul": true,
-      "canCollide": false,
-      "introMovement": false,
-      "x": 0.5,
-      "y": 0
-    },
-    {
-      "time": 65.6,
-      "leave": 68.2,
-      "pattern": "DuckFace/fastSpin",
-      "model": "cube",
-      "material": "transparent",
-      "invul": true,
-      "canCollide": false,
-      "introMovement": false,
-      "x": 0.5,
-      "y": 0
     },
     {
       "time": 67.9,

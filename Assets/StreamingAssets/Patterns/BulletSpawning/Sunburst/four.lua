@@ -1,4 +1,3 @@
-
 initialized = {}
 
 function update(pattern, id, deltaTime)
@@ -9,14 +8,15 @@ end
 
 function init(pattern, id)
 	initialized[id] = true
-		for i = 0, 360, (360 / 20) do
+	local angle = pattern.Math().RandomRange(0, 360)
+	for i = angle, angle + 360, (360/20) do
 			bullet = pattern.NewBullet()
 			bullet.speed = 2
-			bullet.speedMultiplier = .9995
 			bullet.type = "capsule"
-			bullet.material = "purple"
+			bullet.material = "red"
 			bullet.angle = i
 			bullet.scale = 1
+			bullet.speedMultiplier = 1
 			pattern.SpawnBullet(bullet)
 		end
 end

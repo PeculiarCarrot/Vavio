@@ -3,7 +3,7 @@ fireTimes = {}
 spin = {}
 angle = {}
 initialized = {}
-shots = 15
+shots = 10
 
 function update(pattern, id, deltaTime)
 	if(initialized[id] == nil) then

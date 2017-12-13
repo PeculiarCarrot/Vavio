@@ -3,14 +3,14 @@ fireTimes = {}
 spin = {}
 angle = {}
 initialized = {}
-shots = 15
+shots = 7
 
 function update(pattern, id, deltaTime)
 	if(initialized[id] == nil) then
 		init(pattern, id)
 	end
 	if(fireTimes[id] == nil) then
-		fireTimes[id] = pattern.GetFireTimes(4.66666, .6, 12, 4)
+		fireTimes[id] = pattern.GetFireTimes(2.13333333, .46875)
 	end
 
 	if(pattern.GetStageTime() >= fireTimes[id][fireIndex[id]]) then
@@ -19,12 +19,12 @@ function update(pattern, id, deltaTime)
 
 		for i = angle[id], angle[id] + 360, (360/shots) do
 			bullet = pattern.NewBullet()
-			bullet.speed = 1
-			bullet.type = "circle"
-			bullet.material = "darkRed"
+			bullet.speed = 2
+			bullet.type = "capsule"
+			bullet.material = "orange"
 			bullet.angle = i
-			bullet.scale = .7
-			bullet.speedMultiplier = 1.01
+			bullet.scale = 1
+			bullet.speedMultiplier = 1
 			pattern.SpawnBullet(bullet)
 		end
 	end

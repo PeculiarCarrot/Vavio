@@ -1,30 +1,26 @@
 fireIndex = {}
 fireTimes = {}
-spin = {}
-angle = {}
 initialized = {}
-shots = 15
+anglePer = {}
 
 function update(pattern, id, deltaTime)
 	if(initialized[id] == nil) then
 		init(pattern, id)
 	end
 	if(fireTimes[id] == nil) then
-		fireTimes[id] = pattern.GetFireTimes(4.66666, .6, 12, 4)
+		fireTimes[id] = pattern.GetFireTimes(2.133333, .4)
 	end
 
 	if(pattern.GetStageTime() >= fireTimes[id][fireIndex[id]]) then
 		fireIndex[id] = fireIndex[id] + 1
-		angle[id] = pattern.Math().RandomRange(0, 360)
-
-		for i = angle[id], angle[id] + 360, (360/shots) do
+		numBullets = pattern.Math().RandomRange(3, 10)
+		for i=0, numBullets-1, 1 do
 			bullet = pattern.NewBullet()
-			bullet.speed = 1
+			bullet.speed = 2 + pattern.Math().RandomRange(0, 2)
 			bullet.type = "circle"
-			bullet.material = "darkRed"
-			bullet.angle = i
-			bullet.scale = .7
-			bullet.speedMultiplier = 1.01
+			bullet.material = "aqua"
+			bullet.scale = .5
+			bullet.angle = i * anglePer[id] - ((numBullets-1) * anglePer[id]) / 2
 			pattern.SpawnBullet(bullet)
 		end
 	end
@@ -33,6 +29,5 @@ end
 function init(pattern, id)
 	initialized[id] = true
 	fireIndex[id] = 0
-	angle[id] = 0
-	spin[id] = 0
+	anglePer[id] = 15
 end

@@ -1,7 +1,7 @@
 {
   "angle": 0,
-  "bulletsPerSecond": 5,
-  "bulletSpeed": 10,
+  "bulletsPerSecond": 10,
+  "bulletSpeed": 20,
   "bulletLifetime": 6,
   "initialDelay": -1,
   "synced": false

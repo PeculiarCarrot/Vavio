@@ -29,6 +29,7 @@ public class PatternController : ScriptController{
 			bulletMaterials.Add("darkPurple", LoadBulletMaterial("darkPurple"));
 			bulletMaterials.Add("purple", LoadBulletMaterial("purple"));
 			bulletMaterials.Add("white", LoadBulletMaterial("white"));
+			bulletMaterials.Add("lightAqua", LoadBulletMaterial("lightAqua"));
 		}
 
 		loaded = true;

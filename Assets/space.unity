@@ -235,6 +235,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: f40ed05906110d84b888411caffb7ff2, type: 3}
   - {fileID: 4900000, guid: 2d1900a3f90c7f04e9e120d5df4011d1, type: 3}
   - {fileID: 4900000, guid: 7791ba5d1e5520f408a6adb5f03f0d5d, type: 3}
+  - {fileID: 4900000, guid: dbd440a21069abd45b3fb329a5c31d89, type: 3}
   level: 1
   spawningEnabled: 1
   stage: {fileID: 1828452933}
@@ -808,7 +809,7 @@ Prefab:
     - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
         type: 2}
       propertyPath: debug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
         type: 2}
@@ -828,7 +829,7 @@ Prefab:
     - target: {fileID: 114519326508080882, guid: a1d643d648358444aa0fd108b58bcec4,
         type: 2}
       propertyPath: y
-      value: -0.61
+      value: -1.68
       objectReference: {fileID: 0}
     - target: {fileID: 114519326508080882, guid: a1d643d648358444aa0fd108b58bcec4,
         type: 2}
@@ -906,6 +907,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 15e3cfddd3da01741a4f6ef7f3ddf158, type: 3}
   - {fileID: 8300000, guid: 43ded28e03c003e4bb701c6a5160e252, type: 3}
   - {fileID: 8300000, guid: c4a1f7643eb8f034caff2ed496929b2f, type: 3}
+  - {fileID: 8300000, guid: de1f9f019d4ddaa40afe60068612d8ec, type: 3}
   song: {fileID: 1828452935}
 --- !u!4 &1828452934
 Transform:

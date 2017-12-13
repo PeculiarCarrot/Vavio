@@ -72,10 +72,10 @@ public class EnemySpawner : MonoBehaviour {
 		timeUntilNext = 2;
 		stageText.text = "";
 		musicText.text = "";
-		level = 4;
+		level = 0;
 
-		prepareLevelTime = 0;
-		timeUntilNext = 0;
+		//prepareLevelTime = 0;
+		//timeUntilNext = 0;
 
 		if(PlayerPrefs.HasKey("diedOnLevel"))
 		{
@@ -94,11 +94,10 @@ public class EnemySpawner : MonoBehaviour {
 		preparingLevel = false;
 		spawns = LevelSpawnData.FromJSON(new JSONObject(spawnData[level].text));
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
-		stage.GetComponent<AudioSource>().time = 123;
+		stage.GetComponent<AudioSource>().time = 0;
 		stage.GetComponent<AudioSource>().Play();
 		stage.GetComponent<Stage>().Begin();
 		stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Start();
-		stage.GetComponent<Stage>().player.GetComponent<Player>().Regenerate();
 		timeUntilNext = 9999999f;
 		spawns.Begin(this);
 	}
@@ -123,15 +122,16 @@ public class EnemySpawner : MonoBehaviour {
 				musicText.text = "15thDimension - Until Then";
 				break;
 			case 4:
-				musicText.text = "Tobu & Itro - Sunburst";
+				musicText.text = "CØDE - Duck Face";
 				break;
 			case 5:
-				musicText.text = "CØDE - Duck Face";
+				musicText.text = "Tobu & Itro - Sunburst";
 				break;
 			default:
 				musicText.text = "give the song a name you dope";
 				break;
 		}
+		stage.GetComponent<Stage>().player.GetComponent<Player>().Regenerate();
 	}
 
 	public static Material TryGetEnemyMaterial(string s)
