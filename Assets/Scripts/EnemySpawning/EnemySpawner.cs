@@ -74,8 +74,8 @@ public class EnemySpawner : MonoBehaviour {
 		musicText.text = "";
 		level = 0;
 
-		//prepareLevelTime = 0;
-		//timeUntilNext = 0;
+		prepareLevelTime = 0;
+		timeUntilNext = 0;
 
 		if(PlayerPrefs.HasKey("diedOnLevel"))
 		{
@@ -97,7 +97,6 @@ public class EnemySpawner : MonoBehaviour {
 		stage.GetComponent<AudioSource>().time = 0;
 		stage.GetComponent<AudioSource>().Play();
 		stage.GetComponent<Stage>().Begin();
-		stage.GetComponent<Stage>().player.GetComponent<BulletBehaviorController>().Start();
 		timeUntilNext = 9999999f;
 		spawns.Begin(this);
 	}
@@ -107,6 +106,8 @@ public class EnemySpawner : MonoBehaviour {
 		prepareLevelTimer = prepareLevelTime;
 		preparingLevel = true;
 		stageText.text = "Stage " + (level + 1);
+		stage.GetComponent<AudioSource>().Stop();
+		stage.GetComponent<Stage>().Clear();
 		switch(level)
 		{
 			case 0:
@@ -188,6 +189,7 @@ public class EnemySpawner : MonoBehaviour {
 
 		if(model.GetComponent<Enemy>() != null)
 		{
+			Stage.AddEnemy(e);
 			e.GetComponent<Enemy>().leave = data.leave;
 			e.GetComponent<Enemy>().reachGoalTime = data.reachGoalTime;
 			e.GetComponent<Enemy>().invul = data.invul;
@@ -199,7 +201,6 @@ public class EnemySpawner : MonoBehaviour {
 			e.GetComponent<Enemy>().mat = material;
 			e.GetComponent<Enemy>().SetGoalPos(goalPos);
 			liveEnemies.Add(e);
-			Stage.AddEnemy(e);
 		}
 		if (model.GetComponent<PatternController>() != null)
 		{
@@ -225,6 +226,41 @@ public class EnemySpawner : MonoBehaviour {
 
 	private float prevTime = 0;
 	void Update () {
+
+		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+		{
+			if (Input.GetKeyDown(KeyCode.Alpha1))
+			{
+				level = 0;
+				PrepareLevel();
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha2))
+			{
+				level = 1;
+				PrepareLevel();
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha3))
+			{
+				level = 2;
+				PrepareLevel();
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha4))
+			{
+				level = 3;
+				PrepareLevel();
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha5))
+			{
+				level = 4;
+				PrepareLevel();
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha6))
+			{
+				level = 5;
+				PrepareLevel();
+			}
+		}
+
 		timeUntilNext -= Time.deltaTime;
 		prepareLevelTimer -= Time.deltaTime;
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using MoonSharp.Interpreter;
 
 [MoonSharpUserData]
-public class PatternController : ScriptController{
+public class PatternController : ScriptController {
 
 	private static bool loaded;
 	private static Dictionary<string, GameObject> bulletModels = new Dictionary<string, GameObject>();
@@ -18,6 +18,7 @@ public class PatternController : ScriptController{
 			bulletModels.Add("capsule", LoadBulletModel("capsule"));
 			bulletModels.Add("circle", LoadBulletModel("circle"));
 			bulletModels.Add("cube", LoadBulletModel("cube"));
+			bulletModels.Add("playerBullet", LoadBulletModel("playerBullet"));
 
 			//Load in bullet materials
 			bulletMaterials.Add("red", LoadBulletMaterial("red"));
@@ -30,6 +31,7 @@ public class PatternController : ScriptController{
 			bulletMaterials.Add("purple", LoadBulletMaterial("purple"));
 			bulletMaterials.Add("white", LoadBulletMaterial("white"));
 			bulletMaterials.Add("lightAqua", LoadBulletMaterial("lightAqua"));
+			bulletMaterials.Add("green", LoadBulletMaterial("green"));
 		}
 
 		loaded = true;
@@ -68,7 +70,7 @@ public class PatternController : ScriptController{
 	[MoonSharpUserData]
 	public struct BulletData
 	{
-		public float x, y, z, angle, speed, lifetime, scale, speedMultiplier;
+		public float x, y, z, angle, speed, lifetime, scale, speedMultiplier, damage;
 		public string type, material, owner, movement, pattern;
 		public bool destroyOnExitStage, destroyOnHit, synced;
 	}
@@ -214,6 +216,7 @@ public class PatternController : ScriptController{
 		bd.scale = 1;
 		bd.speedMultiplier = 1;
 		bd.synced = true;
+		bd.damage = 20;
 		return bd;
 	}
 

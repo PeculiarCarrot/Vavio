@@ -13,10 +13,11 @@ public static class BulletFactory {
 
 		//Spawn the bullet and apply all properties to it
 		GameObject bullet = GetUnused(b.type);
-		bullet.GetComponent<MovementController>().patternPath = b.movement;
-		bullet.GetComponent<MovementController>().speed = b.speed;
-		bullet.GetComponent<MovementController>().speedMultiplier = b.speedMultiplier;
-		bullet.GetComponent<MovementController>().synced = b.synced;
+		MovementController mc = bullet.GetComponent<MovementController>();
+		mc.patternPath = b.movement;
+		mc.speed = b.speed;
+		mc.speedMultiplier = b.speedMultiplier;
+		mc.synced = b.synced;
 		bullet.GetComponent<PatternController>().patternPath = b.pattern;
 		bullet.transform.position = shooter.position + new Vector3(b.x, b.y, 0);
 		bullet.transform.rotation = Quaternion.Euler(shooter.eulerAngles.x, shooter.eulerAngles.y, shooter.eulerAngles.z + b.angle);
@@ -35,6 +36,7 @@ public static class BulletFactory {
 		bp.destroyOnHit = b.destroyOnHit;
 		bp.owner = b.owner;
 		bp.lifetime = b.lifetime;
+		bp.damage = b.damage;
 
 		bp.Init();
 		return bullet;

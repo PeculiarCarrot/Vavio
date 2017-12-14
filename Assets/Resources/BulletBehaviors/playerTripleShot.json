@@ -1,9 +1,0 @@
-{
-  "angle": 0,
-  "numberOfSets": 3,
-  "spread": 20,
-  "bulletsPerSecond": 7,
-  "bulletSpeed": 10,
-  "bulletLifetime": 6,
-  "synced": false
-}
