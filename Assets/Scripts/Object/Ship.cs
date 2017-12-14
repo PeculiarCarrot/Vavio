@@ -7,15 +7,13 @@ public abstract class Ship : MonoBehaviour {
 	protected Vector3 velocity = Vector3.zero;
 	public float accel = .9f;
 	protected float friction = .9f;
-	protected float rotSpeed, rotAccel = 170f, rotFric = .99f;
 	protected Vector3 baseRot;
 	public static GameObject stage;
 
 	public float maxHP = 100;
 	protected float hp;
 	private bool flashing;
-
-	// Use this for initialization
+	
 	void Start () {
 		if(stage == null)
 			stage = GameObject.Find("Stage");
@@ -44,16 +42,12 @@ public abstract class Ship : MonoBehaviour {
 			foreach(Renderer r in GetComponentsInChildren<Renderer>())
 				StartCoroutine(CollideFlash(r));
 	}
-	
-	// Update is called once per frame
+
 	public void DoUpdate () {
 		velocity *= friction;
 		transform.position += velocity * (1 / 60f);
-		rotSpeed *= rotFric;
-		//transform.eulerAngles = baseRot + new Vector3(0, rotSpeed * Time.deltaTime, 0);
 	}
-
-
+		
 	public void GetHurt(float damage)
 	{
 		hp -= damage;
@@ -65,26 +59,4 @@ public abstract class Ship : MonoBehaviour {
 	}
 
 	public abstract void DoStart();
-
-	public void MoveUp()
-	{
-		velocity.y += accel;
-		rotSpeed += rotAccel;
-	}
-
-	public void MoveLeft()
-	{
-		velocity.x -= accel;
-	}
-
-	public void MoveRight()
-	{
-		velocity.x += accel;
-	}
-
-	public void MoveDown()
-	{
-		velocity.y -= accel;
-		rotSpeed -= rotAccel;
-	}
 }

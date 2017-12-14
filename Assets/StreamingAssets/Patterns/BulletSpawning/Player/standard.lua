@@ -1,27 +1,26 @@
-fireIndex = {}
-fireTimes = {}
+timer = {}
 initialized = {}
+time = .05
 
 function update(pattern, id, deltaTime)
-	if(initialized[id] == nil) then
-		init(pattern, id)
-	end
-	if(fireTimes[id] == nil) then
-		fireTimes[id] = pattern.GetFireTimes(10, 0)
-	end
+	
+	timer[id] = timer[id] - 1 / 60
 
-	if(pattern.GetStageTime() >= fireTimes[id][fireIndex[id]]) then
-		fireIndex[id] = fireIndex[id] + 1
-
+	if(timer[id] <= 0) then
+		timer[id] = time
 		bullet = pattern.NewBullet()
-		bullet.speed = 15
-		bullet.damage = 20
+		bullet.speed = 20
+		bullet.damage = 12
+		bullet.type = "playerBullet"
 		bullet.material = "green"
+		bullet.owner = "player"
+		bullet.angle = -90
+		bullet.y = .5
+		bullet.z = 1
 		pattern.SpawnBullet(bullet)
 	end
 end
 
 function init(pattern, id)
-	initialized[id] = true
-	fireIndex[id] = 0
+	timer[id] = time
 end

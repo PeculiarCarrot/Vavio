@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Stage : MonoBehaviour {
 
+	//Song delta time
 	public static float deltaTime;
+	//Time tracking
 	public static double lastTime, timeOffset, time;
 	private static double beginTime;
 
@@ -16,6 +18,7 @@ public class Stage : MonoBehaviour {
 	public AudioClip[] songs;
 	public AudioSource song;
 
+	//The living bullets and entities right now
 	private static List<GameObject> bullets = new List<GameObject>();
 	private static List<GameObject> enemies = new List<GameObject>();
 
@@ -25,15 +28,12 @@ public class Stage : MonoBehaviour {
 		EnemySpawner.Load();
 	}
 
-	// Use this for initialization
 	void Start () {
-
 		UpdateScreenPositions();
 		deltaTime = 0;
 		time = 0;
 		lastTime = 0;
 		stage = this;
-		//Debug.Log(minX+", "+minY +" - "+maxX+", "+maxY);
 	}
 
 	public static void AddEnemy(GameObject o)
@@ -100,7 +100,7 @@ public class Stage : MonoBehaviour {
 		time = song.time - beginTime;
 		lastTime = time;
 		deltaTime = 0;
-		timeOffset = 0;//AudioSettings.dspTime - song.timeSamples/song.clip.frequency;
+		timeOffset = 0;
 	}
 
 	void FixedUpdate()

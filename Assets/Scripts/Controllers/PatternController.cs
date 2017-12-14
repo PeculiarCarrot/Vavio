@@ -4,7 +4,7 @@ using UnityEngine;
 using MoonSharp.Interpreter;
 
 [MoonSharpUserData]
-public class PatternController : ScriptController {
+public class PatternController : ScriptController{
 
 	private static bool loaded;
 	private static Dictionary<string, GameObject> bulletModels = new Dictionary<string, GameObject>();

@@ -216,11 +216,11 @@ public class Enemy : ShooterBase {
 
 	void OnTriggerEnter (Collider col)
     {
-    	PlayerBullet bullet = col.gameObject.GetComponent<PlayerBullet>();
-		if(bullet != null && !(this.IsInvincible() && !CanCollide()))
+    	BulletProperties bullet = col.gameObject.GetComponent<BulletProperties>();
+		if(bullet != null && bullet.owner == "player" && !(this.IsInvincible() && !CanCollide()))
         {
             bullet.Die();
-            GetHurt(bullet.GetDamage());
+			GetHurt(bullet.damage);
             return;
         }
     }

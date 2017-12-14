@@ -673,28 +673,6 @@
       "y": 0.9
     },
     {
-      "time": 51.7,
-      "leave": 74.8,
-      "pattern": "Sunburst/moveBeat",
-      "movement": "Sunburst/rightBeat",
-      "model": "circle",
-      "material": "orange",
-      "introMovement": false,
-      "x": -0.1,
-      "y": 0.9
-    },
-    {
-      "time": 65.8,
-      "leave": 74.8,
-      "pattern": "Sunburst/moveBeat",
-      "movement": "Sunburst/rightBeat",
-      "model": "circle",
-      "material": "orange",
-      "introMovement": false,
-      "x": -0.1,
-      "y": 0.9
-    },
-    {
       "time": 65.8,
       "leave": 74.8,
       "pattern": "Sunburst/moveBeat",

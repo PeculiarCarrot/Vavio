@@ -20,8 +20,6 @@ public class Player : Ship {
 	// Use this for initialization
 	public override void DoStart () {
 		wasDebug = debug;
-		rotFric = 1;
-		rotAccel = 6;
 		livesTexture = Resources.Load<Texture>("Materials/health");
 	}
 

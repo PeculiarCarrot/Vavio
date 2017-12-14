@@ -299,7 +299,6 @@ public class EnemySpawner : MonoBehaviour {
 			stage.GetComponent<AudioSource>().time = 0;
 			if(level >= stage.GetComponent<Stage>().songs.Length)
 			{
-				Debug.Log("Done");
 				Application.Quit();
 			}
 			else
