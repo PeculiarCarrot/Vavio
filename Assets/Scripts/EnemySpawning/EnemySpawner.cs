@@ -74,7 +74,7 @@ public class EnemySpawner : MonoBehaviour {
 		musicText.text = "";
 		level = 0;
 
-		prepareLevelTime = 0;
+		prepareLevelTime = .1f;
 		timeUntilNext = 0;
 
 		if(PlayerPrefs.HasKey("diedOnLevel"))

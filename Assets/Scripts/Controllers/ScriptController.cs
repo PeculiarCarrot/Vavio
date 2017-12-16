@@ -55,7 +55,13 @@ public class ScriptController : MonoBehaviour {
 		patternPath = defaultPath + patternPath;
 
 		//Make sure we're getting the right path regardless of operating system
-		string path = Application.streamingAssetsPath;
+		string path = "";
+		if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer)
+			path = Application.dataPath + "/StreamingAssets";
+		else if(Application.platform == RuntimePlatform.IPhonePlayer)
+			path = Application.dataPath + "/Raw";
+		else if(Application.platform == RuntimePlatform.Android)
+			path = "jar:file://" + Application.dataPath + "!/assets/";
 		string[] directories = patternPath.Split('/');
 		foreach (string dir in directories)
 			path = System.IO.Path.Combine(path, dir);

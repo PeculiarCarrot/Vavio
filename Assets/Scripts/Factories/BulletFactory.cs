@@ -49,13 +49,23 @@ public static class BulletFactory {
 
 	private static GameObject GetUnused(string t)
 	{
-		foreach(GameObject b in objects)
-			if(!b.activeInHierarchy && b.name == t+"(Clone)")
+		List<GameObject> toRemove = new List<GameObject>();
+		foreach (GameObject b in objects)
+		{
+			if (b == null)
+			{
+				toRemove.Add(b);
+				continue;
+			}
+			if (!b.activeInHierarchy && b.name == t + "(Clone)")
 			{
 				b.SetActive(true);
 				b.GetComponent<BulletProperties>().Reset();
 				return b;
 			}
+		}
+		foreach (GameObject oo in toRemove)
+			objects.Remove(oo);
 		GameObject o = Object.Instantiate(PatternController.GetBulletModel(t));
 		objects.Add(o);
 		return o;
