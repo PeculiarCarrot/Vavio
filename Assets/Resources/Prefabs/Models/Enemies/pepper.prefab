@@ -149,6 +149,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -164,6 +165,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -181,6 +183,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -196,6 +199,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -213,6 +217,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -228,6 +233,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -341,18 +347,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leave: 0
-  velocity: {x: 0, y: 0, z: 0}
-  accel: 0.9
-  friction: 0.9
-  maxHP: 200
-  hp: 0
-  type: 0
   reachGoalTime: 0.2
   invul: 0
   canCollide: 0
   introMovement: 0
   boss: 0
   mat: {fileID: 0}
+  velocity: {x: 0, y: 0, z: 0}
+  accel: 0.9
+  friction: 0.9
+  maxHP: 200
+  hp: 0
+  white: {fileID: 2100000, guid: bce7bdfffa120694880b1f1c9b3c84cf, type: 2}
 --- !u!135 &135391806217946082
 SphereCollider:
   m_ObjectHideFlags: 1

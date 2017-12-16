@@ -50,6 +50,7 @@ public class Enemy : ShooterBase {
 	//Whether we are flashing from taking damage
 	private bool flashing;
 
+	public Material white;
 
 	void Start () {
 		stage = Stage.stage;
@@ -62,7 +63,7 @@ public class Enemy : ShooterBase {
 		Material m = mainRenderer.material;
 		Color c = mainRenderer.material.color;
 		mainRenderer.material = null;
-		mainRenderer.material.color = ChangeColorBrightness(c, .6f);
+		mainRenderer.material.color = ChangeColorBrightness(c, .8f);
 		mainRenderer.material.shader = Shader.Find("Unlit/Color");
 		flashing = true;		
 		yield return new WaitForSeconds(0.03f);
@@ -235,6 +236,16 @@ public class Enemy : ShooterBase {
     	BulletProperties bullet = col.gameObject.GetComponent<BulletProperties>();
 		if(bullet != null && bullet.owner == "player" && !(this.IsInvincible() && !CanCollide()))
         {
+			GameObject e = Instantiate(enemyDeathEffect, (bullet.transform.position + transform.position) * .5f, enemyDeathEffect.transform.rotation);
+			float r = Random.value * .2f + .2f;
+			if (this.IsInvincible())
+				r = .2f;
+			Vector3 np = e.transform.position;
+			np.z = -3;
+			DeathEffect de = e.GetComponent<DeathEffect>();
+			de.xradius = r;
+			de.yradius = r;
+			de.line.material = this.IsInvincible() ? white : mat;
             bullet.Die();
 			GetHurt(bullet.damage);
             return;

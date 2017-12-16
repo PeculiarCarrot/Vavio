@@ -12,7 +12,7 @@ function update(pattern, id, deltaTime)
 	end
 
 	if(pattern.GetStageTime() >= fireTimes[id][fireIndex[id]]) then
-		scale[id] = scale[id] + .02
+		scale[id] = scale[id] + deltaTime
 		fireIndex[id] = fireIndex[id] + 1
 
 		bullet = pattern.NewBullet()

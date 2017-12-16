@@ -6,10 +6,11 @@ public class DeathEffect : MonoBehaviour {
 	public int segments = 100;
 	public float xradius = 5;
 	public float yradius = 5;
-	LineRenderer line;
+	public LineRenderer line;
 	float spd = 2f;
+	public float shrink = .3f;
 
-	void Start ()
+	void Awake ()
 	{
 		xradius = 1f;
 		yradius = 1f;
@@ -27,7 +28,6 @@ public class DeathEffect : MonoBehaviour {
 		//spd *= 1.1f;
 
 		line.positionCount = segments + 1;
-		float shrink = .3f;
 		line.startWidth -= shrink * Time.deltaTime;
 		line.endWidth -= shrink * Time.deltaTime;
 

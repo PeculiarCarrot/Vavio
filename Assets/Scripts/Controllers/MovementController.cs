@@ -299,7 +299,7 @@ public class MovementController : ScriptController {
 		{
 			try
 			{
-				CallLuaFunction("update", this, GetInstanceID(), synced ? Time.deltaTime : 1 / 60f);
+				CallLuaFunction("update", this, GetInstanceID(), synced? Time.deltaTime : 1 / 60f);
 			}
 			catch (ScriptRuntimeException ex)
 			{
