@@ -64,7 +64,7 @@ public class EnemySpawner : MonoBehaviour {
 	public float timeUntilNext;
 
 	public Text stageText, musicText;
-	private float prepareLevelTimer, prepareLevelTime = 5;
+	private float prepareLevelTimer, prepareLevelTime = 4;
 	private bool preparingLevel = false;
 
 	void Start()

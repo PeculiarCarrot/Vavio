@@ -913,8 +913,7 @@
       "pattern": "DuckFace/anotherBeat",
       "model": "circle",
       "material": "lightRed",
-      "invul": true,
-      "canCollide": false,
+      "hp": 1000,
       "introMovement": true,
       "x": 0.25,
       "y": 0.8
@@ -925,8 +924,7 @@
       "pattern": "DuckFace/anotherBeat",
       "model": "circle",
       "material": "lightRed",
-      "invul": true,
-      "canCollide": false,
+      "hp": 1000,
       "introMovement": true,
       "x": 0.75,
       "y": 0.8

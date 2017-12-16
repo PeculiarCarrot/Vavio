@@ -116,27 +116,34 @@ public class Stage : MonoBehaviour {
 		UpdateScreenPositions();
 
 		float f = Time.timeScale;
-		if(Input.GetKey("right"))
+		if (!player.GetComponent<Player>().IsDying())
 		{
-			f *= 1.01f;
-		}
-		else if(Input.GetKey("left"))
-		{
-			f -= .01f;
-		}
-		else
-		{
-			f = Mathf.Max(f, .2f);
-			f = Mathf.SmoothDamp(f, 1f, ref timeVelocity, .3f);
-		}
+			if (Input.GetKey("right"))
+			{
+				f *= 1.01f;
+			}
+			else if (Input.GetKey("left"))
+			{
+				f -= .01f;
+			}
+			else
+			{
+				f = Mathf.Max(f, .2f);
+				f = Mathf.SmoothDamp(f, 1f, ref timeVelocity, .3f);
+			}
 
-		f = Mathf.Clamp(f, 0, 100);
-		if(Mathf.Abs(f - 1) > .1)
-		{
-			player.GetComponent<Player>().debug = true;
+			f = Mathf.Clamp(f, 0, 100);
+			if (Mathf.Abs(f - 1) > .1)
+			{
+				player.GetComponent<Player>().debug = true;
+			}
+			else
+				player.GetComponent<Player>().debug = player.GetComponent<Player>().wasDebug;
 		}
-		else
-			player.GetComponent<Player>().debug = player.GetComponent<Player>().wasDebug;
+		else{
+			if (song.isPlaying)
+				song.Pause();
+		}
 		Time.timeScale = f;
 		song.pitch = Time.timeScale;
 

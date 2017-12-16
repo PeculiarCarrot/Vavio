@@ -2,24 +2,18 @@
 using System.Collections.Generic;
 
 [RequireComponent(typeof(LineRenderer))]
-public class EnemyDeathEffect : MonoBehaviour {
+public class DeathEffect : MonoBehaviour {
 	public int segments = 100;
 	public float xradius = 5;
 	public float yradius = 5;
 	LineRenderer line;
 	float spd = 2f;
 
-	List<GameObject> objects = new List<GameObject>();
-
 	void Start ()
 	{
 		xradius = 1f;
 		yradius = 1f;
 		line = gameObject.GetComponent<LineRenderer>();
-		foreach (GameObject o in Stage.GetBullets())
-			objects.Add(o);
-		foreach (GameObject o in Stage.GetEnemies())
-			objects.Add(o);
 	}
 
 	void Update()
@@ -48,37 +42,6 @@ public class EnemyDeathEffect : MonoBehaviour {
 
 		Vector3 v1 = transform.position;
 		v1.z = 0;
-		List<GameObject> toRemove = new List<GameObject>();
-		foreach(GameObject o in objects)
-		{
-			if(o == null || !o.activeInHierarchy)
-			{
-				toRemove.Add(o);
-				continue;
-			}
-			Vector3 v2 = o.transform.position;
-			v2.z = 0;
-			if(Vector3.Distance(v1, v2) <= xradius * transform.localScale.x)
-			{
-				BulletProperties bullet = o.GetComponent<BulletProperties>();
-				Enemy enemy = o.GetComponent<Enemy>();
-				if(enemy != null)
-				{
-					enemy.Die();
-					toRemove.Add(o);
-				}
-				if(bullet != null)
-				{
-					bullet.Die();
-					toRemove.Add(o);
-				}
-			}
-		}
-
-		foreach (GameObject o in toRemove)
-		{
-			objects.Remove(o);
-		}
 	}
 
 	void CreatePoints ()
@@ -96,7 +59,7 @@ public class EnemyDeathEffect : MonoBehaviour {
 			x += transform.position.x;
 			y += transform.position.y;
 
-			line.SetPosition (i,new Vector3(x,y,0) );
+			line.SetPosition (i,new Vector3(x,y,transform.position.z) );
 
 			angle += (360f / segments);
 		}
