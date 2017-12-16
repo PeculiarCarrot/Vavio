@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4348633359891278}
   - component: {fileID: 33687536550459382}
   - component: {fileID: 23192931838471034}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4874919444661404}
   - component: {fileID: 33135528832465870}
   - component: {fileID: 23784090010922110}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsuleRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 114886439947973348}
   - component: {fileID: 114986538283672388}
   - component: {fileID: 114797538613491806}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,6 +114,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -129,6 +130,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -146,6 +148,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -161,6 +164,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -213,7 +217,9 @@ MonoBehaviour:
   resetMoveOnUpdate: 1
   ignoreAngle: 0
   speed: 4
+  speedMultiplier: 0
   targetType: 
+  synced: 0
 --- !u!114 &114986538283672388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,8 +233,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: enemy
   lifetime: 99
+  damage: 0
   destroyOnExitStage: 1
   destroyOnHit: 1
+  inList: 0
 --- !u!136 &136796953174083900
 CapsuleCollider:
   m_ObjectHideFlags: 1

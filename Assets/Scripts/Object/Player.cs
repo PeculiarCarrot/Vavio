@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Player : Ship {
 
+	public AudioClip hit;
+
 	public EnemySpawner spawner;
 	public GameObject mesh;
 	public GameObject core;
@@ -17,10 +19,13 @@ public class Player : Ship {
 	public Texture livesTexture;
 	private bool regenerating;
 
+	private Rigidbody body;
+
 	// Use this for initialization
 	public override void DoStart () {
 		wasDebug = debug;
 		livesTexture = Resources.Load<Texture>("Materials/health");
+		body = GetComponent<Rigidbody>();
 	}
 
 	void OnTriggerEnter (Collider col)
@@ -49,8 +54,10 @@ public class Player : Ship {
 	{
 		if(!debug)
 		{
+			GetComponent<AudioSource>().PlayOneShot(hit);
+			CameraShake.Shake(.2f, .15f);
 			hp -= 1;
-			invincibilityDuration = 1.5f;
+			invincibilityDuration = 2f;
 			flickerTimer = flickerDuration;
 		}
 	}
@@ -111,7 +118,7 @@ public class Player : Ship {
         	newRot.y = Mathf.Clamp(newRot.y, 315, 360);
         newRot.y = Mathf.SmoothDampAngle(newRot.y, 0, ref rotSpeed, .3f);
         transform.eulerAngles = newRot;*/
-        transform.position = Vector3.Lerp(transform.position, target, .3f);
+		body.MovePosition(Vector3.Lerp(transform.position, target, .3f));
         if(regenerating)
         {
         	hp += 3f * Time.deltaTime;

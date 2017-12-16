@@ -1,6 +1,6 @@
 timer = {}
 initialized = {}
-time = .05
+time = .2
 
 function update(pattern, id, deltaTime)
 	
@@ -9,8 +9,8 @@ function update(pattern, id, deltaTime)
 	if(timer[id] <= 0) then
 		timer[id] = time
 		bullet = pattern.NewBullet()
-		bullet.speed = 20
-		bullet.damage = 12
+		bullet.speed = 30
+		bullet.damage = 12 * 4
 		bullet.type = "playerBullet"
 		bullet.material = "green"
 		bullet.owner = "player"

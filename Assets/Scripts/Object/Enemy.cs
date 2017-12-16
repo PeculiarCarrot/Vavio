@@ -140,6 +140,16 @@ public class Enemy : ShooterBase {
 			GameObject prefab = boss ? bossDeathEffect : enemyDeathEffect;
 			GameObject e = Instantiate(prefab, transform.position, prefab.transform.rotation);
 			e.GetComponent<LineRenderer>().material = mat;
+			if (boss)
+			{
+				EnemyAudio.Play(EnemyAudio.Instance.bossDie);
+				CameraShake.Shake(.5f, .1f);
+			}
+			else
+			{
+				EnemyAudio.Play(EnemyAudio.Instance.die);
+				CameraShake.Shake(.25f, .05f);
+			}
 		}
 
 		Stage.RemoveEnemy(gameObject);
@@ -190,9 +200,15 @@ public class Enemy : ShooterBase {
 	{
 		if(!IsInvincible())
 		{
+			if(boss)
+				EnemyAudio.Play(EnemyAudio.Instance.hit, .2f);
+			else
+				EnemyAudio.Play(EnemyAudio.Instance.hit);
 			hp -= damage;
 			Flash();
 		}
+		else
+			EnemyAudio.Play(EnemyAudio.Instance.hitWhileInvul, .2f);
 	}
 
 	//Used to draw boss health bar

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65867711400726014}
   - component: {fileID: 114265975010046630}
   - component: {fileID: 114270830379136750}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 4161486548829368}
   - component: {fileID: 33488640838156618}
   - component: {fileID: 23322092432575086}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,6 +83,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -98,6 +99,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -171,5 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: 
   lifetime: 0
+  damage: 0
   destroyOnExitStage: 0
   destroyOnHit: 0
+  inList: 0

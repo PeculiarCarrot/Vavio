@@ -43,7 +43,7 @@ public class BossDeathEffect : MonoBehaviour {
 		List<GameObject> toRemove = new List<GameObject>();
 		foreach(GameObject o in objects)
 		{
-			if(!o.activeInHierarchy)
+			if(o == null || !o.activeInHierarchy)
 			{
 				toRemove.Add(o);
 				continue;
