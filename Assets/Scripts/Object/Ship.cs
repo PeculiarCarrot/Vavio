@@ -11,7 +11,7 @@ public abstract class Ship : MonoBehaviour {
 	public static GameObject stage;
 
 	public float maxHP = 100;
-	protected float hp;
+	public float hp;
 	private bool flashing;
 	
 	void Start () {

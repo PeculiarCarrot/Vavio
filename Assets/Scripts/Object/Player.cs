@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GameAnalyticsSDK;
+
 public class Player : Ship {
 
 	public AudioClip hit, die;
@@ -92,6 +94,7 @@ public class Player : Ship {
 		e.GetComponent<LineRenderer>().material = GetComponentInChildren<MeshRenderer>().material;
 		Vector3 newPos = new Vector3(999, 999, 999);
 		transform.position = newPos;
+		GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Song " + spawner.level, Mathf.RoundToInt(Stage.stage.song.time));
 	}
 
 	private void Restart()

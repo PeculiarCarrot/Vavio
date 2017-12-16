@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using MoonSharp.Interpreter;
+using GameAnalyticsSDK;
 
 public class EnemySpawner : MonoBehaviour {
 	
@@ -89,6 +90,7 @@ public class EnemySpawner : MonoBehaviour {
 
 	public void BeginLevel()
 	{
+		GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Song " + level, 0);
 		stageText.text = "";
 		musicText.text = "";
 		preparingLevel = false;
@@ -297,12 +299,15 @@ public class EnemySpawner : MonoBehaviour {
 			prevTime = 0;
 			level++;
 			stage.GetComponent<AudioSource>().time = 0;
-			if(level >= stage.GetComponent<Stage>().songs.Length)
+			if (level >= stage.GetComponent<Stage>().songs.Length)
 			{
 				Application.Quit();
 			}
 			else
+			{
+				GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Song " + level, Mathf.RoundToInt(Stage.stage.player.GetComponent<Player>().hp));
 				PrepareLevel();
+			}
 		}
 		prevTime = stage.GetComponent<AudioSource>().time;
 	}
