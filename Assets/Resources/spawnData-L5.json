@@ -725,7 +725,8 @@
       "model": "circle",
       "material": "transparent",
       "introMovement": false,
-      "hp": 1500,
+      "invul": true,
+      "canCollide": false,
       "x": 0.5,
       "y": 1.1
     },
@@ -736,7 +737,8 @@
       "model": "circle",
       "material": "transparent",
       "introMovement": false,
-      "hp": 1500,
+      "invul": true,
+      "canCollide": false,
       "x": 0.5,
       "y": -0.1,
       "rotation": 180

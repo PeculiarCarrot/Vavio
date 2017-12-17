@@ -299,7 +299,7 @@ public class MovementController : ScriptController {
 		{
 			try
 			{
-				CallLuaFunction("update", this, GetInstanceID(), synced? Time.deltaTime : 1 / 60f);
+				CallLuaFunction("update", this, GetInstanceID(), Time.deltaTime);
 			}
 			catch (ScriptRuntimeException ex)
 			{
@@ -323,7 +323,7 @@ public class MovementController : ScriptController {
 			realMove = Quaternion.Euler(0, 0, transform.eulerAngles.z) * move;
 		}
 
-		transform.position = transform.position + realMove * (synced ? Time.deltaTime : 1 / 60f);
+		transform.position = transform.position + realMove * Time.deltaTime;
 		move *= friction;
 		move *= speedMultiplier;
 	}

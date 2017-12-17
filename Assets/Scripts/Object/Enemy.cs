@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : ShooterBase {
-	
+
 	//The image for the boss health bar
 	private static Texture healthBarTexture;
+	//The image background for the boss health bar
+	private static Texture healthBarBGTexture;
 	//The death effect prefab for bosses
 	private static GameObject bossDeathEffect;
 	//The death effect prefab for regular enemies
@@ -124,6 +126,8 @@ public class Enemy : ShooterBase {
 		leave = 9999;
 		if(healthBarTexture == null)
 			healthBarTexture = Resources.Load<Texture>("Materials/bossHealthBar");
+		if(healthBarBGTexture == null)
+			healthBarBGTexture = Resources.Load<Texture>("Materials/bossHealthBarBG");
 		if(bossDeathEffect == null)
 			bossDeathEffect = Resources.Load<GameObject>("Prefabs/Effects/bossDeathEffect");
 		if(enemyDeathEffect == null)
@@ -220,9 +224,9 @@ public class Enemy : ShooterBase {
 		if(boss)
 		{
 			float frac = hp / (float)maxHP;
-			frac*= .5f;
 			float padding = .5f;
-			float w = Screen.width * (1 - padding);
+			float w = (Screen.width * (1 - padding)) * .5f;
+			GUI.DrawTexture(new Rect(.5f * Screen.width - (w), 20, w  * 2, 30), healthBarBGTexture);
 			GUI.DrawTexture(new Rect(.5f * Screen.width - (w * frac), 20, w * frac * 2, 30), healthBarTexture);
 		}
 	}

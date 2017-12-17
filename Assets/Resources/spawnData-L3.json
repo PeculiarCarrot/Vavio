@@ -7,7 +7,7 @@
       "model": "cube",
       "material": "aqua",
       "boss": true,
-      "hp": 25000,
+      "hp": 24000,
       "x": 0.5,
       "y": 0.8,
       "rotation": 45
