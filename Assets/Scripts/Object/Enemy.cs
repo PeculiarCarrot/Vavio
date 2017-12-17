@@ -36,7 +36,7 @@ public class Enemy : ShooterBase {
 	//Our material (used to set the color of death animations)
 	public Material mat;
 	//How long we don't collide with the player after we spawn
-	private float noCollisionTimer = 1f;
+	private float noCollisionTimer;
 	
 	public Vector3 velocity = Vector3.zero;
 	//Our acceleration
@@ -56,6 +56,8 @@ public class Enemy : ShooterBase {
 		stage = Stage.stage;
 		startPos = transform.position;
 		hp = maxHP;
+		if (introMovement)
+			noCollisionTimer = 1f;
 	}
 
 	IEnumerator CollideFlash(Renderer mainRenderer)
@@ -246,7 +248,7 @@ public class Enemy : ShooterBase {
 			de.xradius = r;
 			de.yradius = r;
 			de.line.material = this.IsInvincible() ? white : mat;
-            bullet.Die();
+            bullet.Die(false);
 			GetHurt(bullet.damage);
             return;
         }

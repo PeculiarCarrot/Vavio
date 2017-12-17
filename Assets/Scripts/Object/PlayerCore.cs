@@ -25,7 +25,7 @@ public class PlayerCore : MonoBehaviour {
 			if(bullet.owner != "player")
 			{
 				if (bullet.destroyOnHit)
-					bullet.Die();
+					bullet.Die(false);
 				player.GetComponent<Player>().GetHurt();
 			}
 			return;

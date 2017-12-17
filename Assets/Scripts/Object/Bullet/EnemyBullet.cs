@@ -83,9 +83,8 @@ public class EnemyBullet : Bullet {
 			default:
 			break;
 		}
-		if(type != BulletType.IndependentHoming)
-			if(transform.position.x < Stage.minX - 5 || transform.position.y < Stage.minY - 5 || transform.position.x > Stage.maxX + 5 || transform.position.y > Stage.maxY + 5)
-				Destroy(gameObject);
+		if(transform.position.x < Stage.minX - 5 || transform.position.y < Stage.minY - 5 || transform.position.x > Stage.maxX + 5 || transform.position.y > Stage.maxY + 5)
+			Destroy(gameObject);
 	}
 
 	public float GetDamage()

@@ -61,7 +61,7 @@ public class BossDeathEffect : MonoBehaviour {
 				}
 				if(bullet != null)
 				{
-					bullet.Die();
+					bullet.Die(false);
 					toRemove.Add(o);
 				}
 			}

@@ -12,10 +12,12 @@ public class BulletProperties : MonoBehaviour {
 	public bool destroyOnExitStage, destroyOnHit;
 
 	private Vector3 startScale;
+	private float dieTimer, dieTime = 1f;
+	private bool dying;
 
 	public void Awake()
 	{
-		startScale = gameObject.transform.localScale;
+		startScale = transform.localScale;
 	}
 
 	public bool inList;
@@ -28,10 +30,19 @@ public class BulletProperties : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		lifetime -= Time.deltaTime;
-		if (lifetime <= 0)
-			Die();
+		dieTimer -= Time.deltaTime;
+		if (lifetime <= 0 && !dying)
+			Die(true);
 		if (transform.position.x < Stage.minX - 2 || transform.position.y < Stage.minY - 2 || transform.position.x > Stage.maxX + 2 || transform.position.y > Stage.maxY + 2)
-			Die();
+			Die(false);
+		if (dieTimer <= 0 && dying)
+			Die(false);
+		if(dying && dieTimer > 0)
+		{
+			Vector3 scale = transform.localScale;
+			scale = Vector3.Lerp(Vector3.zero, transform.localScale, dieTimer / dieTime);
+			transform.localScale = scale;
+		}
 	}
 
 	public void Reset()
@@ -41,6 +52,8 @@ public class BulletProperties : MonoBehaviour {
 		destroyOnHit = false;
 		destroyOnExitStage = false;
 		damage = 20;
+		dying = false;
+		dieTimer = 0;
 		transform.localScale = startScale;
 		if (GetComponent<MovementController>() != null)
 			GetComponent<MovementController>().Reset();
@@ -56,10 +69,18 @@ public class BulletProperties : MonoBehaviour {
 			GetComponent<PatternController>().Init();
 	}
 
-	public void Die()
+	public void Die(bool animated)
 	{
-		Stage.RemoveBullet(gameObject);
-		gameObject.SetActive(false);
+		if(!animated)
+		{
+			Stage.RemoveBullet(gameObject);
+			gameObject.SetActive(false);
+		}
+		else
+		{
+			dieTimer = dieTime;
+			dying = true;
+		}
 		//Destroy(gameObject);
 	}
 }
