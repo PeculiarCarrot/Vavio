@@ -118,27 +118,30 @@ public class Stage : MonoBehaviour {
 		float f = Time.timeScale;
 		if (!player.GetComponent<Player>().IsDying())
 		{
-			if (Input.GetKey("right"))
+			if(Application.isEditor)
 			{
-				f *= 1.01f;
-			}
-			else if (Input.GetKey("left"))
-			{
-				f -= .01f;
-			}
-			else
-			{
-				f = Mathf.Max(f, .2f);
-				f = Mathf.SmoothDamp(f, 1f, ref timeVelocity, .3f);
-			}
+				if (Input.GetKey("right"))
+				{
+					f *= 1.01f;
+				}
+				else if (Input.GetKey("left"))
+				{
+					f -= .01f;
+				}
+				else
+				{
+					f = Mathf.Max(f, .2f);
+					f = Mathf.SmoothDamp(f, 1f, ref timeVelocity, .3f);
+				}
 
-			f = Mathf.Clamp(f, 0, 100);
-			if (Mathf.Abs(f - 1) > .1)
-			{
-				player.GetComponent<Player>().debug = true;
+				f = Mathf.Clamp(f, 0, 100);
+				if (Mathf.Abs(f - 1) > .1)
+				{
+					player.GetComponent<Player>().debug = true;
+				}
+				else
+					player.GetComponent<Player>().debug = player.GetComponent<Player>().wasDebug;
 			}
-			else
-				player.GetComponent<Player>().debug = player.GetComponent<Player>().wasDebug;
 		}
 		else{
 			if (song.isPlaying)

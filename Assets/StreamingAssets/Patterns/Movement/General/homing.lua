@@ -1,24 +1,28 @@
+turnSpd = {}
+initialized = {}
+spd = {}
 
-
-function init(movement)
+function init(movement, id)
 	movement.resetMoveOnUpdate = false
 	movement.ignoreAngle = true
 	movement.targetType = "player"
-	spd = movement.Math().RandomValue() * 2 + 2
+	spd[id] = movement.Math().RandomValue() * 2 + 2
 	movement.friction = .97
-	spd = 2
-	turnSpd = .03
+	spd[id] = 2
+	turnSpd[id] = .03
 end
 
-function update(movement, deltaTime)
+function update(movement, id, deltaTime)
 	movement.FindTarget()
-	local speed = spd * movement.speed
+	local speed = spd[id] * movement.speed
 	local dx = movement.GetTargetX() - movement.GetX()
 	local dy = movement.GetTargetY() - movement.GetY()
 	local a = movement.Math().Atan2(dy, dx);
-	movement.SetRotation(movement.Math().LerpAngle(movement.GetAngle(), a * movement.Math().Rad2Deg, turnSpd))
+	movement.SetRotation(movement.Math().LerpAngle(movement.GetAngle(), a * movement.Math().Rad2Deg, turnSpd[id]))
 	
 	movement.SetMove(
 		speed * movement.Math().Cos(movement.Math().Deg2Rad * movement.GetAngle()),
 		speed * movement.Math().Sin(movement.Math().Deg2Rad * movement.GetAngle()))
+
+	turnSpd[id] = turnSpd[id] * .99
 end

@@ -18,6 +18,11 @@ public class LuaMath {
 		return Random.Range(x, y);
 	}
 
+	public float RandomRangeInt(int x, int y)
+	{
+		return Random.Range(x, y);
+	}
+
 	public float Sin(float x)
 	{
 		return Mathf.Sin(x);

@@ -91,6 +91,16 @@ public class PatternController : ScriptController{
 		blank = true;
 	}
 
+	public float StageWidth()
+	{
+		return Stage.width;
+	}
+
+	public float StageHeight()
+	{
+		return Stage.height;
+	}
+
 	void Start()
 	{
 		Init();
@@ -198,6 +208,16 @@ public class PatternController : ScriptController{
 			fireTimes[i] = times[i] + (float)Stage.time;
 		}
 		return fireTimes;
+	}
+
+	public float GetX()
+	{
+		return transform.position.x;
+	}
+
+	public float GetY()
+	{
+		return transform.position.y;
 	}
 
 	public BulletData NewBullet()

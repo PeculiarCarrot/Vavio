@@ -1,0 +1,156 @@
+{
+	"spawns": [
+    {
+      "time": 0.2,
+      "leave": 1,
+      "pattern": "Jumbo/closingCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 2
+    },
+    {
+      "time": 1.6,
+      "leave": 1,
+      "pattern": "Jumbo/closingCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 2
+    },
+    {
+      "time": 2.0,
+      "leave": 1,
+      "pattern": "Jumbo/closingCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 2
+    },
+    {
+      "time": 2.9,
+      "leave": 1,
+      "pattern": "Jumbo/closingCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 2
+    },
+    {
+      "time": 3.9,
+      "leave": 1,
+      "pattern": "Jumbo/closingCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 2
+    },
+    {
+      "time": 9.8,
+      "leave": 1,
+      "pattern": "Jumbo/bigClosingCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 2
+    },
+    {
+      "time": 13.5,
+      "leave": 1,
+      "pattern": "Jumbo/bigClosingCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 2
+    },
+    {
+      "time": 17.1,
+      "leave": 1,
+      "pattern": "Jumbo/bigClosingCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 2
+    },
+    {
+      "time": 20.9,
+      "leave": 1,
+      "pattern": "Jumbo/bigClosingCircle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 2
+    },
+    {
+      "time": 24,
+      "leave": 38.9,
+      "pattern": "Jumbo/eight",
+      "model": "circle",
+      "material": "orange",
+      "hp": 1000,
+      "x": 0.333,
+      "y": 0.9
+    },
+    {
+      "time": 24,
+      "leave": 38.9,
+      "pattern": "Jumbo/eight",
+      "model": "circle",
+      "material": "orange",
+      "hp": 1000,
+      "x": 0.666,
+      "y": 0.9
+    },
+    {
+      "time": 38.7,
+      "leave": 50.1,
+      "pattern": "Jumbo/beat",
+      "model": "circle",
+      "material": "darkAqua",
+      "hp": 1000,
+      "x": 0.1,
+      "y": 0.5,
+      "from": "left",
+      "rotation": 90
+    },
+    {
+      "time": 54.9,
+      "leave": 85.3,
+      "pattern": "Jumbo/bigBeat",
+      "movement": "Jumbo/lrDance",
+      "model": "circle",
+      "material": "darkAqua",
+      "scale": 2,
+      "hp": 2000,
+      "x": 0.5,
+      "y": 0.9
+    },
+  ]
+}

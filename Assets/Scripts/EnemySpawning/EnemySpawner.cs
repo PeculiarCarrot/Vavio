@@ -73,10 +73,13 @@ public class EnemySpawner : MonoBehaviour {
 		timeUntilNext = 2;
 		stageText.text = "";
 		musicText.text = "";
-		level = 0;
+		level = 6;
 
-		prepareLevelTime = .1f;
-		timeUntilNext = 0;
+		if(Application.isEditor)
+		{
+			prepareLevelTime = .1f;
+			timeUntilNext = 0;
+		}
 
 		if(PlayerPrefs.HasKey("diedOnLevel"))
 		{
@@ -129,6 +132,9 @@ public class EnemySpawner : MonoBehaviour {
 				break;
 			case 5:
 				musicText.text = "Tobu & Itro - Sunburst";
+				break;
+			case 6:
+				musicText.text = "Alex Skrindo - Jumbo";
 				break;
 			default:
 				musicText.text = "give the song a name you dope";

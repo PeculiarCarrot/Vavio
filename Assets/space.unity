@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -329,6 +330,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 2d1900a3f90c7f04e9e120d5df4011d1, type: 3}
   - {fileID: 4900000, guid: 7791ba5d1e5520f408a6adb5f03f0d5d, type: 3}
   - {fileID: 4900000, guid: dbd440a21069abd45b3fb329a5c31d89, type: 3}
+  - {fileID: 4900000, guid: 78f4e72af08406a44996cdfb4839ef9a, type: 3}
   level: 1
   spawningEnabled: 1
   stage: {fileID: 1828452933}
@@ -521,7 +523,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1247935487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 187, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.37457672, y: 0.37457687, z: 0.37457687}
   m_Children: []
   m_Father: {fileID: 1762598432}
@@ -643,6 +645,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -699,7 +702,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1504215721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 140, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.29746017, y: 0.29746056, z: 0.29746056}
   m_Children: []
   m_Father: {fileID: 1762598432}
@@ -1027,8 +1030,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1762598428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 562, y: 339, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1247935488}
   - {fileID: 1504215722}
@@ -1214,6 +1217,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 43ded28e03c003e4bb701c6a5160e252, type: 3}
   - {fileID: 8300000, guid: c4a1f7643eb8f034caff2ed496929b2f, type: 3}
   - {fileID: 8300000, guid: de1f9f019d4ddaa40afe60068612d8ec, type: 3}
+  - {fileID: 8300000, guid: 09c2917f08b65f244a1d778d1dd20a85, type: 3}
   song: {fileID: 1828452935}
 --- !u!4 &1828452934
 Transform:

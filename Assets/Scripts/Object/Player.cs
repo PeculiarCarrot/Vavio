@@ -18,7 +18,7 @@ public class Player : Ship {
 	public bool debug;
 	[HideInInspector]
 	public bool wasDebug;
-	public Texture livesTexture;
+	private static Texture livesTexture, progressTexture;
 	private bool regenerating;
 
 	private float dieTimer, dieTime = 4f;
@@ -32,6 +32,7 @@ public class Player : Ship {
 	public override void DoStart () {
 		wasDebug = debug;
 		livesTexture = Resources.Load<Texture>("Materials/health");
+		progressTexture = Resources.Load<Texture>("Materials/progress");
 		body = GetComponent<Rigidbody>();
 		dieTimer = 99999999;
 		Time.timeScale = 1;

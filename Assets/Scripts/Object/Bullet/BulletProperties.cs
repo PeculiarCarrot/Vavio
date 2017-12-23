@@ -33,7 +33,7 @@ public class BulletProperties : MonoBehaviour {
 		dieTimer -= Time.deltaTime;
 		if (lifetime <= 0 && !dying)
 			Die(true);
-		if (transform.position.x < Stage.minX - 2 || transform.position.y < Stage.minY - 2 || transform.position.x > Stage.maxX + 2 || transform.position.y > Stage.maxY + 2)
+		if (destroyOnExitStage && (transform.position.x < Stage.minX - 2 || transform.position.y < Stage.minY - 2 || transform.position.x > Stage.maxX + 2 || transform.position.y > Stage.maxY + 2))
 			Die(false);
 		if (dieTimer <= 0 && dying)
 			Die(false);
