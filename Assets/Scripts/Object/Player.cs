@@ -51,6 +51,11 @@ public class Player : Ship {
 		charge += amount;
 	}
 
+	public bool IsUsingAbility()
+	{
+		return currentAbility != null;
+	}
+
 	public bool IsDying()
 	{
 		return dying;
@@ -127,7 +132,7 @@ public class Player : Ship {
 
 	public bool IsInvincible()
 	{
-		return invincibilityDuration > 0;
+		return invincibilityDuration > 0 || currentAbility is BubbleAbility;
 	}
 
 	public void Regenerate()
@@ -138,7 +143,7 @@ public class Player : Ship {
 	public void UseAbility()
 	{
 		charge = 0;
-		currentAbility = new HomingAbility(this);
+		currentAbility = new BubbleAbility(this);
 		currentAbility.Begin();
 	}
 

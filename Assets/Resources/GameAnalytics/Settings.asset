@@ -48,8 +48,8 @@ MonoBehaviour:
   EmailOptIn: 1
   EmailGA: peculiarcarrot@gmail.com
   IntroScreen: 0
-  InfoLogEditor: 1
-  InfoLogBuild: 1
+  InfoLogEditor: 0
+  InfoLogBuild: 0
   VerboseLogBuild: 0
   UseManualSessionHandling: 0
   SendExampleGameDataToMyGame: 0

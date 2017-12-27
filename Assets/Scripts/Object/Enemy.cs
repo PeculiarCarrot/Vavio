@@ -224,8 +224,8 @@ public class Enemy : ShooterBase {
 		}
 		else
 			EnemyAudio.Play(EnemyAudio.Instance.hitWhileInvul, .2f);
-		if(givesCharge || hp <= 0)
-			SpawnChargePoint(hp <= 0 ? 2 : 1);
+		if((givesCharge || hp <= 0) && !stage.player.GetComponent<Player>().IsUsingAbility())
+			SpawnChargePoint(hp <= 0 ? 3 : 1);
 	}
 
 	private void SpawnChargePoint(float value)
