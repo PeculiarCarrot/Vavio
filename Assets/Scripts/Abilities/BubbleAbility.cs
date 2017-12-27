@@ -10,7 +10,7 @@ public class BubbleAbility : Ability {
 
 	public override void Begin()
 	{
-		duration = 5;
+		duration = 8;
 		GameObject prefab = Resources.Load<GameObject>("Prefabs/bubbleAbility");
 		shield = GameObject.Instantiate(prefab, player.transform.position, prefab.transform.rotation);
 		shield.GetComponent<BubbleAbilityObject>().SetTarget(player.transform);

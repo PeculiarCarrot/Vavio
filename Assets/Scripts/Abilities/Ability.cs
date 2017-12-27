@@ -17,7 +17,7 @@ public abstract class Ability {
 		return timeAlive >= duration;
 	}
 
-	public void Update()
+	public void MyUpdate()
 	{
 		timeAlive += Time.deltaTime;
 		DoUpdate();

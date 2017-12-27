@@ -30,9 +30,10 @@ public class Player : Ship {
 
 	private Rigidbody body;
 	private float charge;
-	private float maxCharge = 1;
+	private float maxCharge = 50;
 
 	private Ability currentAbility;
+	public AbilityPicker abilityPicker;
 
 	// Use this for initialization
 	public override void DoStart () {
@@ -143,7 +144,9 @@ public class Player : Ship {
 	public void UseAbility()
 	{
 		charge = 0;
-		currentAbility = new BubbleAbility(this);
+		if (currentAbility != null)
+			currentAbility.End();
+		currentAbility = abilityPicker.GetNewAbility(this);
 		currentAbility.Begin();
 	}
 
@@ -169,7 +172,7 @@ public class Player : Ship {
 
 		if (currentAbility != null)
 		{
-			currentAbility.Update();
+			currentAbility.MyUpdate();
 			if (currentAbility.IsFinished())
 				currentAbility = null;
 		}
