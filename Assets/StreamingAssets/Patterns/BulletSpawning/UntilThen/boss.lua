@@ -25,6 +25,7 @@ function update(pattern, id, deltaTime)
 			bullet.material = "darkAqua"
 			bullet.angle = i
 			bullet.scale = .5
+			bullet.z = 1
 			bullet.speedMultiplier = .999
 			pattern.SpawnBullet(bullet)
 		end

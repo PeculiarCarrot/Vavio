@@ -18,7 +18,7 @@ spacePerSet = {}
 
 function init(pattern, id)
 	fireIndex[id] = 0
-	numSets[id] = 4
+	numSets[id] = 2
 
 	spread[id] = 90
 	spreadMin[id] = 40

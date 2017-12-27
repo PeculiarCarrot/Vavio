@@ -13,8 +13,8 @@ spacePerSet = {}
 
 function init(pattern, id)
 	fireIndex[id] = 0
-	numSets[id] = 11
-	spacePerSet[id] = 360 / 11
+	numSets[id] = 7
+	spacePerSet[id] = 360 / numSets[id]
 
 	currentAngle[id] = 0
 	currentSpinSpeed[id] = 0
@@ -52,7 +52,7 @@ function update(pattern, id, deltaTime)
 		fireIndex[id] = fireIndex[id] + 1
 		for place = 0, 360, spacePerSet[id] do
 			bullet = pattern.NewBullet()
-			bullet.speed = 4
+			bullet.speed = 3
 			bullet.angle = place + currentAngle[id]
 			bullet.material = "darkRed"
 			pattern.SpawnBullet(bullet)

@@ -759,11 +759,11 @@
       "pattern": "DuckFace/beat",
       "model": "circle",
       "material": "lightRed",
-      "hp": 1700,
+      "hp": 2300,
       "introMovement": true,
       "x": 0.5,
       "scale": 2,
-      "y": 0.5
+      "y": 0.9
     },
     {
       "time": 82.6,
@@ -774,7 +774,7 @@
       "invul": true,
       "canCollide": false,
       "introMovement": false,
-      "x": 0,
+      "x": -0.1,
       "y": 0.5,
       "rotation": 90
     },
@@ -788,7 +788,7 @@
       "canCollide": false,
       "introMovement": false,
       "x": 0.5,
-      "y": 1,
+      "y": 1.1,
       "rotation": 0
     },
     {
@@ -801,7 +801,7 @@
       "canCollide": false,
       "introMovement": false,
       "x": 0.25,
-      "y": 1,
+      "y": 1.1,
       "rotation": 0
     },
     {
@@ -814,7 +814,7 @@
       "canCollide": false,
       "introMovement": false,
       "x": 0.75,
-      "y": 0,
+      "y": -0.1,
       "rotation": 180
     },
     {
@@ -826,8 +826,8 @@
       "invul": true,
       "canCollide": false,
       "introMovement": false,
-      "x": 1,
-      "y": 1,
+      "x": 1.1,
+      "y": 1.1,
       "rotation": -45
     },
     {
@@ -840,7 +840,7 @@
       "canCollide": false,
       "introMovement": false,
       "x": 0,
-      "y": 1,
+      "y": 1.1,
       "rotation": 45
     },
     {
@@ -864,7 +864,7 @@
       "invul": true,
       "canCollide": false,
       "introMovement": false,
-      "x": 1,
+      "x": 1.1,
       "y": 0.75,
       "rotation": -90
     },
@@ -877,7 +877,7 @@
       "invul": true,
       "canCollide": false,
       "introMovement": false,
-      "x": 0,
+      "x": -0.1,
       "y": 0.25,
       "rotation": 90
     },
@@ -891,7 +891,7 @@
       "canCollide": false,
       "introMovement": false,
       "x": 0.5,
-      "y": 1,
+      "y": 1.1,
       "rotation": -45
     },
     {
@@ -904,7 +904,7 @@
       "canCollide": false,
       "introMovement": false,
       "x": 0.5,
-      "y": 1,
+      "y": 1.1,
       "rotation": 45
     },
     {

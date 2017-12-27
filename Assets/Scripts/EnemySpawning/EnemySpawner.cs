@@ -73,7 +73,7 @@ public class EnemySpawner : MonoBehaviour {
 		timeUntilNext = 2;
 		stageText.text = "";
 		musicText.text = "";
-		level = 6;
+		level = 0;
 
 		if(Application.isEditor)
 		{
@@ -205,6 +205,7 @@ public class EnemySpawner : MonoBehaviour {
 			e.GetComponent<Enemy>().introMovement = data.introMovement;
 			e.GetComponent<Enemy>().maxHP = data.hp;
 			e.GetComponent<Enemy>().hp = data.hp;
+			e.GetComponent<Enemy>().givesCharge = data.givesCharge;
 			e.GetComponent<Enemy>().boss = data.boss;
 			e.GetComponent<Enemy>().mat = material;
 			e.GetComponent<Enemy>().SetGoalPos(goalPos);

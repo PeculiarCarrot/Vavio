@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using GameAnalyticsSDK;
 
 public class Player : Ship {
@@ -19,6 +20,7 @@ public class Player : Ship {
 	[HideInInspector]
 	public bool wasDebug;
 	private static Texture livesTexture, progressTexture;
+	public Image chargeImage;
 	private bool regenerating;
 
 	private float dieTimer, dieTime = 4f;
@@ -27,6 +29,8 @@ public class Player : Ship {
 	private static GameObject deathEffect;
 
 	private Rigidbody body;
+	private float charge;
+	private float maxCharge = 100;
 
 	// Use this for initialization
 	public override void DoStart () {
@@ -38,6 +42,11 @@ public class Player : Ship {
 		Time.timeScale = 1;
 		if(deathEffect == null)
 			deathEffect = Resources.Load<GameObject>("Prefabs/Effects/deathEffect");
+	}
+
+	public void AddCharge(float amount)
+	{
+		charge += amount;
 	}
 
 	public bool IsDying()
@@ -63,6 +72,9 @@ public class Player : Ship {
     	{
     		 GUI.DrawTexture(new Rect(30 + (size + 20) * i, Screen.height - 56, size, size), livesTexture);
 		}
+		charge = Mathf.Clamp(charge, 0, maxCharge);
+		chargeImage.fillAmount = (charge / maxCharge);
+
 		if(debug)
 			GUI.Label(new Rect(0, 0, 100, 100), ""+(int)(1.0f / (Time.smoothDeltaTime/Time.timeScale)));    
     }
@@ -121,6 +133,11 @@ public class Player : Ship {
 		regenerating = true;
 	}
 
+	public void UseAbility()
+	{
+		
+	}
+
 	// Update is called once per frame
 	public void Update () {
 		dieTimer -= 1 / 60f;
@@ -172,6 +189,9 @@ public class Player : Ship {
 	        		regenerating = false;
 	        	}
 	        }
+
+			if (Input.GetKeyDown(KeyCode.Mouse1) && charge >= maxCharge)
+				UseAbility();
 
 			transform.position = new Vector3(Mathf.Clamp(transform.position.x, Stage.minX, Stage.maxX),
 				Mathf.Clamp(transform.position.y, Stage.minY, Stage.maxY), transform.position.z);

@@ -15,6 +15,8 @@ public class BulletProperties : MonoBehaviour {
 	private float dieTimer, dieTime = 1f;
 	private bool dying;
 
+	private float edgeDist = 2;
+
 	public void Awake()
 	{
 		startScale = transform.localScale;
@@ -33,7 +35,7 @@ public class BulletProperties : MonoBehaviour {
 		dieTimer -= Time.deltaTime;
 		if (lifetime <= 0 && !dying)
 			Die(true);
-		if (destroyOnExitStage && (transform.position.x < Stage.minX - 2 || transform.position.y < Stage.minY - 2 || transform.position.x > Stage.maxX + 2 || transform.position.y > Stage.maxY + 2))
+		if (destroyOnExitStage && (transform.position.x < Stage.minX - edgeDist || transform.position.y < Stage.minY - edgeDist || transform.position.x > Stage.maxX + edgeDist || transform.position.y > Stage.maxY + edgeDist))
 			Die(false);
 		if (dieTimer <= 0 && dying)
 			Die(false);

@@ -12,6 +12,8 @@ public class Enemy : ShooterBase {
 	private static GameObject bossDeathEffect;
 	//The death effect prefab for regular enemies
 	private static GameObject enemyDeathEffect;
+	//The death effect prefab for regular enemies
+	private static GameObject chargePoint;
 
 
 	//Whether or not the enemy is doing the automatic enter/exit stage animation
@@ -49,6 +51,10 @@ public class Enemy : ShooterBase {
 	//Our starting and maximum HP
 	public float maxHP = 100;
 	public float hp;
+
+	//Whether or not we give charge when we're shot
+	public bool givesCharge;
+
 	//Whether we are flashing from taking damage
 	private bool flashing;
 
@@ -132,6 +138,8 @@ public class Enemy : ShooterBase {
 			bossDeathEffect = Resources.Load<GameObject>("Prefabs/Effects/bossDeathEffect");
 		if(enemyDeathEffect == null)
 			enemyDeathEffect = Resources.Load<GameObject>("Prefabs/Effects/enemyDeathEffect");
+		if(chargePoint == null)
+			chargePoint = Resources.Load<GameObject>("Prefabs/chargePoint");
 	}
 
 	public bool IsInvincible()
@@ -216,6 +224,14 @@ public class Enemy : ShooterBase {
 		}
 		else
 			EnemyAudio.Play(EnemyAudio.Instance.hitWhileInvul, .2f);
+		if(givesCharge || hp <= 0)
+			SpawnChargePoint(hp <= 0 ? 2 : 1);
+	}
+
+	private void SpawnChargePoint(float value)
+	{
+		GameObject o = Instantiate(chargePoint, transform.position, chargePoint.transform.rotation);
+		o.GetComponent<ChargePoint>().charge = value;
 	}
 
 	//Used to draw boss health bar
