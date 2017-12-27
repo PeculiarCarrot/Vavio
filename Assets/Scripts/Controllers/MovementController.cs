@@ -150,6 +150,11 @@ public class MovementController : ScriptController {
 		}
 	}
 
+	public bool TargetExists()
+	{
+		return target != null;
+	}
+
 	private GameObject GetNearestEnemy()
 	{
 		List<GameObject> enemies = stage.spawner.GetComponent<EnemySpawner>().GetLiveEnemies();

@@ -30,7 +30,9 @@ public class Player : Ship {
 
 	private Rigidbody body;
 	private float charge;
-	private float maxCharge = 100;
+	private float maxCharge = 1;
+
+	private Ability currentAbility;
 
 	// Use this for initialization
 	public override void DoStart () {
@@ -135,7 +137,9 @@ public class Player : Ship {
 
 	public void UseAbility()
 	{
-		
+		charge = 0;
+		currentAbility = new HomingAbility(this);
+		currentAbility.Begin();
 	}
 
 	// Update is called once per frame
@@ -157,6 +161,14 @@ public class Player : Ship {
 				ApplyPowerUp(PowerUp.PowerUpType.None, 0);
 			}
 		}
+
+		if (currentAbility != null)
+		{
+			currentAbility.Update();
+			if (currentAbility.IsFinished())
+				currentAbility = null;
+		}
+
 		if(!dying)
 		{
 			if(invincibilityDuration > 0)

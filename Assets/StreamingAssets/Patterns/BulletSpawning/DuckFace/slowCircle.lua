@@ -14,7 +14,7 @@ function init(pattern, id)
 			bullet.speed = 2
 			bullet.speedMultiplier = .9995
 			bullet.type = "capsule"
-			bullet.material = "purple"
+			bullet.material = "darkAqua"
 			bullet.angle = i
 			bullet.scale = 1
 			pattern.SpawnBullet(bullet)

@@ -83,8 +83,8 @@ public class PatternController : ScriptController{
 
 	public void Reset()
 	{
-		if (script != null)
-			CallLuaFunction("init", this, GetInstanceID());
+		//if (script != null)
+		//	CallLuaFunction("init", this, GetInstanceID());
 		leave = 0;
 		script = null;
 		patternPath = null;
