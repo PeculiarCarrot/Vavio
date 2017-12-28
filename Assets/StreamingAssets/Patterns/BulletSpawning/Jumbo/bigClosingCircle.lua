@@ -16,7 +16,7 @@ function init(pattern, id)
 	dist = pattern.StageWidth() / 2
 	dist2 = dist + 2
 	dist3 = dist + 4
-	bullets = 15
+	bullets = 25
 
 		for i = 0, 360, (360 / bullets) do
 			bullet = pattern.NewBullet()

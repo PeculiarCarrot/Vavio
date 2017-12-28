@@ -73,7 +73,7 @@ public class EnemySpawner : MonoBehaviour {
 		timeUntilNext = 2;
 		stageText.text = "";
 		musicText.text = "";
-		level = 0;
+		level = 6;
 
 		if(Application.isEditor)
 		{
@@ -99,7 +99,7 @@ public class EnemySpawner : MonoBehaviour {
 		preparingLevel = false;
 		spawns = LevelSpawnData.FromJSON(new JSONObject(spawnData[level].text));
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
-		stage.GetComponent<AudioSource>().time = 0;
+		stage.GetComponent<AudioSource>().time = 129;
 		stage.GetComponent<AudioSource>().Play();
 		stage.GetComponent<Stage>().Begin();
 		timeUntilNext = 9999999f;
@@ -266,6 +266,11 @@ public class EnemySpawner : MonoBehaviour {
 			else if (Input.GetKeyDown(KeyCode.Alpha6))
 			{
 				level = 5;
+				PrepareLevel();
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha7))
+			{
+				level = 6;
 				PrepareLevel();
 			}
 		}

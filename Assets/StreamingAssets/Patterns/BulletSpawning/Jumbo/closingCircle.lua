@@ -15,7 +15,7 @@ function init(pattern, id)
 	goalY = goalY - pattern.GetY()
 	dist = 20
 
-		for i = 0, 360, (360 / 10) do
+		for i = 0, 360, (360 / 15) do
 			bullet = pattern.NewBullet()
 			bullet.speed = 9
 			bullet.speedMultiplier = .997

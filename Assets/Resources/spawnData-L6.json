@@ -141,6 +141,18 @@
       "rotation": 90
     },
     {
+      "time": 38.7,
+      "leave": 50.1,
+      "pattern": "Jumbo/beat",
+      "model": "circle",
+      "material": "darkAqua",
+      "hp": 1000,
+      "x": 0.9,
+      "y": 0.5,
+      "from": "right",
+      "rotation": 90
+    },
+    {
       "time": 54.9,
       "leave": 85.3,
       "pattern": "Jumbo/bigBeat",
@@ -151,6 +163,82 @@
       "hp": 2000,
       "x": 0.5,
       "y": 0.9
+    },
+    {
+      "time": 92.5,
+      "leave": 126.0,
+      "pattern": "Jumbo/piano",
+      "model": "circle",
+      "material": "transparent",
+      "scale": 2,
+      "invulnerable": true,
+      "canCollide": false,
+      "x": 0,
+      "y": 1,
+      "rotation": 45
+    },
+    {
+      "time": 92.5,
+      "leave": 126.0,
+      "pattern": "Jumbo/piano",
+      "model": "circle",
+      "material": "transparent",
+      "scale": 2,
+      "invulnerable": true,
+      "canCollide": false,
+      "x": 1,
+      "y": 1,
+      "rotation": -45
+    },
+    {
+      "time": 114.2,
+      "leave": 126.0,
+      "pattern": "Jumbo/snare",
+      "model": "circle",
+      "material": "orange",
+      "scale": 2,
+      "hp": 1900,
+      "x": 0.5,
+      "y": 0.9,
+    },
+    {
+      "time": 130.5,
+      "leave": 160,
+      "pattern": "Jumbo/side",
+      "model": "circle",
+      "material": "aqua",
+      "scale": 2,
+      "hp": 1900,
+      "from": "left",
+      "x": 0.1,
+      "y": 0.5,
+      "rotation": 90
+    },
+    {
+      "time": 130.5,
+      "leave": 160,
+      "pattern": "Jumbo/side",
+      "model": "circle",
+      "material": "aqua",
+      "scale": 2,
+      "hp": 1900,
+      "from": "right",
+      "x": 0.9,
+      "y": 0.5,
+      "rotation": -90
+    },
+    {
+      "time": 145.8,
+      "leave": 160,
+      "pattern": "Jumbo/weakSnare",
+      "model": "circle",
+      "material": "orange",
+      "scale": 2,
+      "hp": 2500,
+      "from": "up",
+      "x": 0.5,
+      "y": 0.9,
+      "rotation": 0
     },
   ]
 }

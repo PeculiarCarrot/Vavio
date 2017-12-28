@@ -13,7 +13,7 @@ function update(pattern, id, deltaTime)
 
 	if(pattern.GetStageTime() >= fireTimes[id][fireIndex[id]]) then
 		fireIndex[id] = fireIndex[id] + 1
-		numBullets = pattern.Math().RandomRangeInt(12, 30)
+		numBullets = pattern.Math().RandomRangeInt(10, 23)
 
 		angle = pattern.Math().RandomRange(0, 360)
 		for i = angle, angle + 360, (360 / numBullets) do
