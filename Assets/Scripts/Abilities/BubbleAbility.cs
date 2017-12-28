@@ -14,11 +14,13 @@ public class BubbleAbility : Ability {
 		GameObject prefab = Resources.Load<GameObject>("Prefabs/bubbleAbility");
 		shield = GameObject.Instantiate(prefab, player.transform.position, prefab.transform.rotation);
 		shield.GetComponent<BubbleAbilityObject>().SetTarget(player.transform);
+		Time.timeScale = .5f;
 	}
 
 	public override void End()
 	{
 		GameObject.Destroy(shield);
+		Time.timeScale = 1f;
 	}
 
 	public override void DoUpdate()

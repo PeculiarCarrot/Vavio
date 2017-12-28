@@ -118,7 +118,7 @@ public class Stage : MonoBehaviour {
 		float f = Time.timeScale;
 		if (!player.GetComponent<Player>().IsDying())
 		{
-			if(Application.isEditor)
+			if(Application.isEditor && !player.GetComponent<Player>().IsUsingAbility())
 			{
 				if (Input.GetKey("right"))
 				{

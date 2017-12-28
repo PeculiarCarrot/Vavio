@@ -34,6 +34,8 @@ public class AbilityPicker : MonoBehaviour {
 				return new HomingAbility(player);
 			case "laser":
 				return new LaserAbility(player);
+			case "time":
+				return new TimeAbility(player);
 		}
 		return null;
 	}
