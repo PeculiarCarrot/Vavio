@@ -240,5 +240,31 @@
       "y": 0.9,
       "rotation": 0
     },
+    {
+      "time": 161,
+      "leave": 189.7,
+      "pattern": "Jumbo/denseTurningCircle",
+      "model": "cube",
+      "material": "red",
+      "scale": 2,
+      "invul": true,
+      "from": "up",
+      "x": 0.5,
+      "y": 0.9,
+      "rotation": 45
+    },
+    {
+      "time": 175.8,
+      "leave": 189.7,
+      "pattern": "Jumbo/circle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.9,
+      "rotation": 45
+    },
   ]
 }
