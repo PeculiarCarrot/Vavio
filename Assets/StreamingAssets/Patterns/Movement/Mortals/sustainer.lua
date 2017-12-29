@@ -19,6 +19,7 @@ function update(movement, id, deltaTime)
 		init(movement, id)
 	end
 	angle[id] = angle[id] + movement.speed * deltaTime
+	movement.SetRotation(angle[id])
 	movement.SetPos(pos[id]["x"] + movement.Math().Cos(movement.Math().Deg2Rad * angle[id]) * radius,
 		pos[id]["y"] + movement.Math().Sin(movement.Math().Deg2Rad * angle[id]) * radius)
 end

@@ -404,6 +404,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 7791ba5d1e5520f408a6adb5f03f0d5d, type: 3}
   - {fileID: 4900000, guid: dbd440a21069abd45b3fb329a5c31d89, type: 3}
   - {fileID: 4900000, guid: 78f4e72af08406a44996cdfb4839ef9a, type: 3}
+  - {fileID: 4900000, guid: b00713de7c94b8242841a17acf44f721, type: 3}
   level: 1
   spawningEnabled: 1
   stage: {fileID: 1828452933}
@@ -1358,6 +1359,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c4a1f7643eb8f034caff2ed496929b2f, type: 3}
   - {fileID: 8300000, guid: de1f9f019d4ddaa40afe60068612d8ec, type: 3}
   - {fileID: 8300000, guid: 09c2917f08b65f244a1d778d1dd20a85, type: 3}
+  - {fileID: 8300000, guid: 7cde4a2fa58e7d54caea50d334824817, type: 3}
   song: {fileID: 1828452935}
 --- !u!4 &1828452934
 Transform:

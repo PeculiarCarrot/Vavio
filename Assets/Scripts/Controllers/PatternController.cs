@@ -132,6 +132,16 @@ public class PatternController : ScriptController{
 		blank = false;
 	}
 
+	public float StageMinX()
+	{
+		return Stage.minX;
+	}
+
+	public float StageMinY()
+	{
+		return Stage.minY;
+	}
+
 	public void Print(string message)
 	{
 		Debug.Log(message);

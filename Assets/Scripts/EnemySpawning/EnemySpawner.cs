@@ -35,6 +35,7 @@ public class EnemySpawner : MonoBehaviour {
 			enemyMaterials.Add("orange", GetEnemyMaterial("orange"));
 			enemyMaterials.Add("aqua", GetEnemyMaterial("aqua"));
 			enemyMaterials.Add("darkAqua", GetEnemyMaterial("darkAqua"));
+			enemyMaterials.Add("darkRed", GetEnemyMaterial("darkRed"));
 			enemyMaterials.Add("purple", GetEnemyMaterial("purple"));
 			enemyMaterials.Add("darkPurple", GetEnemyMaterial("darkPurple"));
 			enemyMaterials.Add("white", GetEnemyMaterial("white"));
