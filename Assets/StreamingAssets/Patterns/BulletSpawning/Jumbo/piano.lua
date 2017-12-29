@@ -15,14 +15,20 @@ function update(pattern, id, deltaTime)
 		fireIndex[id] = fireIndex[id] + 1
 		numBullets = pattern.Math().RandomRange(4, 6)
 		anglePer[id] = pattern.Math().RandomRange(15, 30)
+		orange = pattern.Math().RandomValue() < .5
 		for i=0, numBullets-1, 1 do
 			bullet = pattern.NewBullet()
 			bullet.speed = 2
 			bullet.scale = .5
 			bullet.type = "circle"
+			if(orange) then
+				bullet.material = "aqua"
+				bullet.z = 1
+			else
+				bullet.material = "darkAqua"
+			end
 			--bullet.speedMultiplier = .998
 			bullet.angle = i * anglePer[id] - ((numBullets-1) * anglePer[id]) / 2
-			bullet.material = "darkAqua"
 			pattern.SpawnBullet(bullet)
 		end
 	end

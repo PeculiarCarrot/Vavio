@@ -16,6 +16,7 @@ public static class BulletFactory {
 		MovementController mc = bullet.GetComponent<MovementController>();
 		mc.patternPath = b.movement;
 		mc.speed = b.speed;
+		mc.turn = b.turn;
 		mc.speedMultiplier = b.speedMultiplier;
 		mc.synced = b.synced;
 		bullet.GetComponent<PatternController>().patternPath = b.pattern;

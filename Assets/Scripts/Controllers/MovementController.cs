@@ -15,7 +15,7 @@ public class MovementController : ScriptController {
 	[HideInInspector]
 	public bool ignoreAngle;
 	[HideInInspector]
-	public float speed, speedMultiplier;
+	public float speed, speedMultiplier, turn;
 	[HideInInspector]
 	public string targetType;
 	private GameObject target;
@@ -41,6 +41,7 @@ public class MovementController : ScriptController {
 		script = null;
 		patternPath = null;
 		blank = true;
+		turn = 0;
 	}
 
 	public MovementController(){
@@ -329,6 +330,7 @@ public class MovementController : ScriptController {
 		}
 
 		transform.position = transform.position + realMove * Time.deltaTime;
+		transform.Rotate(new Vector3(0, 0, turn * Time.deltaTime));
 		move *= friction;
 		move *= speedMultiplier;
 	}

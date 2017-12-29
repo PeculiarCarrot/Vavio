@@ -714,7 +714,7 @@
       "invul": true,
       "canCollide": false,
       "introMovement": false,
-      "x": 0.2,
+      "x": 0.0,
       "y": 0.5
     },
     {
@@ -726,7 +726,7 @@
       "invul": true,
       "canCollide": false,
       "introMovement": false,
-      "x": 0.8,
+      "x": 1,
       "y": 0.5
     },
     {
@@ -818,7 +818,7 @@
       "rotation": 180
     },
     {
-      "time": 87.5,
+      "time": 87.2,
       "leave": 109.1,
       "pattern": "General/noDelayBarrier",
       "model": "circle",

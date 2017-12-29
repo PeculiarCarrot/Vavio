@@ -148,6 +148,7 @@ public class Stage : MonoBehaviour {
 				song.Pause();
 		}
 		Time.timeScale = f;
+		Time.fixedDeltaTime = (1 / 60f) * f;
 		song.pitch = Time.timeScale;
 
 		 if(Input.GetKeyDown(KeyCode.Escape)){

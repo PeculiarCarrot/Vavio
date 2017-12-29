@@ -18,7 +18,7 @@ function init(pattern, id)
 	numSets[id] = 3
 	spacePerSet[id] = 360 / numSets[id]
 
-	currentAngle[id] = pattern.Math().RandomRange(0, 360)
+	currentAngle[id] = pattern.GetAngle()
 	currentAngle2[id] = 0
 	currentSpinSpeed[id] = 0
 	currentSpinSpeed2[id] = 0
