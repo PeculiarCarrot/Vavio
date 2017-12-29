@@ -1,0 +1,72 @@
+{
+	"spawns": [
+    {
+      "time": 1.457,
+      "leave": 1000,
+      "movement": "Mortals/sustainer",
+      "z": -1,
+      "model": "circle",
+      "material": "orange",
+      "hp": 2000,
+      "introMovement": false,
+      "scale": 1,
+      "x": 0.5,
+      "y": 0.95,
+      "rotation": 90
+    },
+    {
+      "time": 4.08,
+      "leave": 1000,
+      "movement": "Mortals/sustainer",
+      "z": -1,
+      "model": "circle",
+      "material": "red",
+      "hp": 2000,
+      "introMovement": false,
+      "scale": 1,
+      "x": 0.5,
+      "y": 0.95,
+      "rotation": 90
+    },
+    {
+      "time": 6.76,
+      "leave": 1000,
+      "movement": "Mortals/sustainer",
+      "z": -1,
+      "model": "circle",
+      "material": "purple",
+      "hp": 2000,
+      "introMovement": false,
+      "scale": 1,
+      "x": 0.5,
+      "y": 0.95,
+      "rotation": 90
+    },
+    {
+      "time": 9.4,
+      "leave": 1000,
+      "movement": "Mortals/sustainer",
+      "z": -1,
+      "model": "circle",
+      "material": "aqua",
+      "hp": 2000,
+      "introMovement": false,
+      "scale": 1,
+      "x": 0.5,
+      "y": 0.95,
+      "rotation": 90
+    },
+    {
+      "time": 10.7,
+      "leave": 1000,
+      "z": -1,
+      "model": "cube",
+      "material": "white",
+      "invul": true,
+      "scale": 1,
+      "x": 0.5,
+      "y": 0.8,
+      "rotation": 45
+    },
+  ]
+}

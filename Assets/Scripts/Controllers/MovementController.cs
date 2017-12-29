@@ -91,6 +91,27 @@ public class MovementController : ScriptController {
 		return fireTimes;
 	}
 
+	public float StageWidth()
+	{
+		return Stage.width;
+	}
+
+	public float StageHeight()
+	{
+		return Stage.height;
+	}
+
+	public float StageMinX()
+	{
+		return Stage.minX;
+	}
+
+	public float StageMinY()
+	{
+		return Stage.minY;
+	}
+
+
 	// Use this for initialization
 	public void Init () {
 		if (blank)

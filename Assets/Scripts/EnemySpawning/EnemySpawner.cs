@@ -73,7 +73,7 @@ public class EnemySpawner : MonoBehaviour {
 		timeUntilNext = 2;
 		stageText.text = "";
 		musicText.text = "";
-		level = 6;
+		level = 7;
 
 		if(Application.isEditor)
 		{
@@ -99,7 +99,7 @@ public class EnemySpawner : MonoBehaviour {
 		preparingLevel = false;
 		spawns = LevelSpawnData.FromJSON(new JSONObject(spawnData[level].text));
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
-		stage.GetComponent<AudioSource>().time = 160;
+		stage.GetComponent<AudioSource>().time = 0;
 		stage.GetComponent<AudioSource>().Play();
 		stage.GetComponent<Stage>().Begin();
 		timeUntilNext = 9999999f;
@@ -135,6 +135,9 @@ public class EnemySpawner : MonoBehaviour {
 				break;
 			case 6:
 				musicText.text = "Alex Skrindo - Jumbo";
+				break;
+			case 7:
+				musicText.text = "Warriyo - Mortals (feat. Laura Brehm)";
 				break;
 			default:
 				musicText.text = "give the song a name you dope";
@@ -271,6 +274,11 @@ public class EnemySpawner : MonoBehaviour {
 			else if (Input.GetKeyDown(KeyCode.Alpha7))
 			{
 				level = 6;
+				PrepareLevel();
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha8))
+			{
+				level = 7;
 				PrepareLevel();
 			}
 		}
