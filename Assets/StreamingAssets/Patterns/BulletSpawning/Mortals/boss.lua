@@ -39,6 +39,7 @@ function update(pattern, id, deltaTime)
 				bullet.material = "aqua"
 			end
 			bullet.scale = .5
+			bullet.z = 2
 			pattern.SpawnBullet(bullet)
 		end
 	end

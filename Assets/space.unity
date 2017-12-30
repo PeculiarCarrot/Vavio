@@ -411,6 +411,7 @@ MonoBehaviour:
   timeUntilNext: 0
   stageText: {fileID: 1247935489}
   musicText: {fileID: 1504215723}
+  reasonForLevelChange: 0
 --- !u!4 &723507421
 Transform:
   m_ObjectHideFlags: 0
@@ -1223,7 +1224,7 @@ Prefab:
     - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
         type: 2}
       propertyPath: debug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
         type: 2}
@@ -1385,7 +1386,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2e6bc248eb50f5d498bb7321edd3b85f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.222
+  m_Volume: 0.157
   m_Pitch: 1
   Loop: 0
   Mute: 0

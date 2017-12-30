@@ -16,6 +16,8 @@ public class BulletProperties : MonoBehaviour {
 	private bool dying;
 
 	private float edgeDist = 2;
+	private float z;
+	private Renderer renderer;
 
 	public void Awake()
 	{
@@ -26,13 +28,13 @@ public class BulletProperties : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		lifetime -= Time.deltaTime;
-		dieTimer -= Time.deltaTime;
+		if(dying)
+			dieTimer -= Time.deltaTime;
 		if (lifetime <= 0 && !dying)
 			Die(true);
 		if (destroyOnExitStage && (transform.position.x < Stage.minX - edgeDist || transform.position.y < Stage.minY - edgeDist || transform.position.x > Stage.maxX + edgeDist || transform.position.y > Stage.maxY + edgeDist))
@@ -45,6 +47,9 @@ public class BulletProperties : MonoBehaviour {
 			scale = Vector3.Lerp(Vector3.zero, transform.localScale, dieTimer / dieTime);
 			transform.localScale = scale;
 		}
+		Vector3 newPos = renderer.transform.position;
+		newPos.z = z;
+		renderer.transform.position = newPos;
 	}
 
 	public void Reset()
@@ -65,10 +70,16 @@ public class BulletProperties : MonoBehaviour {
 
 	public void Init()
 	{
+		renderer = GetComponentInChildren<Renderer>();
 		if (GetComponent<MovementController>() != null)
 			GetComponent<MovementController>().Init();
 		if (GetComponent<PatternController>() != null)
 			GetComponent<PatternController>().Init();
+		z = renderer.transform.position.z;
+	}
+
+	void FixedUpdate()
+	{
 	}
 
 	public void Die(bool animated)

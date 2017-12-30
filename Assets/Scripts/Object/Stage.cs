@@ -18,6 +18,9 @@ public class Stage : MonoBehaviour {
 	public AudioClip[] songs;
 	public AudioSource song;
 
+	private bool hasFocus = true;
+	private float prePauseTimeScale;
+
 	//The living bullets and entities right now
 	private static List<GameObject> bullets = new List<GameObject>();
 	private static List<GameObject> enemies = new List<GameObject>();
@@ -107,7 +110,25 @@ public class Stage : MonoBehaviour {
 	{
 		time = song.time - beginTime;
 		deltaTime = (float)(time - lastTime);
+
+		if (!hasFocus)
+		{
+			deltaTime = 0;
+			Time.timeScale = 0;
+		}
 		lastTime = time;
+	}
+		
+	void OnApplicationFocus(bool hasFocus)
+	{
+		this.hasFocus = hasFocus;
+		Time.timeScale = prePauseTimeScale;
+	}
+
+	void OnApplicationPause(bool hasFocus)
+	{
+		this.hasFocus = hasFocus;
+		prePauseTimeScale = Time.timeScale;
 	}
 
 	private float timeVelocity;
@@ -147,7 +168,7 @@ public class Stage : MonoBehaviour {
 			if (song.isPlaying)
 				song.Pause();
 		}
-		Time.timeScale = f;
+		Time.timeScale = hasFocus ? f : 0;
 		Time.fixedDeltaTime = (1 / 60f) * f;
 		song.pitch = Time.timeScale;
 

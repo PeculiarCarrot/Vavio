@@ -17,13 +17,14 @@ function update(pattern, id, deltaTime)
 	if(pattern.GetStageTime() >= fireTimes[id][fireIndex[id]]) then
 		fireIndex[id] = fireIndex[id] + 1
 
-		for i = angle[id], angle[id] + 360, 18 do
+		for i = angle[id], angle[id] + 360, (360/15) do
 			bullet = pattern.NewBullet()
 			bullet.speed = 2
 			bullet.type = "circle"
 			bullet.material = "darkPurple"
 			bullet.angle = i
 			bullet.scale = 1.4
+			bullet.z = 1
 			bullet.speedMultiplier = .999
 			pattern.SpawnBullet(bullet)
 		end

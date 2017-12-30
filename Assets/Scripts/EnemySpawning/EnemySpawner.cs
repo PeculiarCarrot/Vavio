@@ -28,6 +28,7 @@ public class EnemySpawner : MonoBehaviour {
 			enemyModels.Add("pepper", GetEnemyModel("pepper"));
 			enemyModels.Add("capsule", GetEnemyModel("capsule"));
 			enemyModels.Add("cube", GetEnemyModel("cube"));
+			enemyModels.Add("mortalsBoss", GetEnemyModel("mortalsBoss"));
 
 			//Load in enemy materials
 			enemyMaterials.Add("red", GetEnemyMaterial("red"));
@@ -68,6 +69,11 @@ public class EnemySpawner : MonoBehaviour {
 	public Text stageText, musicText;
 	private float prepareLevelTimer, prepareLevelTime = 4;
 	private bool preparingLevel = false;
+	public int reasonForLevelChange;
+
+	public const int DEATH = 0;
+	public const int COMPLETE = 1;
+	public const int MANUAL = 2;
 
 	void Start()
 	{
@@ -82,7 +88,7 @@ public class EnemySpawner : MonoBehaviour {
 			timeUntilNext = 0;
 		}
 
-		if(PlayerPrefs.HasKey("diedOnLevel"))
+		if (PlayerPrefs.HasKey("diedOnLevel"))
 		{
 			level = PlayerPrefs.GetInt("diedOnLevel");
 			PlayerPrefs.DeleteKey("diedOnLevel");
@@ -94,6 +100,7 @@ public class EnemySpawner : MonoBehaviour {
 
 	public void BeginLevel()
 	{
+		Debug.Log("START SONG " + level);
 		GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Song " + level, 0);
 		stageText.text = "";
 		musicText.text = "";
@@ -185,8 +192,6 @@ public class EnemySpawner : MonoBehaviour {
 		else if(data.from == "up")
 			pos.y = Stage.maxY + 1;
 		pos.z = data.z;
-		if (pos.z == float.MaxValue)
-			pos.z = 0;
 
 		GameObject e = Instantiate(model, pos, Quaternion.Euler(new Vector3(model.transform.eulerAngles.x, model.transform.eulerAngles.y, model.transform.eulerAngles.z + data.rotation)));
 		e.transform.localScale = e.transform.localScale * data.scale;
@@ -194,9 +199,9 @@ public class EnemySpawner : MonoBehaviour {
 		foreach (Renderer renderer in e.GetComponentsInChildren<Renderer>())
 		{
 			renderer.material = material;
-			Vector3 v = e.transform.position;
+			Vector3 v = renderer.transform.localPosition;
 			v.z = data.z;
-			renderer.gameObject.transform.position = v;
+			renderer.transform.localPosition = v;
 		}
 
 		if(model.GetComponent<Enemy>() != null)
@@ -316,17 +321,25 @@ public class EnemySpawner : MonoBehaviour {
 		}
 		if((prevTime > stage.GetComponent<AudioSource>().time || timeUntilNext <= 0) && !preparingLevel)
 		{
+			if(prevTime > stage.GetComponent<AudioSource>().time)
+			{
+				reasonForLevelChange = COMPLETE;
+			}
 			//Debug.Log(prevTime + "    "+ stage.GetComponent<AudioSource>().time);
 			prevTime = 0;
-			level++;
 			stage.GetComponent<AudioSource>().time = 0;
-			if (level >= stage.GetComponent<Stage>().songs.Length)
+			if (level + 1 >= stage.GetComponent<Stage>().songs.Length)
 			{
 				Application.Quit();
 			}
 			else
 			{
-				GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Song " + level, Mathf.RoundToInt(Stage.stage.player.GetComponent<Player>().hp));
+				if(reasonForLevelChange == COMPLETE)
+				{
+					Debug.Log("COMPLETE SONG " + level+" with HP: "+Mathf.RoundToInt(Stage.stage.player.GetComponent<Player>().hp));
+					GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Song " + level, Mathf.RoundToInt(Stage.stage.player.GetComponent<Player>().hp));
+				}
+				level++;
 				PrepareLevel();
 			}
 		}

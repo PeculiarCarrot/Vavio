@@ -37,6 +37,7 @@ function init(pattern, id)
 		elseif color == 3 then
 			bullet.material = "aqua"
 		end
+		bullet.z = 2
 		bullet.scale = 1
 		pattern.SpawnBullet(bullet)
 	end

@@ -18,14 +18,16 @@ function update(pattern, id, deltaTime)
 	if(initialized[id] == nil) then
 		init(movement, id)
 	end
-	bullet = pattern.NewBullet()
-	bullet.speed = 1
-	bullet.lifetime = 2
-	bullet.angle = -90
-	bullet.z = 2
-	bullet.type = "capsule"
-	bullet.material = "white"
-	pattern.SpawnBullet(bullet)
+	if pattern.GetStageTime() < 85 then
+		bullet = pattern.NewBullet()
+		bullet.speed = 1
+		bullet.lifetime = 2
+		bullet.angle = -90
+		bullet.z = 2
+		bullet.type = "capsule"
+		bullet.material = "white"
+		pattern.SpawnBullet(bullet)
+	end
 	if(fireTimes[id] == nil) then
 		fireTimes[id] = pattern.GetFireTimes(1.5, 42.7)
 	end
@@ -40,17 +42,20 @@ function update(pattern, id, deltaTime)
 		if color > 3 then color = 0 end
 
 		angle = pattern.Math().RandomRange(0, 360)
-		for i = angle, angle + 360, (360 / numBullets) do
-			bullet = pattern.NewBullet()
-			bullet.speed = 3
-			bullet.speedMultiplier = .999
-			bullet.angle = i
-			bullet.type = "capsule"
-			bullet.turn = turn
-			bullet.material = "white"
-			bullet.scale = 1
-			bullet.lifetime = 10
-			pattern.SpawnBullet(bullet)
+		if pattern.GetStageTime() < 85 then
+			for i = angle, angle + 360, (360 / numBullets) do
+				bullet = pattern.NewBullet()
+				bullet.speed = 3
+				bullet.speedMultiplier = .999
+				bullet.angle = i
+				bullet.type = "capsule"
+				bullet.turn = turn
+				bullet.material = "white"
+				bullet.scale = 1
+				bullet.z = 1
+				bullet.lifetime = 10
+				pattern.SpawnBullet(bullet)
+			end
 		end
 	end
 end

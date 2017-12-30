@@ -115,12 +115,14 @@ public class Player : Ship {
 		e.GetComponent<LineRenderer>().material = GetComponentInChildren<MeshRenderer>().material;
 		Vector3 newPos = new Vector3(999, 999, 999);
 		transform.position = newPos;
+		Debug.Log("FAIL SONG " + spawner.level + " at: " + Mathf.RoundToInt(Stage.stage.song.time));
 		GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Song " + spawner.level, Mathf.RoundToInt(Stage.stage.song.time));
 	}
 
 	private void Restart()
 	{
 		PlayerPrefs.SetInt("diedOnLevel", spawner.level);
+		PlayerPrefs.SetInt("reasonForLevelChange", EnemySpawner.DEATH);
 		PlayerPrefs.Save();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
