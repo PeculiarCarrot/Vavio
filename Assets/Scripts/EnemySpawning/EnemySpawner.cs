@@ -80,12 +80,13 @@ public class EnemySpawner : MonoBehaviour {
 		timeUntilNext = 2;
 		stageText.text = "";
 		musicText.text = "";
-		level = 7;
+		level = 0;
 
 		if(Application.isEditor)
 		{
 			prepareLevelTime = .1f;
 			timeUntilNext = 0;
+			level = 7;
 		}
 
 		if (PlayerPrefs.HasKey("diedOnLevel"))

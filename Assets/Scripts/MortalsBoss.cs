@@ -38,7 +38,7 @@ public class MortalsBoss : MovementController {
 				transform.localScale *= 1 + .17f * Time.deltaTime;
 			transform.Rotate(0, 0, -60 * Time.deltaTime);
 
-			if(GetStageTime() > portalStart && portal.transform.localScale.x < 40)
+			if(GetStageTime() > portalStart && portal.transform.localScale.x < 70)
 			{
 				portal.transform.localPosition = new Vector3(0, 0, 60);
 				if (portalStartScale == Vector3.zero)
@@ -46,6 +46,12 @@ public class MortalsBoss : MovementController {
 				portal.transform.localScale *= 1 + .99f * Time.deltaTime;
 				portal.GetComponent<Renderer>().material = portalMaterial;
 			}
+		}
+		if(GetStageTime() > 219.4 && GetStageTime() < 221)
+		{
+			Vector3 newPos = transform.position;
+			newPos.y += 10 * Stage.deltaTime;
+			transform.position = newPos;
 		}
 	}
 }

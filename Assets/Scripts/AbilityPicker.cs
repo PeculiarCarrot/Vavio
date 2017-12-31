@@ -81,6 +81,10 @@ public class AbilityPicker : MonoBehaviour {
 		{
 			SetSelectedIndex(2);
 		}
+		if(Input.GetKeyDown(KeyCode.Alpha4))
+		{
+			SetSelectedIndex(3);
+		}
 		selectedIndex = Mathf.Clamp(selectedIndex, 0, abilities.Length - 1);
 	}
 

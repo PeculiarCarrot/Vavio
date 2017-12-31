@@ -9,7 +9,7 @@ public class TimeAbility : Ability {
 	public override void Begin()
 	{
 		SetTimeScale(.5f);
-		duration = 5 * Time.timeScale;
+		duration = 8 * Time.timeScale;
 	}
 
 	public override void End()

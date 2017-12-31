@@ -8,7 +8,7 @@ function init(movement, id)
 	movement.targetType = "player"
 	spd[id] = movement.Math().RandomValue() * 2 + 2
 	movement.friction = 1
-	spd[id] = 10
+	spd[id] = 15
 	turnSpd[id] = 1
 end
 

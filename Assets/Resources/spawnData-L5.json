@@ -924,9 +924,9 @@
     {
       "time": 168.9,
       "leave": 184,
-      "pattern": "Sunburst/beat",
+      "pattern": "Sunburst/endBeat",
       "model": "cube",
-      "material": "orange",
+      "material": "aqua",
       "x": 0.5,
       "y": 0.9,
       "hp": 1000,
