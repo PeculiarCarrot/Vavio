@@ -490,7 +490,7 @@
       "leave": 193.6,
       "model": "cube",
       "material": "transparent",
-      "pattern": "Mortals/boss",
+      "pattern": "Mortals/boss2",
       "introMovement": false,
       "invul": true,
       "canCollide": false,

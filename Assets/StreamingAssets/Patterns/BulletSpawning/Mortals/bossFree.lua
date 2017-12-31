@@ -27,7 +27,7 @@ function update(pattern, id, deltaTime)
 
 	if(pattern.GetStageTime() >= fireTimes[id][fireIndex[id]]) then
 		fireIndex[id] = fireIndex[id] + 1
-		numBullets = 5
+		numBullets = 3
 
 		angle = angle + deltaTime * 400
 		angle2 = angle2 - deltaTime * 400

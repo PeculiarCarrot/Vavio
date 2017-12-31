@@ -122,7 +122,7 @@ public class Stage : MonoBehaviour {
 	void OnApplicationFocus(bool hasFocus)
 	{
 		this.hasFocus = hasFocus;
-		Time.timeScale = prePauseTimeScale;
+		//Time.timeScale = prePauseTimeScale;
 	}
 
 	void OnApplicationPause(bool hasFocus)
