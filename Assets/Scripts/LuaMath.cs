@@ -7,10 +7,15 @@ public class LuaMath {
 	public float PI = Mathf.PI;
 	public float Rad2Deg = Mathf.Rad2Deg;
 	public float Deg2Rad = Mathf.Deg2Rad;
-	
+
 	public float RandomValue()
 	{
 		return Random.value;
+	}
+
+	public float Abs(float a)
+	{
+		return Mathf.Abs(a);
 	}
 
 	public float RandomRange(float x, float y)
