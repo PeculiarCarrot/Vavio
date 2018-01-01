@@ -1,0 +1,133 @@
+{
+"spawns": [
+    {
+      "time": 2.9,
+      "leave": 30,
+      "pattern": "Blank/lr",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 16.6,
+      "leave": 30,
+      "pattern": "Blank/ud",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 30.4,
+      "leave": 30,
+      "pattern": "Blank/drop",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 1
+    },
+    {
+      "time": 32.1,
+      "leave": 30,
+      "pattern": "Blank/drop",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 1
+    },
+    {
+      "time": 33.8,
+      "leave": 30,
+      "pattern": "Blank/drop",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 1
+    },
+    {
+      "time": 35.5,
+      "leave": 30,
+      "pattern": "Blank/drop",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 1
+    },
+    {
+      "time": 35.5,
+      "leave": 30,
+      "pattern": "Blank/drop",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 1
+    },
+    {
+      "time": 36.8,
+      "leave": 57.3,
+      "pattern": "Blank/curve",
+      "model": "cube",
+      "material": "orange",
+      "rotation": -90,
+      "hp": 1000,
+      "x": 0.5,
+      "y": 0.8
+    },
+    {
+      "time": 40.6,
+      "leave": 57.3,
+      "pattern": "Blank/lr",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 43.7,
+      "leave": 57.3,
+      "pattern": "Blank/curve",
+      "model": "cube",
+      "material": "orange",
+      "rotation": -90,
+      "hp": 1000,
+      "x": 0.3333,
+      "y": 0.8
+    },
+    {
+      "time": 43.7,
+      "leave": 57.3,
+      "pattern": "Blank/curve",
+      "model": "cube",
+      "material": "orange",
+      "rotation": -90,
+      "hp": 1000,
+      "x": 0.6666,
+      "y": 0.8
+    }
+ ]
+}

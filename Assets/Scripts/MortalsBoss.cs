@@ -53,5 +53,9 @@ public class MortalsBoss : MovementController {
 			newPos.y += 10 * Stage.deltaTime;
 			transform.position = newPos;
 		}
+		if(GetStageTime() > 219.0 && portalStartScale.x >= 0)
+		{
+			portal.transform.localScale = portal.transform.localScale * .9f;
+		}
 	}
 }
