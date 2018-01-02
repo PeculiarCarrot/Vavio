@@ -56,7 +56,7 @@ public class EnemySpawner : MonoBehaviour {
 		return (Material) Resources.Load("Materials/Enemies/"+name);
 	}
 
-	public TextAsset[] spawnData;
+	public string[] spawnData;
 
 	public int level;
 	private LevelSpawnData spawns;
@@ -99,6 +99,24 @@ public class EnemySpawner : MonoBehaviour {
 		level--;
 	}
 
+	public string LoadFileString(string givenPath)
+	{
+		givenPath = "LevelSpawnData/" + givenPath;
+		//Make sure we're getting the right path regardless of operating system
+		string path = "";
+		if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer)
+			path = Application.dataPath + "/StreamingAssets";
+		else if(Application.platform == RuntimePlatform.IPhonePlayer)
+			path = Application.dataPath + "/Raw";
+		else if(Application.platform == RuntimePlatform.Android)
+			path = "jar:file://" + Application.dataPath + "!/assets/";
+		string[] directories = givenPath.Split('/');
+		foreach (string dir in directories)
+			path = System.IO.Path.Combine(path, dir);
+
+		return System.IO.File.ReadAllText(path);
+	}
+
 	public void BeginLevel()
 	{
 		Debug.Log("START SONG " + level);
@@ -106,7 +124,7 @@ public class EnemySpawner : MonoBehaviour {
 		stageText.text = "";
 		musicText.text = "";
 		preparingLevel = false;
-		spawns = LevelSpawnData.FromJSON(new JSONObject(spawnData[level].text));
+		spawns = LevelSpawnData.FromJSON(new JSONObject(LoadFileString(spawnData[level])));
 		stage.GetComponent<AudioSource>().clip = stage.songs[level];
 		if (Application.isEditor)
 			stage.GetComponent<AudioSource>().time = 0;

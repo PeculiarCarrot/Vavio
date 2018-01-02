@@ -397,15 +397,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnData:
-  - {fileID: 4900000, guid: 0bc76bd340e03c6488202eb221d93daa, type: 3}
-  - {fileID: 4900000, guid: cfd45523a7adc0e4baebfd5290ca5b10, type: 3}
-  - {fileID: 4900000, guid: f40ed05906110d84b888411caffb7ff2, type: 3}
-  - {fileID: 4900000, guid: 2d1900a3f90c7f04e9e120d5df4011d1, type: 3}
-  - {fileID: 4900000, guid: 7791ba5d1e5520f408a6adb5f03f0d5d, type: 3}
-  - {fileID: 4900000, guid: dbd440a21069abd45b3fb329a5c31d89, type: 3}
-  - {fileID: 4900000, guid: 78f4e72af08406a44996cdfb4839ef9a, type: 3}
-  - {fileID: 4900000, guid: b00713de7c94b8242841a17acf44f721, type: 3}
-  - {fileID: 4900000, guid: 0c221e7b17d78714ba99588f82b88bb6, type: 3}
+  - spawnData-L0.json
+  - spawnData-L1.json
+  - spawnData-L2.json
+  - spawnData-L3.json
+  - spawnData-L4.json
+  - spawnData-L5.json
+  - spawnData-L6.json
+  - spawnData-L7.json
+  - spawnData-L8.json
   level: 1
   spawningEnabled: 1
   stage: {fileID: 1828452933}
