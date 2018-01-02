@@ -1,6 +1,6 @@
 
 initialized = {}
-shots = 30
+shots = 8
 pad = .48
 
 function update(pattern, id, deltaTime)

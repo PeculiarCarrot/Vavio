@@ -10,7 +10,7 @@ function update(pattern, id, deltaTime)
 		init(pattern, id)
 	end
 	if(fireTimes[id] == nil) then
-		fireTimes[id] = pattern.GetFireTimes(9.333333, 0)
+		fireTimes[id] = pattern.GetFireTimes(4.66666, 0)
 	end
 
 	if(pattern.GetStageTime() >= fireTimes[id][fireIndex[id]]) then
@@ -19,8 +19,8 @@ function update(pattern, id, deltaTime)
 		
 		for i=0, numBullets-1, 1 do
 			bullet = pattern.NewBullet()
-			bullet.speed = 6 + pattern.Math().RandomRange(0, 2)
-			bullet.speedMultiplier = .997
+			bullet.speed = 4 + pattern.Math().RandomRange(0, 2)
+			--bullet.speedMultiplier = .997
 			bullet.type = "capsule"
 			bullet.scale = 1.5
 			if right then

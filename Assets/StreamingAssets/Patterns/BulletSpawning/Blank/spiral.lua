@@ -55,7 +55,7 @@ function update(pattern, id, deltaTime)
 		for place = 0, 360, spacePerSet[id] do
 			bullet = pattern.NewBullet()
 			bullet.speed = 3
-			bullet.z = -1
+			--bullet.z = -1
 			bullet.angle = place + currentAngle[id]
 			bullet.material = "darkAqua"
 			pattern.SpawnBullet(bullet)

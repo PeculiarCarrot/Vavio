@@ -547,5 +547,173 @@
       "y": 0.8,
       "z": -2
     },
+    {
+      "time": 167.5,
+      "leave": 167.1,
+      "pattern": "Blank/circle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 169.2,
+      "leave": 167.1,
+      "pattern": "Blank/circle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 170.9,
+      "leave": 167.1,
+      "pattern": "Blank/circle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 171.6,
+      "leave": 167.1,
+      "pattern": "Blank/circle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 172.6,
+      "leave": 167.1,
+      "pattern": "Blank/circle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 174.4,
+      "leave": 167.1,
+      "pattern": "Blank/circle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 175,
+      "leave": 167.1,
+      "pattern": "Blank/circle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 175.9,
+      "leave": 167.1,
+      "pattern": "Blank/circle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 176.7,
+      "leave": 167.1,
+      "pattern": "Blank/circle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 177.4,
+      "leave": 167.1,
+      "pattern": "Blank/circle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 178.4,
+      "leave": 167.1,
+      "pattern": "Blank/circle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 179.1,
+      "leave": 167.1,
+      "pattern": "Blank/circle",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 181.2,
+      "leave": 205.1,
+      "pattern": "Blank/lr",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 181.2,
+      "leave": 195.4,
+      "pattern": "Blank/ud",
+      "model": "cube",
+      "material": "transparent",
+      "invul": true,
+      "canCollide": false,
+      "introMovement": false,
+      "x": 0.5,
+      "y": 0.5
+    },
+    {
+      "time": 194.5,
+      "leave": 205.1,
+      "pattern": "Blank/snake",
+      "model": "circle",
+      "material": "red",
+      "hp": 1000,
+      "introMovement": true,
+      "x": 0.5,
+      "y": 0.95,
+      "rotation": 0
+    },
  ]
 }
