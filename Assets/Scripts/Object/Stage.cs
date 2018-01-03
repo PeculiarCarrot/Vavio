@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class Stage : MonoBehaviour {
 
@@ -15,8 +16,10 @@ public class Stage : MonoBehaviour {
 	[HideInInspector]
 	public static float minX, minY, maxX, maxY, width, height;
 	public static Stage stage;
-	public AudioClip[] songs;
+	public string[] songs;
 	public AudioSource song;
+
+	public static bool loadingSong;
 
 	private bool hasFocus = true;
 	private float prePauseTimeScale;
@@ -37,6 +40,28 @@ public class Stage : MonoBehaviour {
 		time = 0;
 		lastTime = 0;
 		stage = this;
+	}
+
+	public void LoadLevel(int level)
+	{
+		loadingSong = true;
+		StartCoroutine(LoadTrack(Path.Combine(Application.streamingAssetsPath, songs[level])));
+	}
+
+	IEnumerator LoadTrack(string filename)
+	{
+		var www = new WWW("file://"+filename);
+
+		while(www.progress < 1)
+		{
+			Debug.LogFormat("Progress loading {0}: {1}", filename, www.progress);
+			yield return new WaitForSeconds(0.1f);
+		}
+		Debug.Log("GETTING AUDIO CLIP: " + filename);
+		var clip = www.GetAudioClip(false, true);
+
+		song.clip = clip;
+		loadingSong = false;
 	}
 
 	public static void AddEnemy(GameObject o)
@@ -137,6 +162,10 @@ public class Stage : MonoBehaviour {
 		UpdateScreenPositions();
 
 		float f = Time.timeScale;
+		if(Application.isEditor && Input.GetKeyDown("space"))
+		{
+			Application.targetFrameRate = Application.targetFrameRate == -1 ? 30 : -1;
+		}
 		if (!player.GetComponent<Player>().IsDying())
 		{
 			if(Application.isEditor && !player.GetComponent<Player>().IsUsingAbility())

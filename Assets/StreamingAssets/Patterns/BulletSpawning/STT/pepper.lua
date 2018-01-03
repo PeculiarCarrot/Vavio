@@ -32,7 +32,7 @@ function update(pattern, id, deltaTime)
 		init(pattern, id)
 	end
 
-	currentAngle[id] = currentAngle[id] + currentSpinSpeed[id] * deltaTime
+	currentAngle[id] = currentAngle[id] + currentSpinSpeed[id] * pattern.GetRealDeltaTime()
 	if (spinningClockwise) then
 		currentSpinSpeed[id] = currentSpinSpeed[id] + spinAcceleration[id] * -1
 	else

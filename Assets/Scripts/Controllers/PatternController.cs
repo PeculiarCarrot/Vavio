@@ -235,7 +235,7 @@ public class PatternController : ScriptController{
 		BulletData bd = new BulletData();
 		bd.destroyOnExitStage = true;
 		bd.speed = 1;
-		bd.lifetime = 99f;
+		bd.lifetime = 30f;
 		bd.owner = "enemy";
 		bd.type = "capsule";
 		bd.material = "red";

@@ -45,7 +45,7 @@ public class BulletBase : MonoBehaviour {
 
 	public void UpdateBullet () {
 		remainingLife -= Time.deltaTime;
-		velocity += velocity * velocityMultiplier * Time.deltaTime; 
+		velocity += velocity * velocityMultiplier * Time.fixedDeltaTime; 
 		transform.position += velocity * Time.deltaTime;
 
 		if(remainingLife <= 0)

@@ -2,6 +2,6 @@ function init(movement)
 
 end
 
-function update(movement, deltaTime)
-	movement.Rotate(30 * movement.GetStageDeltaTime())
+function update(movement, id, deltaTime)
+	movement.Rotate(30 * deltaTime)
 end

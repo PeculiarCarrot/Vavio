@@ -1,7 +1,7 @@
-function init(movement)
+function init(movement, id)
 
 end
 
-function update(movement, deltaTime)
-	movement.Rotate(180 * movement.GetStageDeltaTime())
+function update(movement, id, deltaTime)
+	movement.Rotate(180 * deltaTime)
 end

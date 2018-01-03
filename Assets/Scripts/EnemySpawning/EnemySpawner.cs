@@ -86,7 +86,7 @@ public class EnemySpawner : MonoBehaviour {
 		{
 			prepareLevelTime = .1f;
 			timeUntilNext = 0;
-			level = 8;
+			level = 1;
 		}
 
 		if (PlayerPrefs.HasKey("diedOnLevel"))
@@ -97,6 +97,26 @@ public class EnemySpawner : MonoBehaviour {
 		}
 		stage = GameObject.Find("Stage").GetComponent<Stage>();
 		level--;
+	}
+
+	public void BeginLevel()
+	{
+		if (Stage.loadingSong)
+			return;
+		Debug.Log("START SONG " + level);
+		GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Song " + level, 0);
+		stageText.text = "";
+		musicText.text = "";
+		preparingLevel = false;
+		spawns = LevelSpawnData.FromJSON(new JSONObject(LoadFileString(spawnData[level])));
+		if (Application.isEditor)
+			stage.GetComponent<AudioSource>().time = 0;
+		else
+			stage.GetComponent<AudioSource>().time = 0;
+		stage.GetComponent<AudioSource>().Play();
+		stage.GetComponent<Stage>().Begin();
+		timeUntilNext = 9999999f;
+		spawns.Begin(this);
 	}
 
 	public string LoadFileString(string givenPath)
@@ -117,25 +137,6 @@ public class EnemySpawner : MonoBehaviour {
 		return System.IO.File.ReadAllText(path);
 	}
 
-	public void BeginLevel()
-	{
-		Debug.Log("START SONG " + level);
-		GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Song " + level, 0);
-		stageText.text = "";
-		musicText.text = "";
-		preparingLevel = false;
-		spawns = LevelSpawnData.FromJSON(new JSONObject(LoadFileString(spawnData[level])));
-		stage.GetComponent<AudioSource>().clip = stage.songs[level];
-		if (Application.isEditor)
-			stage.GetComponent<AudioSource>().time = 0;
-		else
-			stage.GetComponent<AudioSource>().time = 0;
-		stage.GetComponent<AudioSource>().Play();
-		stage.GetComponent<Stage>().Begin();
-		timeUntilNext = 9999999f;
-		spawns.Begin(this);
-	}
-
 	public void PrepareLevel()
 	{
 		prepareLevelTimer = prepareLevelTime;
@@ -143,6 +144,7 @@ public class EnemySpawner : MonoBehaviour {
 		stageText.text = "Stage " + (level + 1);
 		stage.GetComponent<AudioSource>().Stop();
 		stage.GetComponent<Stage>().Clear();
+		stage.LoadLevel(level);
 		switch(level)
 		{
 			case 0:
@@ -171,6 +173,9 @@ public class EnemySpawner : MonoBehaviour {
 				break;
 			case 8:
 				musicText.text = "Disfigure - Blank";
+				break;
+			case 9:
+				musicText.text = "Kovan Electro-Light - Skyline";
 				break;
 			default:
 				musicText.text = "give the song a name you dope";
@@ -315,6 +320,11 @@ public class EnemySpawner : MonoBehaviour {
 			else if (Input.GetKeyDown(KeyCode.Alpha9))
 			{
 				level = 8;
+				PrepareLevel();
+			}
+			else if (Input.GetKeyDown(KeyCode.Alpha0))
+			{
+				level = 9;
 				PrepareLevel();
 			}
 		}

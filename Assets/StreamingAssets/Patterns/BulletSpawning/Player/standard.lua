@@ -4,7 +4,7 @@ time = .2
 
 function update(pattern, id, deltaTime)
 	
-	timer[id] = timer[id] - 1 / 60
+	timer[id] = timer[id] - pattern.GetRealDeltaTime()
 
 	if(timer[id] <= 0) then
 		timer[id] = time

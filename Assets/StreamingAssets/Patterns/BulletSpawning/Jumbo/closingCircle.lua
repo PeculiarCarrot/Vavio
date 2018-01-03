@@ -18,7 +18,7 @@ function init(pattern, id)
 		for i = 0, 360, (360 / 15) do
 			bullet = pattern.NewBullet()
 			bullet.speed = 9
-			bullet.speedMultiplier = .997
+			bullet.speedMultiplier = .999
 			bullet.type = "circle"
 			bullet.material = "red"
 			bullet.x = pattern.Math().Cos(i * pattern.Math().Deg2Rad) * dist + goalX

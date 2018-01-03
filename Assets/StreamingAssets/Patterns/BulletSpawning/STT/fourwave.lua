@@ -23,7 +23,7 @@ function init(pattern, id)
 	spread[id] = 90
 	spreadMin[id] = 40
 	spreadMax[id] = 180
-	spreadChangeSpeed[id] = 1
+	spreadChangeSpeed[id] = 50
 	goalSpread[id] = spreadMax[id]
 
 	currentAngle[id] = 0
@@ -37,11 +37,11 @@ function init(pattern, id)
 	initialized[id] = true
 end
 
-function updateSpread(id)
+function updateSpread(pattern, id)
 	if(spread[id] < goalSpread[id]) then
-		spread[id] = spread[id] + spreadChangeSpeed[id]
+		spread[id] = spread[id] + spreadChangeSpeed[id] * pattern.GetRealDeltaTime()
 	elseif spread[id] > goalSpread[id] then
-		spread[id] = spread[id] - spreadChangeSpeed[id]
+		spread[id] = spread[id] - spreadChangeSpeed[id] * pattern.GetRealDeltaTime()
 	end
 
 	if(spread[id] >= spreadMax[id]) then
@@ -59,9 +59,9 @@ function update(pattern, id, deltaTime)
 	if(not initialized[id]) then
 		init(pattern, id)
 	end
-	updateSpread(id)
+	updateSpread(pattern, id)
 
-	currentAngle[id] = currentAngle[id] + currentSpinSpeed[id] * deltaTime
+	currentAngle[id] = currentAngle[id] + currentSpinSpeed[id] * pattern.GetRealDeltaTime()
 	if (spinningClockwise[id]) then
 		currentSpinSpeed[id] = currentSpinSpeed[id] + spinAcceleration[id] * -1
 	else

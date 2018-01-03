@@ -5,9 +5,9 @@ function init(movement, id)
 end
 
 function update(movement, id, deltaTime)
-	movement.SetScaleX(movement.GetScaleX() * .92)
+	movement.SetScaleX(movement.GetScaleX() - movement.GetScaleX() * (5 * deltaTime))
 	if(movement.GetScaleX() < .3) then
-		movement.SetScaleX(movement.GetScaleX() * .95)
+		movement.SetScaleX(movement.GetScaleX() - movement.GetScaleX() * (5 * deltaTime))
 	end
 	if(movement.GetScaleX() < .01) then
 		movement.Die()

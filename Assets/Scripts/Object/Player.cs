@@ -35,6 +35,10 @@ public class Player : Ship {
 	private Ability currentAbility;
 	public AbilityPicker abilityPicker;
 
+	public AudioClip charged;
+
+	public Color notChargedColor, chargedColor;
+
 	// Use this for initialization
 	public override void DoStart () {
 		wasDebug = debug;
@@ -49,7 +53,15 @@ public class Player : Ship {
 
 	public void AddCharge(float amount)
 	{
+		bool wasFull = charge >= maxCharge;
 		charge += amount;
+		if (!wasFull && charge >= maxCharge)
+			PlayChargeNotification();
+	}
+
+	private void PlayChargeNotification()
+	{
+		GetComponent<AudioSource>().PlayOneShot(charged);
 	}
 
 	public bool IsUsingAbility()
@@ -75,10 +87,12 @@ public class Player : Ship {
 
     void OnGUI()
     {
-    	float size = 16;
+
+		chargeImage.color = charge >= maxCharge ? chargedColor : notChargedColor;
+    	float size = 24;
     	for(int i = 0; i < hp; i++)
     	{
-    		 GUI.DrawTexture(new Rect(30 + (size + 20) * i, Screen.height - 56, size, size), livesTexture);
+			GUI.DrawTexture(new Rect(Screen.width / 2 - size * (maxHP) + (size + 30) * i, Screen.height - 56, size, size), livesTexture);
 		}
 		charge = Mathf.Clamp(charge, 0, maxCharge);
 		chargeImage.fillAmount = (charge / maxCharge);
@@ -201,7 +215,7 @@ public class Player : Ship {
 	        	newRot.y = Mathf.Clamp(newRot.y, 315, 360);
 	        newRot.y = Mathf.SmoothDampAngle(newRot.y, 0, ref rotSpeed, .3f);
 	        transform.eulerAngles = newRot;*/
-			body.MovePosition(Vector3.Lerp(transform.position, target, .3f));
+			body.MovePosition(Vector3.Lerp(transform.position, target, 50f * Time.deltaTime));
 	        if(regenerating)
 	        {
 	        	hp += 3f * Time.deltaTime;
