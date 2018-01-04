@@ -21,8 +21,8 @@ function update(pattern, id, deltaTime)
 		angle = pattern.Math().RandomRange(0, 360)
 		for i = angle, angle + 360, (360 / numBullets) do
 			bullet = pattern.NewBullet()
-			bullet.speed = pattern.Math().RandomRange(1, 1.3)
-			bullet.speedMultiplier = 1.001
+			bullet.speed = pattern.Math().RandomRange(1.3, 1.6)
+			--bullet.speedMultiplier = 1.001
 			bullet.angle = i
 			bullet.type = "circle"
 			if(orange[id]) then

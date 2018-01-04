@@ -21,10 +21,10 @@ function init(pattern, id)
 		for i = 0, angle, (angle / bullets) do
 			bullet = pattern.NewBullet()
 			bullet.speed = -11
-			bullet.speedMultiplier = .986
+			bullet.speedMultiplier = .05
 			bullet.type = "circle"
 			bullet.material = "aqua"
-			bullet.lifetime = 1.4
+			bullet.lifetime = 1.9
 			bullet.angle = i + a
 			bullet.x = pattern.Math().Cos(bullet.angle * pattern.Math().Deg2Rad) * dist + goalX
 			bullet.y = pattern.Math().Sin(bullet.angle * pattern.Math().Deg2Rad) * dist + goalY

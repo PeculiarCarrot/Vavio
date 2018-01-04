@@ -17,7 +17,7 @@ function init(pattern, id)
 
 		for i = 0, 360, (360 / 15) do
 			bullet = pattern.NewBullet()
-			bullet.speed = 9
+			bullet.speed = 7
 			bullet.speedMultiplier = .999
 			bullet.type = "circle"
 			bullet.material = "red"

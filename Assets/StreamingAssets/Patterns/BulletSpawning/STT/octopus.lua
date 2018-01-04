@@ -65,7 +65,7 @@ function update(pattern, id, deltaTime)
 			bullet = pattern.NewBullet()
 			bullet.speed = 4
 			bullet.synced = true
-			bullet.speedMultiplier = .999
+			bullet.speedMultiplier = .99999
 			bullet.angle = place + currentAngle[id]
 			bullet.material = "darkAqua"
 			pattern.SpawnBullet(bullet)

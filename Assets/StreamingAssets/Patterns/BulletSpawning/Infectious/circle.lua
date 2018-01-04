@@ -25,7 +25,7 @@ function update(pattern, id, deltaTime)
 			bullet.angle = i
 			bullet.scale = 1.4
 			bullet.z = 1
-			bullet.speedMultiplier = .999
+			bullet.speedMultiplier = .999999999
 			pattern.SpawnBullet(bullet)
 		end
 	end

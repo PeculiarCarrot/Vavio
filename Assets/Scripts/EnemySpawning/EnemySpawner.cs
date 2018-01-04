@@ -86,7 +86,7 @@ public class EnemySpawner : MonoBehaviour {
 		{
 			prepareLevelTime = .1f;
 			timeUntilNext = 0;
-			level = 2;
+			level = 9;
 		}
 
 		if (PlayerPrefs.HasKey("diedOnLevel"))

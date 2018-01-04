@@ -15,20 +15,20 @@ function update(pattern, id, deltaTime)
 		fireTimes[id] = pattern.GetFireTimes(6, 0)
 	end
 
+	angle = angle + (deltaTime * 200 * .1)
+	angle2 = angle2 - (deltaTime * 200 * .1)
+	angle3 = angle3 + (deltaTime * 300 * .1)
+
 	if(pattern.GetStageTime() >= fireTimes[id][fireIndex[id]]) then
 		fireIndex[id] = fireIndex[id] + 1
 		numBullets = 5
 		color = color + 1
 
 		if color > 3 then color = 0 end
-
-		angle = angle + deltaTime * 200
-		angle2 = angle2 - deltaTime * 200
-		angle3 = angle3 + deltaTime * 300
 		for i = angle, angle + 360, (360 / numBullets) do
 			bullet = pattern.NewBullet()
 			bullet.speed = 3
-			bullet.speedMultiplier = .999
+			--bullet.speedMultiplier = .999
 			bullet.angle = i
 			bullet.type = "circle"
 			if(color == 0) then
@@ -47,7 +47,7 @@ function update(pattern, id, deltaTime)
 		for i = angle2, angle2 + 360, (360 / numBullets) do
 			bullet = pattern.NewBullet()
 			bullet.speed = 3
-			bullet.speedMultiplier = .999
+			--bullet.speedMultiplier = .999
 			bullet.angle = i
 			bullet.type = "circle"
 			if(color == 0) then
@@ -66,7 +66,7 @@ function update(pattern, id, deltaTime)
 		for i = angle3, angle3 + 360, (360 / (numBullets)) do
 			bullet = pattern.NewBullet()
 			bullet.speed = 2
-			bullet.speedMultiplier = 1.01
+			--bullet.speedMultiplier = 1.01
 			bullet.turn = -10
 			bullet.angle = i
 			bullet.type = "capsule"

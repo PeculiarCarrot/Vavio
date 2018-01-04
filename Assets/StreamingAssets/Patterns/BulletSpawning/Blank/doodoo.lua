@@ -14,12 +14,11 @@ function init(pattern, id)
 	local turn = 20
 		for i = 0, 360, (360/shots) do
 			bullet = pattern.NewBullet()
-			bullet.speed = 4
+			bullet.speed = 5
 			bullet.type = "capsule"
 			bullet.material = "aqua"
 			bullet.angle = i + a
 			bullet.scale = 1
-			bullet.speedMultiplier = 1 + pattern.Math().RandomValue() * .007
 			bullet.turn = pattern.Math().RandomRange(-turn, turn)
 			pattern.SpawnBullet(bullet)
 		end

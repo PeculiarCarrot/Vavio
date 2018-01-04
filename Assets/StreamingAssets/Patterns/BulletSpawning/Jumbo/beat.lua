@@ -8,7 +8,7 @@ function update(pattern, id, deltaTime)
 		init(pattern, id)
 	end
 	if(fireTimes[id] == nil) then
-		fireTimes[id] = pattern.GetFireTimes(2.16666, .5)
+		fireTimes[id] = pattern.GetFireTimes(2.16666, .37)
 	end
 
 	if(pattern.GetStageTime() >= fireTimes[id][fireIndex[id]]) then
@@ -19,8 +19,7 @@ function update(pattern, id, deltaTime)
 		angle = pattern.Math().RandomRange(0, 360)
 		for i = angle, angle + 360, (360 / numBullets) do
 			bullet = pattern.NewBullet()
-			bullet.speed = pattern.Math().RandomRange(1, 2.5)
-			bullet.speedMultiplier = 1.001
+			bullet.speed = pattern.Math().RandomRange(1.6, 2.5)
 			bullet.angle = i
 			bullet.type = "circle"
 			if(orange) then
@@ -28,6 +27,7 @@ function update(pattern, id, deltaTime)
 				bullet.z = 1
 			else
 				bullet.material = "aqua"
+				bullet.z = 2
 			end
 			pattern.SpawnBullet(bullet)
 		end

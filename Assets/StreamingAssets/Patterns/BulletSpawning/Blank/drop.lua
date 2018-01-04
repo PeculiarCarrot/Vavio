@@ -14,36 +14,36 @@ function init(pattern, id)
 	local turn = 20
 		for i = 0, 360, (360/shots) do
 			bullet = pattern.NewBullet()
-			bullet.speed = 3
+			bullet.speed = 3.5 + pattern.Math().RandomValue() * .5
 			bullet.type = "capsule"
 			bullet.material = "aqua"
 			bullet.angle = i + a
 			bullet.scale = 1
-			bullet.speedMultiplier = 1 + pattern.Math().RandomValue() * .007
+			--bullet.speedMultiplier = 1 + pattern.Math().RandomValue() * .007
 			bullet.turn = pattern.Math().RandomRange(-turn, turn)
 			pattern.SpawnBullet(bullet)
 		end
 		a = pattern.Math().RandomRange(0, 360)
 		for i = 0, 360, (360/shots) do
 			bullet = pattern.NewBullet()
-			bullet.speed = 2.5
+			bullet.speed = 3 + pattern.Math().RandomValue() * .5
 			bullet.type = "capsule"
 			bullet.material = "darkAqua"
 			bullet.angle = i + a
 			bullet.scale = 1
-			bullet.speedMultiplier = 1 + pattern.Math().RandomValue() * .0085
+			--bullet.speedMultiplier = 1 + pattern.Math().RandomValue() * .0085
 			bullet.turn = pattern.Math().RandomRange(-turn, turn)
 			pattern.SpawnBullet(bullet)
 		end
 		a = pattern.Math().RandomRange(0, 360)
 		for i = 0, 360, (360/shots) do
 			bullet = pattern.NewBullet()
-			bullet.speed = 2
+			bullet.speed = 2.5 + pattern.Math().RandomValue() * .5
 			bullet.type = "capsule"
 			bullet.material = "aqua"
 			bullet.angle = i + a
 			bullet.scale = 1
-			bullet.speedMultiplier = 1 + pattern.Math().RandomValue() * .01
+			--bullet.speedMultiplier = 1 + pattern.Math().RandomValue() * .01
 			bullet.turn = pattern.Math().RandomRange(-turn, turn)
 			pattern.SpawnBullet(bullet)
 		end

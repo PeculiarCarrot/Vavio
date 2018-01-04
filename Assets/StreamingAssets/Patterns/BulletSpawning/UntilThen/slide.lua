@@ -10,9 +10,9 @@ function update(pattern, id, deltaTime)
 	if(fireTimes[id] == nil) then
 		fireTimes[id] = pattern.GetFireTimes(9.333333, 0)
 	end
+		scale[id] = scale[id] + .15 * pattern.GetRealDeltaTime()
 
 	if(pattern.GetStageTime() >= fireTimes[id][fireIndex[id]]) then
-		scale[id] = scale[id] + deltaTime
 		fireIndex[id] = fireIndex[id] + 1
 
 		bullet = pattern.NewBullet()

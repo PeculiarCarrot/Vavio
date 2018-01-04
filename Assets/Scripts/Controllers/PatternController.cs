@@ -168,13 +168,18 @@ public class PatternController : ScriptController{
 		{
 			try
 			{
-				CallLuaFunction("update", this, GetInstanceID(), Stage.deltaTime);
+				CallLuaFunction("update", this, GetInstanceID(), Time.deltaTime);
 			}
 			catch (ScriptRuntimeException ex)
 			{
 				Debug.LogError("Whoops, there was a runtime Lua error in '" + patternPath + "'   -   " + ex.DecoratedMessage);
 			}
 		}
+	}
+
+	public float GetStageDeltaTime()
+	{
+		return Stage.deltaTime;
 	}
 
 	public float GetStageTime()

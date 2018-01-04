@@ -6,7 +6,7 @@ time = {}
 dir = {}
 initialized = {}
 maxAngle = 90
-spd = 2
+spd = 1.5
 
 function update(pattern, id, deltaTime)
 	if(initialized[id] == nil) then
