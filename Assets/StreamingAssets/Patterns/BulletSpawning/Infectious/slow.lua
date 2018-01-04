@@ -12,7 +12,7 @@ function update(pattern, id, deltaTime)
 		fireTimes[id] = pattern.GetFireTimes(2.133333333, .8)
 	end
 
-	angle[id] = angle[id] + spin[id] * deltaTime
+	angle[id] = angle[id] + spin[id] * pattern.GetRealDeltaTime()
 
 	if(pattern.GetStageTime() >= fireTimes[id][fireIndex[id]]) then
 		fireIndex[id] = fireIndex[id] + 1

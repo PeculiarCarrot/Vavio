@@ -20,7 +20,7 @@ function init(pattern, id)
 	currentAngle[id] = 40
 	currentSpinSpeed[id] = 0
 	maxSpinSpeed[id] = 80
-	spinAcceleration[id] = .25
+	spinAcceleration[id] = 20
 	reverseSpin[id] = true
 	reverseSpinSpeed[id] = .9999999
 	spinningClockwise[id] = false
@@ -38,11 +38,11 @@ function update(pattern, id, deltaTime)
 		return
 	end
 
-	currentAngle[id] = currentAngle[id] + currentSpinSpeed[id] * deltaTime
+	currentAngle[id] = currentAngle[id] + currentSpinSpeed[id] * pattern.GetRealDeltaTime()
 	if (spinningClockwise[id]) then
-		currentSpinSpeed[id] = currentSpinSpeed[id] + spinAcceleration[id] * -1
+		currentSpinSpeed[id] = currentSpinSpeed[id] + spinAcceleration[id] * -1 * pattern.GetRealDeltaTime()
 	else
-		currentSpinSpeed[id] = currentSpinSpeed[id] + spinAcceleration[id] * 1
+		currentSpinSpeed[id] = currentSpinSpeed[id] + spinAcceleration[id] * 1 * pattern.GetRealDeltaTime()
 	end
 
 	if(currentSpinSpeed[id] < 0 ~= spinningClockwise[id]) then
@@ -57,15 +57,15 @@ function update(pattern, id, deltaTime)
 		end
 	end
 
-	fireTimer[id] = fireTimer[id] + 1
+	fireTimer[id] = fireTimer[id] + pattern.GetRealDeltaTime()
 
-	if(fireTimer[id] >= 6) then
+	if(fireTimer[id] >= .1) then
 		fireTimer[id] = 0
 		for place = 0, 360, spacePerSet[id] do
 			bullet = pattern.NewBullet()
 			bullet.speed = 4
 			bullet.synced = true
-			bullet.speedMultiplier = .998
+			bullet.speedMultiplier = .999
 			bullet.angle = place + currentAngle[id]
 			bullet.material = "darkAqua"
 			pattern.SpawnBullet(bullet)

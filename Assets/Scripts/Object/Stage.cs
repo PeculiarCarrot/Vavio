@@ -184,7 +184,7 @@ public class Stage : MonoBehaviour {
 					f = Mathf.SmoothDamp(f, 1f, ref timeVelocity, .3f);
 				}
 
-				f = Mathf.Clamp(f, 0, 100);
+				f = Mathf.Clamp(f, 0, 99);
 				if (Mathf.Abs(f - 1) > .1)
 				{
 					player.GetComponent<Player>().debug = true;

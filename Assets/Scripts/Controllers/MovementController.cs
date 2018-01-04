@@ -352,7 +352,13 @@ public class MovementController : ScriptController {
 
 		transform.position = transform.position + realMove * Time.deltaTime;
 		transform.Rotate(new Vector3(0, 0, turn * Time.deltaTime));
-		move *= friction;
-		move *= speedMultiplier;
+		if(friction > 1)
+			move += move * friction * Time.deltaTime;
+		else if(friction < 1)
+			move -= move * friction * Time.deltaTime;
+		if(speedMultiplier > 1)
+			move += move * speedMultiplier * Time.deltaTime;
+		else if(speedMultiplier < 1)
+			move -= move * speedMultiplier * Time.deltaTime;
 	}
 }
