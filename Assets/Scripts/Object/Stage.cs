@@ -11,6 +11,7 @@ public class Stage : MonoBehaviour {
 	//Time tracking
 	public static double lastTime, timeOffset, time;
 	private static double beginTime;
+	public static float songProgress;
 
 	public GameObject player;
 	public GameObject spawner;
@@ -37,6 +38,7 @@ public class Stage : MonoBehaviour {
 
 	void Awake()
 	{
+		songProgress = 0;
 		Options.Load();
 		loadingSong = false;
 		bullets.Clear();
@@ -67,10 +69,8 @@ public class Stage : MonoBehaviour {
 
 		while(www.progress < 1)
 		{
-			Debug.LogFormat("Progress loading {0}: {1}", filename, www.progress);
 			yield return new WaitForSeconds(0.1f);
 		}
-		Debug.Log("GETTING AUDIO CLIP: " + filename);
 		var clip = www.GetAudioClip(false, true);
 
 		song.clip = clip;
@@ -243,6 +243,8 @@ public class Stage : MonoBehaviour {
 			Cursor.visible = false;
 		}
 		wasPaused = paused;
+		if(song != null && song.clip != null)
+			songProgress = song.time / song.clip.length;
 	}
 
 	void OnGUI()

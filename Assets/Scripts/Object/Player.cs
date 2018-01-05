@@ -105,10 +105,17 @@ public class Player : Ship {
     	float size = 24;
     	for(int i = 0; i < hp; i++)
     	{
-			GUI.DrawTexture(new Rect(30 + (size + 30) * i, Screen.height - 56, size, size), livesTexture);
+			GUI.DrawTexture(new Rect(30 + (size + 30) * i, Screen.height - 70, size, size), livesTexture);
 		}
 		charge = Mathf.Clamp(charge, 0, maxCharge);
 		chargeImage.fillAmount = (charge / maxCharge);
+
+		float w, h;
+		float pad = 50;
+		w = Screen.width - pad * 2;
+		h = 5;
+		GUI.DrawTexture(new Rect(pad, Screen.height - 20, w, h), progressTexture);
+		GUI.DrawTexture(new Rect(pad + w * Stage.songProgress, Screen.height - 20 - h * 1.5f, 7, h * 4), progressTexture);
 
 		if(debug)
 			GUI.Label(new Rect(0, 0, 100, 100), ""+(int)(1.0f / (Time.smoothDeltaTime/Time.timeScale)));    
