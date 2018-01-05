@@ -23,7 +23,7 @@ public class Player : Ship {
 	public Image chargeImage;
 	private bool regenerating;
 
-	private float dieTimer, dieTime = 4f;
+	private float dieTimer, dieTime = .8f;
 	private bool dying;
 	//The death effect prefab for regular enemies
 	private static GameObject deathEffect;
@@ -135,7 +135,7 @@ public class Player : Ship {
 
 	private void Restart()
 	{
-		PlayerPrefs.SetInt("diedOnLevel", spawner.level);
+		PlayerPrefs.SetInt("levelToStart", spawner.level);
 		PlayerPrefs.SetInt("reasonForLevelChange", EnemySpawner.DEATH);
 		PlayerPrefs.Save();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -168,7 +168,7 @@ public class Player : Ship {
 
 	// Update is called once per frame
 	public void Update () {
-		dieTimer -= 1 / 60f;
+		dieTimer -= Time.deltaTime;
 		if(dieTimer <= 0)
 		{
 			dieTimer = 9999999;

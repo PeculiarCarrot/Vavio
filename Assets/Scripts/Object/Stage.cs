@@ -175,7 +175,7 @@ public class Stage : MonoBehaviour {
 		UpdateScreenPositions();
 
 		float f = Time.timeScale;
-		if(Input.GetKeyDown("space"))
+		if(Application.isEditor && Input.GetKeyDown("space"))
 		{
 			Application.targetFrameRate = Application.targetFrameRate == -1 ? 30 : -1;
 		}
