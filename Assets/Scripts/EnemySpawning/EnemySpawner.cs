@@ -89,10 +89,10 @@ public class EnemySpawner : MonoBehaviour {
 			level = 9;
 		}
 
-		if (PlayerPrefs.HasKey("diedOnLevel"))
+		if (PlayerPrefs.HasKey("levelToStart"))
 		{
-			level = PlayerPrefs.GetInt("diedOnLevel");
-			PlayerPrefs.DeleteKey("diedOnLevel");
+			level = PlayerPrefs.GetInt("levelToStart");
+			PlayerPrefs.DeleteKey("levelToStart");
 			PlayerPrefs.Save();
 		}
 		stage = GameObject.Find("Stage").GetComponent<Stage>();

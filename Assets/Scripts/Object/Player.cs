@@ -135,7 +135,7 @@ public class Player : Ship {
 
 	private void Restart()
 	{
-		PlayerPrefs.SetInt("diedOnLevel", spawner.level);
+		PlayerPrefs.SetInt("levelToStart", spawner.level);
 		PlayerPrefs.SetInt("reasonForLevelChange", EnemySpawner.DEATH);
 		PlayerPrefs.Save();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
