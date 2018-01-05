@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Ship : MonoBehaviour {
-
-	protected Vector3 velocity = Vector3.zero;
-	public float accel = .9f;
 	protected float friction = .9f;
 	protected Vector3 baseRot;
 	public static GameObject stage;
@@ -44,8 +41,6 @@ public abstract class Ship : MonoBehaviour {
 	}
 
 	public void DoUpdate () {
-		velocity *= friction;
-		transform.position += velocity * (1 / 60f);
 	}
 		
 	public void GetHurt(float damage)

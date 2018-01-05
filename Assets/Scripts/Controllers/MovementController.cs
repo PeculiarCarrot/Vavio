@@ -358,7 +358,7 @@ public class MovementController : ScriptController {
 			move -= move * friction * Time.deltaTime;
 		if(speedMultiplier > 1)
 		{
-			move += new Vector3(1, 1, 1) * ((1 - speedMultiplier) * Time.deltaTime);
+			move += move * (speedMultiplier * Time.deltaTime);
 		}
 		else if(speedMultiplier < 1)
 			move -= move * (1 - speedMultiplier) * Time.deltaTime;

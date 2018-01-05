@@ -39,6 +39,8 @@ public class Player : Ship {
 
 	public Color notChargedColor, chargedColor;
 
+	private Vector2 velocity;
+
 	// Use this for initialization
 	public override void DoStart () {
 		wasDebug = debug;
@@ -57,6 +59,17 @@ public class Player : Ship {
 		charge += amount;
 		if (!wasFull && charge >= maxCharge)
 			PlayChargeNotification();
+	}
+
+	void FixedUpdate()
+	{
+		if(Options.keyboardMovement)
+		{
+			Vector2 target = transform.position;
+			target.x += velocity.x * Time.deltaTime;
+			target.y += velocity.y * Time.deltaTime;
+			body.MovePosition(target);
+		}
 	}
 
 	private void PlayChargeNotification()
@@ -166,6 +179,7 @@ public class Player : Ship {
 		currentAbility.Begin();
 	}
 
+	private float accel = 10f, slowAccel = 3f;
 	// Update is called once per frame
 	public void Update () {
 		dieTimer -= Time.deltaTime;
@@ -202,8 +216,29 @@ public class Player : Ship {
 					flickerTimer = flickerDuration;
 				mesh.GetComponent<Renderer>().enabled = invincibilityDuration <= 0 || flickerTimer < 0;
 			}
-			Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-	        target.z = transform.position.z;
+
+			if(Options.keyboardMovement)
+			{
+				Vector3 target = transform.position;
+
+				velocity = Vector2.zero;
+				Vector2 input = Vector2.zero;
+				if (Input.GetKey(KeyCode.LeftArrow))
+					input.x -= 1;
+				if (Input.GetKey(KeyCode.RightArrow))
+					input.x += 1;
+				if (Input.GetKey(KeyCode.UpArrow))
+					input.y += 1;
+				if (Input.GetKey(KeyCode.DownArrow))
+					input.y -= 1;
+				input.Normalize();
+				velocity = input * (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ? slowAccel : accel);
+			}
+			else{
+				Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				target.z = transform.position.z;
+				body.MovePosition(Vector3.Lerp(transform.position, target, Options.smoothMovement ? .3f : 1f));
+			}
 	       /* Vector3 newRot = transform.rotation.eulerAngles;
 	        newRot.y -= rotAccel * (target.x - transform.position.x);
 	        if(newRot.y < 0)
@@ -214,7 +249,7 @@ public class Player : Ship {
 	        	newRot.y = Mathf.Clamp(newRot.y, 315, 360);
 	        newRot.y = Mathf.SmoothDampAngle(newRot.y, 0, ref rotSpeed, .3f);
 	        transform.eulerAngles = newRot;*/
-			body.MovePosition(Vector3.Lerp(transform.position, target, Options.smoothMovement ? .3f : 1f));
+			
 	        if(regenerating)
 	        {
 	        	hp += 3f * Time.deltaTime;

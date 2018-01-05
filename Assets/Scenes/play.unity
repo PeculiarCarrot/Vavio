@@ -1653,6 +1653,7 @@ GameObject:
   - component: {fileID: 1762598430}
   - component: {fileID: 1762598429}
   - component: {fileID: 1762598433}
+  - component: {fileID: 1762598434}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1752,6 +1753,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wipeEffect: {fileID: 1251693334}
+--- !u!114 &1762598434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1762598428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc5063fb22d9d5d4994728c313a4309a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventSystem: {fileID: 1531092225}
+  toSelect: {fileID: 1619997388}
 --- !u!1001 &1769361959
 Prefab:
   m_ObjectHideFlags: 0
@@ -1851,19 +1865,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4383038258477144, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.03496623
+      value: 0.013526088
       objectReference: {fileID: 0}
     - target: {fileID: 4383038258477144, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.03496623
+      value: 0.013526087
       objectReference: {fileID: 0}
     - target: {fileID: 4383038258477144, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.03496623
+      value: 0.013526087
       objectReference: {fileID: 0}
     - target: {fileID: 4383038258477144, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.136
+      value: -0.0344
       objectReference: {fileID: 0}
     - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
         type: 2}

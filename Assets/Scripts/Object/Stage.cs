@@ -181,7 +181,7 @@ public class Stage : MonoBehaviour {
 		}
 		if (!player.GetComponent<Player>().IsDying())
 		{
-			if(Application.isEditor && !player.GetComponent<Player>().IsUsingAbility())
+			if(Application.isEditor && Input.GetKey(KeyCode.LeftControl) && !player.GetComponent<Player>().IsUsingAbility())
 			{
 				if (Input.GetKey("right"))
 				{
@@ -238,6 +238,7 @@ public class Stage : MonoBehaviour {
 				darken.SetActive(false);
 				if (!song.isPlaying)
 					song.UnPause(); 
+				Time.timeScale = 1;
 			}
 			Cursor.visible = false;
 		}

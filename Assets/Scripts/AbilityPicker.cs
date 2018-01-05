@@ -42,7 +42,7 @@ public class AbilityPicker : MonoBehaviour {
 
 	void OnGUI()
 	{
-		if (timeSinceMoved > 2f)
+		if (timeSinceMoved > 2f || Stage.paused)
 			return;
 		float size = 32;
 		offset = Mathf.SmoothStep(startOffset, -selectedIndex * size, timeSinceMoved / .1f);
@@ -60,11 +60,11 @@ public class AbilityPicker : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		timeSinceMoved += Time.deltaTime;
-		if (Input.GetAxisRaw("Mouse ScrollWheel") > 0 || Input.GetKeyDown(KeyCode.RightArrow))
+		if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
 		{
 			SetSelectedIndex(selectedIndex + 1);
 		}
-		else if (Input.GetAxisRaw("Mouse ScrollWheel") < 0 || Input.GetKeyDown(KeyCode.LeftArrow))
+		else if (Input.GetAxisRaw("Mouse ScrollWheel") < 0)
 		{
 			SetSelectedIndex(selectedIndex - 1);
 		}
