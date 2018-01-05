@@ -92,7 +92,7 @@ public class Player : Ship {
     	float size = 24;
     	for(int i = 0; i < hp; i++)
     	{
-			GUI.DrawTexture(new Rect(Screen.width / 2 - size * (maxHP) + (size + 30) * i, Screen.height - 56, size, size), livesTexture);
+			GUI.DrawTexture(new Rect(30 + (size + 30) * i, Screen.height - 56, size, size), livesTexture);
 		}
 		charge = Mathf.Clamp(charge, 0, maxCharge);
 		chargeImage.fillAmount = (charge / maxCharge);

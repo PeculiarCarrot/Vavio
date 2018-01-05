@@ -1,10 +1,10 @@
 timer = {}
 initialized = {}
-time = .02
+time = .06
 
 function update(pattern, id, deltaTime)
 	
-	timer[id] = timer[id] - 1 / 60
+	timer[id] = timer[id] - deltaTime
 
 	if(timer[id] <= 0) then
 		timer[id] = time
