@@ -14,6 +14,8 @@ function init(pattern, id)
 	goalX = goalX - pattern.GetX()
 	goalY = goalY - pattern.GetY()
 	dist = 20
+	local t = 20
+	local turn1 = pattern.Math().RandomRange(-t, t)
 
 		for i = 0, 360, (360 / 15) do
 			bullet = pattern.NewBullet()
@@ -25,6 +27,8 @@ function init(pattern, id)
 			bullet.y = pattern.Math().Sin(i * pattern.Math().Deg2Rad) * dist + goalY
 			bullet.angle = i - 180
 			bullet.scale = .5
+			bullet.lifetime = 6
+			bullet.turn = turn1
 			bullet.destroyOnExitStage = false;
 			pattern.SpawnBullet(bullet)
 		end
