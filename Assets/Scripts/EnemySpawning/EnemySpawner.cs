@@ -175,7 +175,7 @@ public class EnemySpawner : MonoBehaviour {
 				musicText.text = "Disfigure - Blank";
 				break;
 			case 9:
-				musicText.text = "Kovan Electro-Light - Skyline";
+				musicText.text = "Kovan & Electro-Light - Skyline";
 				break;
 			default:
 				musicText.text = "give the song a name you dope";
@@ -275,7 +275,7 @@ public class EnemySpawner : MonoBehaviour {
 	private float prevTime = 0;
 	void Update () {
 
-		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+		if (Application.isEditor && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
 		{
 			if (Input.GetKeyDown(KeyCode.Alpha1))
 			{
