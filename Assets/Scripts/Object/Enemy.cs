@@ -31,8 +31,8 @@ public class Enemy : ShooterBase {
 
 	//Whether we are marked to always be invulnerable
 	public bool invul;
-	//Whether we can collide with the player (if we're invincible, we won't collide with bullets either)
-	public bool canCollide;
+	//Whether we can collide with the player
+	public bool canCollide, canCollideWithBullets;
 	//Whether we have the enter/exit stage animation
 	public bool introMovement;
 	//Whether or not we're a boss
@@ -144,7 +144,7 @@ public class Enemy : ShooterBase {
 
 	public bool IsInvincible()
 	{
-		return invul || (!reachedGoal && !leaving);
+		return invul;
 	}
 
 	//If the enemy was killed by a player, create a death effect. Otherwise, just destroy this.
@@ -253,10 +253,16 @@ public class Enemy : ShooterBase {
 		return canCollide && noCollisionTimer <= 0;
 	}
 
+	//Whether we can collide with things right now
+	public bool CanCollideWithBullets()
+	{
+		return canCollideWithBullets;
+	}
+
 	void OnTriggerEnter (Collider col)
     {
     	BulletProperties bullet = col.gameObject.GetComponent<BulletProperties>();
-		if(bullet != null && bullet.owner == "player" && !(this.IsInvincible() && !CanCollide()))
+		if(bullet != null && bullet.owner == "player" && CanCollideWithBullets())
         {
 			GameObject e = Instantiate(enemyDeathEffect, (bullet.transform.position + transform.position) * .5f, enemyDeathEffect.transform.rotation);
 			float r = Random.value * .2f + .2f;

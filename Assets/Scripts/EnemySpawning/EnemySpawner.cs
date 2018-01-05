@@ -237,17 +237,19 @@ public class EnemySpawner : MonoBehaviour {
 		if(model.GetComponent<Enemy>() != null)
 		{
 			Stage.AddEnemy(e);
-			e.GetComponent<Enemy>().leave = data.leave;
-			e.GetComponent<Enemy>().reachGoalTime = data.reachGoalTime;
-			e.GetComponent<Enemy>().invul = data.invul;
-			e.GetComponent<Enemy>().canCollide = data.canCollide;
-			e.GetComponent<Enemy>().introMovement = data.introMovement;
-			e.GetComponent<Enemy>().maxHP = data.hp;
-			e.GetComponent<Enemy>().hp = data.hp;
-			e.GetComponent<Enemy>().givesCharge = data.givesCharge;
-			e.GetComponent<Enemy>().boss = data.boss;
-			e.GetComponent<Enemy>().mat = material;
-			e.GetComponent<Enemy>().SetGoalPos(goalPos);
+			Enemy enemy = e.GetComponent<Enemy>();
+			enemy.leave = data.leave;
+			enemy.reachGoalTime = data.reachGoalTime;
+			enemy.invul = data.invul;
+			enemy.canCollide = data.canCollide;
+			enemy.canCollideWithBullets = data.canCollideWithBullets;
+			enemy.introMovement = data.introMovement;
+			enemy.maxHP = data.hp;
+			enemy.hp = data.hp;
+			enemy.givesCharge = data.givesCharge;
+			enemy.boss = data.boss;
+			enemy.mat = material;
+			enemy.SetGoalPos(goalPos);
 			liveEnemies.Add(e);
 		}
 		if (model.GetComponent<PatternController>() != null)
