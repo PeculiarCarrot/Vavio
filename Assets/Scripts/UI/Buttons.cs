@@ -7,7 +7,7 @@ public class Buttons : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		PlayerPrefs.DeleteAll();
 	}
 	
 	// Update is called once per frame
@@ -15,16 +15,12 @@ public class Buttons : MonoBehaviour {
 		
 	}
 
-	public void OnPlay()
-	{
-		SceneManager.LoadScene("play");
-	}
-
 	public void OnQuit()
 	{
-		if (Application.isEditor)
+		#if UNITY_EDITOR
 			UnityEditor.EditorApplication.isPlaying = false;
-		else
+		#else
 			Application.Quit();
+		#endif
 	}
 }

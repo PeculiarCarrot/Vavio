@@ -135,7 +135,7 @@ public class Player : Ship {
 
 	private void Restart()
 	{
-		PlayerPrefs.SetInt("levelToStart", spawner.level);
+		PlayerPrefs.SetInt("diedOnLevel", spawner.level);
 		PlayerPrefs.SetInt("reasonForLevelChange", EnemySpawner.DEATH);
 		PlayerPrefs.Save();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -174,7 +174,6 @@ public class Player : Ship {
 			dieTimer = 9999999;
 			Restart();
 		}
-		Cursor.visible = false;
 		DoUpdate();
 		if(currentPowerUp != PowerUp.PowerUpType.None)
 		{
@@ -215,7 +214,7 @@ public class Player : Ship {
 	        	newRot.y = Mathf.Clamp(newRot.y, 315, 360);
 	        newRot.y = Mathf.SmoothDampAngle(newRot.y, 0, ref rotSpeed, .3f);
 	        transform.eulerAngles = newRot;*/
-			body.MovePosition(Vector3.Lerp(transform.position, target, 50f * Time.deltaTime));
+			body.MovePosition(Vector3.Lerp(transform.position, target, Options.smoothMovement ? .3f : 1f));
 	        if(regenerating)
 	        {
 	        	hp += 3f * Time.deltaTime;

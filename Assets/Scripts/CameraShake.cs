@@ -51,6 +51,8 @@ public class CameraShake : MonoBehaviour
 
 	void Update()
 	{
+		if (!Options.screenShake)
+			return;
 		if (shakeDuration > 0)
 		{
 			camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;

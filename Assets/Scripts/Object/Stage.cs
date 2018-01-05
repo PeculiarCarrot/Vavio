@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.UI;
 
 public class Stage : MonoBehaviour {
 
@@ -21,6 +22,8 @@ public class Stage : MonoBehaviour {
 
 	public static bool loadingSong;
 
+	public static bool paused;
+
 	private bool hasFocus = true;
 	private float prePauseTimeScale;
 
@@ -28,8 +31,17 @@ public class Stage : MonoBehaviour {
 	private static List<GameObject> bullets = new List<GameObject>();
 	private static List<GameObject> enemies = new List<GameObject>();
 
+	public GameObject darken;
+	public WipeEffect wipeEffect;
+	private bool wasPaused;
+
 	void Awake()
 	{
+		Options.Load();
+		loadingSong = false;
+		bullets.Clear();
+		enemies.Clear();
+		paused = false;
 		PatternController.Load();
 		EnemySpawner.Load();
 	}
@@ -40,6 +52,7 @@ public class Stage : MonoBehaviour {
 		time = 0;
 		lastTime = 0;
 		stage = this;
+		song.volume = Options.musicVolume;
 	}
 
 	public void LoadLevel(int level)
@@ -162,7 +175,7 @@ public class Stage : MonoBehaviour {
 		UpdateScreenPositions();
 
 		float f = Time.timeScale;
-		if(Application.isEditor && Input.GetKeyDown("space"))
+		if(Input.GetKeyDown("space"))
 		{
 			Application.targetFrameRate = Application.targetFrameRate == -1 ? 30 : -1;
 		}
@@ -197,13 +210,38 @@ public class Stage : MonoBehaviour {
 			if (song.isPlaying)
 				song.Pause();
 		}
+		if (float.IsNaN(f))
+			f = 1;
 		Time.timeScale = hasFocus ? f : 0;
 		Time.fixedDeltaTime = (1 / 60f) * f;
 		song.pitch = Time.timeScale;
 
 		 if(Input.GetKeyDown(KeyCode.Escape)){
-		 	Application.Quit();
-		 }
+			paused = !paused;
+		}
+
+		if (paused)
+		{
+			if(!wasPaused)
+			{
+				if (song.isPlaying)
+					song.Pause();
+				darken.SetActive(true);
+			}
+			Time.timeScale = wipeEffect.IsTransitioning() ? 1 : 0;
+			Cursor.visible = true;
+		}
+		else
+		{
+			if(wasPaused)
+			{
+				darken.SetActive(false);
+				if (!song.isPlaying)
+					song.UnPause(); 
+			}
+			Cursor.visible = false;
+		}
+		wasPaused = paused;
 	}
 
 	void OnGUI()
