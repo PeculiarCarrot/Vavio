@@ -262,7 +262,7 @@ public class Enemy : ShooterBase {
 	void OnTriggerEnter (Collider col)
     {
     	BulletProperties bullet = col.gameObject.GetComponent<BulletProperties>();
-		if(bullet != null && bullet.owner == "player" && CanCollideWithBullets())
+		if(bullet != null && bullet.owner == "player" && CanCollideWithBullets() && !(!CanCollide() && IsInvincible()))
         {
 			GameObject e = Instantiate(enemyDeathEffect, (bullet.transform.position + transform.position) * .5f, enemyDeathEffect.transform.rotation);
 			float r = Random.value * .2f + .2f;

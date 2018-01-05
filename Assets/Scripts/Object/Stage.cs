@@ -181,13 +181,13 @@ public class Stage : MonoBehaviour {
 		}
 		if (!player.GetComponent<Player>().IsDying())
 		{
-			if(Application.isEditor && Input.GetKey(KeyCode.LeftControl) && !player.GetComponent<Player>().IsUsingAbility())
+			if(Application.isEditor && !player.GetComponent<Player>().IsUsingAbility())
 			{
-				if (Input.GetKey("right"))
+				if (Input.GetKey("right") && Input.GetKey(KeyCode.LeftControl))
 				{
-					f *= 1.01f;
+					f = 99;
 				}
-				else if (Input.GetKey("left"))
+				else if (Input.GetKey("left") && Input.GetKey(KeyCode.LeftControl))
 				{
 					f -= .01f;
 				}
@@ -213,8 +213,9 @@ public class Stage : MonoBehaviour {
 		if (float.IsNaN(f))
 			f = 1;
 		Time.timeScale = hasFocus ? f : 0;
-		Time.fixedDeltaTime = (1 / 60f) * f;
+		Time.fixedDeltaTime = (1 / 50f) * f;
 		song.pitch = Time.timeScale;
+		Debug.Log(song.pitch);
 
 		 if(Input.GetKeyDown(KeyCode.Escape)){
 			paused = !paused;
