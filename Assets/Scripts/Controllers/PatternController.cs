@@ -192,6 +192,12 @@ public class PatternController : ScriptController{
 		return Time.deltaTime;
 	}
 
+	public float GetAngleToPlayer()
+	{
+		Vector3 p = Stage.stage.player.transform.position;
+		return Mathf.Atan2(p.y - transform.position.y, p.x - transform.position.x) * Mathf.Rad2Deg;
+	}
+
 	public float[] GetFireTimes(float bulletsPerSecond, float initialDelay)
 	{
 		return GetFireTimes(bulletsPerSecond, initialDelay, 0, 0);
@@ -205,18 +211,35 @@ public class PatternController : ScriptController{
 		bool paused = false;
 		for(float i = initialDelay; i < leave + initialDelay; i += secondsPerBullet)
 		{
-			if(secondsToPause > 0)
+			times.Add(i);
+		}
+
+		float k = secondsToFire;
+		bool firing = true;
+
+		if(secondsToPause > 0 && secondsToFire > 0)
+			for(float i = initialDelay; i < leave + initialDelay; i += k)
 			{
-				timeUntilChange -= secondsPerBullet;
-				if(timeUntilChange <= 0)
+				for(int j = times.Count - 1; j >= 0; j--)
 				{
-					paused = !paused;
-					timeUntilChange = paused ? secondsToPause : secondsToFire;
+					float f = times[j];
+					if(f > i && f <= i + k && !firing)
+					{
+						times.RemoveAt(j);
+					}
+				}
+				if (firing)
+				{
+					k = secondsToPause;
+					firing = false;
+				}
+				else
+				{
+					k = secondsToFire;
+					firing = true;
 				}
 			}
-			if(!paused)
-				times.Add(i);
-		}
+
 		float[] fireTimes = new float[times.Count];
 		for(int i = 0; i < fireTimes.Length; i++)
 		{

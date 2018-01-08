@@ -13,7 +13,7 @@ spacePerSet = {}
 
 function init(pattern, id)
 	fireIndex[id] = 0
-	numSets[id] = 3
+	numSets[id] = 6
 	spacePerSet[id] = 360 / numSets[id]
 
 	currentAngle[id] = 0

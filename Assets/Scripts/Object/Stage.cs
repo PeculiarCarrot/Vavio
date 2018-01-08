@@ -185,7 +185,7 @@ public class Stage : MonoBehaviour {
 			{
 				if (Input.GetKey("right") && Input.GetKey(KeyCode.LeftControl))
 				{
-					f = 99;
+					f += 1f;
 				}
 				else if (Input.GetKey("left") && Input.GetKey(KeyCode.LeftControl))
 				{
@@ -215,7 +215,6 @@ public class Stage : MonoBehaviour {
 		Time.timeScale = hasFocus ? f : 0;
 		Time.fixedDeltaTime = (1 / 50f) * f;
 		song.pitch = Time.timeScale;
-		Debug.Log(song.pitch);
 
 		 if(Input.GetKeyDown(KeyCode.Escape)){
 			paused = !paused;
