@@ -1,0 +1,13 @@
+{
+	"spawns": [
+    {
+      "time": 9.4,
+      "leave": 90.7,
+      "pattern": "Skyline/voice",
+      "model": "circle",
+      "material": "red",
+      "x": 0.5,
+      "y": 0.5
+    }
+  ]
+}

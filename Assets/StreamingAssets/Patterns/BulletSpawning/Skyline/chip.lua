@@ -21,6 +21,7 @@ function update(pattern, id, deltaTime)
 				bullet.material = "white"
 				bullet.scale = 1
 				bullet.angle = i + -90
+				bullet.z = 1
 				pattern.SpawnBullet(bullet)
 		end
 	end

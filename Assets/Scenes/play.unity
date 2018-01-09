@@ -477,6 +477,7 @@ MonoBehaviour:
   - spawnData-L7.json
   - spawnData-L8.json
   - spawnData-L9.json
+  - spawnData-L10.json
   level: 1
   spawningEnabled: 1
   stage: {fileID: 1828452933}
@@ -2004,6 +2005,7 @@ MonoBehaviour:
   - Songs/Warriyo - Mortals (feat. Laura Brehm).ogg
   - Songs/Disfigure - Blank.ogg
   - Songs/Kovan Electro-Light - Skyline.ogg
+  - Songs/Jim Yosef - Firefly.ogg
   song: {fileID: 1828452935}
   darken: {fileID: 223478883}
   wipeEffect: {fileID: 1251693334}
