@@ -86,7 +86,7 @@ public class EnemySpawner : MonoBehaviour {
 		{
 			prepareLevelTime = .1f;
 			timeUntilNext = 0;
-			level = 9;
+			level = 10;
 		}
 
 		if (PlayerPrefs.HasKey("levelToStart"))
@@ -110,7 +110,7 @@ public class EnemySpawner : MonoBehaviour {
 		preparingLevel = false;
 		spawns = LevelSpawnData.FromJSON(new JSONObject(LoadFileString(spawnData[level])));
 		if (Application.isEditor)
-			stage.GetComponent<AudioSource>().time = 0;
+			stage.GetComponent<AudioSource>().time = 51;
 		else
 			stage.GetComponent<AudioSource>().time = 0;
 		stage.GetComponent<AudioSource>().Play();
@@ -176,6 +176,9 @@ public class EnemySpawner : MonoBehaviour {
 				break;
 			case 9:
 				musicText.text = "Kovan & Electro-Light - Skyline";
+				break;
+			case 10:
+				musicText.text = "Inukshuk - The Long Road Home";
 				break;
 			default:
 				musicText.text = "give the song a name you dope";

@@ -447,7 +447,6 @@ GameObject:
   m_Component:
   - component: {fileID: 723507421}
   - component: {fileID: 723507420}
-  - component: {fileID: 723507422}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -498,18 +497,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &723507422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 723507419}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a72dcbad2dcc21a4bb8de1b19d8d2af6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 1439768988220714, guid: 98fbd97174579af409297107684e24b7, type: 2}
 --- !u!1 &726017163
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,7 +1992,7 @@ MonoBehaviour:
   - Songs/Warriyo - Mortals (feat. Laura Brehm).ogg
   - Songs/Disfigure - Blank.ogg
   - Songs/Kovan Electro-Light - Skyline.ogg
-  - Songs/Jim Yosef - Firefly.ogg
+  - Songs/Inukshuk - The Long Road Home.ogg
   song: {fileID: 1828452935}
   darken: {fileID: 223478883}
   wipeEffect: {fileID: 1251693334}

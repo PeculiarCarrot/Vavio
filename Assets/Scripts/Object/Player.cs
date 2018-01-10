@@ -12,8 +12,6 @@ public class Player : Ship {
 	public EnemySpawner spawner;
 	public GameObject mesh;
 	public GameObject core;
-	private PowerUp.PowerUpType currentPowerUp;
-	private float remainingPowerUpDuration;
 	private float invincibilityDuration;
 	private float flickerTimer, flickerDuration = .05f;
 	public bool debug;
@@ -87,17 +85,6 @@ public class Player : Ship {
 		return dying;
 	}
 
-	void OnTriggerEnter (Collider col)
-    {
-    	PowerUp powerUp = col.gameObject.GetComponent<PowerUp>();
-        if(powerUp != null)
-        {
-            powerUp.Die();
-            ApplyPowerUp(powerUp.type, powerUp.GetDuration());
-            return;
-        }
-    }
-
     void OnGUI()
     {
 
@@ -160,12 +147,6 @@ public class Player : Ship {
 		PlayerPrefs.Save();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
-	
-    private void ApplyPowerUp(PowerUp.PowerUpType type, float duration)
-    {
-    	currentPowerUp = type;
-    	remainingPowerUpDuration = duration;
-    }
 
 	public bool IsInvincible()
 	{
@@ -196,15 +177,6 @@ public class Player : Ship {
 			Restart();
 		}
 		DoUpdate();
-		if(currentPowerUp != PowerUp.PowerUpType.None)
-		{
-			remainingPowerUpDuration -= Time.deltaTime;
-			if(remainingPowerUpDuration <= 0)
-			{
-				remainingPowerUpDuration = 0;
-				ApplyPowerUp(PowerUp.PowerUpType.None, 0);
-			}
-		}
 
 		if (currentAbility != null)
 		{
