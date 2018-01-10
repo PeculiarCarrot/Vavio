@@ -20,7 +20,7 @@ function update(pattern, id, deltaTime)
 			bullet = pattern.NewBullet()
 			bullet.speed = 3 + i * .25
 			bullet.type = "capsule"
-			bullet.scale = .8
+			bullet.scale = 1
 			bullet.material = "purple"
 			--bullet.speedMultiplier = .998
 			bullet.angle = angle[id]
@@ -29,7 +29,7 @@ function update(pattern, id, deltaTime)
 			bullet = pattern.NewBullet()
 			bullet.speed = 3 + i * .25
 			bullet.type = "capsule"
-			bullet.scale = .8
+			bullet.scale = 1
 			bullet.material = "purple"
 			--bullet.speedMultiplier = .998
 			bullet.angle = angle[id] - 180
@@ -38,7 +38,7 @@ function update(pattern, id, deltaTime)
 			bullet = pattern.NewBullet()
 			bullet.speed = 3 + i * .25
 			bullet.type = "capsule"
-			bullet.scale = .8
+			bullet.scale = 1
 			bullet.material = "aqua"
 			--bullet.speedMultiplier = .998
 			bullet.angle = angle[id] - 90
@@ -47,7 +47,7 @@ function update(pattern, id, deltaTime)
 			bullet = pattern.NewBullet()
 			bullet.speed = 3 + i * .25
 			bullet.type = "capsule"
-			bullet.scale = .8
+			bullet.scale = 1
 			bullet.material = "aqua"
 			--bullet.speedMultiplier = .998
 			bullet.angle = angle[id] - 270
