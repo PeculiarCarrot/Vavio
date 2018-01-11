@@ -134,8 +134,9 @@ public class Player : Ship {
 		GetComponent<PatternController>().enabled = false;
 		GameObject e = Instantiate(deathEffect, transform.position + new Vector3(0, 0, -3), deathEffect.transform.rotation);
 		e.GetComponent<LineRenderer>().material = GetComponentInChildren<MeshRenderer>().material;
-		Vector3 newPos = new Vector3(999, 999, 999);
-		transform.position = newPos;
+		GetComponentInChildren<MeshRenderer>().enabled = false;
+		GetComponentInChildren<Collider>().enabled = false;
+		//transform.position = newPos;
 		Debug.Log("FAIL SONG " + spawner.level + " at: " + Mathf.RoundToInt(Stage.stage.song.time));
 		GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Song " + spawner.level, Mathf.RoundToInt(Stage.stage.song.time));
 	}

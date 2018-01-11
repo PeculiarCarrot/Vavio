@@ -145,7 +145,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 22.79}
+  m_AnchoredPosition: {x: 0, y: 22.789978}
   m_SizeDelta: {x: 36.785, y: 36.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &168377215
@@ -477,6 +477,7 @@ MonoBehaviour:
   - spawnData-L8.json
   - spawnData-L9.json
   - spawnData-L10.json
+  - spawnData-L11.json
   level: 1
   spawningEnabled: 1
   stage: {fileID: 1828452933}
@@ -1993,6 +1994,7 @@ MonoBehaviour:
   - Songs/Disfigure - Blank.ogg
   - Songs/Kovan Electro-Light - Skyline.ogg
   - Songs/Inukshuk - The Long Road Home.ogg
+  - Songs/NIVIRO - The Guardian of Angels.ogg
   song: {fileID: 1828452935}
   darken: {fileID: 223478883}
   wipeEffect: {fileID: 1251693334}

@@ -32,7 +32,7 @@ public class Enemy : ShooterBase {
 	//Whether we are marked to always be invulnerable
 	public bool invul;
 	//Whether we can collide with the player
-	public bool canCollide, canCollideWithBullets;
+	public bool canCollide = true, canCollideWithBullets = true;
 	//Whether we have the enter/exit stage animation
 	public bool introMovement;
 	//Whether or not we're a boss
@@ -224,6 +224,7 @@ public class Enemy : ShooterBase {
 		}
 		else
 			EnemyAudio.Play(EnemyAudio.Instance.hitWhileInvul, .2f);
+
 		if((givesCharge || hp <= 0) && !stage.player.GetComponent<Player>().IsUsingAbility())
 			SpawnChargePoint(hp <= 0 ? 3 : 1);
 	}

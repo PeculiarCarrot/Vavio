@@ -265,6 +265,7 @@ MonoBehaviour:
   reachGoalTime: 0.2
   invul: 1
   canCollide: 0
+  canCollideWithBullets: 1
   introMovement: 0
   boss: 0
   mat: {fileID: 0}

@@ -44,6 +44,7 @@ public class Stage : MonoBehaviour {
 		bullets.Clear();
 		enemies.Clear();
 		paused = false;
+		stage = this;
 		PatternController.Load();
 		EnemySpawner.Load();
 	}
@@ -53,7 +54,6 @@ public class Stage : MonoBehaviour {
 		deltaTime = 0;
 		time = 0;
 		lastTime = 0;
-		stage = this;
 		song.volume = Options.musicVolume;
 	}
 
