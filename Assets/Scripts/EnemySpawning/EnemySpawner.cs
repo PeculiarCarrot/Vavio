@@ -72,6 +72,7 @@ public class EnemySpawner : MonoBehaviour {
 	private float prepareLevelTimer, prepareLevelTime = 4;
 	private bool preparingLevel = false;
 	public int reasonForLevelChange;
+	bool endingGame;
 
 	public const int DEATH = 0;
 	public const int COMPLETE = 1;
@@ -112,7 +113,7 @@ public class EnemySpawner : MonoBehaviour {
 		preparingLevel = false;
 		spawns = LevelSpawnData.FromJSON(new JSONObject(LoadFileString(spawnData[level])));
 		if (Application.isEditor)
-			stage.GetComponent<AudioSource>().time = 0;
+			stage.GetComponent<AudioSource>().time = 210;
 		else
 			stage.GetComponent<AudioSource>().time = 0;
 		stage.GetComponent<AudioSource>().Play();
@@ -294,7 +295,32 @@ public class EnemySpawner : MonoBehaviour {
 	}
 
 	private float prevTime = 0;
+
+	public Texture blackTexture;
+	private float blackScreenAlpha;
+
+	void OnGUI()
+	{
+		Color prevColor = GUI.color;
+		int prevDepth = GUI.depth;
+
+		GUI.depth = -1;
+		GUI.color = new Color(prevColor.r, prevColor.g, prevColor.b, Mathf.Min(blackScreenAlpha, 1f));
+		GUI.DrawTexture(new Rect(0,0,Screen.width, Screen.height), blackTexture);
+
+		//GUI.depth = prevDepth;
+		GUI.color = prevColor;
+	}
+
 	void Update () {
+
+		if(endingGame)
+		{
+			blackScreenAlpha += 1 * Time.deltaTime;
+			if (blackScreenAlpha > 2)
+				SceneManager.LoadScene("credits");
+			return;
+		}
 
 		if (Application.isEditor && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
 		{
@@ -391,7 +417,7 @@ public class EnemySpawner : MonoBehaviour {
 			stage.GetComponent<AudioSource>().time = 0;
 			if (level + 1 >= stage.GetComponent<Stage>().songs.Length)
 			{
-				Application.Quit();
+				EndGame();
 			}
 			else
 			{
@@ -410,5 +436,12 @@ public class EnemySpawner : MonoBehaviour {
 			}
 		}
 		prevTime = stage.GetComponent<AudioSource>().time;
+	}
+
+	void EndGame()
+	{
+		endingGame = true;
+		PlayerPrefs.SetInt("level", 11);
+		PlayerPrefs.Save();
 	}
 }

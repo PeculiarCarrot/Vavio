@@ -16,7 +16,7 @@ public class Buttons : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		Cursor.visible = true;
 	}
 
 	public void OnQuit()

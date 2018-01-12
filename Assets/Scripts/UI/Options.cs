@@ -48,6 +48,12 @@ public class Options : MonoBehaviour {
 		wipeEffect.Transition("menu");
 	}
 
+	public void ToCredits()
+	{
+		Save();
+		wipeEffect.Transition("credits");
+	}
+
 	public static void Save()
 	{
 		PlayerPrefs.SetInt("smoothMovement", Options.smoothMovement ? 1 : 0);

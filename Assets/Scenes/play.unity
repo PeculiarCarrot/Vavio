@@ -485,6 +485,7 @@ MonoBehaviour:
   stageText: {fileID: 1247935489}
   musicText: {fileID: 1504215723}
   reasonForLevelChange: 0
+  blackTexture: {fileID: 2800000, guid: 3292523990e4fc54dbcba3b6dae20796, type: 3}
 --- !u!4 &723507421
 Transform:
   m_ObjectHideFlags: 0
