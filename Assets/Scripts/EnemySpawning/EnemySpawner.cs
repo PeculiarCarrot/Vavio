@@ -113,7 +113,7 @@ public class EnemySpawner : MonoBehaviour {
 		preparingLevel = false;
 		spawns = LevelSpawnData.FromJSON(new JSONObject(LoadFileString(spawnData[level])));
 		if (Application.isEditor)
-			stage.GetComponent<AudioSource>().time = 210;
+			stage.GetComponent<AudioSource>().time = 0;
 		else
 			stage.GetComponent<AudioSource>().time = 0;
 		stage.GetComponent<AudioSource>().Play();

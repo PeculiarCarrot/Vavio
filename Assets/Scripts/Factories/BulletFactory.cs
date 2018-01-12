@@ -6,6 +6,26 @@ public static class BulletFactory {
 
 	private static List<GameObject> objects = new List<GameObject>();
 
+	public static void SleepAll()
+	{
+		List<GameObject> toRemove = new List<GameObject>();
+		foreach (GameObject b in objects)
+		{
+			if (b == null)
+			{
+				toRemove.Add(b);
+				continue;
+			}
+			if (b.activeInHierarchy)
+			{
+				b.SetActive(false);
+				b.GetComponent<BulletProperties>().Reset();
+			}
+		}
+		foreach (GameObject oo in toRemove)
+			objects.Remove(oo);
+	}
+
 	public static GameObject Create(Transform shooter, PatternController.BulletData b)
 	{
 		GameObject model = PatternController.GetBulletModel(b.type);
@@ -38,6 +58,7 @@ public static class BulletFactory {
 		bp.owner = b.owner;
 		bp.lifetime = b.lifetime;
 		bp.damage = b.damage;
+		GameObject.DontDestroyOnLoad(bullet);
 
 		bp.Init();
 		return bullet;
