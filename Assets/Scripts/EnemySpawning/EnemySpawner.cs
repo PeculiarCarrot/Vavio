@@ -42,6 +42,7 @@ public class EnemySpawner : MonoBehaviour {
 			enemyMaterials.Add("darkPurple", GetEnemyMaterial("darkPurple"));
 			enemyMaterials.Add("white", GetEnemyMaterial("white"));
 			enemyMaterials.Add("transparent", GetEnemyMaterial("transparent"));
+			enemyMaterials.Add("inverted", GetEnemyMaterial("inverted"));
 		}
 
 		loaded = true;
@@ -181,8 +182,11 @@ public class EnemySpawner : MonoBehaviour {
 			case 10:
 				musicText.text = "Inukshuk - The Long Road Home";
 				break;
+			case 11:
+				musicText.text = "NIVIRO - The Guardian of Angels";
+				break;
 			default:
-				musicText.text = "give the song a name you dope";
+				musicText.text = "Song not found";
 				break;
 		}
 		stage.GetComponent<Stage>().player.GetComponent<Player>().Regenerate();

@@ -5,13 +5,14 @@ anglePer = {}
 numBullets = 2
 right = true
 color = 0
+t = 20
 
 function update(pattern, id, deltaTime)
 	if(initialized[id] == nil) then
 		init(pattern, id)
 	end
 	if(fireTimes[id] == nil) then
-		fireTimes[id] = pattern.GetFireTimes(2.133333, 0)
+		fireTimes[id] = pattern.GetFireTimes(8.5333333, 0)
 	end
 
 	if(pattern.GetStageTime() >= fireTimes[id][fireIndex[id]]) then
@@ -23,10 +24,11 @@ function update(pattern, id, deltaTime)
 		
 		for i=0, numBullets-1, 1 do
 			bullet = pattern.NewBullet()
-			bullet.speed = 4 + pattern.Math().RandomRange(0, 2)
+			bullet.speed = 3 + pattern.Math().RandomRange(0, 2)
 			--bullet.speedMultiplier = .997
+			bullet.turn = pattern.Math().RandomRange(-t, t)
 			bullet.type = "capsule"
-			bullet.scale = 1
+			bullet.scale = 2
 			if right then
 				bullet.angle = 180
 				bullet.x = pattern.StageWidth() * .55
@@ -34,15 +36,6 @@ function update(pattern, id, deltaTime)
 				bullet.angle = 0
 				bullet.x = -pattern.StageWidth() * .55
 			end
-			-- if(color == 0) then
-			-- 	bullet.material = "orange"
-			-- elseif color == 1 then
-			-- 	bullet.material = "darkRed"
-			-- elseif color == 2 then
-			-- 	bullet.material = "purple"
-			-- elseif color == 3 then
-			-- 	bullet.material = "aqua"
-			-- end
 			bullet.material = "inverted"
 			bullet.y = pattern.Math().RandomRange(-pattern.StageHeight() / 2, pattern.StageHeight() / 2)
 			pattern.SpawnBullet(bullet)

@@ -32,6 +32,7 @@ public class PatternController : ScriptController{
 			bulletMaterials.Add("white", LoadBulletMaterial("white"));
 			bulletMaterials.Add("lightAqua", LoadBulletMaterial("lightAqua"));
 			bulletMaterials.Add("green", LoadBulletMaterial("green"));
+			bulletMaterials.Add("inverted", LoadBulletMaterial("inverted"));
 		}
 
 		loaded = true;

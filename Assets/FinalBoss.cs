@@ -20,16 +20,19 @@ public class FinalBoss : MovementController {
 	void Start()
 	{
 		body = GetComponent<Rigidbody>();
+		stage = Stage.stage;
 		goalPos = transform.position;
 	}
 
-	private float portalStart = 17f;
+	private float portalStart = 16.7f;
 	bool didIntroAnim;
 	bool eyeClosed = true;
 	Vector3 velocity;
 	float fric = .03f;
 
 	Vector3 portalStartScale = Vector3.zero;
+
+	int glitchIndex;
 
 	void Update()
 	{
@@ -66,6 +69,33 @@ public class FinalBoss : MovementController {
 		if(GetStageTime() > 219.0 && portalStartScale.x >= 0)
 		{
 			portal.transform.localScale = portal.transform.localScale * .9f;
+		}
+
+		if(glitchIndex == 0 && GetStageTime() >= 202.63)
+		{
+			glitchIndex++;
+			stage.glitchEffect.Glitch(.3f, .5f);
+		}
+		else if(glitchIndex == 1 && GetStageTime() >= 203.09)
+		{
+			glitchIndex++;
+			stage.glitchEffect.Glitch(-.6f, .5f);
+		}
+		else if(glitchIndex == 2 && GetStageTime() >= 203.59)
+		{
+			glitchIndex++;
+			stage.glitchEffect.Glitch(1, .5f);
+		}
+		else if(glitchIndex == 3 && GetStageTime() >= 204.06)
+		{
+			glitchIndex++;
+			stage.glitchEffect.Glitch(-1.3f, .5f);
+		}
+		else if(glitchIndex == 4 && GetStageTime() >= 204.53)
+		{
+			glitchIndex++;
+			stage.glitchEffect.Glitch(2, .5f);
+			Destroy(gameObject);
 		}
 	}
 

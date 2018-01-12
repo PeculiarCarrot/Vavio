@@ -22,11 +22,11 @@ function update(pattern, id, deltaTime)
 		fireIndex[id] = fireIndex[id] + 1
 		for i = 0, numSets[id] - 1, 1 do
 			bullet = pattern.NewBullet()
-			bullet.speed = 7 + pattern.Math().RandomRange(0, 2)
+			bullet.speed = 5 + pattern.Math().RandomRange(0, 2)
 			bullet.destroyOnExitStage = false
 			bullet.lifetime = 20
 			bullet.type = "circle"
-			bullet.scale = .3
+			bullet.scale = .5
 			bullet.angle = pattern.Math().RandomRange(90, 270)
 			bullet.x = pattern.Math().Cos((bullet.angle + 90) * pattern.Math().Deg2Rad) * a
 			bullet.y = pattern.Math().Sin((bullet.angle + 90) * pattern.Math().Deg2Rad) * a

@@ -1000,6 +1000,7 @@ GameObject:
   - component: {fileID: 1258905408}
   - component: {fileID: 1258905407}
   - component: {fileID: 1258905412}
+  - component: {fileID: 1258905413}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1092,6 +1093,22 @@ MonoBehaviour:
   shakeDuration: 0
   shakeAmount: 0.7
   decreaseFactor: 1
+--- !u!114 &1258905413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1258905406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27ee8f1585224e49867fe719ed2ae71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: 451b7e18652a0474b86321664d094395, type: 3}
+  displacementMap: {fileID: 2800000, guid: c4d5da1f2682a5c42adbbae91761cf14, type: 3}
+  intensity: 0.287
+  flipIntensity: 0
+  colorIntensity: 0
 --- !u!1 &1446251785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,6 +2015,7 @@ MonoBehaviour:
   song: {fileID: 1828452935}
   darken: {fileID: 223478883}
   wipeEffect: {fileID: 1251693334}
+  glitchEffect: {fileID: 1258905413}
 --- !u!4 &1828452934
 Transform:
   m_ObjectHideFlags: 0

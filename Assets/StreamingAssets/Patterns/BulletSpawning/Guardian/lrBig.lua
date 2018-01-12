@@ -2,7 +2,7 @@ fireIndex = {}
 fireTimes = {}
 initialized = {}
 anglePer = {}
-numBullets = 2
+numBullets = 1
 right = true
 color = 0
 
@@ -23,10 +23,10 @@ function update(pattern, id, deltaTime)
 		
 		for i=0, numBullets-1, 1 do
 			bullet = pattern.NewBullet()
-			bullet.speed = 4 + pattern.Math().RandomRange(0, 2)
+			bullet.speed = 6 + pattern.Math().RandomRange(0, 2)
 			--bullet.speedMultiplier = .997
-			bullet.type = "capsule"
-			bullet.scale = 1
+			bullet.type = "cube"
+			bullet.scale = 3
 			if right then
 				bullet.angle = 180
 				bullet.x = pattern.StageWidth() * .55

@@ -231,8 +231,7 @@ public class Enemy : ShooterBase {
 
 	private void SpawnChargePoint(float value)
 	{
-		GameObject o = Instantiate(chargePoint, transform.position, chargePoint.transform.rotation);
-		o.GetComponent<ChargePoint>().charge = value;
+		stage.player.GetComponent<Player>().AddCharge(value);
 	}
 
 	//Used to draw boss health bar

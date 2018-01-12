@@ -34,6 +34,7 @@ public class Stage : MonoBehaviour {
 
 	public GameObject darken;
 	public WipeEffect wipeEffect;
+	public GlitchEffect glitchEffect;
 	private bool wasPaused;
 
 	void Awake()
@@ -178,6 +179,10 @@ public class Stage : MonoBehaviour {
 		if(Application.isEditor && Input.GetKeyDown("space"))
 		{
 			Application.targetFrameRate = Application.targetFrameRate == -1 ? 30 : -1;
+		}
+		if(Application.isEditor && Input.GetKeyDown(KeyCode.Tab))
+		{
+			glitchEffect.Glitch(1, .5f);
 		}
 		if (!player.GetComponent<Player>().IsDying())
 		{
