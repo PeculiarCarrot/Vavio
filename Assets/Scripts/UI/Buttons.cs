@@ -7,7 +7,11 @@ public class Buttons : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		if (!PlayerPrefs.HasKey("level"))
+		{
+			PlayerPrefs.SetInt("level", 0);
+			PlayerPrefs.Save();
+		}
 	}
 	
 	// Update is called once per frame

@@ -21,7 +21,7 @@ public class LevelSelect : MonoBehaviour {
 			btn.GetComponent<Button>().onClick.AddListener(() => ToLevel(j));
 			if (i == 0)
 				autoselect.toSelect = btn;
-			if (i >= 11)
+			if (i > PlayerPrefs.GetInt("level"))
 				btn.GetComponent<Button>().interactable = false;
 		}
 		buttonBase.SetActive(false);

@@ -398,6 +398,11 @@ public class EnemySpawner : MonoBehaviour {
 				if(reasonForLevelChange == COMPLETE)
 				{
 					Debug.Log("COMPLETE SONG " + level+" with HP: "+Mathf.RoundToInt(Stage.stage.player.GetComponent<Player>().hp));
+					if(PlayerPrefs.GetInt("level") < level + 1)
+					{
+						PlayerPrefs.SetInt("level", level + 1);
+						PlayerPrefs.Save();
+					}
 					GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Song " + level, Mathf.RoundToInt(Stage.stage.player.GetComponent<Player>().hp));
 				}
 				level++;
