@@ -41,7 +41,6 @@ public class Stage : MonoBehaviour {
 	{
 		songProgress = 0;
 		Options.Load();
-		BulletFactory.SleepAll();
 		loadingSong = false;
 		bullets.Clear();
 		enemies.Clear();

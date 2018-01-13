@@ -14,12 +14,22 @@ function update(pattern, id, deltaTime)
 		fireIndex[id] = fireIndex[id] + 1
 
 		bullet = pattern.NewBullet()
-		bullet.speed = 2
+		bullet.speed = 3
 		pattern.SpawnBullet(bullet)
 
 		bullet = pattern.NewBullet()
-		bullet.speed = 2
+		bullet.speed = 3
 		bullet.angle = 180
+		pattern.SpawnBullet(bullet)
+
+		bullet = pattern.NewBullet()
+		bullet.speed = 3
+		bullet.angle = 90
+		pattern.SpawnBullet(bullet)
+
+		bullet = pattern.NewBullet()
+		bullet.speed = 3
+		bullet.angle = 270
 		pattern.SpawnBullet(bullet)
 	end
 end

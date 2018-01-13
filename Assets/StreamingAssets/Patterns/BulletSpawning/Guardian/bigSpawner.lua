@@ -5,7 +5,7 @@ anglePer = {}
 numBullets = 2
 right = true
 color = 0
-t = 20
+t = 14
 
 function update(pattern, id, deltaTime)
 	if(initialized[id] == nil) then

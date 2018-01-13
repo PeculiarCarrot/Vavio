@@ -68,6 +68,8 @@ public class Player : Ship {
 			target.y += velocity.y * Time.deltaTime;
 			body.MovePosition(target);
 		}
+		else
+			body.MovePosition(Vector3.Lerp(transform.position, target, Options.smoothMovement ? .3f : 1f));
 	}
 
 	private void PlayChargeNotification()
@@ -141,11 +143,18 @@ public class Player : Ship {
 		GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Song " + spawner.level, Mathf.RoundToInt(Stage.stage.song.time));
 	}
 
+	public void SetChosenAbility()
+	{
+		PlayerPrefs.SetInt("chosenAbility", abilityPicker.selectedIndex);
+	}
+
 	private void Restart()
 	{
 		PlayerPrefs.SetInt("levelToStart", spawner.level);
+		PlayerPrefs.SetInt("chosenAbility", abilityPicker.selectedIndex);
 		PlayerPrefs.SetInt("reasonForLevelChange", EnemySpawner.DEATH);
 		PlayerPrefs.Save();
+		BulletFactory.SleepAll();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
@@ -169,6 +178,7 @@ public class Player : Ship {
 	}
 
 	private float accel = 10f, slowAccel = 3f;
+	private Vector3 target;
 	// Update is called once per frame
 	public void Update () {
 		dieTimer -= Time.deltaTime;
@@ -215,9 +225,8 @@ public class Player : Ship {
 				velocity = input * (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ? slowAccel : accel);
 			}
 			else{
-				Vector3 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				target.z = transform.position.z;
-				body.MovePosition(Vector3.Lerp(transform.position, target, Options.smoothMovement ? .3f : 1f));
 			}
 	       /* Vector3 newRot = transform.rotation.eulerAngles;
 	        newRot.y -= rotAccel * (target.x - transform.position.x);

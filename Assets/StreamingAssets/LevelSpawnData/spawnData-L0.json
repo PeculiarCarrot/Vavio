@@ -125,6 +125,26 @@
       "invul": true
     },
     {
+      "time": 40.25,
+      "leave": 54,
+      "pattern": "STT/basic",
+      "movement": "STT/basic rotate",
+      "model": "circle",
+      "material": "red",
+      "x": 0.1,
+      "y": 0.5
+    },
+    {
+      "time": 40.25,
+      "leave": 54,
+      "pattern": "STT/basic",
+      "movement": "STT/basic rotate",
+      "model": "circle",
+      "material": "red",
+      "x": 0.9,
+      "y": 0.5
+    },
+    {
       "time": 56.4,
       "leave": 69.6,
       "pattern": "STT/basic",

@@ -10,6 +10,7 @@ public class Buttons : MonoBehaviour {
 		if (!PlayerPrefs.HasKey("level"))
 		{
 			PlayerPrefs.SetInt("level", 0);
+			PlayerPrefs.SetInt("chosenAbility", 0);
 			PlayerPrefs.Save();
 		}
 	}

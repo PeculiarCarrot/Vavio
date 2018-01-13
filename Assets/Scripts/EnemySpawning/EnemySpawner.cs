@@ -89,7 +89,7 @@ public class EnemySpawner : MonoBehaviour {
 		{
 			prepareLevelTime = .1f;
 			timeUntilNext = 0;
-			level = 11;
+			level = 0;
 		}
 
 		if (PlayerPrefs.HasKey("levelToStart"))
@@ -408,6 +408,7 @@ public class EnemySpawner : MonoBehaviour {
 		}
 		if((prevTime > stage.GetComponent<AudioSource>().time || timeUntilNext <= 0) && !preparingLevel)
 		{
+			BulletFactory.SleepAll();
 			if(prevTime > stage.GetComponent<AudioSource>().time)
 			{
 				reasonForLevelChange = COMPLETE;
@@ -427,6 +428,7 @@ public class EnemySpawner : MonoBehaviour {
 					if(PlayerPrefs.GetInt("level") < level + 1)
 					{
 						PlayerPrefs.SetInt("level", level + 1);
+						stage.player.GetComponent<Player>().SetChosenAbility();
 						PlayerPrefs.Save();
 					}
 					GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Song " + level, Mathf.RoundToInt(Stage.stage.player.GetComponent<Player>().hp));
@@ -442,6 +444,7 @@ public class EnemySpawner : MonoBehaviour {
 	{
 		endingGame = true;
 		PlayerPrefs.SetInt("level", 11);
+		stage.player.GetComponent<Player>().SetChosenAbility();
 		PlayerPrefs.Save();
 	}
 }

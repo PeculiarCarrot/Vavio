@@ -251,6 +251,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 223478883}
+--- !u!1 &353767687 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1449443903002484, guid: a1d643d648358444aa0fd108b58bcec4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1769361959}
+--- !u!114 &353767688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 353767687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e13cdb0ce5135ca459f3b36e64cda069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sendTriggerMessage: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4294966783
+  skinWidth: 0.1
+  core: {fileID: 353767690}
+--- !u!114 &353767690 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114075813491147300, guid: a1d643d648358444aa0fd108b58bcec4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1769361959}
+  m_Script: {fileID: 11500000, guid: 06e1f07f925933141b0840a05eff0fd2, type: 3}
 --- !u!1 &423258714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,19 +1900,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4383038258477144, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.013526088
+      value: 0.0040206355
       objectReference: {fileID: 0}
     - target: {fileID: 4383038258477144, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.013526087
+      value: 0.0040206355
       objectReference: {fileID: 0}
     - target: {fileID: 4383038258477144, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.013526087
+      value: 0.0040206355
       objectReference: {fileID: 0}
     - target: {fileID: 4383038258477144, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.0344
+      value: 0.0123
       objectReference: {fileID: 0}
     - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
         type: 2}
@@ -1965,6 +1993,19 @@ Prefab:
         type: 2}
       propertyPath: chargedColor.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383038258477144, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 54031465421138996, guid: a1d643d648358444aa0fd108b58bcec4,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449443903002484, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114519326508080882, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}

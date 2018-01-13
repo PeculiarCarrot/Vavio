@@ -2,7 +2,7 @@ fireIndex = {}
 fireTimes = {}
 initialized = {}
 anglePer = {}
-numBullets = 25
+numBullets = 22
 
 function update(pattern, id, deltaTime)
 	if(initialized[id] == nil) then

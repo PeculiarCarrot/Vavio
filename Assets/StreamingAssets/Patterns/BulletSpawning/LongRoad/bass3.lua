@@ -1,6 +1,6 @@
 
 initialized = {}
-shots = 50
+shots = 70
 
 function update(pattern, id, deltaTime)
 	if(initialized[id] == nil) then

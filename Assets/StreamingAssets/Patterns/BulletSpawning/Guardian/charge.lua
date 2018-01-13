@@ -31,7 +31,7 @@ function update(pattern, id, deltaTime)
 			bullet.x = pattern.Math().Cos((bullet.angle + 90) * pattern.Math().Deg2Rad) * a
 			bullet.y = pattern.Math().Sin((bullet.angle + 90) * pattern.Math().Deg2Rad) * a
 			bullet.z = 3
-			bullet.material = "white"
+			bullet.material = "inverted"
 			pattern.SpawnBullet(bullet)
 		end
 	end

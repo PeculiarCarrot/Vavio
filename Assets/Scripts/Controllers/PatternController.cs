@@ -219,7 +219,7 @@ public class PatternController : ScriptController{
 		bool firing = true;
 
 		if(secondsToPause > 0 && secondsToFire > 0)
-			for(float i = initialDelay; i < leave + initialDelay; i += k)
+			for(float i = initialDelay; i < leave + initialDelay; i += secondsToFire)
 			{
 				for(int j = times.Count - 1; j >= 0; j--)
 				{

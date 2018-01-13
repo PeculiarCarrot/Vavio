@@ -21,7 +21,7 @@ public class AbilityPicker : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		SetSelectedIndex(PlayerPrefs.GetInt("chosenAbility"));
 	}
 
 	public Ability GetNewAbility(Player player)

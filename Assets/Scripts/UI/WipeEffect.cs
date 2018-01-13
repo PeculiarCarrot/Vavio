@@ -42,6 +42,7 @@ public class WipeEffect : MonoBehaviour {
 
 		if(transitioning && percent >= 1)
 		{
+			BulletFactory.SleepAll();
 			SceneManager.LoadScene(sceneName);
 		}
 		transform.SetAsLastSibling();

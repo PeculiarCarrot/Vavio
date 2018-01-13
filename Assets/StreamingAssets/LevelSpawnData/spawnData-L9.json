@@ -2850,32 +2850,6 @@
       "x": 0.5,
       "y": -0.03,
       "rotation": 180
-    },
-    {
-      "time": 215.3,
-      "leave": 220,
-      "pattern": "Skyline/chip",
-      "movement": "Skyline/chip",
-      "model": "circle",
-      "material": "white",
-      "hp": 100,
-      "introMovement": false,
-      "x": 0,
-      "y": 0.96,
-      "rotation": 90
-    },
-    {
-      "time": 222.7,
-      "leave": 230,
-      "pattern": "Skyline/chip",
-      "movement": "Skyline/chip",
-      "model": "circle",
-      "material": "white",
-      "hp": 100,
-      "introMovement": false,
-      "x": 0,
-      "y": 0.96,
-      "rotation": 90
-    },
+    }
   ]
 }

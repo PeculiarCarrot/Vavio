@@ -16,8 +16,8 @@ function update(pattern, id, deltaTime)
 		bullet = pattern.NewBullet()
 		bullet.movement = "General/homing"
 		bullet.material = "orange"
-		bullet.speed = 1.4
-		bullet.lifetime = 4
+		bullet.speed = 1.5
+		bullet.lifetime = 8
 		pattern.SpawnBullet(bullet)
 	end
 end

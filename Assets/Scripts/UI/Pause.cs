@@ -24,5 +24,7 @@ public class Pause : MonoBehaviour {
 	public void OnMenu()
 	{
 		wipeEffect.Transition("menu");
+		Stage.stage.player.GetComponent<Player>().SetChosenAbility();
+		PlayerPrefs.Save();
 	}
 }
