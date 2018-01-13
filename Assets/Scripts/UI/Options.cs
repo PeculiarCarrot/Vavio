@@ -118,6 +118,7 @@ public class Options : MonoBehaviour {
 		else if (chosen == 3)
 			num = 8;
 		QualitySettings.antiAliasing = num;
+		Debug.Log(QualitySettings.antiAliasing);
 	}
 
 	public void OnSmoothMovementChange()

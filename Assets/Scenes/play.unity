@@ -2007,6 +2007,26 @@ Prefab:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
+        type: 2}
+      propertyPath: timeAbilitySound
+      value: 
+      objectReference: {fileID: 8300000, guid: 897cf622fd5c60242a80e5c2d4a55095, type: 3}
+    - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
+        type: 2}
+      propertyPath: laserAbilitySound
+      value: 
+      objectReference: {fileID: 8300000, guid: 216b807c0d772ce4e931dd2208bf7ab4, type: 3}
+    - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
+        type: 2}
+      propertyPath: shieldAbilitySound
+      value: 
+      objectReference: {fileID: 8300000, guid: f604fd146e3d2f948b731944cfd0f5e8, type: 3}
+    - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
+        type: 2}
+      propertyPath: whiteMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: bce7bdfffa120694880b1f1c9b3c84cf, type: 2}
     m_RemovedComponents:
     - {fileID: 114519326508080882, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}

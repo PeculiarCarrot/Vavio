@@ -168,6 +168,8 @@ public class Player : Ship {
 		regenerating = true;
 	}
 
+	public Material powerUpMaterial;
+
 	public void UseAbility()
 	{
 		charge = 0;
@@ -175,7 +177,18 @@ public class Player : Ship {
 			currentAbility.End();
 		currentAbility = abilityPicker.GetNewAbility(this);
 		currentAbility.Begin();
+
+		if(currentAbility is BubbleAbility) GetComponent<AudioSource>().PlayOneShot(shieldAbilitySound);
+		else if(currentAbility is TimeAbility) GetComponent<AudioSource>().PlayOneShot(timeAbilitySound);
+		else if(currentAbility is LaserAbility) GetComponent<AudioSource>().PlayOneShot(laserAbilitySound);
+
+		GameObject e = Instantiate(deathEffect, transform.position + new Vector3(0, 0, -3), deathEffect.transform.rotation);
+		e.GetComponent<DeathEffect>().spd = 1.5f;
+		e.GetComponent<DeathEffect>().shrink = .3f;
+		e.GetComponent<LineRenderer>().material = powerUpMaterial;
 	}
+
+	public AudioClip timeAbilitySound, laserAbilitySound, shieldAbilitySound;
 
 	private float accel = 10f, slowAccel = 3f;
 	private Vector3 target;

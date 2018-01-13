@@ -7,7 +7,7 @@ public class DeathEffect : MonoBehaviour {
 	public float xradius = 5;
 	public float yradius = 5;
 	public LineRenderer line;
-	float spd = 2f;
+	public float spd = 2f;
 	public float shrink = .3f;
 
 	void Awake ()
