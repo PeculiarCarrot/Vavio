@@ -89,7 +89,7 @@ public class EnemySpawner : MonoBehaviour {
 		{
 			prepareLevelTime = .1f;
 			timeUntilNext = 0;
-			level = 0;
+			level = 9;
 		}
 
 		if (PlayerPrefs.HasKey("levelToStart"))
@@ -102,10 +102,13 @@ public class EnemySpawner : MonoBehaviour {
 		level--;
 	}
 
+	public Tutorial tutorial;
+
 	public void BeginLevel()
 	{
 		if (Stage.loadingSong)
 			return;
+		tutorial.Begin();
 		Debug.Log("START SONG " + level);
 		GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Song " + level, 0);
 		stageText.text = "";
@@ -113,7 +116,7 @@ public class EnemySpawner : MonoBehaviour {
 		preparingLevel = false;
 		spawns = LevelSpawnData.FromJSON(new JSONObject(LoadFileString(spawnData[level])));
 		if (Application.isEditor)
-			stage.GetComponent<AudioSource>().time = 0;
+			stage.GetComponent<AudioSource>().time = 72;
 		else
 			stage.GetComponent<AudioSource>().time = 0;
 		stage.GetComponent<AudioSource>().Play();

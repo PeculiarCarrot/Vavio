@@ -121,6 +121,14 @@ public class Options : MonoBehaviour {
 		Debug.Log(QualitySettings.antiAliasing);
 	}
 
+	public void ToTutorial()
+	{
+		PlayerPrefs.SetInt("didTutorial", 0);
+		PlayerPrefs.SetInt("levelToStart", 0);
+		Save();
+		wipeEffect.Transition("play");
+	}
+
 	public void OnSmoothMovementChange()
 	{
 		smoothMovement = smoothToggle.isOn;

@@ -264,7 +264,7 @@ public class Player : Ship {
 	        	}
 	        }
 
-			if (Input.GetKeyDown(KeyCode.Mouse1) && (charge >= maxCharge || Application.isEditor))
+			if ((Input.GetKeyDown(KeyCode.Mouse1) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.F)) && (charge >= maxCharge || Application.isEditor))
 				UseAbility();
 
 			transform.position = new Vector3(Mathf.Clamp(transform.position.x, Stage.minX, Stage.maxX),

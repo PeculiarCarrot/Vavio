@@ -60,30 +60,26 @@ public class AbilityPicker : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		timeSinceMoved += Time.deltaTime;
-		if (Input.GetAxisRaw("Mouse ScrollWheel") > 0)
+		if (Input.GetAxisRaw("Mouse ScrollWheel") > 0 || (Input.GetKeyDown(KeyCode.RightArrow) && !Options.keyboardMovement))
 		{
 			SetSelectedIndex(selectedIndex + 1);
 		}
-		else if (Input.GetAxisRaw("Mouse ScrollWheel") < 0)
+		else if (Input.GetAxisRaw("Mouse ScrollWheel") < 0 || (Input.GetKeyDown(KeyCode.LeftArrow) && !Options.keyboardMovement))
 		{
 			SetSelectedIndex(selectedIndex - 1);
 		}
 
-		if(Input.GetKeyDown(KeyCode.Alpha1))
+		if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.A))
 		{
 			SetSelectedIndex(0);
 		}
-		else if(Input.GetKeyDown(KeyCode.Alpha2))
+		else if(Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.S))
 		{
 			SetSelectedIndex(1);
 		}
-		if(Input.GetKeyDown(KeyCode.Alpha3))
+		if(Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.D))
 		{
 			SetSelectedIndex(2);
-		}
-		if(Input.GetKeyDown(KeyCode.Alpha4))
-		{
-			SetSelectedIndex(3);
 		}
 		selectedIndex = Mathf.Clamp(selectedIndex, 0, abilities.Length - 1);
 	}
