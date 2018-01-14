@@ -271,6 +271,7 @@ public class EnemySpawner : MonoBehaviour {
 			enemy.hp = data.hp;
 			enemy.givesCharge = data.givesCharge;
 			enemy.boss = data.boss;
+			enemy.growsOnHit = data.growsOnHit;
 			enemy.mat = material;
 			enemy.SetGoalPos(goalPos);
 			liveEnemies.Add(e);

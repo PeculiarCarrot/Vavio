@@ -182,7 +182,11 @@ public class Player : Ship {
 
 		if(currentAbility is BubbleAbility) audio.PlayOneShot(shieldAbilitySound);
 		else if(currentAbility is TimeAbility) audio.PlayOneShot(timeAbilitySound);
-		else if(currentAbility is LaserAbility) audio.PlayOneShot(laserAbilitySound);
+		else if(currentAbility is LaserAbility)
+		{
+			((LaserAbility)currentAbility).shootSound = laserShootSound;
+			audio.PlayOneShot(laserAbilitySound);
+		}
 
 		GameObject e = Instantiate(deathEffect, transform.position + new Vector3(0, 0, -3), deathEffect.transform.rotation);
 		e.GetComponent<DeathEffect>().spd = 1.5f;
@@ -190,7 +194,7 @@ public class Player : Ship {
 		e.GetComponent<LineRenderer>().material = powerUpMaterial;
 	}
 
-	public AudioClip timeAbilitySound, laserAbilitySound, shieldAbilitySound;
+	public AudioClip timeAbilitySound, laserAbilitySound, shieldAbilitySound, laserShootSound;
 
 	private float accel = 10f, slowAccel = 3f;
 	private Vector3 target;

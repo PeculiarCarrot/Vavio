@@ -60,12 +60,16 @@ public class Enemy : ShooterBase {
 
 	public Material white;
 
+	private Vector3 goalScale;
+	public bool growsOnHit = true;
+
 	void Start () {
 		stage = Stage.stage;
 		startPos = transform.position;
 		hp = maxHP;
 		if (introMovement)
 			noCollisionTimer = 1f;
+		goalScale = transform.localScale;
 	}
 
 	IEnumerator CollideFlash(Renderer mainRenderer)
@@ -183,6 +187,9 @@ public class Enemy : ShooterBase {
 		if(hp <= 0)
 			Die(true);
 
+		if(growsOnHit)
+			transform.localScale = Vector3.Lerp(transform.localScale, goalScale, 5 * Time.deltaTime);
+
 		noCollisionTimer -= Time.deltaTime;
 
 		if(!reachedGoal)
@@ -221,6 +228,9 @@ public class Enemy : ShooterBase {
 				EnemyAudio.Play(EnemyAudio.Instance.hit);
 			hp -= damage;
 			Flash();
+			CameraShake.Shake(.1f, .02f);
+			if(growsOnHit)
+				transform.localScale *= 1.1f;
 		}
 		else
 			EnemyAudio.Play(EnemyAudio.Instance.hitWhileInvul, .2f);

@@ -7,7 +7,7 @@ public class EnemySpawnData {
 	public float time, leave = 999f, reachGoalTime = .2f, hp = 300;
 	public float x = float.MaxValue, y = float.MaxValue, z = 0, rotation, scale = 1;
 	public string type, from = "up", movement = null, pattern = "General/none", model = "circle", material = "red";
-	public bool invul, canCollide = true, introMovement = true, boss, givesCharge = true, canCollideWithBullets = true, absoluteZ = false;
+	public bool invul, canCollide = true, introMovement = true, boss, givesCharge = true, canCollideWithBullets = true, absoluteZ = false, growsOnHit = true;
 
 	public static EnemySpawnData FromJSON(JSONObject o)
 	{
@@ -83,6 +83,9 @@ public class EnemySpawnData {
 					break;
 				case "canCollideWithBullets":
 					esd.canCollideWithBullets = (bool)j.b;
+					break;
+				case "growsOnHit":
+					esd.growsOnHit = (bool)j.b;
 					break;
 			}
 		}
