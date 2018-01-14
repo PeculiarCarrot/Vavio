@@ -125,7 +125,7 @@
       "canCollide": false,
       "invul": true,
       "introMovement": false,
-      "x": 0.25
+      "x": 0.5
     },
     {
       "time": 15.1,
@@ -136,30 +136,7 @@
       "material": "red",
       "invul": true,
       "introMovement": false,
-      "x": 0.25
-    },
-    {
-      "time": 17.6,
-      "leave": 18.5,
-      "movement": "General/laserWarning",
-      "canCollideWithBullets": false,
-      "model": "cube",
-      "material": "red",
-      "canCollide": false,
-      "invul": true,
-      "introMovement": false,
-      "x": 0.75
-    },
-    {
-      "time": 18.5,
-      "leave": 21,
-      "movement": "General/laser",
-      "canCollideWithBullets": false,
-      "model": "cube",
-      "material": "red",
-      "invul": true,
-      "introMovement": false,
-      "x": 0.75
+      "x": 0.5
     },
     {
       "time": 20.6,
@@ -206,7 +183,7 @@
       "introMovement": false,
       "x": 0.5,
       "y": 0.5,
-      "rotation": 45
+      "rotation": 90
     },
     {
       "time": 21.9,
@@ -219,34 +196,7 @@
       "introMovement": false,
       "x": 0.5,
       "y": 0.5,
-      "rotation": 45
-    },
-    {
-      "time": 24.1,
-      "leave": 25.4,
-      "movement": "General/laserWarning",
-      "canCollideWithBullets": false,
-      "model": "cube",
-      "material": "red",
-      "canCollide": false,
-      "introMovement": false,
-      "invul": true,
-      "x": 0.5,
-      "y": 0.5,
-      "rotation": -45
-    },
-    {
-      "time": 25.4,
-      "leave": 29,
-      "movement": "General/laser",
-      "canCollideWithBullets": false,
-      "model": "cube",
-      "material": "red",
-      "invul": true,
-      "introMovement": false,
-      "x": 0.5,
-      "y": 0.5,
-      "rotation": -45
+      "rotation": 90
     },
     {
       "time": 28.2,
@@ -424,7 +374,7 @@
     },
     {
       "time": 97.3,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -440,7 +390,7 @@
     },
     {
       "time": 97.5,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -456,7 +406,7 @@
     },
     {
       "time": 97.7,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -472,7 +422,7 @@
     },
     {
       "time": 100.1,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -488,7 +438,7 @@
     },
     {
       "time": 100.8,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -504,7 +454,7 @@
     },
     {
       "time": 102,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -520,7 +470,7 @@
     },
     {
       "time": 102.3,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -536,7 +486,7 @@
     },
     {
       "time": 102.3,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -552,7 +502,7 @@
     },
     {
       "time": 102.5,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -568,7 +518,7 @@
     },
     {
       "time": 102.7,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -584,7 +534,7 @@
     },
     {
       "time": 103.1,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -600,7 +550,7 @@
     },
     {
       "time": 103.5,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -616,7 +566,7 @@
     },
     {
       "time": 104,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -632,7 +582,7 @@
     },
     {
       "time": 104.4,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -648,7 +598,7 @@
     },
     {
       "time": 106.1,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -664,7 +614,7 @@
     },
     {
       "time": 106.25,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -679,7 +629,7 @@
     },
     {
       "time": 106.5,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -695,7 +645,7 @@
     },
     {
       "time": 106.6,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -711,7 +661,7 @@
     },
     {
       "time": 106.8,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -727,7 +677,7 @@
     },
     {
       "time": 107.1,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -743,7 +693,7 @@
     },
     {
       "time": 107.4,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -759,7 +709,7 @@
     },
     {
       "time": 107.6,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -775,7 +725,7 @@
     },
     {
       "time": 107.8,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -791,7 +741,7 @@
     },
     {
       "time": 108.3,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -807,7 +757,7 @@
     },
     {
       "time": 108.9,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -823,7 +773,7 @@
     },
     {
       "time": 109.3,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -839,7 +789,7 @@
     },
     {
       "time": 110,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -855,7 +805,7 @@
     },
     {
       "time": 110.6,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/slowHoming",
       "canCollideWithBullets": false,
       "givesCharge": false,
@@ -871,7 +821,7 @@
     },
     {
       "time": 111.1,
-      "leave": 111.9,
+      "leave": 111.99,
       "movement": "General/laserWarning",
       "canCollideWithBullets": false,
       "model": "cube",
@@ -882,7 +832,7 @@
       "x": 0.25
     },
     {
-      "time": 111.9,
+      "time": 111.99,
       "leave": 115,
       "movement": "General/laser",
       "canCollideWithBullets": false,
@@ -894,7 +844,7 @@
     },
     {
       "time": 114.5,
-      "leave": 115.3,
+      "leave": 115.39,
       "movement": "General/laserWarning",
       "canCollideWithBullets": false,
       "model": "cube",
@@ -905,8 +855,8 @@
       "x": 0.75
     },
     {
-      "time": 115.3,
-      "leave": 128.2,
+      "time": 115.39,
+      "leave": 128.3,
       "movement": "General/laser",
       "canCollideWithBullets": false,
       "model": "cube",
@@ -917,7 +867,7 @@
     },
     {
       "time": 117.9,
-      "leave": 118.7,
+      "leave": 118.79,
       "movement": "General/laserWarning",
       "canCollideWithBullets": false,
       "model": "cube",
@@ -930,8 +880,8 @@
       "rotation": 90
     },
     {
-      "time": 118.7,
-      "leave": 128.2,
+      "time": 118.79,
+      "leave": 128.3,
       "movement": "General/laser",
       "canCollideWithBullets": false,
       "model": "cube",
@@ -958,7 +908,7 @@
     },
     {
       "time": 122.2,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/laser",
       "canCollideWithBullets": false,
       "model": "cube",
@@ -985,7 +935,7 @@
     },
     {
       "time": 122.2,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/laser",
       "canCollideWithBullets": false,
       "model": "cube",
@@ -1012,7 +962,7 @@
     },
     {
       "time": 123.9,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/laser",
       "canCollideWithBullets": false,
       "model": "cube",
@@ -1039,7 +989,7 @@
     },
     {
       "time": 123.9,
-      "leave": 128.2,
+      "leave": 128.3,
       "movement": "General/laser",
       "canCollideWithBullets": false,
       "model": "cube",

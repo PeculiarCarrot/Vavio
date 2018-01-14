@@ -14,6 +14,7 @@ public class Buttons : MonoBehaviour {
 			PlayerPrefs.SetInt("chosenAbility", 0);
 			PlayerPrefs.Save();
 		}
+		BulletFactory.SleepAll();
 	}
 	
 	// Update is called once per frame

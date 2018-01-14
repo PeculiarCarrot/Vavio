@@ -11,6 +11,7 @@ public class Tutorial : MonoBehaviour {
 
 	// Use this for initialization
 	public void Begin () {
+		going = false;
 		if(spawner.level == 0 && PlayerPrefs.GetInt("didTutorial") == 0)
 		{
 			PlayerPrefs.SetInt("didTutorial", 1);
@@ -28,7 +29,7 @@ public class Tutorial : MonoBehaviour {
 				if(text.text != "")
 					text.text = "";
 			}
-			if (Stage.time > 22)
+			else if (Stage.time > 22)
 				text.text = Options.keyboardMovement ? "You can use your selected ability with Q or F." : "Right click to use your selected ability.";
 			else if (Stage.time > 13)
 				text.text = Options.keyboardMovement ? "You can select your ability with the 1-3 keys, ASD, or the scroll wheel." : "You can select your ability with the scroll wheel, the 1-3 keys, or the arrow keys.";

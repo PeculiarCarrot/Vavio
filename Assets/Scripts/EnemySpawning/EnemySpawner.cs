@@ -89,7 +89,7 @@ public class EnemySpawner : MonoBehaviour {
 		{
 			prepareLevelTime = .1f;
 			timeUntilNext = 0;
-			level = 4;
+			level = 5;
 		}
 
 		if (PlayerPrefs.HasKey("levelToStart"))
@@ -116,11 +116,11 @@ public class EnemySpawner : MonoBehaviour {
 		preparingLevel = false;
 		spawns = LevelSpawnData.FromJSON(new JSONObject(LoadFileString(spawnData[level])));
 		if (Application.isEditor)
-			stage.GetComponent<AudioSource>().time = 84;
+			stage.GetComponent<AudioSource>().time = 0;
 		else
 			stage.GetComponent<AudioSource>().time = 0;
 		stage.GetComponent<AudioSource>().Play();
-		stage.GetComponent<Stage>().Begin();
+		stage.Begin();
 		timeUntilNext = 9999999f;
 		spawns.Begin(this);
 	}
@@ -193,7 +193,7 @@ public class EnemySpawner : MonoBehaviour {
 				musicText.text = "Song not found";
 				break;
 		}
-		stage.GetComponent<Stage>().player.GetComponent<Player>().Regenerate();
+		stage.player.GetComponent<Player>().Regenerate();
 	}
 
 	public static Material TryGetEnemyMaterial(string s)
@@ -418,7 +418,7 @@ public class EnemySpawner : MonoBehaviour {
 			//Debug.Log(prevTime + "    "+ stage.GetComponent<AudioSource>().time);
 			prevTime = 0;
 			stage.GetComponent<AudioSource>().time = 0;
-			if (level + 1 >= stage.GetComponent<Stage>().songs.Length)
+			if (level + 1 >= stage.songs.Length)
 			{
 				EndGame();
 			}
