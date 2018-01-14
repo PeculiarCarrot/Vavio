@@ -89,7 +89,7 @@ public class EnemySpawner : MonoBehaviour {
 		{
 			prepareLevelTime = .1f;
 			timeUntilNext = 0;
-			level = 9;
+			level = 4;
 		}
 
 		if (PlayerPrefs.HasKey("levelToStart"))
@@ -116,7 +116,7 @@ public class EnemySpawner : MonoBehaviour {
 		preparingLevel = false;
 		spawns = LevelSpawnData.FromJSON(new JSONObject(LoadFileString(spawnData[level])));
 		if (Application.isEditor)
-			stage.GetComponent<AudioSource>().time = 72;
+			stage.GetComponent<AudioSource>().time = 84;
 		else
 			stage.GetComponent<AudioSource>().time = 0;
 		stage.GetComponent<AudioSource>().Play();
@@ -149,7 +149,7 @@ public class EnemySpawner : MonoBehaviour {
 		preparingLevel = true;
 		stageText.text = "Stage " + (level + 1);
 		stage.GetComponent<AudioSource>().Stop();
-		stage.GetComponent<Stage>().Clear();
+		//stage.GetComponent<Stage>().Clear();
 		stage.LoadLevel(level);
 		switch(level)
 		{
@@ -411,7 +411,6 @@ public class EnemySpawner : MonoBehaviour {
 		}
 		if((prevTime > stage.GetComponent<AudioSource>().time || timeUntilNext <= 0) && !preparingLevel)
 		{
-			BulletFactory.SleepAll();
 			if(prevTime > stage.GetComponent<AudioSource>().time)
 			{
 				reasonForLevelChange = COMPLETE;

@@ -839,7 +839,7 @@
       "invul": true,
       "canCollide": false,
       "introMovement": false,
-      "x": 0,
+      "x": -0.1,
       "y": 1.1,
       "rotation": 45
     },

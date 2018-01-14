@@ -33,7 +33,7 @@ public class DontGoThroughThings : MonoBehaviour
 	void FixedUpdate() 
 	{ 
 		//have we moved more than our minimum extent? 
-		Vector3 movementThisStep = myRigidbody.position - previousPosition; 
+		Vector3 movementThisStep = transform.position - previousPosition; 
 		float movementSqrMagnitude = movementThisStep.sqrMagnitude;
 
 		if (movementSqrMagnitude > sqrMinimumExtent) 
@@ -53,6 +53,6 @@ public class DontGoThroughThings : MonoBehaviour
 			}
 		} 
 
-		previousPosition = myRigidbody.position; 
+		previousPosition = transform.position; 
 	}
 }
