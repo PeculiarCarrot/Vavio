@@ -34,6 +34,7 @@ public class MortalsBoss : MovementController {
 					colorIndex = 0;
 				boss.GetComponent<Renderer>().material = colors[colorIndex];
 			}
+
 			if (GetStageTime() < 96.4)
 				transform.localScale *= 1 + .17f * Time.deltaTime;
 			transform.Rotate(0, 0, -60 * Time.deltaTime);

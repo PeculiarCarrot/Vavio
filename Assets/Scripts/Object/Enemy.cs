@@ -218,6 +218,12 @@ public class Enemy : ShooterBase {
 		goalPos = startPos;
 	}
 
+	public void TryGrow(float amt)
+	{
+		if(growsOnHit)
+			transform.localScale *= amt;
+	}
+
 	public void GetHurt(float damage)
 	{
 		if(!IsInvincible())
@@ -228,9 +234,8 @@ public class Enemy : ShooterBase {
 				EnemyAudio.Play(EnemyAudio.Instance.hit);
 			hp -= damage;
 			Flash();
-			CameraShake.Shake(.1f, .02f);
-			if(growsOnHit)
-				transform.localScale *= 1.1f;
+			//CameraShake.Shake(.1f, .02f);
+			TryGrow(1.1f);
 		}
 		else
 			EnemyAudio.Play(EnemyAudio.Instance.hitWhileInvul, .2f);

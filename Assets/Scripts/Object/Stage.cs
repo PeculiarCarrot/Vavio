@@ -120,6 +120,27 @@ public class Stage : MonoBehaviour {
 		height = maxY - minY;
 	}
 
+	private float[] beatTimes = new float[0];
+	private int beatIndex;
+
+	public float[] GetFireTimes(float initialDelay, float bpm)
+	{
+		float secondsPerBullet = 1 / (bpm / 60f);
+		List<float> times = new List<float>();
+		bool paused = false;
+		for(float i = initialDelay; i < initialDelay + song.clip.length; i += secondsPerBullet)
+		{
+			times.Add(i);
+		}
+
+		float[] fireTimes = new float[times.Count];
+		for(int i = 0; i < fireTimes.Length; i++)
+		{
+			fireTimes[i] = times[i];
+		}
+		return fireTimes;
+	}
+
 	public void Clear()
 	{
 		foreach (GameObject b in bullets)
@@ -139,6 +160,49 @@ public class Stage : MonoBehaviour {
 		lastTime = time;
 		deltaTime = 0;
 		timeOffset = 0;
+		switch(spawner.GetComponent<EnemySpawner>().level)
+		{
+			case 0:
+				beatTimes = GetFireTimes(3.569f, 70);
+				break;
+			case 1:
+				beatTimes = GetFireTimes(1.417f, 70);
+				break;
+			case 2:
+				beatTimes = GetFireTimes(3.279f, 128);
+				break;
+			case 3:
+				beatTimes = GetFireTimes(1.81f, 70);
+				break;
+			case 4:
+				beatTimes = GetFireTimes(14.149f, 140);
+				break;
+			case 5:
+				beatTimes = GetFireTimes(.19f, 128);
+				break;
+			case 6:
+				beatTimes = GetFireTimes(24.6f, 130);
+				break;
+			case 7:
+				beatTimes = GetFireTimes(1.446f, 90);
+				break;
+			case 8:
+				beatTimes = GetFireTimes(2.968f, 140);
+				break;
+			case 9:
+				beatTimes = GetFireTimes(9.46f, 128);
+				break;
+			case 10:
+				beatTimes = GetFireTimes(1.722f, 76);
+				break;
+			case 11:
+				beatTimes = GetFireTimes(2.04f, 128);
+				break;
+			default:
+				beatTimes = GetFireTimes(3.569f, 140);
+				break;
+		}
+		beatIndex = 0;
 	}
 
 	void FixedUpdate()
@@ -166,10 +230,29 @@ public class Stage : MonoBehaviour {
 		prePauseTimeScale = Time.timeScale;
 	}
 
+	void Beat()
+	{
+		foreach (GameObject b in enemies)
+		{
+			if(b.activeInHierarchy)
+			{
+				Enemy e = b.GetComponent<Enemy>();
+				if (e != null)
+					e.TryGrow(1.2f);
+			}
+		}
+	}
+
 	private float timeVelocity;
 	
 	void Update () {
 		UpdateScreenPositions();
+
+		if(beatTimes.Length > 0 && time >= beatTimes[beatIndex])
+		{
+			beatIndex++;
+			Beat();
+		}
 
 		float f = Time.timeScale;
 		if(Application.isEditor && Input.GetKeyDown("space"))
@@ -246,6 +329,7 @@ public class Stage : MonoBehaviour {
 		wasPaused = paused;
 		if(song != null && song.clip != null)
 			songProgress = song.time / song.clip.length;
+		
 	}
 
 	void OnGUI()

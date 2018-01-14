@@ -194,6 +194,8 @@ public class Player : Ship {
 		e.GetComponent<LineRenderer>().material = powerUpMaterial;
 	}
 
+	public TrailRenderer trailRenderer;
+
 	public AudioClip timeAbilitySound, laserAbilitySound, shieldAbilitySound, laserShootSound;
 
 	private float accel = 10f, slowAccel = 3f;
@@ -224,6 +226,7 @@ public class Player : Ship {
 				if(flickerTimer < - flickerDuration)
 					flickerTimer = flickerDuration;
 				mesh.GetComponent<Renderer>().enabled = invincibilityDuration <= 0 || flickerTimer < 0;
+				trailRenderer.enabled = invincibilityDuration <= 0 || flickerTimer < 0;
 			}
 
 			if(Options.keyboardMovement)

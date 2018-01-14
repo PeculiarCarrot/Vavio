@@ -148,6 +148,8 @@
   	{
       "time": 111.7,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -162,6 +164,8 @@
   	{
       "time": 112.1,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -176,6 +180,8 @@
   	{
       "time": 112.4,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -190,6 +196,8 @@
   	{
       "time": 112.6,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -204,6 +212,8 @@
   	{
       "time": 112.9,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -218,6 +228,8 @@
   	{
       "time": 113.2,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -232,6 +244,8 @@
   	{
       "time": 113.6,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -246,6 +260,8 @@
   	{
       "time": 114.1,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -260,6 +276,8 @@
   	{
       "time": 114.4,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -274,6 +292,8 @@
   	{
       "time": 114.6,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -288,6 +308,8 @@
   	{
       "time": 114.8,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -302,6 +324,8 @@
     {
       "time": 115.1,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -316,6 +340,8 @@
   	{
       "time": 119.3,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -330,6 +356,8 @@
   	{
       "time": 119.8,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -344,6 +372,8 @@
   	{
       "time": 120.1,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -358,6 +388,8 @@
   	{
       "time": 120.3,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -372,6 +404,8 @@
   	{
       "time": 120.5,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -386,6 +420,8 @@
   	{
       "time": 120.8,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -400,6 +436,8 @@
   	{
       "time": 123,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -414,6 +452,8 @@
   	{
       "time": 123.5,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -428,6 +468,8 @@
   	{
       "time": 123.8,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -442,6 +484,8 @@
   	{
       "time": 124.0,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -456,6 +500,8 @@
   	{
       "time": 124.2,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
@@ -470,6 +516,8 @@
   	{
       "time": 124.5,
       "movement": "General/hurtyBall",
+      "canCollideWithBullets": false,
+      "growsOnHit": false,
       "z": 1,
       "model": "circle",
       "material": "orange",
