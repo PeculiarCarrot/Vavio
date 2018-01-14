@@ -17,7 +17,7 @@ function init(pattern, id)
 	dist2 = dist + 2
 	dist3 = dist + 4
 	bullets = 25
-	local t = 20
+	local t = 10
 	local turn1 = pattern.Math().RandomRange(-t, t)
 	local turn2 = pattern.Math().RandomRange(-t, t)
 	local turn3 = pattern.Math().RandomRange(-t, t)

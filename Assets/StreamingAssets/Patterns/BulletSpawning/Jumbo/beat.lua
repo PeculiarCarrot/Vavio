@@ -8,7 +8,7 @@ function update(pattern, id, deltaTime)
 		init(pattern, id)
 	end
 	if(fireTimes[id] == nil) then
-		fireTimes[id] = pattern.GetFireTimes(2.16666, .37)
+		fireTimes[id] = pattern.GetFireTimes(2.16666, .6)
 	end
 
 	if(pattern.GetStageTime() >= fireTimes[id][fireIndex[id]]) then

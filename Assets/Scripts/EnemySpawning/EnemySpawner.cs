@@ -89,7 +89,7 @@ public class EnemySpawner : MonoBehaviour {
 		{
 			prepareLevelTime = .1f;
 			timeUntilNext = 0;
-			level = 5;
+			level = 9;
 		}
 
 		if (PlayerPrefs.HasKey("levelToStart"))

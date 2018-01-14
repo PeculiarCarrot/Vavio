@@ -30,7 +30,7 @@ public class Tutorial : MonoBehaviour {
 					text.text = "";
 			}
 			else if (Stage.time > 22)
-				text.text = Options.keyboardMovement ? "You can use your selected ability with Q or F." : "Right click to use your selected ability.";
+				text.text = Options.keyboardMovement ? "You can use your selected ability with Z or F." : "Right click to use your selected ability.";
 			else if (Stage.time > 13)
 				text.text = Options.keyboardMovement ? "You can select your ability with the 1-3 keys, ASD, or the scroll wheel." : "You can select your ability with the scroll wheel, the 1-3 keys, or the arrow keys.";
 			else if (Stage.time > 5)
