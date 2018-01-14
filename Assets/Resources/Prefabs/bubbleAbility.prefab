@@ -70,8 +70,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   segments: 100
-  xradius: 5
-  yradius: 5
+  rad: 0
+  goalRad: 1
+  hitMaterial: {fileID: 2100000, guid: a8db3ab88767b7a469c5a859c95b9546, type: 2}
+  hitSounds:
+  - {fileID: 8300000, guid: f6c9cf0e94ab8df41a03a50b29271cf7, type: 3}
+  - {fileID: 8300000, guid: b7ce20d15e04cb147930c91aa836cc40, type: 3}
+  - {fileID: 8300000, guid: 807f82c0908533e48a7822346e734f54, type: 3}
 --- !u!120 &120500288076844076
 LineRenderer:
   m_ObjectHideFlags: 1

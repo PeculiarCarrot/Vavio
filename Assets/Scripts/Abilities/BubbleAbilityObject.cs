@@ -4,18 +4,23 @@ using System.Collections.Generic;
 [RequireComponent(typeof(LineRenderer))]
 public class BubbleAbilityObject : MonoBehaviour {
 	public int segments = 100;
-	public float xradius = 5;
-	public float yradius = 5;
+	public float rad = 0, goalRad = 1f;
 	LineRenderer line;
 	float spd = 10f;
+	public Material hitMaterial;
+
+	private static GameObject deathEffect;
+
+	public AudioClip[] hitSounds;
 
 	private Transform target;
 
 	void Start ()
 	{
-		xradius = 1f;
-		yradius = 1f;
+		rad = 0;
 		line = gameObject.GetComponent<LineRenderer>();
+		if(deathEffect == null)
+			deathEffect = Resources.Load<GameObject>("Prefabs/Effects/deathEffect");
 	}
 
 	public void SetTarget(Transform t)
@@ -29,13 +34,8 @@ public class BubbleAbilityObject : MonoBehaviour {
 		{
 			transform.position = target.position;
 		}
-		Vector3 newScale = transform.localScale;
-		//newScale.x += spd * Time.deltaTime;
-		//newScale.y += spd * Time.deltaTime;
-		//newScale.z += spd * Time.deltaTime;
-		transform.localScale = newScale;
 
-		//spd *= 1.1f;
+		rad = Mathf.Lerp(rad, goalRad, 5 * Time.deltaTime);
 
 		line.positionCount = segments + 1;
 		line.useWorldSpace = true;
@@ -48,7 +48,17 @@ public class BubbleAbilityObject : MonoBehaviour {
 		BulletProperties bullet = o.GetComponent<BulletProperties>();
 		if(o == null || !o.activeInHierarchy || bullet == null || bullet.owner == "player")
 			return;
+		MakeBlockParticle(bullet, o.transform.position + new Vector3(0, 0, -3));
 		bullet.Die(false);
+	}
+
+	void MakeBlockParticle(BulletProperties bullet, Vector3 pos)
+	{
+		GameObject e = Instantiate(deathEffect, pos, deathEffect.transform.rotation);
+		e.GetComponent<DeathEffect>().spd = 1f;
+		e.GetComponent<DeathEffect>().shrink = .5f;
+		e.GetComponent<LineRenderer>().material = hitMaterial;
+		EnemyAudio.Play(hitSounds);
 	}
 
 	void CreatePoints ()
@@ -60,8 +70,8 @@ public class BubbleAbilityObject : MonoBehaviour {
 
 		for (int i = 0; i < (segments + 1); i++)
 		{
-			x = Mathf.Sin (Mathf.Deg2Rad * angle) * xradius * transform.localScale.x;
-			y = Mathf.Cos (Mathf.Deg2Rad * angle) * yradius * transform.localScale.y;
+			x = Mathf.Sin (Mathf.Deg2Rad * angle) * rad * transform.localScale.x;
+			y = Mathf.Cos (Mathf.Deg2Rad * angle) * rad * transform.localScale.y;
 
 			x += transform.position.x;
 			y += transform.position.y;

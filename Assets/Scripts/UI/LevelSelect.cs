@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class LevelSelect : MonoBehaviour {
 
+	public AudioSource clickSound;
 	public AutoSelect autoselect;
 	public GameObject buttonBase;
 	public WipeEffect wipe;
@@ -19,6 +20,7 @@ public class LevelSelect : MonoBehaviour {
 			btn.GetComponentInChildren<Text>().text = "" + (i + 1);
 			int j = i; //For some reason I think the ToLevel callback is keeping a reference to i, so I'm giving it a copy instead
 			btn.GetComponent<Button>().onClick.AddListener(() => ToLevel(j));
+			btn.GetComponent<Button>().onClick.AddListener(() => clickSound.Play());
 			if (i == 0)
 				autoselect.toSelect = btn;
 			if (i > PlayerPrefs.GetInt("level"))

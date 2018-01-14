@@ -5,6 +5,7 @@ using UnityEngine;
 public class BubbleAbility : Ability {
 
 	private GameObject shield;
+	private BubbleAbilityObject bubble;
 
 	public BubbleAbility(Player player) : base(player) {}
 
@@ -13,7 +14,8 @@ public class BubbleAbility : Ability {
 		duration = 4;
 		GameObject prefab = Resources.Load<GameObject>("Prefabs/bubbleAbility");
 		shield = GameObject.Instantiate(prefab, player.transform.position, prefab.transform.rotation);
-		shield.GetComponent<BubbleAbilityObject>().SetTarget(player.transform);
+		bubble = shield.GetComponent<BubbleAbilityObject>();
+		bubble.SetTarget(player.transform);
 	}
 
 	public override void End()
@@ -23,7 +25,8 @@ public class BubbleAbility : Ability {
 
 	public override void DoUpdate()
 	{
-		
+		if (timeAlive > duration - .5f)
+			bubble.goalRad = 0;
 	}
 
 }

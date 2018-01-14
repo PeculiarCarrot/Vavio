@@ -38,6 +38,7 @@ public class Player : Ship {
 	public Color notChargedColor, chargedColor;
 
 	private Vector2 velocity;
+	private AudioSource audio;
 
 	// Use this for initialization
 	public override void DoStart () {
@@ -49,6 +50,7 @@ public class Player : Ship {
 		Time.timeScale = 1;
 		if(deathEffect == null)
 			deathEffect = Resources.Load<GameObject>("Prefabs/Effects/deathEffect");
+		audio = GetComponent<AudioSource>();
 	}
 
 	public void AddCharge(float amount)
@@ -63,7 +65,7 @@ public class Player : Ship {
 	{
 		if(Options.keyboardMovement)
 		{
-			Vector2 target = transform.position;
+			target = transform.position;
 			target.x += velocity.x * Time.deltaTime;
 			target.y += velocity.y * Time.deltaTime;
 			body.MovePosition(target);
@@ -74,7 +76,7 @@ public class Player : Ship {
 
 	private void PlayChargeNotification()
 	{
-		GetComponent<AudioSource>().PlayOneShot(charged);
+		audio.PlayOneShot(charged);
 	}
 
 	public bool IsUsingAbility()
@@ -117,7 +119,7 @@ public class Player : Ship {
 			hp -= 1;
 			if(hp > 0)
 			{
-				GetComponent<AudioSource>().PlayOneShot(hit);
+				audio.PlayOneShot(hit);
 				CameraShake.Shake(.2f, .15f);
 			}
 			invincibilityDuration = 2f;
@@ -132,7 +134,7 @@ public class Player : Ship {
 		dieTimer = dieTime;
 		Time.timeScale = .2f;
 		dying = true;
-		GetComponent<AudioSource>().PlayOneShot(die);
+		audio.PlayOneShot(die);
 		GetComponent<PatternController>().enabled = false;
 		GameObject e = Instantiate(deathEffect, transform.position + new Vector3(0, 0, -3), deathEffect.transform.rotation);
 		e.GetComponent<LineRenderer>().material = GetComponentInChildren<MeshRenderer>().material;
@@ -178,9 +180,9 @@ public class Player : Ship {
 		currentAbility = abilityPicker.GetNewAbility(this);
 		currentAbility.Begin();
 
-		if(currentAbility is BubbleAbility) GetComponent<AudioSource>().PlayOneShot(shieldAbilitySound);
-		else if(currentAbility is TimeAbility) GetComponent<AudioSource>().PlayOneShot(timeAbilitySound);
-		else if(currentAbility is LaserAbility) GetComponent<AudioSource>().PlayOneShot(laserAbilitySound);
+		if(currentAbility is BubbleAbility) audio.PlayOneShot(shieldAbilitySound);
+		else if(currentAbility is TimeAbility) audio.PlayOneShot(timeAbilitySound);
+		else if(currentAbility is LaserAbility) audio.PlayOneShot(laserAbilitySound);
 
 		GameObject e = Instantiate(deathEffect, transform.position + new Vector3(0, 0, -3), deathEffect.transform.rotation);
 		e.GetComponent<DeathEffect>().spd = 1.5f;
@@ -222,7 +224,7 @@ public class Player : Ship {
 
 			if(Options.keyboardMovement)
 			{
-				Vector3 target = transform.position;
+				target = transform.position;
 
 				velocity = Vector2.zero;
 				Vector2 input = Vector2.zero;
