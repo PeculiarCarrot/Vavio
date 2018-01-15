@@ -270,7 +270,7 @@ MonoBehaviour:
   sendTriggerMessage: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 4294966783
+    m_Bits: 257
   skinWidth: 0.1
   core: {fileID: 353767690}
 --- !u!114 &353767690 stripped
@@ -584,7 +584,7 @@ RectTransform:
   m_GameObject: {fileID: 617994207}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.22268872, y: 0.22269504, z: 0.22269504}
+  m_LocalScale: {x: 0.61739266, y: 0.6174103, z: 0.6174103}
   m_Children: []
   m_Father: {fileID: 1762598432}
   m_RootOrder: 3
@@ -615,10 +615,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3efd4dbc89f65e147a7e5be2eef29581, type: 3}
-    m_FontSize: 84
+    m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 7
     m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -681,7 +681,6 @@ MonoBehaviour:
   stageText: {fileID: 1247935489}
   musicText: {fileID: 1504215723}
   reasonForLevelChange: 0
-  wipe: {fileID: 1251693334}
   tutorial: {fileID: 723507422}
   blackTexture: {fileID: 2800000, guid: 3292523990e4fc54dbcba3b6dae20796, type: 3}
 --- !u!4 &723507421
@@ -1069,7 +1068,7 @@ RectTransform:
   m_GameObject: {fileID: 1247935487}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2804247, y: 0.2804249, z: 0.2804249}
+  m_LocalScale: {x: 0.6620581, y: 0.6620598, z: 0.6620598}
   m_Children: []
   m_Father: {fileID: 1762598432}
   m_RootOrder: 0
@@ -1100,7 +1099,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3efd4dbc89f65e147a7e5be2eef29581, type: 3}
-    m_FontSize: 107
+    m_FontSize: 48
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1491,14 +1490,14 @@ RectTransform:
   m_GameObject: {fileID: 1504215721}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.22269186, y: 0.2226922, z: 0.2226922}
+  m_LocalScale: {x: 0.46293363, y: 0.46293455, z: 0.46293455}
   m_Children: []
   m_Father: {fileID: 1762598432}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -89.2}
+  m_AnchoredPosition: {x: 0, y: -93.7}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1504215723
@@ -1522,7 +1521,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3efd4dbc89f65e147a7e5be2eef29581, type: 3}
-    m_FontSize: 84
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10

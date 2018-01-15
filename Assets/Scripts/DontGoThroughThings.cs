@@ -36,19 +36,24 @@ public class DontGoThroughThings : MonoBehaviour
 		Vector3 movementThisStep = transform.position - previousPosition; 
 		float movementSqrMagnitude = movementThisStep.sqrMagnitude;
 
-		if (movementSqrMagnitude > sqrMinimumExtent) 
+		if (Vector3.Distance(transform.position, previousPosition) > .5f) 
 		{ 
+			//Debug.Log(movementThisStep);
 			float movementMagnitude = Mathf.Sqrt(movementSqrMagnitude);
 			RaycastHit hitInfo; 
+			Debug.DrawRay(previousPosition, movementThisStep, Color.red, .3f);
 
 			//check for obstructions we might have missed 
-			if (Physics.Raycast(previousPosition, movementThisStep, out hitInfo, movementMagnitude, layerMask.value))
+			if (Physics.Raycast(previousPosition, movementThisStep, out hitInfo, Vector3.Distance(transform.position, previousPosition), layerMask.value))
 			{
+				//Debug.Log("Hit something");
 				if (!hitInfo.collider)
 					return;
 
-				if (hitInfo.collider.isTrigger) 
-					core.SendMessage("OnTriggerEnter", myCollider);
+				if (hitInfo.collider.isTrigger)
+				{
+					core.OnTriggerEnter(hitInfo.collider);
+				}
 
 			}
 		} 

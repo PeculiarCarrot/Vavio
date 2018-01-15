@@ -5,20 +5,19 @@ using UnityEngine;
 public class PlayerCore : MonoBehaviour {
 
 	public GameObject player;
+	private Vector3 lastPos;
 
 	// Use this for initialization
 	void Start () {
-		
+		lastPos = transform.position;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
-	void OnTriggerEnter (Collider col)
+	public void OnTriggerEnter (Collider col)
     {
-		
 		TestTouch(col);
     }
 

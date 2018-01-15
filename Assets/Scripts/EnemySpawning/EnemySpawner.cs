@@ -87,9 +87,9 @@ public class EnemySpawner : MonoBehaviour {
 
 		if(Application.isEditor)
 		{
-			prepareLevelTime = .1f;
-			timeUntilNext = 0;
-			level = 9;
+			//prepareLevelTime = .1f;
+			//timeUntilNext = 0;
+			level = 5;
 		}
 
 		if (PlayerPrefs.HasKey("levelToStart"))

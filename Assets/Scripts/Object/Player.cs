@@ -296,10 +296,10 @@ public class Player : Ship {
 	        	hp += 3f * Time.deltaTime;
 				if(Mathf.Floor(hp) > Mathf.Floor(lastHP))
 				{
-					audio.PlayOneShot(regenSounds[(int)Mathf.Floor(hp) - 2]);
+					audio.PlayOneShot(regenSounds[(int)Mathf.Floor(hp) - 2], .75f);
 					hpDrawSize *= 1.5f;
 					if(hp >= maxHP)
-						audio.PlayOneShot(doneRegenSound);
+						audio.PlayOneShot(doneRegenSound, .75f);
 				}
 	        	if(hp >= maxHP)
 	        	{

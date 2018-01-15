@@ -248,7 +248,7 @@ public class Stage : MonoBehaviour {
 	void Update () {
 		UpdateScreenPositions();
 
-		if(beatTimes.Length > 0 && time >= beatTimes[beatIndex])
+		if(beatTimes.Length > 0 && beatIndex < beatTimes.Length && time >= beatTimes[beatIndex])
 		{
 			beatIndex++;
 			Beat();
