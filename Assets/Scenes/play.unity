@@ -681,6 +681,7 @@ MonoBehaviour:
   stageText: {fileID: 1247935489}
   musicText: {fileID: 1504215723}
   reasonForLevelChange: 0
+  wipe: {fileID: 1251693334}
   tutorial: {fileID: 723507422}
   blackTexture: {fileID: 2800000, guid: 3292523990e4fc54dbcba3b6dae20796, type: 3}
 --- !u!4 &723507421
@@ -2369,6 +2370,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1485743427436512, guid: 52c47567052e5694b8bc7038aca3917a,
         type: 2}
+    - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
+        type: 2}
+      propertyPath: wipe
+      value: 
+      objectReference: {fileID: 1251693334}
     m_RemovedComponents:
     - {fileID: 114519326508080882, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}

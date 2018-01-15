@@ -43,6 +43,8 @@ public class Player : Ship {
 	public AudioClip[] regenSounds;
 	public AudioClip doneRegenSound;
 
+	public WipeEffect wipe;
+
 	// Use this for initialization
 	public override void DoStart () {
 		wasDebug = debug;
@@ -160,6 +162,8 @@ public class Player : Ship {
 
 	private void Restart()
 	{
+		if (wipe.IsTransitioning())
+			return;
 		PlayerPrefs.SetInt("levelToStart", spawner.level);
 		PlayerPrefs.SetInt("chosenAbility", abilityPicker.selectedIndex);
 		PlayerPrefs.SetInt("reasonForLevelChange", EnemySpawner.DEATH);
