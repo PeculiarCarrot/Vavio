@@ -557,7 +557,7 @@ TrailRenderer:
     alignment: 0
     textureMode: 0
     generateLightingData: 0
-  m_MinVertexDistance: 0.2
+  m_MinVertexDistance: 0.01
   m_Autodestruct: 0
 --- !u!1 &617994207
 GameObject:
@@ -2094,6 +2094,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
+        type: 2}
+      propertyPath: regenSounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4369263866553832, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.28
@@ -2328,6 +2333,36 @@ Prefab:
       propertyPath: trailRenderer
       value: 
       objectReference: {fileID: 505942958}
+    - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
+        type: 2}
+      propertyPath: regenSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f323563f19304ef45859a7793d43cc1d, type: 3}
+    - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
+        type: 2}
+      propertyPath: regenSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 779b14a53abe9604e822fe7c22ba3dbc, type: 3}
+    - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
+        type: 2}
+      propertyPath: regenSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6f2270e84f9590f42844208aa11d0b24, type: 3}
+    - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
+        type: 2}
+      propertyPath: regenSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: a791962f5c7bcd8479ca0169086708c7, type: 3}
+    - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
+        type: 2}
+      propertyPath: regenSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: d60d6056a6047f2428ab605796ce7a47, type: 3}
+    - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
+        type: 2}
+      propertyPath: doneRegenSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cd6276954ee0e7f45a476baa20bca02a, type: 3}
     m_RemovedComponents:
     - {fileID: 114519326508080882, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
@@ -2409,7 +2444,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500

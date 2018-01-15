@@ -40,6 +40,9 @@ public class Player : Ship {
 	private Vector2 velocity;
 	private AudioSource audio;
 
+	public AudioClip[] regenSounds;
+	public AudioClip doneRegenSound;
+
 	// Use this for initialization
 	public override void DoStart () {
 		wasDebug = debug;
@@ -89,24 +92,29 @@ public class Player : Ship {
 		return dying;
 	}
 
+	private float playbackCursor;
+	private float hpDrawSize;
+
     void OnGUI()
     {
 
 		chargeImage.color = charge >= maxCharge ? chargedColor : notChargedColor;
     	float size = 24;
-    	for(int i = 0; i < hp; i++)
+		hpDrawSize = Mathf.Lerp(hpDrawSize, size, 3 * Time.deltaTime);
+		for(int i = 0; i < Mathf.Floor(hp); i++)
     	{
-			GUI.DrawTexture(new Rect(30 + (size + 30) * i, Screen.height - 70, size, size), livesTexture);
+			GUI.DrawTexture(new Rect(42 + (size + 30) * i - hpDrawSize / 2f, Screen.height - 58 - hpDrawSize / 2f, hpDrawSize, hpDrawSize), livesTexture);
 		}
 		charge = Mathf.Clamp(charge, 0, maxCharge);
 		chargeImage.fillAmount = (charge / maxCharge);
 
 		float w, h;
 		float pad = 50;
+		playbackCursor = Mathf.Lerp(playbackCursor, Stage.songProgress, 3 * Time.deltaTime);
 		w = Screen.width - pad * 2;
 		h = 5;
 		GUI.DrawTexture(new Rect(pad, Screen.height - 20, w, h), progressTexture);
-		GUI.DrawTexture(new Rect(pad + w * Stage.songProgress, Screen.height - 20 - h * 1.5f, 7, h * 4), progressTexture);
+		GUI.DrawTexture(new Rect(pad + w * playbackCursor, Screen.height - 20 - h * 1.5f, 7, h * 4), progressTexture);
 
 		if(debug)
 			GUI.Label(new Rect(0, 0, 100, 100), ""+(int)(1.0f / (Time.smoothDeltaTime/Time.timeScale)));    
@@ -260,14 +268,22 @@ public class Player : Ship {
 	        	newRot.y = Mathf.Clamp(newRot.y, 315, 360);
 	        newRot.y = Mathf.SmoothDampAngle(newRot.y, 0, ref rotSpeed, .3f);
 	        transform.eulerAngles = newRot;*/
-			
+	
 	        if(regenerating)
 	        {
+				float lastHP = hp;
 	        	hp += 3f * Time.deltaTime;
+				if(Mathf.Floor(hp) > Mathf.Floor(lastHP))
+				{
+					audio.PlayOneShot(regenSounds[(int)Mathf.Floor(hp) - 2]);
+					hpDrawSize *= 1.5f;
+					if(hp >= maxHP)
+						audio.PlayOneShot(doneRegenSound);
+				}
 	        	if(hp >= maxHP)
 	        	{
 	        		hp = maxHP;
-	        		regenerating = false;
+					regenerating = false;
 	        	}
 	        }
 

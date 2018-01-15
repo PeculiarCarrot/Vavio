@@ -18,10 +18,24 @@ public class PlayerCore : MonoBehaviour {
 
 	void OnTriggerEnter (Collider col)
     {
+		
+		TestTouch(col);
+    }
+
+	void TestTouch(Collider col)
+	{
+		Enemy enemy = col.gameObject.GetComponent<Enemy>();
+		if(enemy != null && !player.GetComponent<Player>().IsInvincible() && enemy.CanCollide())
+		{
+			if(!enemy.IsInvincible())
+				enemy.GetHurt(50);
+			player.GetComponent<Player>().GetHurt();
+			return;
+		}
+
 		BulletProperties bullet = col.gameObject.GetComponent<BulletProperties>();
-    	Enemy enemy = col.gameObject.GetComponent<Enemy>();
-        if(bullet != null && !player.GetComponent<Player>().IsInvincible())
-        {
+		if(bullet != null && !player.GetComponent<Player>().IsInvincible())
+		{
 			if(bullet.owner != "player")
 			{
 				if (bullet.destroyOnHit)
@@ -29,13 +43,11 @@ public class PlayerCore : MonoBehaviour {
 				player.GetComponent<Player>().GetHurt();
 			}
 			return;
-        }
-		if(enemy != null && !player.GetComponent<Player>().IsInvincible() && enemy.CanCollide())
-        {
-			if(!enemy.IsInvincible())
-            	enemy.GetHurt(50);
-            player.GetComponent<Player>().GetHurt();
-            return;
-        }
-    }
+		}
+	}
+
+	void OnTriggerStay(Collider col)
+	{
+		TestTouch(col);
+	}
 }
