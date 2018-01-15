@@ -44,12 +44,16 @@ public class Options : MonoBehaviour {
 
 	public void ToMenu()
 	{
+		if (wipeEffect.IsTransitioning())
+			return;
 		Save();
 		wipeEffect.Transition("menu");
 	}
 
 	public void ToCredits()
 	{
+		if (wipeEffect.IsTransitioning())
+			return;
 		Save();
 		wipeEffect.Transition("credits");
 	}
@@ -123,6 +127,8 @@ public class Options : MonoBehaviour {
 
 	public void ToTutorial()
 	{
+		if (wipeEffect.IsTransitioning())
+			return;
 		PlayerPrefs.SetInt("didTutorial", 0);
 		PlayerPrefs.SetInt("levelToStart", 0);
 		Save();
@@ -146,5 +152,7 @@ public class Options : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetKeyDown(KeyCode.Escape))
+			ToMenu();
 	}
 }

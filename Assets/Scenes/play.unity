@@ -2363,6 +2363,12 @@ Prefab:
       propertyPath: doneRegenSound
       value: 
       objectReference: {fileID: 8300000, guid: cd6276954ee0e7f45a476baa20bca02a, type: 3}
+    - target: {fileID: 114196302660823256, guid: a1d643d648358444aa0fd108b58bcec4,
+        type: 2}
+      propertyPath: bulletDieEffect
+      value: 
+      objectReference: {fileID: 1485743427436512, guid: 52c47567052e5694b8bc7038aca3917a,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114519326508080882, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a1d643d648358444aa0fd108b58bcec4, type: 2}

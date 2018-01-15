@@ -50,6 +50,8 @@ public class WipeEffect : MonoBehaviour {
 
 	public void Transition(string sceneName)
 	{
+		if (IsTransitioning())
+			return;
 		transform.position = spawnPoint + new Vector3(Screen.width, 0, 0);
 		start = transform.position;
 		goal = spawnPoint;

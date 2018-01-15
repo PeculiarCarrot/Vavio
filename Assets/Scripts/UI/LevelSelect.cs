@@ -31,17 +31,22 @@ public class LevelSelect : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKeyDown(KeyCode.Escape))
+			ToMenu();
 	}
 
 	public void ToMenu()
 	{
+		if (wipe.IsTransitioning())
+			return;
 		PlayerPrefs.Save();
 		wipe.Transition("menu");
 	}
 
 	void ToLevel(int level)
 	{
+		if (wipe.IsTransitioning())
+			return;
 		PlayerPrefs.SetInt("levelToStart", level);
 		PlayerPrefs.Save();
 		wipe.Transition("play");

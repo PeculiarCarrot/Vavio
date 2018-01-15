@@ -41,6 +41,7 @@ public class PlayerCore : MonoBehaviour {
 				if (bullet.destroyOnHit)
 					bullet.Die(false);
 				player.GetComponent<Player>().GetHurt();
+				player.GetComponent<Player>().MakeBulletEffect(bullet);
 			}
 			return;
 		}

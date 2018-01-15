@@ -202,6 +202,23 @@ public class Player : Ship {
 		e.GetComponent<LineRenderer>().material = powerUpMaterial;
 	}
 
+	public GameObject bulletDieEffect;
+
+	public void MakeBulletEffect(BulletProperties bullet)
+	{
+		Material mat = bullet.GetComponentInChildren<Renderer>().material;
+		GameObject part = Instantiate(bulletDieEffect, bullet.transform.position + new Vector3(0, 0, -2), bulletDieEffect.transform.rotation);
+		ParticleSystem ps = part.GetComponent<ParticleSystem>();
+		var main = ps.main;
+		foreach (Renderer r in part.GetComponents<Renderer>())
+			r.material.color = mat.color;
+
+		GameObject e = Instantiate(deathEffect, bullet.transform.position + new Vector3(0, 0, -3), deathEffect.transform.rotation);
+		e.GetComponent<DeathEffect>().spd = 1.8f;
+		e.GetComponent<DeathEffect>().shrink = .5f;
+		e.GetComponent<LineRenderer>().material = mat;
+	}
+
 	public TrailRenderer trailRenderer;
 
 	public AudioClip timeAbilitySound, laserAbilitySound, shieldAbilitySound, laserShootSound;
