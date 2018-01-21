@@ -60,7 +60,7 @@ public class Enemy : ShooterBase {
 
 	public Material white;
 
-	private Vector3 goalScale;
+	public Vector3 goalScale;
 	public bool growsOnHit = true;
 
 	void Start () {
@@ -236,9 +236,12 @@ public class Enemy : ShooterBase {
 			Flash();
 			//CameraShake.Shake(.1f, .02f);
 			TryGrow(1.1f);
+			MakeSplatter(hp <= 0);
 		}
 		else
+		{
 			EnemyAudio.Play(EnemyAudio.Instance.hitWhileInvul, .2f);
+		}
 
 		if((givesCharge || hp <= 0) && !stage.player.GetComponent<Player>().IsUsingAbility())
 			SpawnChargePoint(hp <= 0 ? 3 : 1);
@@ -294,4 +297,15 @@ public class Enemy : ShooterBase {
             return;
         }
     }
+
+	public GameObject splatterPrefab;
+
+	public void MakeSplatter(bool death)
+	{
+		GameObject part = Instantiate(splatterPrefab, transform.position + new Vector3(0, 0, 2), splatterPrefab.transform.rotation);
+		ParticleSystem ps = part.GetComponent<ParticleSystem>();
+		var main = ps.main;
+		foreach (Renderer r in part.GetComponents<Renderer>())
+			r.material.color = mat.color;
+	}
 }

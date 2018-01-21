@@ -2425,6 +2425,7 @@ MonoBehaviour:
   darken: {fileID: 223478883}
   wipeEffect: {fileID: 1251693334}
   glitchEffect: {fileID: 1258905413}
+  cam: {fileID: 1258905410}
 --- !u!4 &1828452934
 Transform:
   m_ObjectHideFlags: 0

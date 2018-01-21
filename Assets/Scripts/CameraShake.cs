@@ -16,6 +16,7 @@ public class CameraShake : MonoBehaviour
 	public float decreaseFactor = 1.0f;
 
 	Vector3 originalPos;
+	Quaternion originalRot;
 
 	void Awake()
 	{
@@ -28,6 +29,7 @@ public class CameraShake : MonoBehaviour
 	void OnEnable()
 	{
 		originalPos = camTransform.localPosition;
+		originalRot = camTransform.localRotation;
 		Instance = this;
 	}
 
@@ -56,6 +58,7 @@ public class CameraShake : MonoBehaviour
 		if (shakeDuration > 0)
 		{
 			camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
+			//camTransform.localRotation = Quaternion.Euler(originalRot.eulerAngles + new Vector3(0, 0, Mathf.PerlinNoise(Time.time * 30f, 0.0F) * 50) * shakeAmount);
 
 			shakeDuration -= Time.deltaTime * decreaseFactor;
 		}
@@ -63,6 +66,7 @@ public class CameraShake : MonoBehaviour
 		{
 			shakeDuration = 0f;
 			camTransform.localPosition = originalPos;
+			camTransform.localRotation = originalRot;
 		}
 	}
 }

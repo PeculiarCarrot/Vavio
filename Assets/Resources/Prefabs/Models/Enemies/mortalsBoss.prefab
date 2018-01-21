@@ -276,6 +276,9 @@ MonoBehaviour:
   hp: 0
   givesCharge: 0
   white: {fileID: 2100000, guid: bce7bdfffa120694880b1f1c9b3c84cf, type: 2}
+  growsOnHit: 1
+  splatterPrefab: {fileID: 1412929868675934, guid: b77cc826692404a40ab8994cb2c7f663,
+    type: 2}
 --- !u!114 &114937167472567906
 MonoBehaviour:
   m_ObjectHideFlags: 1

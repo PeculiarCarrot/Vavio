@@ -171,6 +171,7 @@ MonoBehaviour:
   reachGoalTime: 0.2
   invul: 1
   canCollide: 0
+  canCollideWithBullets: 1
   introMovement: 0
   boss: 0
   mat: {fileID: 0}
@@ -179,7 +180,11 @@ MonoBehaviour:
   friction: 0.9
   maxHP: 200
   hp: 0
+  givesCharge: 0
   white: {fileID: 2100000, guid: bce7bdfffa120694880b1f1c9b3c84cf, type: 2}
+  growsOnHit: 1
+  splatterPrefab: {fileID: 1412929868675934, guid: b77cc826692404a40ab8994cb2c7f663,
+    type: 2}
 --- !u!114 &114697204063186062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,5 +203,6 @@ MonoBehaviour:
   ignoreAngle: 0
   speed: 1
   speedMultiplier: 0
+  turn: 0
   targetType: 
   synced: 0

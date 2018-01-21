@@ -9,12 +9,13 @@ public class MortalsBoss : MovementController {
 	public Material portalMaterial;
 	public Material[] colors;
 	private int colorIndex;
+	Enemy enemy;
 
 	float changeColorTimer, changeColorTime = .2f;
 
 	void Start()
 	{
-
+		enemy = GetComponent<Enemy>();
 	}
 
 	private float portalStart = 113.3f, portalEnd = 117.6f;
@@ -23,6 +24,11 @@ public class MortalsBoss : MovementController {
 
 	void Update()
 	{
+		if(GetStageTime() > 87.1 && enemy.growsOnHit)
+		{
+			enemy.growsOnHit = false;
+		}
+
 		if(GetStageTime() > 91.8)
 		{
 			changeColorTimer += Time.deltaTime;

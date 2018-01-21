@@ -13,7 +13,7 @@ function update(pattern, id, deltaTime)
 	end
 	if(fireTimes[id] == nil) then
 		fireTimes[id] = pattern.GetFireTimes(8.5333333, .4, 1.875, 1.875)
-		fireTimes2[id] = pattern.GetFireTimes(2.1333333, .4)
+		fireTimes2[id] = pattern.GetFireTimes(4.2666666, .4)
 	end
 
 	a = angle[id]

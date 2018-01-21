@@ -166,7 +166,7 @@ public class Stage : MonoBehaviour {
 				beatTimes = GetFireTimes(3.569f, 70);
 				break;
 			case 1:
-				beatTimes = GetFireTimes(1.417f, 70);
+				beatTimes = GetFireTimes(1.417f, 140);
 				break;
 			case 2:
 				beatTimes = GetFireTimes(3.279f, 128);
@@ -232,6 +232,7 @@ public class Stage : MonoBehaviour {
 
 	void Beat()
 	{
+		//Flash();
 		foreach (GameObject b in enemies)
 		{
 			if(b.activeInHierarchy)
@@ -330,6 +331,48 @@ public class Stage : MonoBehaviour {
 		if(song != null && song.clip != null)
 			songProgress = song.time / song.clip.length;
 		
+	}
+
+	private bool flashing;
+	public Camera cam;
+		
+	IEnumerator BeatFlash(Camera cam)
+	{
+		Color c = cam.backgroundColor;
+		cam.backgroundColor = ChangeColorBrightness(c, .1f);
+		flashing = true;		
+		yield return new WaitForSeconds(0.03f);
+		cam.backgroundColor = c;
+		flashing = false;
+	}
+
+	private Color ChangeColorBrightness(Color color, float correctionFactor)
+	{
+		float red = (float)color.r;
+		float green = (float)color.g;
+		float blue = (float)color.b;
+
+		if (correctionFactor < 0)
+		{
+			correctionFactor = 1 + correctionFactor;
+			red *= correctionFactor;
+			green *= correctionFactor;
+			blue *= correctionFactor;
+		}
+		else
+		{
+			red = (1 - red) * correctionFactor + red;
+			green = (1 - green) * correctionFactor + green;
+			blue = (1 - blue) * correctionFactor + blue;
+		}
+
+		return new Color(red, green, blue, color.a);
+	}
+	
+	public void Flash()
+	{
+		if(!flashing)
+			StartCoroutine(BeatFlash(cam));
 	}
 
 	void OnGUI()

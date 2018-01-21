@@ -237,6 +237,9 @@ public class Player : Ship {
 			dieTimer = 9999999;
 			Restart();
 		}
+
+		AddCharge(.5f * Time.deltaTime);
+
 		DoUpdate();
 
 		if (currentAbility != null)
