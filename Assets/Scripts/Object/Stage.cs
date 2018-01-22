@@ -58,6 +58,52 @@ public class Stage : MonoBehaviour {
 		song.volume = Options.musicVolume;
 	}
 
+	public static string GetSongName(int level)
+	{
+		switch(level)
+		{
+			case 0:
+				return "15thDimension - Suddenly Time Told";
+				break;
+			case 1:
+				return "15thDimension - Suddenly Time Told (Part 2)";
+				break;
+			case 2:
+				return "Tobu - Infectious";
+				break;
+			case 3:
+				return "15thDimension - Until Then";
+				break;
+			case 4:
+				return "CØDE - Duck Face";
+				break;
+			case 5:
+				return "Tobu & Itro - Sunburst";
+				break;
+			case 6:
+				return "Alex Skrindo - Jumbo";
+				break;
+			case 7:
+				return "Warriyo - Mortals (feat. Laura Brehm)";
+				break;
+			case 8:
+				return "Disfigure - Blank";
+				break;
+			case 9:
+				return "Kovan & Electro-Light - Skyline";
+				break;
+			case 10:
+				return "Inukshuk - The Long Road Home";
+				break;
+			case 11:
+				return "NIVIRO - The Guardian of Angels";
+				break;
+			default:
+				return "Song not found";
+				break;
+		}
+	}
+
 	public void LoadLevel(int level)
 	{
 		loadingSong = true;

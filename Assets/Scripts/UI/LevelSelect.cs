@@ -21,6 +21,7 @@ public class LevelSelect : MonoBehaviour {
 			int j = i; //For some reason I think the ToLevel callback is keeping a reference to i, so I'm giving it a copy instead
 			btn.GetComponent<Button>().onClick.AddListener(() => ToLevel(j));
 			btn.GetComponent<Button>().onClick.AddListener(() => clickSound.Play());
+			btn.GetComponent<LevelSelectButton>().level = j;
 			if (i == 0)
 				autoselect.toSelect = btn;
 			if (i > PlayerPrefs.GetInt("level"))

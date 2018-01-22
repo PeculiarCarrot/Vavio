@@ -151,48 +151,7 @@ public class EnemySpawner : MonoBehaviour {
 		stage.GetComponent<AudioSource>().Stop();
 		//stage.GetComponent<Stage>().Clear();
 		stage.LoadLevel(level);
-		switch(level)
-		{
-			case 0:
-				musicText.text = "15thDimension - Suddenly Time Told";
-				break;
-			case 1:
-				musicText.text = "15thDimension - Suddenly Time Told (Part 2)";
-				break;
-			case 2:
-				musicText.text = "Tobu - Infectious";
-				break;
-			case 3:
-				musicText.text = "15thDimension - Until Then";
-				break;
-			case 4:
-				musicText.text = "CØDE - Duck Face";
-				break;
-			case 5:
-				musicText.text = "Tobu & Itro - Sunburst";
-				break;
-			case 6:
-				musicText.text = "Alex Skrindo - Jumbo";
-				break;
-			case 7:
-				musicText.text = "Warriyo - Mortals (feat. Laura Brehm)";
-				break;
-			case 8:
-				musicText.text = "Disfigure - Blank";
-				break;
-			case 9:
-				musicText.text = "Kovan & Electro-Light - Skyline";
-				break;
-			case 10:
-				musicText.text = "Inukshuk - The Long Road Home";
-				break;
-			case 11:
-				musicText.text = "NIVIRO - The Guardian of Angels";
-				break;
-			default:
-				musicText.text = "Song not found";
-				break;
-		}
+		musicText.text = Stage.GetSongName(level);
 		stage.player.GetComponent<Player>().Regenerate();
 	}
 

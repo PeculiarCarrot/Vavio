@@ -29,7 +29,7 @@ MonoBehaviour:
   secretKey:
   - ea796ffb5ad52b672039df54915e205140c0d503
   Build:
-  - 0.16
+  - 0.17
   SelectedPlatformStudio:
   - PeculiarCarrot
   SelectedPlatformGame:
