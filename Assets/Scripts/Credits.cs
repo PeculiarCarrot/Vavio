@@ -7,10 +7,11 @@ public class Credits : MonoBehaviour {
 
 	public AudioSource song;
 	float spd;
+	public float scrollSpeed = .15f;
 
 	// Use this for initialization
 	void Start () {
-		spd = Screen.height * .15f;
+		spd = Screen.height * scrollSpeed;
 		Options.Load();
 		song.volume = Options.musicVolume;
 	}
