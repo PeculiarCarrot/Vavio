@@ -27,7 +27,7 @@ public class TimeAbility : Ability {
 	{
 		if(timeAlive > duration - Time.timeScale)
 		{
-			SetTimeScale(Time.timeScale + .01f);
+			SetTimeScale(Mathf.Lerp(Time.timeScale, 1, .03f));
 		}
 	}
 

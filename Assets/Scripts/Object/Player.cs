@@ -96,10 +96,10 @@ public class Player : Ship {
 
 	private float playbackCursor;
 	private float hpDrawSize;
+	private float renderCharge;
 
     void OnGUI()
     {
-
 		chargeImage.color = charge >= maxCharge ? chargedColor : notChargedColor;
     	float size = 24;
 		hpDrawSize = Mathf.Lerp(hpDrawSize, size, 3 * Time.deltaTime);
@@ -108,7 +108,8 @@ public class Player : Ship {
 			GUI.DrawTexture(new Rect(42 + (size + 30) * i - hpDrawSize / 2f, Screen.height - 58 - hpDrawSize / 2f, hpDrawSize, hpDrawSize), livesTexture);
 		}
 		charge = Mathf.Clamp(charge, 0, maxCharge);
-		chargeImage.fillAmount = (charge / maxCharge);
+		renderCharge = Mathf.Clamp(renderCharge, 0, maxCharge);
+		chargeImage.fillAmount = (renderCharge / maxCharge);
 
 		float w, h;
 		float pad = 50;
@@ -239,6 +240,8 @@ public class Player : Ship {
 		}
 
 		AddCharge(.5f * Time.deltaTime);
+
+		renderCharge = Mathf.Lerp(renderCharge, charge, 10f * Time.deltaTime);
 
 		DoUpdate();
 

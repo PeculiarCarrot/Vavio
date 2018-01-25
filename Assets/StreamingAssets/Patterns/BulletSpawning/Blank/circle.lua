@@ -20,7 +20,7 @@ function init(pattern, id)
 
 		for i = 0, angle, (angle / bullets) do
 			bullet = pattern.NewBullet()
-			bullet.speed = -11
+			bullet.speed = -dist * 1.15
 			bullet.speedMultiplier = .05
 			bullet.type = "circle"
 			bullet.material = "aqua"

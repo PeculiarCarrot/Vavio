@@ -114,6 +114,10 @@ public class EnemySpawner : MonoBehaviour {
 		stageText.text = "";
 		musicText.text = "";
 		preparingLevel = false;
+
+		stage.Clear();
+		BulletFactory.ClearPool();
+
 		spawns = LevelSpawnData.FromJSON(new JSONObject(LoadFileString(spawnData[level])));
 		if (Application.isEditor)
 			stage.GetComponent<AudioSource>().time = 0;

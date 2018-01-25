@@ -167,7 +167,7 @@ public class Enemy : ShooterBase {
 			else
 			{
 				EnemyAudio.Play(EnemyAudio.Instance.die);
-				CameraShake.Shake(.25f, .05f);
+				CameraShake.Shake(.25f, .08f);
 			}
 		}
 
@@ -237,14 +237,17 @@ public class Enemy : ShooterBase {
 			//CameraShake.Shake(.1f, .02f);
 			TryGrow(1.1f);
 			MakeSplatter(hp <= 0);
+
+			if((givesCharge || hp <= 0) && !stage.player.GetComponent<Player>().IsUsingAbility())
+				SpawnChargePoint(hp <= 0 ? 3 : 1);
 		}
 		else
 		{
 			EnemyAudio.Play(EnemyAudio.Instance.hitWhileInvul, .2f);
-		}
 
-		if((givesCharge || hp <= 0) && !stage.player.GetComponent<Player>().IsUsingAbility())
-			SpawnChargePoint(hp <= 0 ? 3 : 1);
+			if(givesCharge && !stage.player.GetComponent<Player>().IsUsingAbility())
+				SpawnChargePoint(.3f);
+		}
 	}
 
 	private void SpawnChargePoint(float value)
