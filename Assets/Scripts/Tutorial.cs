@@ -24,12 +24,12 @@ public class Tutorial : MonoBehaviour {
 	void Update () {
 		if (going)
 		{
-			if (Stage.time > 30)
+			if (Stage.time > 35)
 			{
 				if(text.text != "")
 					text.text = "";
 			}
-			else if (Stage.time > 22)
+			else if (Stage.time > 25)
 				text.text = Options.keyboardMovement ? "You can use your selected ability with Z or F when your charge meter is full." : "Right click to use your selected ability when your charge meter is full.";
 			else if (Stage.time > 13)
 				text.text = Options.keyboardMovement ? "You can select your ability with the 1-3 keys, ASD, or the scroll wheel." : "You can select your ability with the scroll wheel, the 1-3 keys, or the arrow keys.";

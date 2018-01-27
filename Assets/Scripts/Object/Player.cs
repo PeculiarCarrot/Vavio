@@ -304,8 +304,8 @@ public class Player : Ship {
 				{
 					audio.PlayOneShot(regenSounds[(int)Mathf.Floor(hp) - 2], .75f);
 					hpDrawSize *= 1.5f;
-					if(hp >= maxHP)
-						audio.PlayOneShot(doneRegenSound, .75f);
+					//if(hp >= maxHP)
+					//	audio.PlayOneShot(doneRegenSound, .75f);
 				}
 	        	if(hp >= maxHP)
 	        	{
