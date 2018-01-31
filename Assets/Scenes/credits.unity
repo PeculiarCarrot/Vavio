@@ -226,7 +226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000061035156, y: 999.7888}
+  m_AnchoredPosition: {x: 0.000061035156, y: 933.1576}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &404030169
@@ -368,7 +368,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00018310547, y: 924.7888}
+  m_AnchoredPosition: {x: 0.00018310547, y: 858.1576}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1074534420
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   song: {fileID: 1106944089}
-  scrollSpeed: 0.135
+  scrollSpeed: 0.17
 --- !u!82 &1106944089
 AudioSource:
   m_ObjectHideFlags: 0
@@ -747,7 +747,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Music
+  m_Text: Music & Sound
 --- !u!222 &1288861704
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1147,8 +1147,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "15thDimension\r\nNoCopyrightSounds\r\nTobu\r\nC\xD8DE\r\nItro\r\nAlex Skrindo\r\nWarriyo\r\nDisfigure\r\nKovan\r\nElectro-Light\r\nInukshuk\r\nNIVIRO\nAustin
-    Harman"
+  m_Text: "15thDimension\r\nNoCopyrightSounds\r\nTobu\r\nC\xD8DE\r\nItro\r\nAlex Skrindo\r\nWarriyo\r\nDisfigure\r\nKovan\r\nElectro-Light\r\nInukshuk\r\nNIVIRO\nChipTone\nMark
+    DiAngelo"
 --- !u!222 &2015815394
 CanvasRenderer:
   m_ObjectHideFlags: 0
