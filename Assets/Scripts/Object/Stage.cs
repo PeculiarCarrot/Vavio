@@ -281,7 +281,7 @@ public class Stage : MonoBehaviour {
 		//Flash();
 		foreach (GameObject b in enemies)
 		{
-			if(b.activeInHierarchy)
+			if(b != null && b.activeInHierarchy)
 			{
 				Enemy e = b.GetComponent<Enemy>();
 				if (e != null)

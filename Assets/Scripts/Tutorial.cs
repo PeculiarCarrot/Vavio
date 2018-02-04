@@ -7,6 +7,7 @@ public class Tutorial : MonoBehaviour {
 
 	public Text text;
 	public EnemySpawner spawner;
+	//Whether or not the tutorial is on
 	private bool going;
 
 	// Use this for initialization

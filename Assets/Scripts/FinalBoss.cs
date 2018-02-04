@@ -7,15 +7,25 @@ public class FinalBoss : MovementController {
 	public GameObject boss;
 	public GameObject portal;
 	public Material portalMaterial;
-	private int colorIndex;
 	private Rigidbody body;
 
 	public Animator eyeAnimator;
 	public AnimationClip eyeOpeningAnimation;
 
-	float changeColorTimer, changeColorTime = .2f;
-
 	Vector3 goalPos;
+
+	//When the portal animation begins
+	private float portalStart = 16.7f;
+	//Whether or not the boss has done the animation where he comes down from the top yet
+	bool didIntroAnim;
+	bool eyeClosed = true;
+	Vector3 velocity;
+	float fric = .03f;
+
+	Vector3 portalStartScale = Vector3.zero;
+
+	//This is used for the end of the stage. Each index progressively gets more glitchy.
+	int glitchIndex;
 
 	void Start()
 	{
@@ -24,19 +34,9 @@ public class FinalBoss : MovementController {
 		goalPos = transform.position;
 	}
 
-	private float portalStart = 16.7f;
-	bool didIntroAnim;
-	bool eyeClosed = true;
-	Vector3 velocity;
-	float fric = .03f;
-
-	Vector3 portalStartScale = Vector3.zero;
-
-	int glitchIndex;
-
 	void Update()
 	{
-		
+		//If it's time, grow the black portal
 		if(GetStageTime() >= portalStart && portal.transform.localScale.x < 70)
 		{
 			portal.transform.localPosition = new Vector3(portal.transform.localPosition.x, portal.transform.localPosition.y, 60);
@@ -46,6 +46,7 @@ public class FinalBoss : MovementController {
 			portal.GetComponent<Renderer>().material = portalMaterial;
 		}
 
+		//If it's time and we haven't done the intro animation yet, start it
 		if(GetStageTime() > 32 && !didIntroAnim)
 		{
 			didIntroAnim = true;
@@ -54,23 +55,14 @@ public class FinalBoss : MovementController {
 			goalPos.y = 9;
 		}
 
+		//Play the eye-opening animation
 		if(GetStageTime() > 49 && eyeClosed)
 		{
 			eyeClosed = false;
 			eyeAnimator.Play(eyeOpeningAnimation.name);
 		}
 
-		if(GetStageTime() > 219.4 && GetStageTime() < 221)
-		{
-			Vector3 newPos = transform.position;
-			newPos.y += 10 * Stage.deltaTime;
-			transform.position = newPos;
-		}
-		if(GetStageTime() > 219.0 && portalStartScale.x >= 0)
-		{
-			portal.transform.localScale = portal.transform.localScale * .9f;
-		}
-
+		//Progressively get glitchier, and glitch to the beat
 		if(glitchIndex == 0 && GetStageTime() >= 202.63)
 		{
 			glitchIndex++;
@@ -101,6 +93,7 @@ public class FinalBoss : MovementController {
 
 	void FixedUpdate()
 	{
+		//Always be moving torward our goal position (used for intro anim)
 		body.MovePosition(Vector3.Lerp(transform.position, goalPos, 3 * Time.deltaTime));
 	}
 }

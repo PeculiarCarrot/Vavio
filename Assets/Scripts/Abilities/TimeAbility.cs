@@ -25,6 +25,7 @@ public class TimeAbility : Ability {
 
 	public override void DoUpdate()
 	{
+		//If we are reaching the end of the ability, slowly speed time back up to normal
 		if(timeAlive > duration - Time.timeScale)
 		{
 			SetTimeScale(Mathf.Lerp(Time.timeScale, 1, .01f));

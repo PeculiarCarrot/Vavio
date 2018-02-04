@@ -6,6 +6,7 @@ public static class BulletFactory {
 
 	private static List<GameObject> objects = new List<GameObject>();
 
+	//Puts everything in the pool to sleep
 	public static void SleepAll()
 	{
 		List<GameObject> toRemove = new List<GameObject>();
@@ -28,6 +29,7 @@ public static class BulletFactory {
 
 	public static GameObject Create(Transform shooter, PatternController.BulletData b)
 	{
+		//Grab a bullet from the pool that has the same model (this could be optimized by allowing bullets to change models, but this works)
 		GameObject model = PatternController.GetBulletModel(b.type);
 		Material material = PatternController.GetBulletMaterial(b.material);
 
@@ -44,6 +46,7 @@ public static class BulletFactory {
 		bullet.transform.rotation = Quaternion.Euler(shooter.eulerAngles.x, shooter.eulerAngles.y, shooter.eulerAngles.z + b.angle);
 		bullet.transform.localScale = bullet.transform.localScale * b.scale;
 
+		//If the z is different, we don't move the actual bullet, just the renderer, so things can still collide
 		foreach (Renderer renderer in bullet.GetComponentsInChildren<Renderer>())
 		{
 			renderer.material = material;
@@ -52,6 +55,7 @@ public static class BulletFactory {
 			renderer.gameObject.transform.position = v;
 		}
 
+		//Create a BulletProperties object and add it to the bullet
 		BulletProperties bp = bullet.GetComponent<BulletProperties>();
 		bp.destroyOnExitStage = b.destroyOnExitStage;
 		bp.destroyOnHit = b.destroyOnHit;
@@ -69,6 +73,7 @@ public static class BulletFactory {
 		objects.Clear();
 	}
 
+	//Returns an unused bullet model of the type we're looking for
 	private static GameObject GetUnused(string t)
 	{
 		List<GameObject> toRemove = new List<GameObject>();

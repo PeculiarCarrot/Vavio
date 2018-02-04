@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour {
 	private static Dictionary<string, GameObject> enemyModels = new Dictionary<string, GameObject>();
 	private static Dictionary<string, Material> enemyMaterials = new Dictionary<string, Material>();
 
+	//Loads in all of the resources that we will need to spawn in enemies and store them in a dictionary
 	public static void Load()
 	{
 		if (!loaded)
@@ -23,6 +24,7 @@ public class EnemySpawner : MonoBehaviour {
 			UserData.RegisterType<LuaMath>();
 			UserData.RegisterType<float[]>();
 			UserData.RegisterAssembly();
+
 			//Load in enemy models
 			enemyModels.Add("circle", GetEnemyModel("circle"));
 			enemyModels.Add("pepper", GetEnemyModel("pepper"));
@@ -48,31 +50,46 @@ public class EnemySpawner : MonoBehaviour {
 		loaded = true;
 	}
 
+	//Retrieves a loaded enemy model
 	private static GameObject GetEnemyModel(string name)
 	{
 		return (GameObject) Resources.Load("Prefabs/Models/Enemies/"+name);
 	}
 
+	//Retrieves a loaded enemy material
 	private static Material GetEnemyMaterial(string name)
 	{
 		return (Material) Resources.Load("Materials/Enemies/"+name);
 	}
 
+	//Filename of each level's spawn data
 	public string[] spawnData;
 
+	//The stage we're currently are (Stage 1 means this = 0)
 	public int level;
+
+	//All of the enemy spawn data for this level
 	private LevelSpawnData spawns;
 
+	//Debugging variable for if we want to disable spawns
 	public bool spawningEnabled = true;
 	public Stage stage;
-	private List<GameObject> liveEnemies = new List<GameObject>();
-	public float timeUntilNext;
 
+	//List of all enemies on the stage
+	private List<GameObject> liveEnemies = new List<GameObject>();
+
+	//The text at the beginning of the stage that shows the song & artist
 	public Text stageText, musicText;
+
+	//How long to show the stage's title for
 	private float prepareLevelTimer, prepareLevelTime = 4;
+	//Whether we're showing the title at the beginning of the level
 	private bool preparingLevel = false;
-	public int reasonForLevelChange;
+	//If we just finished the last stage, we use this to fade the screen to black
 	bool endingGame;
+
+	//This is used for analytical purposes. We store the reason the stage changed.
+	public int reasonForLevelChange;
 
 	public const int DEATH = 0;
 	public const int COMPLETE = 1;
@@ -80,7 +97,6 @@ public class EnemySpawner : MonoBehaviour {
 
 	void Start()
 	{
-		timeUntilNext = 2;
 		stageText.text = "";
 		musicText.text = "";
 		level = 0;
@@ -88,10 +104,10 @@ public class EnemySpawner : MonoBehaviour {
 		if(Application.isEditor)
 		{
 			//prepareLevelTime = .1f;
-			//timeUntilNext = 0;
 			level = 5;
 		}
 
+		//We save the requested stage to disk so we can find it when scenes change. I could do a persistent object here but bleh
 		if (PlayerPrefs.HasKey("levelToStart"))
 		{
 			level = PlayerPrefs.GetInt("levelToStart");
@@ -99,15 +115,19 @@ public class EnemySpawner : MonoBehaviour {
 			PlayerPrefs.Save();
 		}
 		stage = GameObject.Find("Stage").GetComponent<Stage>();
+		//Subtracting a level here because beginning the level adds to it so it's kind of hacky
 		level--;
 	}
 
 	public Tutorial tutorial;
 
+	//Actually begin playing the song and spawning enemies
 	public void BeginLevel()
 	{
+		//Wait for the song to be loaded from disk before we start the stage
 		if (Stage.loadingSong)
 			return;
+		
 		tutorial.Begin();
 		Debug.Log("START SONG " + level);
 		GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Song " + level, 0);
@@ -115,20 +135,26 @@ public class EnemySpawner : MonoBehaviour {
 		musicText.text = "";
 		preparingLevel = false;
 
+		//Clear everything out so we don't have (too many) memory issues as we progress in the game
 		stage.Clear();
 		BulletFactory.ClearPool();
 
+		//Load this stage's spawn data from disk
 		spawns = LevelSpawnData.FromJSON(new JSONObject(LoadFileString(spawnData[level])));
+
+		//This is used to test different parts of songs in the editor
 		if (Application.isEditor)
 			stage.GetComponent<AudioSource>().time = 0;
 		else
 			stage.GetComponent<AudioSource>().time = 0;
+
+		//BEGIN
 		stage.GetComponent<AudioSource>().Play();
 		stage.Begin();
-		timeUntilNext = 9999999f;
 		spawns.Begin(this);
 	}
 
+	//Read the string from the given text file that resides in /LevelSpawnData/
 	public string LoadFileString(string givenPath)
 	{
 		givenPath = "LevelSpawnData/" + givenPath;
@@ -249,6 +275,7 @@ public class EnemySpawner : MonoBehaviour {
 			e.GetComponent<MovementController>().patternPath = data.movement;
 	}
 
+	//Returns all currently living enemies
 	public List<GameObject> GetLiveEnemies()
 	{
 		return liveEnemies;
@@ -343,7 +370,6 @@ public class EnemySpawner : MonoBehaviour {
 			}
 		}
 
-		timeUntilNext -= Time.deltaTime;
 		prepareLevelTimer -= Time.deltaTime;
 
 		//Fade level intro text in/out
@@ -373,7 +399,7 @@ public class EnemySpawner : MonoBehaviour {
 		{
 			spawns.Update();
 		}
-		if((prevTime > stage.GetComponent<AudioSource>().time || timeUntilNext <= 0) && !preparingLevel)
+		if((prevTime > stage.GetComponent<AudioSource>().time) && !preparingLevel)
 		{
 			if(prevTime > stage.GetComponent<AudioSource>().time)
 			{
