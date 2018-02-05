@@ -19,6 +19,7 @@ public class Stage : MonoBehaviour {
 	public static float minX, minY, maxX, maxY, width, height;
 	public static Stage stage;
 	public string[] songs;
+	public string tutorialAudio;
 	public AudioSource song;
 
 	public static bool loadingSong;
@@ -107,7 +108,7 @@ public class Stage : MonoBehaviour {
 	public void LoadLevel(int level)
 	{
 		loadingSong = true;
-		StartCoroutine(LoadTrack(Path.Combine(Application.streamingAssetsPath, songs[level])));
+		StartCoroutine(LoadTrack(Path.Combine(Application.streamingAssetsPath, level == -1 ? tutorialAudio : songs[level])));
 	}
 
 	IEnumerator LoadTrack(string filename)

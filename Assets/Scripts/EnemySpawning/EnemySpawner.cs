@@ -87,6 +87,7 @@ public class EnemySpawner : MonoBehaviour {
 	private bool preparingLevel = false;
 	//If we just finished the last stage, we use this to fade the screen to black
 	bool endingGame;
+	public float timeUntilNext;
 
 	//This is used for analytical purposes. We store the reason the stage changed.
 	public int reasonForLevelChange;
@@ -97,6 +98,7 @@ public class EnemySpawner : MonoBehaviour {
 
 	void Start()
 	{
+		timeUntilNext = 2;
 		stageText.text = "";
 		musicText.text = "";
 		level = 0;
@@ -151,6 +153,7 @@ public class EnemySpawner : MonoBehaviour {
 		//BEGIN
 		stage.GetComponent<AudioSource>().Play();
 		stage.Begin();
+		timeUntilNext = 9999999f;
 		spawns.Begin(this);
 	}
 
@@ -175,13 +178,17 @@ public class EnemySpawner : MonoBehaviour {
 
 	public void PrepareLevel()
 	{
+		if(level == 0 && PlayerPrefs.GetInt("didTutorial") == 0)
+		{
+			//level = -1;
+		}
 		prepareLevelTimer = prepareLevelTime;
 		preparingLevel = true;
-		stageText.text = "Stage " + (level + 1);
+		stageText.text = level == -1 ? "Tutorial" : "Stage " + (level + 1);
 		stage.GetComponent<AudioSource>().Stop();
 		//stage.GetComponent<Stage>().Clear();
 		stage.LoadLevel(level);
-		musicText.text = Stage.GetSongName(level);
+		musicText.text = level == -1 ? "" : Stage.GetSongName(level);
 		stage.player.GetComponent<Player>().Regenerate();
 	}
 
@@ -370,6 +377,7 @@ public class EnemySpawner : MonoBehaviour {
 			}
 		}
 
+		timeUntilNext -= Time.deltaTime;
 		prepareLevelTimer -= Time.deltaTime;
 
 		//Fade level intro text in/out
@@ -399,7 +407,7 @@ public class EnemySpawner : MonoBehaviour {
 		{
 			spawns.Update();
 		}
-		if((prevTime > stage.GetComponent<AudioSource>().time) && !preparingLevel)
+		if((prevTime > stage.GetComponent<AudioSource>().time || timeUntilNext <= 0) && !preparingLevel)
 		{
 			if(prevTime > stage.GetComponent<AudioSource>().time)
 			{

@@ -677,7 +677,6 @@ MonoBehaviour:
   level: 1
   spawningEnabled: 1
   stage: {fileID: 1828452933}
-  timeUntilNext: 0
   stageText: {fileID: 1247935489}
   musicText: {fileID: 1504215723}
   reasonForLevelChange: 0
@@ -2421,6 +2420,7 @@ MonoBehaviour:
   - Songs/Kovan Electro-Light - Skyline.ogg
   - Songs/Inukshuk - The Long Road Home.ogg
   - Songs/NIVIRO - The Guardian of Angels.ogg
+  tutorialAudio: Songs/Tutorial.ogg
   song: {fileID: 1828452935}
   darken: {fileID: 223478883}
   wipeEffect: {fileID: 1251693334}

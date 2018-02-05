@@ -20,6 +20,7 @@ public class BossDeathEffect : MonoBehaviour {
 			objects.Add(o);
 		foreach (GameObject o in Stage.GetEnemies())
 			objects.Add(o);
+		GameObject.Find("Spawner").GetComponent<EnemySpawner>().timeUntilNext = 4;
 		GameObject.Find("Stage").GetComponent<Stage>().song.Pause();
 	}
 
