@@ -1,0 +1,105 @@
+{
+"spawns": [
+    {
+      "time": 12.82,
+      "leave": 38.42,
+      "model": "circle",
+      "material": "red",
+      "x": 0.5
+    },
+    {
+      "time": 25.625,
+      "leave": 38.42,
+      "pattern": "Tutorial/basicSlow",
+      "movement": "Tutorial/basic rotate",
+      "model": "circle",
+      "material": "red",
+      "x": 0.333
+    },
+    {
+      "time": 26.33,
+      "leave": 38.42,
+      "pattern": "Tutorial/basicSlow",
+      "movement": "Tutorial/basic rotate",
+      "model": "circle",
+      "material": "red",
+      "x": 0.666
+    },
+    {
+      "time": 38.42,
+      "leave": 50.82,
+      "pattern": "Tutorial/basicSlow",
+      "movement": "Tutorial/basic rotate",
+      "model": "circle",
+      "material": "red",
+      "x": 0.2
+    },
+    {
+      "time": 39.22,
+      "leave": 50.82,
+      "pattern": "Tutorial/basicSlow",
+      "movement": "Tutorial/basic rotate",
+      "model": "circle",
+      "material": "red",
+      "x": 0.4
+    },
+    {
+      "time": 40.02,
+      "leave": 50.82,
+      "pattern": "Tutorial/basicSlow",
+      "movement": "Tutorial/basic rotate",
+      "model": "circle",
+      "material": "red",
+      "x": 0.6
+    },
+    {
+      "time": 40.81,
+      "leave": 50.82,
+      "pattern": "Tutorial/basicSlow",
+      "movement": "Tutorial/basic rotate",
+      "model": "circle",
+      "material": "red",
+      "x": 0.8
+    },
+    {
+      "time": 51.1,
+      "leave": 63.93,
+      "pattern": "Tutorial/basicSlow",
+      "movement": "Tutorial/basic rotate",
+      "model": "circle",
+      "material": "red",
+      "x": 0.2,
+      "y": 0.7
+    },
+    {
+      "time": 51.9,
+      "leave": 63.93,
+      "pattern": "Tutorial/basicSlow",
+      "movement": "Tutorial/basic rotate",
+      "model": "circle",
+      "material": "red",
+      "x": 0.4,
+      "y": 0.85
+    },
+    {
+      "time": 52.72,
+      "leave": 63.93,
+      "pattern": "Tutorial/basicSlow",
+      "movement": "Tutorial/basic rotate",
+      "model": "circle",
+      "material": "red",
+      "x": 0.6,
+      "y": 0.85
+    },
+    {
+      "time": 53.52,
+      "leave": 63.93,
+      "pattern": "Tutorial/basicSlow",
+      "movement": "Tutorial/basic rotate",
+      "model": "circle",
+      "material": "red",
+      "x": 0.8,
+      "y": 0.7
+    },
+  ]
+}

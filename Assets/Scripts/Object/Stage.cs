@@ -246,7 +246,7 @@ public class Stage : MonoBehaviour {
 				beatTimes = GetFireTimes(2.04f, 128);
 				break;
 			default:
-				beatTimes = GetFireTimes(3.569f, 140);
+				beatTimes = GetFireTimes(0, 75);
 				break;
 		}
 		beatIndex = 0;

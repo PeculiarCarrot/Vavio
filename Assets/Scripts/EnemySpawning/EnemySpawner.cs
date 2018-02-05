@@ -122,6 +122,7 @@ public class EnemySpawner : MonoBehaviour {
 	}
 
 	public Tutorial tutorial;
+	public string tutorialSpawnData;
 
 	//Actually begin playing the song and spawning enemies
 	public void BeginLevel()
@@ -142,7 +143,7 @@ public class EnemySpawner : MonoBehaviour {
 		BulletFactory.ClearPool();
 
 		//Load this stage's spawn data from disk
-		spawns = LevelSpawnData.FromJSON(new JSONObject(LoadFileString(spawnData[level])));
+		spawns = LevelSpawnData.FromJSON(new JSONObject(LoadFileString(level == -1 ? tutorialSpawnData : spawnData[level])));
 
 		//This is used to test different parts of songs in the editor
 		if (Application.isEditor)
@@ -180,7 +181,7 @@ public class EnemySpawner : MonoBehaviour {
 	{
 		if(level == 0 && PlayerPrefs.GetInt("didTutorial") == 0)
 		{
-			//level = -1;
+			level = -1;
 		}
 		prepareLevelTimer = prepareLevelTime;
 		preparingLevel = true;
@@ -188,7 +189,7 @@ public class EnemySpawner : MonoBehaviour {
 		stage.GetComponent<AudioSource>().Stop();
 		//stage.GetComponent<Stage>().Clear();
 		stage.LoadLevel(level);
-		musicText.text = level == -1 ? "" : Stage.GetSongName(level);
+		musicText.text = level == -1 ? "15thDimension - Loss for Words" : Stage.GetSongName(level);
 		stage.player.GetComponent<Player>().Regenerate();
 	}
 

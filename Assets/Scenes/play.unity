@@ -679,8 +679,10 @@ MonoBehaviour:
   stage: {fileID: 1828452933}
   stageText: {fileID: 1247935489}
   musicText: {fileID: 1504215723}
+  timeUntilNext: 0
   reasonForLevelChange: 0
   tutorial: {fileID: 723507422}
+  tutorialSpawnData: spawnData-Tutorial.json
   blackTexture: {fileID: 2800000, guid: 3292523990e4fc54dbcba3b6dae20796, type: 3}
 --- !u!4 &723507421
 Transform:
