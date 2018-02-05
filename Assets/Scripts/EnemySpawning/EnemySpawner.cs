@@ -234,6 +234,7 @@ public class EnemySpawner : MonoBehaviour {
 			pos.y = Stage.maxY + 1;
 
 		GameObject e = Instantiate(model, pos, Quaternion.Euler(new Vector3(model.transform.eulerAngles.x, model.transform.eulerAngles.y, model.transform.eulerAngles.z + data.rotation)));
+		Debug.Log("SCALE: " + data.scale);
 		e.transform.localScale = e.transform.localScale * data.scale;
 
 		if(data.absoluteZ)

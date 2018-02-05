@@ -285,7 +285,7 @@ public class Stage : MonoBehaviour {
 			if(b != null && b.activeInHierarchy)
 			{
 				Enemy e = b.GetComponent<Enemy>();
-				if (e != null)
+				if (e != null && e.lifetime > .4f)
 					e.TryGrow(1.2f);
 			}
 		}
