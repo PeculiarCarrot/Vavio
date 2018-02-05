@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using MoonSharp.Interpreter;
 using GameAnalyticsSDK;
+using System.IO;
 
 public class EnemySpawner : MonoBehaviour {
 	
@@ -161,20 +162,20 @@ public class EnemySpawner : MonoBehaviour {
 	//Read the string from the given text file that resides in /LevelSpawnData/
 	public string LoadFileString(string givenPath)
 	{
-		givenPath = "LevelSpawnData/" + givenPath;
+		givenPath = Path.Combine("LevelSpawnData", givenPath);
 		//Make sure we're getting the right path regardless of operating system
 		string path = "";
-		if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer)
-			path = Application.dataPath + "/StreamingAssets";
+		if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer || Application.platform == RuntimePlatform.LinuxPlayer)
+			path = Application.streamingAssetsPath;
 		else if(Application.platform == RuntimePlatform.IPhonePlayer)
 			path = Application.dataPath + "/Raw";
 		else if(Application.platform == RuntimePlatform.Android)
 			path = "jar:file://" + Application.dataPath + "!/assets/";
 		string[] directories = givenPath.Split('/');
 		foreach (string dir in directories)
-			path = System.IO.Path.Combine(path, dir);
+			path = Path.Combine(path, dir);
 
-		return System.IO.File.ReadAllText(path);
+		return File.ReadAllText(path);
 	}
 
 	public void PrepareLevel()

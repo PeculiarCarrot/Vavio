@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MoonSharp.Interpreter;
+using System.IO;
 
 public class ScriptController : MonoBehaviour {
 
@@ -52,19 +53,19 @@ public class ScriptController : MonoBehaviour {
 		{
 			return;
 		}
-		patternPath = defaultPath + patternPath;
+		patternPath = Path.Combine(defaultPath, patternPath);
 
 		//Make sure we're getting the right path regardless of operating system
 		string path = "";
-		if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer)
-			path = Application.dataPath + "/StreamingAssets";
+		if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer || Application.platform == RuntimePlatform.LinuxPlayer)
+			path = Application.streamingAssetsPath;
 		else if(Application.platform == RuntimePlatform.IPhonePlayer)
 			path = Application.dataPath + "/Raw";
 		else if(Application.platform == RuntimePlatform.Android)
 			path = "jar:file://" + Application.dataPath + "!/assets/";
 		string[] directories = patternPath.Split('/');
 		foreach (string dir in directories)
-			path = System.IO.Path.Combine(path, dir);
+			path = Path.Combine(path, dir);
 		path += ".lua";
 		script = GetScript(path);
 
