@@ -13,7 +13,11 @@ public class Player : Ship {
 	public GameObject mesh;
 	public GameObject core;
 	private float invincibilityDuration;
+
+	//timer for flickering when we get hit
 	private float flickerTimer, flickerDuration = .05f;
+
+	//if we're in debug mode, we're invulnerable can't get hit'
 	public bool debug;
 	[HideInInspector]
 	public bool wasDebug;
@@ -119,8 +123,8 @@ public class Player : Ship {
 		GUI.DrawTexture(new Rect(pad, Screen.height - 20, w, h), progressTexture);
 		GUI.DrawTexture(new Rect(pad + w * playbackCursor, Screen.height - 20 - h * 1.5f, 7, h * 4), progressTexture);
 
-		if(debug)
-			GUI.Label(new Rect(0, 0, 100, 100), ""+(int)(1.0f / (Time.smoothDeltaTime/Time.timeScale)));    
+		//if(debug)
+		//	GUI.Label(new Rect(0, 0, 100, 100), ""+(int)(1.0f / (Time.smoothDeltaTime/Time.timeScale)));    
     }
 
 	public void GetHurt()
@@ -232,6 +236,11 @@ public class Player : Ship {
 	private Vector3 target;
 	// Update is called once per frame
 	public void Update () {
+
+
+		if (EditorController.editingMode == 1)
+			return;
+
 		dieTimer -= Time.deltaTime;
 		if(dieTimer <= 0)
 		{
@@ -285,33 +294,21 @@ public class Player : Ship {
 				target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				target.z = transform.position.z;
 			}
-	       /* Vector3 newRot = transform.rotation.eulerAngles;
-	        newRot.y -= rotAccel * (target.x - transform.position.x);
-	        if(newRot.y < 0)
-	        	newRot.y += 360;
-	        if(newRot.y < 180)
-	        	newRot.y = Mathf.Clamp(newRot.y, 0, 45);
-	        else
-	        	newRot.y = Mathf.Clamp(newRot.y, 315, 360);
-	        newRot.y = Mathf.SmoothDampAngle(newRot.y, 0, ref rotSpeed, .3f);
-	        transform.eulerAngles = newRot;*/
 	
-	        if(regenerating)
+			if(regenerating || EditorController.editingMode != 0)
 	        {
 				float lastHP = hp;
-	        	hp += 3f * Time.deltaTime;
+				hp += 3f * Time.deltaTime;
+				if(hp >= maxHP)
+				{
+					hp = maxHP;
+					regenerating = false;
+				}
 				if(Mathf.Floor(hp) > Mathf.Floor(lastHP))
 				{
 					audio.PlayOneShot(regenSounds[(int)Mathf.Floor(hp) - 2], .75f);
 					hpDrawSize *= 1.5f;
-					//if(hp >= maxHP)
-					//	audio.PlayOneShot(doneRegenSound, .75f);
 				}
-	        	if(hp >= maxHP)
-	        	{
-	        		hp = maxHP;
-					regenerating = false;
-	        	}
 	        }
 
 			if ((Input.GetKeyDown(KeyCode.Mouse1) || Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.F)) && (charge >= maxCharge || Application.isEditor))

@@ -18,6 +18,7 @@ public class BulletProperties : MonoBehaviour {
 	private float edgeDist = 2;
 	private float z;
 	private Renderer renderer;
+	private TrailRenderer trailRenderer;
 
 	public void Awake()
 	{
@@ -32,6 +33,7 @@ public class BulletProperties : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		lifetime -= Time.deltaTime;
 		if(dying)
 			dieTimer -= Time.deltaTime;
@@ -50,6 +52,17 @@ public class BulletProperties : MonoBehaviour {
 		Vector3 newPos = renderer.transform.position;
 		newPos.z = z;
 		renderer.transform.position = newPos;
+		if(trailRenderer != null)
+		{
+			newPos = trailRenderer.transform.position;
+			newPos.z = z;
+			trailRenderer.transform.position = newPos;
+		}
+
+		if (trailRenderer != null)
+		{
+			trailRenderer.enabled = true;
+		}
 	}
 
 	public void Reset()
@@ -66,11 +79,20 @@ public class BulletProperties : MonoBehaviour {
 			GetComponent<MovementController>().Reset();
 		if (GetComponent<PatternController>() != null)
 			GetComponent<PatternController>().Reset();
+
+		if (trailRenderer != null)
+			trailRenderer.enabled = false;
 	}
 
 	public void Init()
 	{
-		renderer = GetComponentInChildren<Renderer>();
+		trailRenderer = null;
+		renderer = GetComponentInChildren<MeshRenderer>();
+		trailRenderer = GetComponentInChildren<TrailRenderer>();
+
+		if (trailRenderer != null)
+			trailRenderer.Clear();
+
 		if (GetComponent<MovementController>() != null)
 			GetComponent<MovementController>().Init();
 		if (GetComponent<PatternController>() != null)

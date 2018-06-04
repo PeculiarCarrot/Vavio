@@ -6,7 +6,7 @@ using UnityEngine;
 public class LevelSpawnData {
 
 	private EnemySpawner spawner;
-	public List<EnemySpawnData> enemySpawnData;
+	public List<EnemySpawnData> enemySpawnData = new List<EnemySpawnData>();
 
 	public static LevelSpawnData FromJSON(JSONObject o)
 	{

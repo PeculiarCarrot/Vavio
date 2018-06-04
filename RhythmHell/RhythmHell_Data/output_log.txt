@@ -5,7 +5,7 @@ Direct3D:
     Renderer: NVIDIA GeForce GTX 1050 Ti (ID=0x1c82)
     Vendor:   NVIDIA
     VRAM:     4029 MB
-    Driver:   23.21.13.8831
+    Driver:   23.21.13.8871
 Begin MonoManager ReloadAssembly
 Platform assembly: C:\Users\aharm\Documents\Unity Projects\ShipShmup\RhythmHell\RhythmHell_Data\Managed\UnityEngine.dll (this message is harmless)
 Loading C:\Users\aharm\Documents\Unity Projects\ShipShmup\RhythmHell\RhythmHell_Data\Managed\UnityEngine.dll into Unity Child Domain
@@ -19,21 +19,11 @@ Platform assembly: C:\Users\aharm\Documents\Unity Projects\ShipShmup\RhythmHell\
 Loading C:\Users\aharm\Documents\Unity Projects\ShipShmup\RhythmHell\RhythmHell_Data\Managed\UnityEngine.Timeline.dll into Unity Child Domain
 Platform assembly: C:\Users\aharm\Documents\Unity Projects\ShipShmup\RhythmHell\RhythmHell_Data\Managed\System.dll (this message is harmless)
 Platform assembly: C:\Users\aharm\Documents\Unity Projects\ShipShmup\RhythmHell\RhythmHell_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.029 seconds
+- Completed reload, in  0.422 seconds
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.735802 ms
+UnloadTime: 0.683450 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 114 -> priority: 1 
-  Thread -> id: 1db0 -> priority: 1 
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.671242 ms
-
-Unloading 73 unused Assets to reduce memory usage. Loaded Objects now: 630.
-Total: 29.224522 ms (FindLiveObjects: 0.028531 ms CreateObjectMapping: 0.018061 ms MarkObjects: 29.094167 ms  DeleteObjects: 0.082715 ms)
-
-Done
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
+  Thread -> id: 34b8 -> priority: 1 
+  Thread -> id: 2338 -> priority: 1 

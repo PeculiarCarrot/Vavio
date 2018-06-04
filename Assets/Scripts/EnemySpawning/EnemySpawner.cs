@@ -122,6 +122,11 @@ public class EnemySpawner : MonoBehaviour {
 		level--;
 	}
 
+	public void CreateEmptySpawnData()
+	{
+		spawns = new LevelSpawnData();
+	}
+
 	public Tutorial tutorial;
 	public string tutorialSpawnData;
 
@@ -144,7 +149,10 @@ public class EnemySpawner : MonoBehaviour {
 		BulletFactory.ClearPool();
 
 		//Load this stage's spawn data from disk
-		spawns = LevelSpawnData.FromJSON(new JSONObject(LoadFileString(level == -1 ? tutorialSpawnData : spawnData[level])));
+		if (EditorController.editingMode == 0)
+			spawns = LevelSpawnData.FromJSON(new JSONObject(LoadFileString(level == -1 ? tutorialSpawnData : spawnData[level])));
+		else
+			level = -2;
 
 		//This is used to test different parts of songs in the editor
 		if (Application.isEditor)
@@ -153,7 +161,8 @@ public class EnemySpawner : MonoBehaviour {
 			stage.GetComponent<AudioSource>().time = 0;
 
 		//BEGIN
-		stage.GetComponent<AudioSource>().Play();
+		if(EditorController.editingMode == 0)
+			stage.GetComponent<AudioSource>().Play();
 		stage.Begin();
 		timeUntilNext = 9999999f;
 		spawns.Begin(this);
@@ -163,6 +172,7 @@ public class EnemySpawner : MonoBehaviour {
 	public string LoadFileString(string givenPath)
 	{
 		givenPath = Path.Combine("LevelSpawnData", givenPath);
+
 		//Make sure we're getting the right path regardless of operating system
 		string path = "";
 		if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer || Application.platform == RuntimePlatform.OSXPlayer || Application.platform == RuntimePlatform.LinuxPlayer)
@@ -178,8 +188,10 @@ public class EnemySpawner : MonoBehaviour {
 		return File.ReadAllText(path);
 	}
 
+	//Start the introduction text for the stage
 	public void PrepareLevel()
 	{
+		//If we need to do the tutorial, set the level to -1
 		if(level == 0 && PlayerPrefs.GetInt("didTutorial") == 0)
 		{
 			level = -1;
@@ -188,7 +200,7 @@ public class EnemySpawner : MonoBehaviour {
 		preparingLevel = true;
 		stageText.text = level == -1 ? "Tutorial" : "Stage " + (level + 1);
 		stage.GetComponent<AudioSource>().Stop();
-		//stage.GetComponent<Stage>().Clear();
+		
 		stage.LoadLevel(level);
 		musicText.text = level == -1 ? "15thDimension - Loss for Words" : Stage.GetSongName(level);
 		stage.player.GetComponent<Player>().Regenerate();
@@ -201,29 +213,34 @@ public class EnemySpawner : MonoBehaviour {
 		return m;
 	}
 
+	//Spawn an enemy with the correct properties
 	public void SpawnEnemy(EnemySpawnData data)
 	{
 		GameObject model;
 		Material material;
 
+		//Grab the correct enemy model and throw an error if it doesn't exist
 		if(enemyModels.TryGetValue(data.model, out model) == false)
 		{
 			Debug.LogError("No enemy type/model named '" + data.model + "' exists");
 			return;
 		}
 
+		//Grab the correct enemy material and throw an error if it doesn't exist
 		if(enemyMaterials.TryGetValue(data.material, out material) == false)
 		{
 			Debug.LogError("No enemy material named '" + data.material + "' exists");
 			return;
 		}
 
+		//Positions are stored in the spawn data as percentages of the screen width and height, here we convert them to world coords
 		Vector3 goalPos = Vector3.zero;
 		goalPos.x = Stage.minX + Stage.width * (data.x == float.MaxValue ? .8f : data.x);
 		goalPos.y = Stage.minY + Stage.height * (data.y == float.MaxValue ? .8f : data.y);
 		if (data.absoluteZ)
 			goalPos.z = data.z;
 
+		//Determining where the enemy should spawn from
 		Vector3 pos = goalPos;
 		if(data.from == "left")
 			pos.x = Stage.minX - 1;
@@ -234,10 +251,11 @@ public class EnemySpawner : MonoBehaviour {
 		else if(data.from == "up")
 			pos.y = Stage.maxY + 1;
 
+		//Spawn the dude
 		GameObject e = Instantiate(model, pos, Quaternion.Euler(new Vector3(model.transform.eulerAngles.x, model.transform.eulerAngles.y, model.transform.eulerAngles.z + data.rotation)));
-		Debug.Log("SCALE: " + data.scale);
 		e.transform.localScale = e.transform.localScale * data.scale;
 
+		//absolute Z means we move the entire object rather than just the renderer
 		if(data.absoluteZ)
 		{
 			Vector3 newPos = e.transform.position;
@@ -256,6 +274,8 @@ public class EnemySpawner : MonoBehaviour {
 			}
 		}
 
+
+		//Apply all the property stuff
 		if(model.GetComponent<Enemy>() != null)
 		{
 			Stage.AddEnemy(e);
@@ -275,9 +295,10 @@ public class EnemySpawner : MonoBehaviour {
 			enemy.SetGoalPos(goalPos);
 			liveEnemies.Add(e);
 		}
+
+		//Set controller properties of the enemy
 		if (model.GetComponent<PatternController>() != null)
 		{
-			//Debug.Log("SET PATTERN: " + data.pattern);
 			e.GetComponent<PatternController>().patternPath = data.pattern;
 			e.GetComponent<PatternController>().leave = data.leave;
 		}
@@ -291,6 +312,7 @@ public class EnemySpawner : MonoBehaviour {
 		return liveEnemies;
 	}
 
+	//A simple function to get a value from a defined line
 	private float GetLineValue(float x, float y, float x2, float y2, float xx)
 	{
 		float slope = (y2 - y) / (x2 - x);
@@ -298,11 +320,13 @@ public class EnemySpawner : MonoBehaviour {
 		return slope * xx + b;
 	}
 
+	//The timestamp of the song last update
 	private float prevTime = 0;
 
 	public Texture blackTexture;
 	private float blackScreenAlpha;
 
+	//Draw the fading to black screen after the final level
 	void OnGUI()
 	{
 		Color prevColor = GUI.color;
@@ -318,6 +342,10 @@ public class EnemySpawner : MonoBehaviour {
 
 	void Update () {
 
+		if (EditorController.inMenu)
+			return;
+
+		//If we just finished the last level, start fading to black
 		if(endingGame)
 		{
 			blackScreenAlpha += 1 * Time.deltaTime;
@@ -326,6 +354,7 @@ public class EnemySpawner : MonoBehaviour {
 			return;
 		}
 
+		//Keyboard shortcuts to quickly swap between levels in the editor
 		if (Application.isEditor && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
 		{
 			if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -401,28 +430,27 @@ public class EnemySpawner : MonoBehaviour {
 				stageText.color = c;
 				musicText.color = c;
 			}
+			if (EditorController.editingMode != 0)
+				prepareLevelTimer = 0;
 		}
 
 		if (prepareLevelTimer <= 0 && preparingLevel)
 			BeginLevel();
 
 		if(spawningEnabled && spawns != null)
-		{
 			spawns.Update();
-		}
+
+		//If we're done with the song, start preparing the next level
 		if((prevTime > stage.GetComponent<AudioSource>().time || timeUntilNext <= 0) && !preparingLevel)
 		{
 			if(prevTime > stage.GetComponent<AudioSource>().time)
-			{
 				reasonForLevelChange = COMPLETE;
-			}
-			//Debug.Log(prevTime + "    "+ stage.GetComponent<AudioSource>().time);
+
 			prevTime = 0;
 			stage.GetComponent<AudioSource>().time = 0;
+
 			if (level + 1 >= stage.songs.Length)
-			{
 				EndGame();
-			}
 			else
 			{
 				if(reasonForLevelChange == COMPLETE)

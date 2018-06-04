@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System;
 using UnityEngine.UI;
 
 public class Stage : MonoBehaviour {
@@ -13,6 +14,7 @@ public class Stage : MonoBehaviour {
 	private static double beginTime;
 	public static float songProgress;
 
+	public EditorController editorController;
 	public GameObject player;
 	public GameObject spawner;
 	[HideInInspector]
@@ -292,6 +294,11 @@ public class Stage : MonoBehaviour {
 	}
 
 	private float timeVelocity;
+
+	public float GetTimeScale()
+	{
+		return EditorController.editingMode == 0 ? Time.timeScale : (EditorController.editingMode == 1 ? 0 : editorController.pitch.value);
+	}
 	
 	void Update () {
 		UpdateScreenPositions();
@@ -305,7 +312,7 @@ public class Stage : MonoBehaviour {
 		float f = Time.timeScale;
 		if(Application.isEditor && Input.GetKeyDown("space"))
 		{
-			Application.targetFrameRate = Application.targetFrameRate == -1 ? 30 : -1;
+			//Application.targetFrameRate = Application.targetFrameRate == -1 ? 30 : -1;
 		}
 		if(Application.isEditor && Input.GetKeyDown(KeyCode.Tab))
 		{
@@ -348,7 +355,7 @@ public class Stage : MonoBehaviour {
 		Time.fixedDeltaTime = (1 / 50f) * f;
 		song.pitch = Time.timeScale;
 
-		 if(Input.GetKeyDown(KeyCode.Escape)){
+		if(Input.GetKeyDown(KeyCode.Escape) && EditorController.editingMode == 0){
 			paused = !paused;
 		}
 
@@ -372,12 +379,15 @@ public class Stage : MonoBehaviour {
 					song.UnPause(); 
 				Time.timeScale = 1;
 			}
-			Cursor.visible = false;
+			if(EditorController.editingMode == 1 || EditorController.inMenu)
+				Cursor.visible = true;
+			else
+				Cursor.visible = false;
 		}
 		wasPaused = paused;
 		if(song != null && song.clip != null)
 			songProgress = song.time / song.clip.length;
-		
+		Time.timeScale = GetTimeScale();
 	}
 
 	private bool flashing;
@@ -424,9 +434,9 @@ public class Stage : MonoBehaviour {
 
 	void OnGUI()
 	{
-		if(player.GetComponent<Player>().debug)
+		if((player.GetComponent<Player>().debug || EditorController.editingMode != 0) && EditorController.audio.clip != null)
 		{
-			GUI.Label(new Rect(0, 20, 200, 100), "Song time: "+song.time);  
+			GUI.Label(new Rect(0, 20, 200, 100), "Song time: " + Math.Round(editorController.currentTime.value * EditorController.audio.clip.length, 3));
 		}
 	}
 }

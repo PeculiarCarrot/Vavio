@@ -55,7 +55,7 @@ public static class BulletFactory {
 			renderer.gameObject.transform.position = v;
 		}
 
-		//Create a BulletProperties object and add it to the bullet
+		//Set bullet properties
 		BulletProperties bp = bullet.GetComponent<BulletProperties>();
 		bp.destroyOnExitStage = b.destroyOnExitStage;
 		bp.destroyOnHit = b.destroyOnHit;
